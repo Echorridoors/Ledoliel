@@ -5,6 +5,9 @@
 //  Created by Devine Lu Linvega on 2014-06-04.
 //  Copyright (c) 2014 XXIIVV. All rights reserved.
 //
+#define console(arg) NSLog(arg)
+#define to_i(arg) [arg intValue]
+#define to_s(arg) [NSString stringWithFormat:@"%d",arg]
 
 #define screenWidth self.view.frame.size.width
 #define screenHeight self.view.frame.size.height
@@ -30,21 +33,60 @@
 
 -(void)start
 {
+	console(@"GAME  | Init");
+	
 	user = [self userStart];
 	guest = [self guestStart];
 	spellbook = [self spellbookStart];
 	[self templateStart];
+	[self sessionStart];
+}
+
+-(void)sessionStart
+{
+	console(@"GAME  | Start");
+	
+	self.guestNameLabel.text = guest[@"name"];
+	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
+	
 	[self alignSelection:0];
 	[self menuSelectionLoad];
-	
-	NSLog(@"%@",user);
-	NSLog(@"%@",guest);
-	NSLog(@"%@",spellbook);
+	[self statusBarUpdate];
 }
+
 
 -(void)templateStart
 {
+	console(@"TMPL  | Start");
 	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, 4*templateMenuButtonHeight);
+	
+	self.guestNameLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	
+	self.resultView.hidden = YES;
+	self.resultView.alpha = 0;
+	self.resultView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+	self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	
+	self.resultCloseButton.hidden = YES;
+	self.resultCloseButton.alpha = 0;
+	self.resultCloseButton.backgroundColor = [UIColor redColor];
+	self.resultCloseButton.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, (templateMenuButtonHeight*4));
+	
+	self.resultPaneLabel1.text = @"You touch the woeful's money";
+	self.resultPaneLabel2.text = @"The woeful's tentacular eyeballs are thrilling with lust, you are excelent at diplomacy.";
+	self.resultPaneLabel3.text = @"The woeful's species are known to display excitement before the beheading of their enemies.";
+	self.resultPaneLabel4.text = @"The woeful jumps you and beheads you, before wearing your body as a costume.";
+	
+	self.resultPaneLabel1.textColor = [UIColor whiteColor];
+	self.resultPaneLabel2.textColor = [UIColor whiteColor];
+	self.resultPaneLabel3.textColor = [UIColor whiteColor];
+	self.resultPaneLabel4.textColor = [UIColor whiteColor];
+	
+	self.resultPaneLabel1.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
+	self.resultPaneLabel2.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
+	self.resultPaneLabel3.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
+	self.resultPaneLabel4.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
 	
 	self.menuOption1Button.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
 	self.menuOption2Button.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
@@ -66,9 +108,9 @@
 	
 	self.statusView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 	self.relationshipRating.backgroundColor = [UIColor blackColor];
-	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight/2-2, screenWidth/3, 4);
+	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight/2-2, (screenWidth/2)-templateMenuButtonHeight, 4);
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-	self.relationshipRatingBar.frame = CGRectMake(0, 0, 30, 4);
+	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
 	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -195,13 +237,22 @@
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection];
 	
-	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
-	self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
+	
+	if([menuSel isEqualToString:@"say"]){
+		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
+	}
+	if([menuSel isEqualToString:@"give"]){
+		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
+	}
+	if([menuSel isEqualToString:@"touch"]){
+		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@'s %@",[menuSel capitalizedString],guest[@"name"],submenuSel];
+	}
+	
 	[UIView commitAnimations];
 }
 
@@ -226,13 +277,110 @@
 
 -(void)playTurn :(NSString*)action :(NSString*)spell
 {
-	NSLog(@"TURN | %@ -> %@",action,spell);
+	NSLog(@"TURN  | %@ -> %@",action,spell);
 	
-	NSLog(@"> %@",spellbook[spell][action][ guest[@"atributes"][0] ]);
+	int guestAttributeReaction1 = to_i(spellbook[spell][action][guest[@"attributes"][0]]);
+	int guestAttributeReaction2 = to_i(spellbook[spell][action][guest[@"attributes"][1]]);
+	int guestAttributeReaction3 = to_i(spellbook[spell][action][guest[@"attributes"][2]]);
 	
+	int guestAttributeReactionSum = guestAttributeReaction1 + guestAttributeReaction2 + guestAttributeReaction3;
 	
+	user[@"relationship"] = to_s(to_i(user[@"relationship"])+guestAttributeReactionSum);
+	
+	[self sessionResultScreenDisplay];
+	
+	[self statusBarUpdate];
+
 }
 
+-(void)sessionResultScreenDisplay
+{
+	
+	self.resultView.alpha = 0;
+	self.resultCloseButton.alpha = 0;
+	self.resultView.hidden = NO;
+	self.resultCloseButton.hidden = NO;
+	
+	self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, 1);
+	
+	[self.resultCloseButton setTitle:@"Skip" forState:UIControlStateNormal];
+	
+	[UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+		self.resultView.alpha = 1;
+		self.resultCloseButton.alpha = 1;
+		
+	} completion:^(BOOL finished){
+		[UIView animateWithDuration:0.2 animations:^(void){
+			[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+			
+		} completion:^(BOOL finished){
+		}];
+	}];
+}
+
+
+-(void)sessionResultScreenHide
+{
+	[UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		self.resultCloseButton.alpha = 0;
+		self.resultView.alpha = 0;
+	} completion:^(BOOL finished){
+		[UIView animateWithDuration:0.2 animations:^(void){
+			[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+			self.resultView.hidden = YES;
+			self.resultCloseButton.hidden = YES;
+		} completion:^(BOOL finished){
+		}];
+	}];
+}
+
+-(void)statusBarUpdate
+{
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	
+	if(to_i(user[@"relationship"]) == -2){
+		self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width/2, 4);
+		self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+		self.relationshipLabel.text = @"enemy";
+	}
+	else if(to_i(user[@"relationship"]) == -1){
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/4, 0, self.relationshipRating.frame.size.width/4, 4);
+		self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+		self.relationshipLabel.text = @"hostile";
+	}
+	else if(to_i(user[@"relationship"]) == 0){
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, 1, 4);
+		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
+		self.relationshipLabel.text = @"neutral";
+	}
+	else if(to_i(user[@"relationship"]) == 1){
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, self.relationshipRating.frame.size.width/4, 4);
+		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
+		self.relationshipLabel.text = @"friendly";
+	}
+	else if(to_i(user[@"relationship"]) == 2){
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, self.relationshipRating.frame.size.width/2, 4);
+		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
+		self.relationshipLabel.text = @"mate";
+	}
+	
+	[UIView commitAnimations];
+			
+	NSLog(@"GUEST | Alignment: %d",to_i(user[@"relationship"]));
+}
+
+
+- (IBAction)resultCloseButton:(id)sender {
+	[self sessionResultScreenHide];
+}
 
 - (IBAction)menuOption1Button:(id)sender
 {
@@ -292,7 +440,7 @@
 	[self hintHide];
 	[self alignDeselection];
 	
-	user[@"spellbook"][menuSel][currentSubmenuSelection] = @"--";
+//	user[@"spellbook"][menuSel][currentSubmenuSelection] = @"--";
 	
 }
 

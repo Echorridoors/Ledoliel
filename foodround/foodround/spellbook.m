@@ -16,7 +16,11 @@
 	
 	newSpellbook[@"money"] = [[NSMutableDictionary alloc]initWithCapacity:3];
 	newSpellbook[@"money"][@"touch"] = [[NSMutableDictionary alloc]initWithCapacity:3];
-	newSpellbook[@"money"][@"touch"][@"aristocrat"] = @"+1";
+	newSpellbook[@"money"][@"touch"][@"rich"] = @"-1";
+	
+	newSpellbook[@"forehead"] = [[NSMutableDictionary alloc]initWithCapacity:3];
+	newSpellbook[@"forehead"][@"touch"] = [[NSMutableDictionary alloc]initWithCapacity:3];
+	newSpellbook[@"forehead"][@"touch"][@"rich"] = @"1";
 
 	return newSpellbook;
 }

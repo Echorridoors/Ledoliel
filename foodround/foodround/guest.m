@@ -14,7 +14,7 @@
 {
 	NSMutableDictionary* newGuest = [[NSMutableDictionary alloc]initWithCapacity:10];
 	newGuest[@"attributes"] = @[@"rich",@"tribal",@"deviant"];
-	newGuest[@"name"] = @"test name";
+	newGuest[@"name"] = @"Woeful";
 	return newGuest;
 }
 
