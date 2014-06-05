@@ -39,6 +39,7 @@
 	
 	NSLog(@"%@",user);
 	NSLog(@"%@",guest);
+	NSLog(@"%@",spellbook);
 }
 
 -(void)templateStart
@@ -191,12 +192,16 @@
 
 -(void)hintDisplay
 {
+	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
+	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection];
+	
+	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
-	self.hintLabel.text = @"Give two monies to the Woeful";
+	self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
 	[UIView commitAnimations];
 }
 
@@ -218,6 +223,16 @@
 	if(selection == 2){ return @"give";}
 	return @"leave";
 }
+
+-(void)playTurn :(NSString*)action :(NSString*)spell
+{
+	NSLog(@"TURN | %@ -> %@",action,spell);
+	
+	NSLog(@"> %@",spellbook[spell][action][ guest[@"atributes"][0] ]);
+	
+	
+}
+
 
 - (IBAction)menuOption1Button:(id)sender
 {
@@ -266,13 +281,14 @@
 }
 
 - (IBAction)confirmButton:(id)sender {
+	
 	currentGameRound += 1;
 	
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection];
 	
+	[self playTurn:menuSel:submenuSel];
 	
-	NSLog(@"Round #%d : %@ -> %@", currentGameRound, menuSel, submenuSel);
 	[self hintHide];
 	[self alignDeselection];
 	

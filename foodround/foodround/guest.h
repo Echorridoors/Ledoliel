@@ -11,5 +11,6 @@
 @interface UIViewController (guest)
 
 -(NSMutableDictionary*)guestStart;
+-(NSArray*)guestAttributes;
 
 @end

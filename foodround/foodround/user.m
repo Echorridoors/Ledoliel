@@ -21,7 +21,7 @@
 	
 	newUser[@"spellbook"][@"say"][0] = @"hello";
 	newUser[@"spellbook"][@"say"][1] = @"test";
-	newUser[@"spellbook"][@"touch"][0] = @"dorsal genital";
+	newUser[@"spellbook"][@"touch"][0] = @"money";
 	newUser[@"spellbook"][@"touch"][1] = @"forehead";
 	newUser[@"spellbook"][@"give"][0] = @"fish";
 	newUser[@"spellbook"][@"give"][1] = @"money";

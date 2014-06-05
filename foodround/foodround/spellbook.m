@@ -14,11 +14,10 @@
 {
 	NSMutableDictionary* newSpellbook = [[NSMutableDictionary alloc]initWithCapacity:10];
 	
-	newSpellbook[@"say"] = [[NSMutableDictionary alloc]initWithCapacity:100];
-	newSpellbook[@"say"][@"hello"] = @[@"hey",@"hey"];
-	newSpellbook[@"touch"] = [[NSMutableArray alloc]initWithCapacity:100];
-	newSpellbook[@"give"] = [[NSMutableArray alloc]initWithCapacity:100];
-	
+	newSpellbook[@"money"] = [[NSMutableDictionary alloc]initWithCapacity:3];
+	newSpellbook[@"money"][@"touch"] = [[NSMutableDictionary alloc]initWithCapacity:3];
+	newSpellbook[@"money"][@"touch"][@"aristocrat"] = @"+1";
+
 	return newSpellbook;
 }
 

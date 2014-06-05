@@ -18,4 +18,11 @@
 	return newGuest;
 }
 
+-(NSArray*)guestAttributes
+{
+	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"childish",@"tribal",@"rich"];
+	
+	return attributes;
+}
+
 @end
