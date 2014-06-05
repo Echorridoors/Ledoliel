@@ -22,6 +22,7 @@
 		031DBC2C193F89690061F6F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 031DBC2A193F89690061F6F8 /* InfoPlist.strings */; };
 		031DBC2E193F89690061F6F8 /* foodroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031DBC2D193F89690061F6F8 /* foodroundTests.m */; };
 		03B5FE2B1940B15E00C8DD20 /* char1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B5FE2A1940B15E00C8DD20 /* char1.png */; };
+		03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B5FE2D1940BB6800C8DD20 /* tools.m */; };
 		03F9904C1940AA54009A1D74 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904B1940AA54009A1D74 /* user.m */; };
 		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
@@ -59,6 +60,8 @@
 		031DBC2B193F89690061F6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		031DBC2D193F89690061F6F8 /* foodroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodroundTests.m; sourceTree = "<group>"; };
 		03B5FE2A1940B15E00C8DD20 /* char1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = char1.png; path = en.assets/char1.png; sourceTree = "<group>"; };
+		03B5FE2C1940BB6800C8DD20 /* tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tools.h; sourceTree = "<group>"; };
+		03B5FE2D1940BB6800C8DD20 /* tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tools.m; sourceTree = "<group>"; };
 		03F9904A1940AA54009A1D74 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 		03F9904B1940AA54009A1D74 /* user.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = user.m; sourceTree = "<group>"; };
 		03F9904D1940AAD5009A1D74 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
@@ -140,6 +143,8 @@
 				03F990511940AC9F009A1D74 /* guest.m */,
 				03F990531940AD6C009A1D74 /* spellbook.h */,
 				03F990541940AD6C009A1D74 /* spellbook.m */,
+				03B5FE2C1940BB6800C8DD20 /* tools.h */,
+				03B5FE2D1940BB6800C8DD20 /* tools.m */,
 				031DBC1A193F89690061F6F8 /* Images.xcassets */,
 				031DBC09193F89690061F6F8 /* Supporting Files */,
 			);
@@ -278,6 +283,7 @@
 				03F9904F1940AAD5009A1D74 /* template.m in Sources */,
 				03F9904C1940AA54009A1D74 /* user.m in Sources */,
 				03F990521940AC9F009A1D74 /* guest.m in Sources */,
+				03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */,
 				031DBC19193F89690061F6F8 /* xxiivvViewController.m in Sources */,
 				03F990551940AD6C009A1D74 /* spellbook.m in Sources */,
 				031DBC0F193F89690061F6F8 /* main.m in Sources */,

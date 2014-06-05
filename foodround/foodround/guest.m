@@ -13,8 +13,8 @@
 -(NSMutableDictionary*)guestStart
 {
 	NSMutableDictionary* newGuest = [[NSMutableDictionary alloc]initWithCapacity:10];
-	newGuest[@"attr"] = [[NSMutableDictionary alloc]initWithCapacity:3];
-	
+	newGuest[@"attributes"] = @[@"rich",@"tribal",@"deviant"];
+	newGuest[@"name"] = @"test name";
 	return newGuest;
 }
 

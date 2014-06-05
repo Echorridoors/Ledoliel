@@ -14,6 +14,7 @@
 #import "user.h"
 #import "guest.h"
 #import "spellbook.h"
+#import "tools.h"
 
 @interface xxiivvViewController ()
 
@@ -37,6 +38,7 @@
 	[self menuSelectionLoad];
 	
 	NSLog(@"%@",user);
+	NSLog(@"%@",guest);
 }
 
 -(void)templateStart
@@ -273,6 +275,9 @@
 	NSLog(@"Round #%d : %@ -> %@", currentGameRound, menuSel, submenuSel);
 	[self hintHide];
 	[self alignDeselection];
+	
+	user[@"spellbook"][menuSel][currentSubmenuSelection] = @"--";
+	
 }
 
 - (BOOL)prefersStatusBarHidden {
