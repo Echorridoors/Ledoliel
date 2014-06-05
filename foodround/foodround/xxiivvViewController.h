@@ -61,6 +61,7 @@
 int currentGameRound = 0;
 int currentMenuSelection = -1;
 int currentSubmenuSelection = -1;
+int currentSessionResultscreenPosition = 0;
 float templateMenuButtonHeight = 30;
 
 NSMutableDictionary *user;

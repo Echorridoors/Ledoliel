@@ -288,8 +288,6 @@
 	user[@"relationship"] = to_s(to_i(user[@"relationship"])+guestAttributeReactionSum);
 	
 	[self sessionResultScreenDisplay];
-	
-	[self statusBarUpdate];
 
 }
 
@@ -301,26 +299,65 @@
 	self.resultView.hidden = NO;
 	self.resultCloseButton.hidden = NO;
 	
+	self.resultPaneLabel1.alpha = 0;
+	self.resultPaneLabel2.alpha = 0;
+	self.resultPaneLabel3.alpha = 0;
+	self.resultPaneLabel4.alpha = 0;
+	
 	self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, 1);
 	
 	[self.resultCloseButton setTitle:@"Skip" forState:UIControlStateNormal];
 	
-	[UIView animateWithDuration:0.2 animations:^(void){
+	[UIView animateWithDuration:0.3 animations:^(void){
+		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
 		self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
 		self.resultView.alpha = 1;
 		self.resultCloseButton.alpha = 1;
 		
-	} completion:^(BOOL finished){
-		[UIView animateWithDuration:0.2 animations:^(void){
-			[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	} completion:^(BOOL finished){ [UIView animateWithDuration:0.2 animations:^(void){
+		
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		self.resultPaneLabel1.alpha = 1;
 			
-		} completion:^(BOOL finished){
-		}];
+	} completion:^(BOOL finished){ [UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationDelay:1.5];
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+//		self.resultPaneLabel2.alpha = 1;
+	}];
+	}];
 	}];
 }
-
+-(void)sessionResultScreenSkip
+{
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	if(currentSessionResultscreenPosition == 0){
+		self.resultPaneLabel2.alpha = 1;
+	}
+	if(currentSessionResultscreenPosition == 1){
+		self.resultPaneLabel3.alpha = 1;
+	}
+	if(currentSessionResultscreenPosition == 2){
+		self.resultPaneLabel4.alpha = 1;
+		[self.resultCloseButton setTitle:@"Close" forState:UIControlStateNormal];
+		[self statusBarUpdate];
+	}
+	
+	[UIView commitAnimations];
+	
+	if(currentSessionResultscreenPosition == 3){
+		[self sessionResultScreenHide];
+	}
+	
+	currentSessionResultscreenPosition += 1;
+	
+}
 
 -(void)sessionResultScreenHide
 {
@@ -379,7 +416,7 @@
 
 
 - (IBAction)resultCloseButton:(id)sender {
-	[self sessionResultScreenHide];
+	[self sessionResultScreenSkip];
 }
 
 - (IBAction)menuOption1Button:(id)sender
