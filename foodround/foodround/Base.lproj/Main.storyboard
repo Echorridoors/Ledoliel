@@ -89,6 +89,20 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="AnO-Yw-gGW" userLabel="guestStatusView">
+                                <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Woeful think you look like a pet" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ep8-VV-xRF" userLabel="guestStatusLabel">
+                                        <rect key="frame" x="59" y="132" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                             <view contentMode="scaleToFill" id="re1-4W-BaW" userLabel="menuView">
                                 <rect key="frame" x="0.0" y="430" width="320" height="115"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -209,7 +223,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oLy-Vv-qxh" userLabel="resultCloseButton">
                                 <rect key="frame" x="137" y="269" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -223,6 +239,8 @@
                         <outlet property="confirmButton" destination="w67-nw-klD" id="Gtr-0g-1Sf"/>
                         <outlet property="guestAttrLabel" destination="llS-xP-QJV" id="ZtK-y5-heu"/>
                         <outlet property="guestNameLabel" destination="YGU-Rz-vTJ" id="RpZ-CW-l2p"/>
+                        <outlet property="guestStatusLabel" destination="ep8-VV-xRF" id="2gw-Eq-KML"/>
+                        <outlet property="guestStatusView" destination="AnO-Yw-gGW" id="Ir3-vR-83K"/>
                         <outlet property="hintLabel" destination="aXl-fL-tD7" id="SR0-JN-k23"/>
                         <outlet property="hintView" destination="yki-k1-6L3" id="hwq-7z-B1w"/>
                         <outlet property="menuOption1Button" destination="05f-EI-g4F" id="063-P8-W1G"/>

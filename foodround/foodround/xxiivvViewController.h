@@ -35,18 +35,16 @@
 @property (strong, nonatomic) IBOutlet UILabel *guestAttrLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *resultView;
-@property (strong, nonatomic) IBOutlet UIView *resultPane1;
-@property (strong, nonatomic) IBOutlet UIView *resultPane2;
-@property (strong, nonatomic) IBOutlet UIView *resultPane3;
-@property (strong, nonatomic) IBOutlet UIView *resultPane4;
 @property (strong, nonatomic) IBOutlet UILabel *resultPaneLabel1;
 @property (strong, nonatomic) IBOutlet UILabel *resultPaneLabel2;
 @property (strong, nonatomic) IBOutlet UILabel *resultPaneLabel3;
 @property (strong, nonatomic) IBOutlet UILabel *resultPaneLabel4;
 @property (strong, nonatomic) IBOutlet UIButton *resultCloseButton;
 
-- (IBAction)resultCloseButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *guestStatusView;
+@property (strong, nonatomic) IBOutlet UILabel *guestStatusLabel;
 
+- (IBAction)resultCloseButton:(id)sender;
 
 - (IBAction)menuOption1Button:(id)sender;
 - (IBAction)menuOption2Button:(id)sender;

@@ -98,6 +98,12 @@
 	
 	self.selectorView.frame = CGRectMake(0, 0, templateMenuButtonHeight, templateMenuButtonHeight);
 	
+	self.guestStatusView.frame = CGRectMake(0, screenHeight-(7*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
+	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
+	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:12];
+	self.guestStatusLabel.textColor = [UIColor whiteColor];
+	
 	self.statusView.frame = CGRectMake(0, screenHeight-templateMenuButtonHeight, screenWidth, templateMenuButtonHeight);
 	self.relationshipLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
 	
