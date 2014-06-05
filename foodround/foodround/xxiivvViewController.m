@@ -351,16 +351,18 @@
 	
 	[UIView commitAnimations];
 	
+	
 	if(currentSessionResultscreenPosition == 3){
 		[self sessionResultScreenHide];
+	}else{
+		currentSessionResultscreenPosition += 1;	
 	}
-	
-	currentSessionResultscreenPosition += 1;
-	
 }
 
 -(void)sessionResultScreenHide
 {
+	currentSessionResultscreenPosition = 0;
+	
 	[UIView animateWithDuration:0.2 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		self.resultCloseButton.alpha = 0;
