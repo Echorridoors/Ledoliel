@@ -10,4 +10,6 @@
 
 @interface UIViewController (spellbook)
 
+-(NSMutableDictionary*)spellbookStart;
+
 @end

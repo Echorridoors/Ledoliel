@@ -13,6 +13,7 @@
 #import "template.h"
 #import "user.h"
 #import "guest.h"
+#import "spellbook.h"
 
 @interface xxiivvViewController ()
 
@@ -30,6 +31,7 @@
 {
 	user = [self userStart];
 	guest = [self guestStart];
+	spellbook = [self spellbookStart];
 	[self templateStart];
 	[self alignSelection:0];
 	[self menuSelectionLoad];

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F96BD2FF-C7C0-4CFB-8EF1-2C7A9BF02188</string>
+	<key>IDESourceControlProjectName</key>
+	<string>foodround</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5DC01C32-B8A9-4221-9815-45CAD6148716</key>
+		<string>https://github.com/aliceffekt/dateline.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>foodround/foodround.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5DC01C32-B8A9-4221-9815-45CAD6148716</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/aliceffekt/dateline.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5DC01C32-B8A9-4221-9815-45CAD6148716</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5DC01C32-B8A9-4221-9815-45CAD6148716</string>
+			<key>IDESourceControlWCCName</key>
+			<string>dateline</string>
+		</dict>
+	</array>
+</dict>
+</plist>

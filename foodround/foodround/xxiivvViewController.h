@@ -48,3 +48,4 @@ float templateMenuButtonHeight = 30;
 
 NSMutableDictionary *user;
 NSMutableDictionary *guest;
+NSMutableDictionary *spellbook;
