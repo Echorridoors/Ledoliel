@@ -76,6 +76,18 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *spellbookPreviewLabel;
 
+@property (strong, nonatomic) IBOutlet UIButton *quitButton;
+
+@property (strong, nonatomic) IBOutlet UIView *planetChoice1View;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice1NameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestLabel;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr1Label;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr2Label;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr3Label;
+@property (strong, nonatomic) IBOutlet UIView *planetChoice1Graphics;
+
+- (IBAction)quitButton:(id)sender;
+
 // Menu
 
 @property (strong, nonatomic) IBOutlet UIView *mainMenuView;

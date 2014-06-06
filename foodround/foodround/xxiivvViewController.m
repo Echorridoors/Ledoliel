@@ -35,13 +35,9 @@
 {
 	console(@"GAME  | Init");
 	
-	[self templateStart];
-	[self templateWorldmap];
-	[self templateMenu];
-	
-	user = [self userStart];
 	guest = [self guestStart];
 	spellbook = [self spellbookStart];
+	[self menuViewInit];
 //	[self sessionStart];
 }
 
@@ -131,39 +127,6 @@
 	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	
-}
-
--(void)templateWorldmap
-{
-	console(@" TMPL | World Map");
-	// Spellbook preview
-	
-	self.spellbookPreviewView.backgroundColor = [UIColor whiteColor];
-	
-	float templateThirdUnit = (screenWidth-(2*templateUnit))/3;
-	
-	self.spellbookSayLabel.frame = CGRectMake(templateUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
-	self.spellbookSaySpell1.frame = CGRectMake(templateUnit, templateUnit*1, templateThirdUnit, templateUnit);
-	self.spellbookSaySpell2.frame = CGRectMake(templateUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
-	
-	self.spellbookTouchLabel.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
-	self.spellbookTouchSpell1.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1, templateThirdUnit, templateUnit);
-	self.spellbookTouchSpell2.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
-	
-	self.spellbookGiveLabel.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*0.5, templateThirdUnit, templateUnit);
-	self.spellbookGiveSpell1.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1, templateThirdUnit, templateUnit);
-	self.spellbookGiveSpell2.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1.5, templateThirdUnit, templateUnit);
-	
-	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
-	
-	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
-}
-
--(void)templateMenu
-{
-	self.mainMenuView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
-	
 	
 }
 
@@ -606,27 +569,161 @@
     return YES;
 }
 
-- (IBAction)gameStartButton:(id)sender {
-	NSLog(@"+ GAME | New Game");
-	[self transitionToMapView:self.mainMenuView:self.mainMapView];
+#pragma mark Menu
+
+-(void)menuViewInit
+{
+	console(@"! VIEW | Menu View Init");
+	
+	[self menuViewTemplate];
 }
 
--(void)transitionToMapView:(UIView*)fromView :(UIView*)toView
+-(void)menuViewTemplate
+{
+	console(@"+ TMPL | Menu");
+	self.mainMenuView.hidden = NO;
+}
+
+#pragma mark Map
+
+-(void)mapViewInit
+{
+	console(@"! VIEW | Map View Init");
+	
+	user = [self userStart];
+	
+	[self mapViewGeneratePlanets];
+	[self mapViewTemplate];
+	[self mapViewSpellUpdate];
+	
+}
+
+-(void)mapViewTemplate
+{
+	console(@"+ TMPL | World Map");
+	// Spellbook preview
+	
+	self.spellbookPreviewView.backgroundColor = [UIColor whiteColor];
+	
+	float templateThirdUnit = (screenWidth-(2*templateUnit))/3;
+	
+	self.spellbookSayLabel.frame = CGRectMake(templateUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookSaySpell1.frame = CGRectMake(templateUnit, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookSaySpell2.frame = CGRectMake(templateUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookTouchLabel.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookTouchSpell1.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookTouchSpell2.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookGiveLabel.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookGiveSpell1.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookGiveSpell2.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
+	self.quitButton.frame = CGRectMake(screenWidth/2, 0, (screenWidth/2)-templateUnit, templateUnit);
+	
+	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-(2*templateUnit), templateUnit*4);
+	self.planetChoice1NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1Graphics.backgroundColor = [UIColor blueColor];
+	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
+	
+	
+}
+
+-(void)mapViewSpellUpdate
+{
+	self.spellbookSaySpell1.text = user[@"spellbook"][@"say"][0][@"name"];
+	self.spellbookSaySpell2.text = user[@"spellbook"][@"say"][1][@"name"];
+	self.spellbookTouchSpell1.text = user[@"spellbook"][@"touch"][0][@"name"];
+	self.spellbookTouchSpell2.text = user[@"spellbook"][@"touch"][1][@"name"];
+	self.spellbookGiveSpell1.text = user[@"spellbook"][@"give"][0][@"name"];
+	self.spellbookGiveSpell2.text = user[@"spellbook"][@"give"][1][@"name"];
+}
+
+-(void)mapViewGeneratePlanets
+{
+	console(@"  VIEW | (map)Generate Planets");
+	
+	
+	
+	
+}
+
+#pragma mark Session
+
+-(void)sessionViewInit
+{
+	console(@"- VIEW | Session View Init");
+}
+
+
+
+- (IBAction)gameStartButton:(id)sender {
+	NSLog(@"+ GAME | New Game");
+	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit")];
+}
+
+
+
+- (IBAction)quitButton:(id)sender {
+	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
+}
+
+
+#pragma mark Transitions
+
+-(void)transitionView :(NSString*)direction :(UIView*)fromView :(UIView*)toView :(SEL)targetSelector
 {
 	CGRect viewFocus = CGRectMake(0, 0, screenWidth, screenHeight);
 	CGRect viewAbove = CGRectMake(0, screenHeight*-1, screenWidth, screenHeight);
 	CGRect viewBelow = CGRectMake(0, screenHeight, screenWidth, screenHeight);
 	
-	fromView.frame = viewFocus;
-	toView.frame = viewBelow;
+	fromView.hidden = NO;
+	toView.hidden = NO;
+	
+	if([direction isEqualToString:@"downward"]){
+		fromView.frame = viewFocus;
+		toView.frame = viewBelow;
+	}
+	else{
+		fromView.frame = viewFocus;
+		toView.frame = viewAbove;
+	}
+	
+	[self performSelector:targetSelector];
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		fromView.frame = viewAbove;
-		toView.frame = viewFocus;
+		
+		if([direction isEqualToString:@"downward"]){
+			fromView.frame = viewAbove;
+			toView.frame = viewFocus;
+		}
+		else{
+			fromView.frame = viewBelow;
+			toView.frame = viewFocus;
+		}
+		
 	} completion:^(BOOL finished){
 		fromView.hidden = YES;
 	}];
+}
+
+-(NSArray*)shuffleArray :(NSArray*)array
+{
+	NSMutableArray *shuffledArray = [[NSMutableArray alloc] initWithArray:array];
+	for (int i = shuffledArray.count - 1; i >= 0; --i) {
+		int r = arc4random_uniform(shuffledArray.count);
+		[shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:r];
+	}
+	
+	return shuffledArray;
 }
 
 

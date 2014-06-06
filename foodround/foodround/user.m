@@ -12,6 +12,8 @@
 
 -(NSMutableDictionary*)userStart
 {
+	NSLog(@"+ USER | Created");
+	
 	NSMutableDictionary* newUser = [[NSMutableDictionary alloc]initWithCapacity:10];
 	
 	newUser[@"spellbook"] = [[NSMutableDictionary alloc]initWithCapacity:3];
