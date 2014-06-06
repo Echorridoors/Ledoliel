@@ -40,8 +40,13 @@
 	newUser[@"spellbook"][@"give"][1][@"name"] = @"cardboard";
 	newUser[@"spellbook"][@"give"][1][@"status"] = @"normal";
 	
-	newUser[@"spellbook"][@"leave"] = [[NSMutableArray alloc]initWithCapacity:1];
-	newUser[@"spellbook"][@"leave"][0] = @"hastily";
+	newUser[@"spellbook"][@"leave"] = [[NSMutableArray alloc]initWithCapacity:2];
+	newUser[@"spellbook"][@"leave"][0] = [[NSMutableDictionary alloc]initWithCapacity:2];
+	newUser[@"spellbook"][@"leave"][0][@"name"] = @"1";
+	newUser[@"spellbook"][@"leave"][0][@"status"] = @"1";
+	newUser[@"spellbook"][@"leave"][1] = [[NSMutableDictionary alloc]initWithCapacity:2];
+	newUser[@"spellbook"][@"leave"][1][@"name"] = @"1";
+	newUser[@"spellbook"][@"leave"][1][@"status"] = @"1";
 	
 	newUser[@"session"] = [[NSMutableDictionary alloc]initWithCapacity:3];
 	

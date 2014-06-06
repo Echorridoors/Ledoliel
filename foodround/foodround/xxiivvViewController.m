@@ -190,11 +190,10 @@
 	self.submenuOption2Button.frame = CGRectMake(0, templateUnit, screenWidth/2, templateUnit);
 	
 	if(menuOption == 3){
-		self.submenuOption2Button.hidden = YES;
-		self.submenuView.frame = CGRectMake(screenWidth/2, templateUnit*menuOption-1, screenWidth/2, 0);
-		self.submenuView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
+		self.submenuView.hidden = YES;
 	}
 	else{
+		self.submenuView.hidden = NO;
 		self.submenuOption2Button.hidden = NO;
 		self.submenuView.backgroundColor = [UIColor blackColor];
 	}
@@ -227,7 +226,7 @@
 }
 
 -(void)menuSelectionLoad
-{	
+{
 	[self.submenuOption1Button setEnabled:NO];
 	[self.submenuOption2Button setEnabled:NO];
 	
@@ -263,24 +262,16 @@
 		[self.submenuOption1Button setTitle:user[@"spellbook"][@"give"][0][@"name"] forState:UIControlStateDisabled];
 		[self.submenuOption2Button setTitle:user[@"spellbook"][@"give"][1][@"name"] forState:UIControlStateDisabled];
 	}
-	if(currentMenuSelection == 3){
-		[self.submenuOption1Button setTitle:user[@"spellbook"][@"leave"][0] forState:UIControlStateNormal];
-	}
 	
 	
 }
 
 -(void)hintDisplay
 {
+	NSLog(@"%d",currentSubmenuSelection);
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
-	
-	[UIView beginAnimations:@"advancedAnimations" context:nil];
-	[UIView setAnimationDuration:0.2];
-	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-	
-	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateUnit), screenWidth, templateUnit);
-	
+
 	if([menuSel isEqualToString:@"say"]){
 		self.hintLabel.text = [NSString stringWithFormat:@"%@ \"%@\" to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
 	}
@@ -290,6 +281,15 @@
 	if([menuSel isEqualToString:@"touch"]){
 		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@'s %@",[menuSel capitalizedString],guest[@"name"],submenuSel];
 	}
+	if([menuSel isEqualToString:@"leave"]){
+		self.hintLabel.text = @"Run away? ";
+	}
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateUnit), screenWidth, templateUnit);
 	
 	[UIView commitAnimations];
 }
@@ -313,9 +313,15 @@
 	return @"leave";
 }
 
--(void)playTurn :(NSString*)action :(NSString*)spell
+-(void)playTurn
 {
-	NSLog(@"TURN  | %@ -> %@",action,spell);
+	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
+	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
+	
+	NSLog(@"TURN  | #%d:%@ -> %@",currentGameRound,action,spell);
+	
+	// New Spell
+	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
 	int guestAttributeReaction1 = to_i(spellbook[spell][action][guest[@"attributes"][0]]);
 	int guestAttributeReaction2 = to_i(spellbook[spell][action][guest[@"attributes"][1]]);
@@ -520,10 +526,12 @@
 }
 - (IBAction)menuOption4Button:(id)sender
 {
+//	[self hintHide];
 	[self alignSelection:3];
 	[self menuSelectionLoad];
-	[self hintHide];
 	[self guestResponseHide];
+	currentSubmenuSelection = 0;
+	[self hintDisplay];
 }
 
 - (IBAction)submenuOption1Button:(id)sender {
@@ -551,15 +559,9 @@
 	
 	currentGameRound += 1;
 	
-	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
-	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
-	
-	[self playTurn : menuSel:submenuSel];
-	
+	[self playTurn];
 	[self hintHide];
 	[self alignDeselection];
-	
-	user[@"spellbook"][menuSel][currentSubmenuSelection][@"status"] = @"new";
 	
 }
 
