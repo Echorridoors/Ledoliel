@@ -58,20 +58,20 @@
 -(void)templateStart
 {
 	console(@"TMPL  | Start");
-	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, 4*templateMenuButtonHeight);
+	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 	
-	self.guestNameLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
-	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateUnit, templateUnit);
 	
 	self.resultView.hidden = YES;
 	self.resultView.alpha = 0;
 	self.resultView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
-	self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	
 	self.resultCloseButton.hidden = YES;
 	self.resultCloseButton.alpha = 0;
 	self.resultCloseButton.backgroundColor = [UIColor redColor];
-	self.resultCloseButton.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, (templateMenuButtonHeight*4));
+	self.resultCloseButton.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, (templateUnit*4));
 	
 	self.resultPaneLabel1.text = @"You touch the woeful's money";
 	self.resultPaneLabel2.text = @"The woeful's tentacular eyeballs are thrilling with lust, you are excelent at diplomacy.";
@@ -83,44 +83,50 @@
 	self.resultPaneLabel3.textColor = [UIColor whiteColor];
 	self.resultPaneLabel4.textColor = [UIColor whiteColor];
 	
-	self.resultPaneLabel1.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
-	self.resultPaneLabel2.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
-	self.resultPaneLabel3.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
-	self.resultPaneLabel4.frame = CGRectMake(templateMenuButtonHeight, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateMenuButtonHeight), self.resultView.frame.size.height/4);
+	self.resultPaneLabel1.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel2.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel3.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel4.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
 	
-	self.menuOption1Button.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
-	self.menuOption2Button.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
-	self.menuOption3Button.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight*2, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
-	self.menuOption4Button.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight*3, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
+	self.menuOption3Button.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-templateUnit, templateUnit);
+	self.menuOption4Button.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-templateUnit, templateUnit);
+	
+	[self.submenuOption1Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
+	[self.submenuOption2Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
 	
 	self.submenuOption1Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 	self.submenuOption2Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
 	
-	self.selectorView.frame = CGRectMake(0, 0, templateMenuButtonHeight, templateMenuButtonHeight);
+	self.selectorView.frame = CGRectMake(0, 0, templateUnit, templateUnit);
 	
-	self.guestStatusView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.hidden = YES;
 	self.guestStatusView.alpha = 0;
 //	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
-	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-(2*templateMenuButtonHeight), screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
 	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
 	self.guestStatusLabel.textColor = [UIColor blackColor];
 	
-	self.statusView.frame = CGRectMake(0, screenHeight-templateMenuButtonHeight, screenWidth, templateMenuButtonHeight);
-	self.relationshipLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
+	
+	self.statusView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
+	self.relationshipLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	
 	self.hintView.backgroundColor = [UIColor redColor];
-	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
-	self.hintLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
+	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);
+	self.hintLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.hintLabel.font = [UIFont boldSystemFontOfSize:12];
 	
 	self.statusView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 	self.relationshipRating.backgroundColor = [UIColor blackColor];
-	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight/2-2, (screenWidth/2)-templateMenuButtonHeight, 4);
+	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit/2-2, (screenWidth/2)-templateUnit, 4);
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
 	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
 	
-	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight)];
+	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	
 }
@@ -147,13 +153,13 @@
 	[self.menuOption3Button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	[self.menuOption4Button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
 	
-	self.selectorView.frame = CGRectMake(-1*templateMenuButtonHeight, 0, templateMenuButtonHeight, templateMenuButtonHeight);
-	self.selectionView.frame = CGRectMake(0, templateMenuButtonHeight*menuOption-1, 0, templateMenuButtonHeight);
+	self.selectorView.frame = CGRectMake(-1*templateUnit, 0, templateUnit, templateUnit);
+	self.selectionView.frame = CGRectMake(0, templateUnit*menuOption-1, 0, templateUnit);
 	
-	self.submenuView.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight*menuOption-1, screenWidth/2, templateMenuButtonHeight);
+	self.submenuView.frame = CGRectMake(screenWidth/2, templateUnit*menuOption-1, screenWidth/2, templateUnit);
 	
-	self.submenuOption1Button.frame = CGRectMake(-5, 0, screenWidth/2, templateMenuButtonHeight);
-	self.submenuOption2Button.frame = CGRectMake(-5, templateMenuButtonHeight, screenWidth/2, templateMenuButtonHeight);
+	self.submenuOption1Button.frame = CGRectMake(-5, 0, screenWidth/2, templateUnit);
+	self.submenuOption2Button.frame = CGRectMake(-5, templateUnit, screenWidth/2, templateUnit);
 	
 	// Set Change
 	
@@ -166,10 +172,10 @@
 	if(menuOption == 2){ [self.menuOption3Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; }
 	if(menuOption == 3){ [self.menuOption4Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal]; }
 	
-	self.selectorView.frame = CGRectMake(0, 0, templateMenuButtonHeight, templateMenuButtonHeight);
-	self.selectionView.frame = CGRectMake(0, templateMenuButtonHeight*menuOption-1, screenWidth, templateMenuButtonHeight);
+	self.selectorView.frame = CGRectMake(0, 0, templateUnit, templateUnit);
+	self.selectionView.frame = CGRectMake(0, templateUnit*menuOption-1, screenWidth, templateUnit);
 	
-	self.submenuView.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight*menuOption-1, screenWidth/2, templateMenuButtonHeight*2);
+	self.submenuView.frame = CGRectMake(screenWidth/2, templateUnit*menuOption-1, screenWidth/2, templateUnit*2);
 	
 	[UIView commitAnimations];
 	
@@ -180,12 +186,12 @@
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	[UIView setAnimationDelay:0.1];
 	
-	self.submenuOption1Button.frame = CGRectMake(0, 0, screenWidth/2, templateMenuButtonHeight);
-	self.submenuOption2Button.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth/2, templateMenuButtonHeight);
+	self.submenuOption1Button.frame = CGRectMake(0, 0, screenWidth/2, templateUnit);
+	self.submenuOption2Button.frame = CGRectMake(0, templateUnit, screenWidth/2, templateUnit);
 	
 	if(menuOption == 3){
 		self.submenuOption2Button.hidden = YES;
-		self.submenuView.frame = CGRectMake(screenWidth/2, templateMenuButtonHeight*menuOption-1, screenWidth/2, 0);
+		self.submenuView.frame = CGRectMake(screenWidth/2, templateUnit*menuOption-1, screenWidth/2, 0);
 		self.submenuView.backgroundColor = [UIColor colorWithWhite:0 alpha:0];
 	}
 	else{
@@ -206,10 +212,10 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.submenuOption1Button.frame = CGRectMake(0, 0, screenWidth/2, templateMenuButtonHeight);
-	self.submenuOption2Button.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth/2, templateMenuButtonHeight);
+	self.submenuOption1Button.frame = CGRectMake(0, 0, screenWidth/2, templateUnit);
+	self.submenuOption2Button.frame = CGRectMake(0, templateUnit, screenWidth/2, templateUnit);
 	
-	self.submenuView.frame = CGRectMake(self.submenuView.frame.origin.x, self.submenuView.frame.origin.y, self.submenuView.frame.size.width, templateMenuButtonHeight);
+	self.submenuView.frame = CGRectMake(self.submenuView.frame.origin.x, self.submenuView.frame.origin.y, self.submenuView.frame.size.width, templateUnit);
 	
 	[UIView commitAnimations];
 	
@@ -221,34 +227,59 @@
 }
 
 -(void)menuSelectionLoad
-{
+{	
+	[self.submenuOption1Button setEnabled:NO];
+	[self.submenuOption2Button setEnabled:NO];
+	
 	if(currentMenuSelection == 0){
-		[self.submenuOption1Button setTitle:user[@"spellbook"][@"say"][0] forState:UIControlStateNormal];
-		[self.submenuOption2Button setTitle:user[@"spellbook"][@"say"][1] forState:UIControlStateNormal];
+		
+		if( [user[@"spellbook"][@"say"][0][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption1Button setEnabled:YES]; }
+		if( [user[@"spellbook"][@"say"][1][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption2Button setEnabled:YES]; }
+		
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"say"][0][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"say"][1][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"say"][0][@"name"] forState:UIControlStateDisabled];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"say"][1][@"name"] forState:UIControlStateDisabled];
+		
 	}
 	if(currentMenuSelection == 1){
-		[self.submenuOption1Button setTitle:user[@"spellbook"][@"touch"][0] forState:UIControlStateNormal];
-		[self.submenuOption2Button setTitle:user[@"spellbook"][@"touch"][1] forState:UIControlStateNormal];
+		
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"touch"][0][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"touch"][1][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"touch"][0][@"name"] forState:UIControlStateDisabled];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"touch"][1][@"name"] forState:UIControlStateDisabled];
+		
+		if( [user[@"spellbook"][@"touch"][0][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption1Button setEnabled:YES]; }
+		if( [user[@"spellbook"][@"touch"][1][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption2Button setEnabled:YES]; }
+		
 	}
 	if(currentMenuSelection == 2){
-		[self.submenuOption1Button setTitle:user[@"spellbook"][@"give"][0] forState:UIControlStateNormal];
-		[self.submenuOption2Button setTitle:user[@"spellbook"][@"give"][1] forState:UIControlStateNormal];
+		
+		if( [user[@"spellbook"][@"give"][0][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption1Button setEnabled:YES]; }
+		if( [user[@"spellbook"][@"give"][1][@"status"] isEqualToString:@"normal"] ){ [self.submenuOption2Button setEnabled:YES]; }
+		
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"give"][0][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"give"][1][@"name"] forState:UIControlStateNormal];
+		[self.submenuOption1Button setTitle:user[@"spellbook"][@"give"][0][@"name"] forState:UIControlStateDisabled];
+		[self.submenuOption2Button setTitle:user[@"spellbook"][@"give"][1][@"name"] forState:UIControlStateDisabled];
 	}
 	if(currentMenuSelection == 3){
 		[self.submenuOption1Button setTitle:user[@"spellbook"][@"leave"][0] forState:UIControlStateNormal];
 	}
+	
+	
 }
 
 -(void)hintDisplay
 {
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
-	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection];
+	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
 	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
+	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateUnit), screenWidth, templateUnit);
 	
 	if([menuSel isEqualToString:@"say"]){
 		self.hintLabel.text = [NSString stringWithFormat:@"%@ \"%@\" to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
@@ -269,7 +300,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
+	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);
 	self.hintLabel.text = @"The WU Tang Hordes do not like monarchy.";
 	[UIView commitAnimations];
 }
@@ -300,7 +331,6 @@
 
 -(void)sessionResultScreenDisplay
 {
-	
 	self.resultView.alpha = 0;
 	self.resultCloseButton.alpha = 0;
 	self.resultView.hidden = NO;
@@ -311,7 +341,7 @@
 	self.resultPaneLabel3.alpha = 0;
 	self.resultPaneLabel4.alpha = 0;
 	
-	self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, 1);
+	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, 1);
 	
 	[self.resultCloseButton setTitle:@"Skip" forState:UIControlStateNormal];
 	
@@ -319,7 +349,7 @@
 		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
-		self.resultView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+		self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 		self.resultView.alpha = 1;
 		self.resultCloseButton.alpha = 1;
 		
@@ -370,7 +400,8 @@
 
 -(void)guestResponseDisplay
 {
-	self.guestStatusLabel.text = @"The Woeful says \"meat\".";
+	self.guestStatusLabel.text = @"The Woeful replies \"meat\".";
+	self.guestStatusNoteLabel.text = @"The word was added to your inventory";
 	
 	self.guestStatusView.hidden = NO;
 	
@@ -379,11 +410,11 @@
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	[UIView setAnimationDelay:0.5];
 	
-	self.guestStatusView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	self.guestStatusView.alpha = 1;
 	
-	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-(2*templateMenuButtonHeight), screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
 	self.guestStatusLabel.alpha = 1;
 	
 	[UIView commitAnimations];
@@ -521,14 +552,14 @@
 	currentGameRound += 1;
 	
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
-	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection];
+	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
 	
-	[self playTurn:menuSel:submenuSel];
+	[self playTurn : menuSel:submenuSel];
 	
 	[self hintHide];
 	[self alignDeselection];
 	
-//	user[@"spellbook"][menuSel][currentSubmenuSelection] = @"--";
+	user[@"spellbook"][menuSel][currentSubmenuSelection][@"status"] = @"new";
 	
 }
 

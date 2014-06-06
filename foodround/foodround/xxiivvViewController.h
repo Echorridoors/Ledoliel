@@ -43,6 +43,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *guestStatusView;
 @property (strong, nonatomic) IBOutlet UILabel *guestStatusLabel;
+@property (strong, nonatomic) IBOutlet UILabel *guestStatusNoteLabel;
 
 - (IBAction)resultCloseButton:(id)sender;
 
@@ -60,7 +61,7 @@ int currentGameRound = 0;
 int currentMenuSelection = -1;
 int currentSubmenuSelection = -1;
 int currentSessionResultscreenPosition = 0;
-float templateMenuButtonHeight = 30;
+float templateUnit = 30;
 
 NSMutableDictionary *user;
 NSMutableDictionary *guest;
