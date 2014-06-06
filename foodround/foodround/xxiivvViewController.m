@@ -98,11 +98,13 @@
 	
 	self.selectorView.frame = CGRectMake(0, 0, templateMenuButtonHeight, templateMenuButtonHeight);
 	
-	self.guestStatusView.frame = CGRectMake(0, screenHeight-(7*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
-	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
-	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
-	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:12];
-	self.guestStatusLabel.textColor = [UIColor whiteColor];
+	self.guestStatusView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusView.hidden = YES;
+	self.guestStatusView.alpha = 0;
+//	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
+	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-(2*templateMenuButtonHeight), screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
+	self.guestStatusLabel.textColor = [UIColor blackColor];
 	
 	self.statusView.frame = CGRectMake(0, screenHeight-templateMenuButtonHeight, screenWidth, templateMenuButtonHeight);
 	self.relationshipLabel.frame = CGRectMake(templateMenuButtonHeight, 0, screenWidth-templateMenuButtonHeight, templateMenuButtonHeight);
@@ -200,7 +202,6 @@
 
 -(void)alignDeselection
 {
-	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -250,7 +251,7 @@
 	self.hintView.frame = CGRectMake(0, screenHeight-(6*templateMenuButtonHeight), screenWidth, templateMenuButtonHeight);
 	
 	if([menuSel isEqualToString:@"say"]){
-		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
+		self.hintLabel.text = [NSString stringWithFormat:@"%@ \"%@\" to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
 	}
 	if([menuSel isEqualToString:@"give"]){
 		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
@@ -360,9 +361,47 @@
 	
 	if(currentSessionResultscreenPosition == 3){
 		[self sessionResultScreenHide];
+		[self guestResponseDisplay];
+		
 	}else{
 		currentSessionResultscreenPosition += 1;	
 	}
+}
+
+-(void)guestResponseDisplay
+{
+	self.guestStatusLabel.text = @"The Woeful says \"meat\".";
+	
+	self.guestStatusView.hidden = NO;
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	[UIView setAnimationDelay:0.5];
+	
+	self.guestStatusView.frame = CGRectMake(0, templateMenuButtonHeight, screenWidth, screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
+	self.guestStatusView.alpha = 1;
+	
+	self.guestStatusLabel.frame = CGRectMake(templateMenuButtonHeight, templateMenuButtonHeight, screenWidth-(2*templateMenuButtonHeight), screenHeight-(6*templateMenuButtonHeight));
+	self.guestStatusLabel.alpha = 1;
+	
+	[UIView commitAnimations];
+}
+
+-(void)guestResponseHide
+{
+	NSLog(@"> close");
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.3];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	[UIView setAnimationDelay:0.2];
+	
+	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
+	self.guestStatusView.alpha = 0;
+	self.guestStatusLabel.alpha = 0;
+	
+	[UIView commitAnimations];
 }
 
 -(void)sessionResultScreenHide
@@ -432,24 +471,28 @@
 	[self alignSelection:0];
 	[self menuSelectionLoad];
 	[self hintHide];
+	[self guestResponseHide];
 }
 - (IBAction)menuOption2Button:(id)sender
 {
 	[self alignSelection:1];
 	[self menuSelectionLoad];
 	[self hintHide];
+	[self guestResponseHide];
 }
 - (IBAction)menuOption3Button:(id)sender
 {
 	[self alignSelection:2];
 	[self menuSelectionLoad];
 	[self hintHide];
+	[self guestResponseHide];
 }
 - (IBAction)menuOption4Button:(id)sender
 {
 	[self alignSelection:3];
 	[self menuSelectionLoad];
 	[self hintHide];
+	[self guestResponseHide];
 }
 
 - (IBAction)submenuOption1Button:(id)sender {
