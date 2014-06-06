@@ -55,6 +55,34 @@
 - (IBAction)submenuOption2Button:(id)sender;
 - (IBAction)confirmButton:(id)sender;
 
+
+// World Map
+
+@property (strong, nonatomic) IBOutlet UIView *mainMapView;
+
+@property (strong, nonatomic) IBOutlet UILabel *destinationLabel;
+
+@property (strong, nonatomic) IBOutlet UIView *spellbookPreviewView;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookSayLabel;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookTouchLabel;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookGiveLabel;
+
+@property (strong, nonatomic) IBOutlet UILabel *spellbookSaySpell1;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookSaySpell2;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookTouchSpell1;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookTouchSpell2;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookGiveSpell1;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookGiveSpell2;
+
+@property (strong, nonatomic) IBOutlet UILabel *spellbookPreviewLabel;
+
+// Menu
+
+@property (strong, nonatomic) IBOutlet UIView *mainMenuView;
+@property (strong, nonatomic) IBOutlet UIButton *gameStartButton;
+
+- (IBAction)gameStartButton:(id)sender;
+
 @end
 
 int currentGameRound = 0;

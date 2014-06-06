@@ -35,11 +35,14 @@
 {
 	console(@"GAME  | Init");
 	
+	[self templateStart];
+	[self templateWorldmap];
+	[self templateMenu];
+	
 	user = [self userStart];
 	guest = [self guestStart];
 	spellbook = [self spellbookStart];
-	[self templateStart];
-	[self sessionStart];
+//	[self sessionStart];
 }
 
 -(void)sessionStart
@@ -128,6 +131,39 @@
 	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	
+}
+
+-(void)templateWorldmap
+{
+	console(@" TMPL | World Map");
+	// Spellbook preview
+	
+	self.spellbookPreviewView.backgroundColor = [UIColor whiteColor];
+	
+	float templateThirdUnit = (screenWidth-(2*templateUnit))/3;
+	
+	self.spellbookSayLabel.frame = CGRectMake(templateUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookSaySpell1.frame = CGRectMake(templateUnit, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookSaySpell2.frame = CGRectMake(templateUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookTouchLabel.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookTouchSpell1.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookTouchSpell2.frame = CGRectMake(templateUnit+templateThirdUnit, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookGiveLabel.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*0.5, templateThirdUnit, templateUnit);
+	self.spellbookGiveSpell1.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1, templateThirdUnit, templateUnit);
+	self.spellbookGiveSpell2.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1.5, templateThirdUnit, templateUnit);
+	
+	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
+}
+
+-(void)templateMenu
+{
+	self.mainMenuView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+	
 	
 }
 
@@ -320,7 +356,8 @@
 	
 	NSLog(@"TURN  | #%d:%@ -> %@",currentGameRound,action,spell);
 	
-	// New Spell
+	// replace with New Spell
+	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = @"eggs";
 	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
 	int guestAttributeReaction1 = to_i(spellbook[spell][action][guest[@"attributes"][0]]);
@@ -406,15 +443,15 @@
 
 -(void)guestResponseDisplay
 {
-	self.guestStatusLabel.text = @"The Woeful replies \"meat\".";
-	self.guestStatusNoteLabel.text = @"The word was added to your inventory";
+	self.guestStatusLabel.text = @"The Woeful touches your eggs.";
+	self.guestStatusNoteLabel.text = @"Added \"eggs\" to your inventory";
 	
 	self.guestStatusView.hidden = NO;
 	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-	[UIView setAnimationDelay:0.5];
+//	[UIView setAnimationDelay:0.5];
 	
 	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
@@ -568,5 +605,30 @@
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
+
+- (IBAction)gameStartButton:(id)sender {
+	NSLog(@"+ GAME | New Game");
+	[self transitionToMapView:self.mainMenuView:self.mainMapView];
+}
+
+-(void)transitionToMapView:(UIView*)fromView :(UIView*)toView
+{
+	CGRect viewFocus = CGRectMake(0, 0, screenWidth, screenHeight);
+	CGRect viewAbove = CGRectMake(0, screenHeight*-1, screenWidth, screenHeight);
+	CGRect viewBelow = CGRectMake(0, screenHeight, screenWidth, screenHeight);
+	
+	fromView.frame = viewFocus;
+	toView.frame = viewBelow;
+	
+	[UIView animateWithDuration:0.5 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		fromView.frame = viewAbove;
+		toView.frame = viewFocus;
+	} completion:^(BOOL finished){
+		fromView.hidden = YES;
+	}];
+}
+
+
 
 @end
