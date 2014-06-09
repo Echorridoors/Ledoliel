@@ -20,7 +20,7 @@
 
 -(NSArray*)guestAttributes
 {
-	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"childish",@"tribal",@"rich"];
+	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich"];
 	
 	return attributes;
 }

@@ -12,14 +12,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="vSv-BO-VAI" userLabel="mainSessionView">
+                            <view hidden="YES" contentMode="scaleToFill" id="vSv-BO-VAI" userLabel="mainSessionView">
                                 <rect key="frame" x="80" y="142" width="160" height="284"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="char1.png" id="cGK-0x-sjy">
-                                        <rect key="frame" x="-92" y="-142" width="344" height="568"/>
+                                    <view contentMode="scaleToFill" id="yaR-qB-Ppn" userLabel="guestGraphics">
+                                        <rect key="frame" x="40" y="71" width="80" height="142"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="char1.png" id="cGK-0x-sjy" userLabel="guestGraphic1">
+                                                <rect key="frame" x="-132" y="-213" width="344" height="568"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DROOLENIA EMPRESS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YGU-Rz-vTJ" userLabel="guestNameLabel">
                                         <rect key="frame" x="19" y="132" width="122" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -246,7 +253,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" id="i78-mp-dkL" userLabel="mainMapView">
+                            <view hidden="YES" contentMode="scaleToFill" id="i78-mp-dkL" userLabel="mainMapView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -341,6 +348,12 @@
                                             <view contentMode="scaleToFill" id="ejj-7V-UlY" userLabel="planetChoice1Graphics">
                                                 <rect key="frame" x="40" y="71" width="80" height="142"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iOd-xs-HhK" userLabel="planetChoice1Graphic1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Gb-OV-nPY" userLabel="planetChoice1NameLabel">
@@ -390,6 +403,68 @@
                                             </button>
                                         </subviews>
                                     </view>
+                                    <view contentMode="scaleToFill" id="3qQ-Qq-OZ6" userLabel="planetChoice2View">
+                                        <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="M0Z-Hh-fxH" userLabel="planetChoice2Graphics">
+                                                <rect key="frame" x="40" y="71" width="80" height="142"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Pe-KH-CBI" userLabel="planetChoice2Graphic1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            </view>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tip-Mp-PZ8" userLabel="planetChoice2NameLabel">
+                                                <rect key="frame" x="5" y="132" width="149" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Woeful" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TMC-Dg-Vg1" userLabel="planetChoice2GuestLabel">
+                                                <rect key="frame" x="8" y="132" width="143" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artistocrat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Txr-ty-MYr" userLabel="planetChoice2GuestAttr1Label">
+                                                <rect key="frame" x="37" y="132" width="86" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deviant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TQM-fq-TJZ" userLabel="planetChoice2GuestAttr2Label">
+                                                <rect key="frame" x="37" y="132" width="86" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deaf" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jkW-r3-oUy" userLabel="planetChoice2GuestAttr3Label">
+                                                <rect key="frame" x="37" y="132" width="86" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cpw-iz-gqh" userLabel="planetChoice2Button">
+                                                <rect key="frame" x="57" y="127" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="planetChoice1Button:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zuV-pc-FXX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Aad-UQ-go6" userLabel="quitButton">
                                         <rect key="frame" x="137" y="269" width="46" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -430,6 +505,8 @@
                         <outlet property="destinationLabel" destination="XzP-Cb-P8v" id="s67-EB-duH"/>
                         <outlet property="gameStartButton" destination="vBW-h8-SxZ" id="S4d-qn-s0Z"/>
                         <outlet property="guestAttrLabel" destination="llS-xP-QJV" id="ZtK-y5-heu"/>
+                        <outlet property="guestGraphic1" destination="cGK-0x-sjy" id="sUa-MC-ZZ0"/>
+                        <outlet property="guestGraphics" destination="yaR-qB-Ppn" id="Nkr-HH-lng"/>
                         <outlet property="guestNameLabel" destination="YGU-Rz-vTJ" id="RpZ-CW-l2p"/>
                         <outlet property="guestStatusLabel" destination="ep8-VV-xRF" id="2gw-Eq-KML"/>
                         <outlet property="guestStatusNoteLabel" destination="vE1-cc-nYW" id="l3d-qe-Ch3"/>
@@ -445,6 +522,7 @@
                         <outlet property="menuOption4Button" destination="HYh-Wr-jPm" id="15d-gI-ir4"/>
                         <outlet property="menuView" destination="re1-4W-BaW" id="qe5-Hv-ddh"/>
                         <outlet property="planetChoice1Button" destination="Imn-1W-6Kp" id="rvB-iN-hlB"/>
+                        <outlet property="planetChoice1Graphic1" destination="iOd-xs-HhK" id="p0r-Dd-WH2"/>
                         <outlet property="planetChoice1Graphics" destination="ejj-7V-UlY" id="GvG-68-ALC"/>
                         <outlet property="planetChoice1GuestAttr1Label" destination="4WV-kQ-Zrw" id="Kiw-ht-I9q"/>
                         <outlet property="planetChoice1GuestAttr2Label" destination="4JY-Xi-fni" id="Jjg-89-pSz"/>
@@ -452,6 +530,15 @@
                         <outlet property="planetChoice1GuestLabel" destination="jBG-g1-q13" id="pPa-XN-5Rq"/>
                         <outlet property="planetChoice1NameLabel" destination="2Gb-OV-nPY" id="KX5-4p-gP6"/>
                         <outlet property="planetChoice1View" destination="WY7-ny-Jrp" id="t3d-gQ-i0u"/>
+                        <outlet property="planetChoice2Button" destination="cpw-iz-gqh" id="KVR-bo-McZ"/>
+                        <outlet property="planetChoice2Graphic1" destination="8Pe-KH-CBI" id="VAr-bh-0UK"/>
+                        <outlet property="planetChoice2Graphics" destination="M0Z-Hh-fxH" id="4AI-ja-xq5"/>
+                        <outlet property="planetChoice2GuestAttr1Label" destination="Txr-ty-MYr" id="QuU-9j-JDF"/>
+                        <outlet property="planetChoice2GuestAttr2Label" destination="TQM-fq-TJZ" id="1Ia-kJ-yXe"/>
+                        <outlet property="planetChoice2GuestAttr3Label" destination="jkW-r3-oUy" id="q1X-wv-f9A"/>
+                        <outlet property="planetChoice2GuestLabel" destination="TMC-Dg-Vg1" id="twU-W4-5hd"/>
+                        <outlet property="planetChoice2NameLabel" destination="Tip-Mp-PZ8" id="eI1-yf-gx0"/>
+                        <outlet property="planetChoice2View" destination="3qQ-Qq-OZ6" id="aEg-B4-sEI"/>
                         <outlet property="quitButton" destination="Aad-UQ-go6" id="5QT-WC-qik"/>
                         <outlet property="relationshipLabel" destination="DH9-dY-Oxd" id="FZb-Ol-QFk"/>
                         <outlet property="relationshipRating" destination="Ock-ZY-FOk" id="giD-Sf-ZNY"/>

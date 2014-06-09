@@ -10,6 +10,8 @@
 
 @interface xxiivvViewController : UIViewController
 
+// Session
+
 @property (strong, nonatomic) IBOutlet UIView *mainSessionView;
 
 @property (strong, nonatomic) IBOutlet UIView *menuView;
@@ -46,6 +48,10 @@
 @property (strong, nonatomic) IBOutlet UIView *guestStatusView;
 @property (strong, nonatomic) IBOutlet UILabel *guestStatusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *guestStatusNoteLabel;
+
+@property (strong, nonatomic) IBOutlet UIView *guestGraphics;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphic1;
+
 
 - (IBAction)resultCloseButton:(id)sender;
 
@@ -90,6 +96,19 @@
 @property (strong, nonatomic) IBOutlet UIButton *planetChoice1Button;
 - (IBAction)planetChoice1Button:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *planetChoice2View;
+@property (strong, nonatomic) IBOutlet UIView *planetChoice2Graphics;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice2NameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestLabel;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestAttr1Label;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestAttr2Label;
+@property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestAttr3Label;
+@property (strong, nonatomic) IBOutlet UIButton *planetChoice2Button;
+
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice1Graphic1;
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic1;
+
+
 - (IBAction)quitButton:(id)sender;
 
 // Menu
@@ -99,6 +118,7 @@
 
 - (IBAction)gameStartButton:(id)sender;
 
+- (IBAction)testButton:(id)sender;
 
 
 @end

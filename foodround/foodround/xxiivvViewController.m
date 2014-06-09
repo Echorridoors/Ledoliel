@@ -38,26 +38,6 @@
 	guest = [self guestStart];
 	spellbook = [self spellbookStart];
 	[self menuViewInit];
-//	[self sessionStart];
-}
-
--(void)sessionStart
-{
-	console(@"GAME  | Start");
-	
-	self.guestNameLabel.text = guest[@"name"];
-	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
-	
-	[self alignSelection:0];
-	[self menuSelectionLoad];
-	[self statusBarUpdate];
-}
-
-
--(void)templateStart
-{
-	
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -562,9 +542,24 @@
 	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1Graphics.backgroundColor = [UIColor blueColor];
 	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
 	
 	[self.planetChoice1Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice1Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
+	
+	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*7, screenWidth-(2*templateUnit), templateUnit*4);
+	self.planetChoice2NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2Graphics.backgroundColor = [UIColor blueColor];
+	self.planetChoice2Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
+	
+	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
+	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
+	
 	
 }
 
@@ -582,7 +577,16 @@
 {
 	console(@"  VIEW | (map)Generate Planets");
 	
+	NSArray* attributeShuffle1 = [self shuffleArray:[self guestAttributes]];
+	NSArray* attributeShuffle2 = [self shuffleArray:[self guestAttributes]];
 	
+	self.planetChoice1GuestAttr1Label.text = attributeShuffle1[0];
+	self.planetChoice1GuestAttr2Label.text = attributeShuffle1[1];
+	self.planetChoice1GuestAttr3Label.text = attributeShuffle1[2];
+	
+	self.planetChoice2GuestAttr1Label.text = attributeShuffle2[0];
+	self.planetChoice2GuestAttr2Label.text = attributeShuffle2[1];
+	self.planetChoice2GuestAttr3Label.text = attributeShuffle2[2];
 	
 	
 }
@@ -593,13 +597,19 @@
 {
 	console(@"- VIEW | Session View Init");
 	[self sessionViewTemplate];
+	
+	self.guestNameLabel.text = guest[@"name"];
+	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
+	
+	[self alignSelection:0];
+	[self menuSelectionLoad];
+	[self statusBarUpdate];
+	
 }
 
 -(void)sessionViewTemplate
 {
 	console(@"TMPL  | Start");
-	
-	self.mainSessionView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
 	
 	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 	
@@ -669,6 +679,9 @@
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
 	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
 	
+	self.guestGraphics.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+	self.guestGraphic1.frame = self.guestGraphics.frame;
+	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
@@ -677,14 +690,12 @@
 	NSLog(@"+ GAME | New Game");
 	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit")];
 }
-
+- (IBAction)quitButton:(id)sender {
+	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
+}
 - (IBAction)planetChoice1Button:(id)sender {
 	NSLog(@"+ GAME | New Game");
 	[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
-}
-
-- (IBAction)quitButton:(id)sender {
-	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
 }
 
 #pragma mark Transitions
