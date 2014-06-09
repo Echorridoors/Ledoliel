@@ -10,6 +10,8 @@
 
 @interface xxiivvViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *mainSessionView;
+
 @property (strong, nonatomic) IBOutlet UIView *menuView;
 @property (strong, nonatomic) IBOutlet UIView *selectionView;
 @property (strong, nonatomic) IBOutlet UIView *submenuView;
@@ -85,6 +87,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr2Label;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr3Label;
 @property (strong, nonatomic) IBOutlet UIView *planetChoice1Graphics;
+@property (strong, nonatomic) IBOutlet UIButton *planetChoice1Button;
+- (IBAction)planetChoice1Button:(id)sender;
 
 - (IBAction)quitButton:(id)sender;
 
@@ -94,6 +98,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *gameStartButton;
 
 - (IBAction)gameStartButton:(id)sender;
+
+
 
 @end
 

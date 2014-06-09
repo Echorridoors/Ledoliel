@@ -378,6 +378,16 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Imn-1W-6Kp" userLabel="planetChoice1Button">
+                                                <rect key="frame" x="57" y="127" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="planetChoice1Button:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="LqJ-YD-2W9"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Aad-UQ-go6" userLabel="quitButton">
@@ -428,11 +438,13 @@
                         <outlet property="hintView" destination="yki-k1-6L3" id="hwq-7z-B1w"/>
                         <outlet property="mainMapView" destination="i78-mp-dkL" id="5ZB-Mb-gS3"/>
                         <outlet property="mainMenuView" destination="p7p-fx-IQB" id="3st-xo-4bX"/>
+                        <outlet property="mainSessionView" destination="vSv-BO-VAI" id="yFO-wB-X7v"/>
                         <outlet property="menuOption1Button" destination="05f-EI-g4F" id="063-P8-W1G"/>
                         <outlet property="menuOption2Button" destination="zqq-vc-hpA" id="NFU-z7-ReI"/>
                         <outlet property="menuOption3Button" destination="ZTV-e5-M17" id="fSc-26-meb"/>
                         <outlet property="menuOption4Button" destination="HYh-Wr-jPm" id="15d-gI-ir4"/>
                         <outlet property="menuView" destination="re1-4W-BaW" id="qe5-Hv-ddh"/>
+                        <outlet property="planetChoice1Button" destination="Imn-1W-6Kp" id="rvB-iN-hlB"/>
                         <outlet property="planetChoice1Graphics" destination="ejj-7V-UlY" id="GvG-68-ALC"/>
                         <outlet property="planetChoice1GuestAttr1Label" destination="4WV-kQ-Zrw" id="Kiw-ht-I9q"/>
                         <outlet property="planetChoice1GuestAttr2Label" destination="4JY-Xi-fni" id="Jjg-89-pSz"/>

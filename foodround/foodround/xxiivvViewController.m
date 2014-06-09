@@ -56,77 +56,7 @@
 
 -(void)templateStart
 {
-	console(@"TMPL  | Start");
-	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 	
-	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
-	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateUnit, templateUnit);
-	
-	self.resultView.hidden = YES;
-	self.resultView.alpha = 0;
-	self.resultView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
-	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
-	
-	self.resultCloseButton.hidden = YES;
-	self.resultCloseButton.alpha = 0;
-	self.resultCloseButton.backgroundColor = [UIColor redColor];
-	self.resultCloseButton.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, (templateUnit*4));
-	
-	self.resultPaneLabel1.text = @"You touch the woeful's money";
-	self.resultPaneLabel2.text = @"The woeful's tentacular eyeballs are thrilling with lust, you are excelent at diplomacy.";
-	self.resultPaneLabel3.text = @"The woeful's species are known to display excitement before the beheading of their enemies.";
-	self.resultPaneLabel4.text = @"The woeful jumps you and beheads you, before wearing your body as a costume.";
-	
-	self.resultPaneLabel1.textColor = [UIColor whiteColor];
-	self.resultPaneLabel2.textColor = [UIColor whiteColor];
-	self.resultPaneLabel3.textColor = [UIColor whiteColor];
-	self.resultPaneLabel4.textColor = [UIColor whiteColor];
-	
-	self.resultPaneLabel1.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel2.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel3.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel4.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	
-	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
-	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
-	self.menuOption3Button.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-templateUnit, templateUnit);
-	self.menuOption4Button.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-templateUnit, templateUnit);
-	
-	[self.submenuOption1Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
-	[self.submenuOption2Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
-	
-	self.submenuOption1Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-	self.submenuOption2Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-	
-	self.selectorView.frame = CGRectMake(0, 0, templateUnit, templateUnit);
-	
-	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
-	self.guestStatusView.hidden = YES;
-	self.guestStatusView.alpha = 0;
-//	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
-	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
-	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
-	self.guestStatusLabel.textColor = [UIColor blackColor];
-	
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
-	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
-	
-	self.statusView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
-	self.relationshipLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
-	
-	self.hintView.backgroundColor = [UIColor redColor];
-	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);
-	self.hintLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
-	self.hintLabel.font = [UIFont boldSystemFontOfSize:12];
-	
-	self.statusView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
-	self.relationshipRating.backgroundColor = [UIColor blackColor];
-	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit/2-2, (screenWidth/2)-templateUnit, 4);
-	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
-	
-	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
-	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	
 }
 
@@ -633,6 +563,8 @@
 	self.planetChoice1Graphics.backgroundColor = [UIColor blueColor];
 	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
 	
+	[self.planetChoice1Button setTitle:@"" forState:UIControlStateNormal];
+	self.planetChoice1Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
 	
 }
 
@@ -660,21 +592,100 @@
 -(void)sessionViewInit
 {
 	console(@"- VIEW | Session View Init");
+	[self sessionViewTemplate];
 }
 
-
+-(void)sessionViewTemplate
+{
+	console(@"TMPL  | Start");
+	
+	self.mainSessionView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+	
+	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
+	
+	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateUnit, templateUnit);
+	
+	self.resultView.hidden = YES;
+	self.resultView.alpha = 0;
+	self.resultView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.8];
+	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
+	
+	self.resultCloseButton.hidden = YES;
+	self.resultCloseButton.alpha = 0;
+	self.resultCloseButton.backgroundColor = [UIColor redColor];
+	self.resultCloseButton.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, (templateUnit*4));
+	
+	self.resultPaneLabel1.text = @"You touch the woeful's money";
+	self.resultPaneLabel2.text = @"The woeful's tentacular eyeballs are thrilling with lust, you are excelent at diplomacy.";
+	self.resultPaneLabel3.text = @"The woeful's species are known to display excitement before the beheading of their enemies.";
+	self.resultPaneLabel4.text = @"The woeful jumps you and beheads you, before wearing your body as a costume.";
+	
+	self.resultPaneLabel1.textColor = [UIColor whiteColor];
+	self.resultPaneLabel2.textColor = [UIColor whiteColor];
+	self.resultPaneLabel3.textColor = [UIColor whiteColor];
+	self.resultPaneLabel4.textColor = [UIColor whiteColor];
+	
+	self.resultPaneLabel1.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel2.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel3.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel4.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	
+	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
+	self.menuOption3Button.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-templateUnit, templateUnit);
+	self.menuOption4Button.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-templateUnit, templateUnit);
+	
+	[self.submenuOption1Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
+	[self.submenuOption2Button setTitleColor:[UIColor colorWithWhite:0.5 alpha:1] forState:UIControlStateDisabled];
+	
+	self.submenuOption1Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+	self.submenuOption2Button.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+	
+	self.selectorView.frame = CGRectMake(0, 0, templateUnit, templateUnit);
+	
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
+	self.guestStatusView.hidden = YES;
+	self.guestStatusView.alpha = 0;
+	//	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
+	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
+	self.guestStatusLabel.textColor = [UIColor blackColor];
+	
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
+	
+	self.statusView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
+	self.relationshipLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	
+	self.hintView.backgroundColor = [UIColor redColor];
+	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);
+	self.hintLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	self.hintLabel.font = [UIFont boldSystemFontOfSize:12];
+	
+	self.statusView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
+	self.relationshipRating.backgroundColor = [UIColor blackColor];
+	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit/2-2, (screenWidth/2)-templateUnit, 4);
+	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
+	
+	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
+	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
 
 - (IBAction)gameStartButton:(id)sender {
 	NSLog(@"+ GAME | New Game");
 	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit")];
 }
 
-
+- (IBAction)planetChoice1Button:(id)sender {
+	NSLog(@"+ GAME | New Game");
+	[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+}
 
 - (IBAction)quitButton:(id)sender {
 	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
 }
-
 
 #pragma mark Transitions
 
