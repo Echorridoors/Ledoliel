@@ -534,28 +534,28 @@
 	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
 	self.quitButton.frame = CGRectMake(screenWidth/2, 0, (screenWidth/2)-templateUnit, templateUnit);
 	
-	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-(2*templateUnit), templateUnit*4);
-	self.planetChoice1NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1Graphics.backgroundColor = [UIColor blueColor];
-	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit*4);
+	self.planetChoice1NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
 	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
+	self.planetChoice1Graphic1.image = [UIImage imageNamed:@"planet1.png"];
 	
 	[self.planetChoice1Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice1Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
 	
-	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*7, screenWidth-(2*templateUnit), templateUnit*4);
-	self.planetChoice2NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2Graphics.backgroundColor = [UIColor blueColor];
-	self.planetChoice2Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*9, screenWidth-(2*templateUnit), templateUnit*4);
+	self.planetChoice2NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
 	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
+	self.planetChoice2Graphic1.image = [UIImage imageNamed:@"planet1.png"];
 	
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
@@ -584,11 +584,13 @@
 	self.planetChoice1GuestAttr2Label.text = attributeShuffle1[1];
 	self.planetChoice1GuestAttr3Label.text = attributeShuffle1[2];
 	
+	self.planetChoice1GuestLabel.text = [self guestNameFromAttributes:attributeShuffle1[0]:attributeShuffle1[1]:attributeShuffle1[2]];
+	
 	self.planetChoice2GuestAttr1Label.text = attributeShuffle2[0];
 	self.planetChoice2GuestAttr2Label.text = attributeShuffle2[1];
 	self.planetChoice2GuestAttr3Label.text = attributeShuffle2[2];
 	
-	
+	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];	
 }
 
 #pragma mark Session
