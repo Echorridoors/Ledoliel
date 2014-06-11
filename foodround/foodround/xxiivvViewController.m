@@ -619,7 +619,9 @@
 {	
 	if(to_i(user[@"selection"])==1){
 		guest[@"attributes"] = guest[@"attributes_potential"][0];
-		[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+		[self flickrView];
+		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:1];
@@ -627,11 +629,30 @@
 }
 - (IBAction)planetChoice2Button:(id)sender {
 	if(to_i(user[@"selection"])==2){
-		[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+		guest[@"attributes"] = guest[@"attributes_potential"][1];
+		[self flickrView];
+		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:2];
 	}
+}
+
+-(void)flickrView
+{
+	flickrTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(flickrView) userInfo:nil repeats:NO];
+	if( _planetSelectionView.hidden == YES){
+		_planetSelectionView.hidden = NO;
+	}
+	else{
+		_planetSelectionView.hidden = YES;
+	}
+}
+
+-(void)flickerViewStop
+{
+	[flickrTimer invalidate];
 }
 
 #pragma mark Session
@@ -641,8 +662,13 @@
 	console(@"- VIEW | Session View Init");
 	[self sessionViewTemplate];
 	
-	self.guestNameLabel.text = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
+	NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
+	NSString* guestCustom = [self guestCustomFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
+	
+	self.guestNameLabel.text = guestName;
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
+	
+	[self modalViewDisplay:guestCustom:1.5];
 	
 	[self alignSelection:0];
 	[self menuSelectionLoad];
@@ -731,11 +757,11 @@
 
 - (IBAction)gameStartButton:(id)sender {
 	NSLog(@"+ GAME | New Game");
-	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit")];
+	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit") :0];
 }
 
 - (IBAction)quitButton:(id)sender {
-	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
+	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit") :0];
 }
 
 
@@ -762,7 +788,7 @@
 	self.modalButton.frame = CGRectMake(0, 0, screenWidth, screenHeight);
 }
 
--(void)modalViewDisplay :(NSString*)message
+-(void)modalViewDisplay :(NSString*)message :(float)delay
 {
 	self.modalView.alpha = 0;
 	self.modalView.hidden = NO;
@@ -771,6 +797,7 @@
 	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationDelay:delay];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	self.modalView.alpha = 1;
@@ -798,7 +825,7 @@
 
 #pragma mark Transitions
 
--(void)transitionView :(NSString*)direction :(UIView*)fromView :(UIView*)toView :(SEL)targetSelector
+-(void)transitionView :(NSString*)direction :(UIView*)fromView :(UIView*)toView :(SEL)targetSelector :(float)delay
 {
 	CGRect viewFocus = CGRectMake(0, 0, screenWidth, screenHeight);
 	CGRect viewAbove = CGRectMake(0, screenHeight*-1, screenWidth, screenHeight);
@@ -820,6 +847,7 @@
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationDelay:delay];
 		
 		if([direction isEqualToString:@"downward"]){
 			fromView.frame = viewAbove;

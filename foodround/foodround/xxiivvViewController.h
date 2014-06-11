@@ -63,7 +63,6 @@
 - (IBAction)submenuOption2Button:(id)sender;
 - (IBAction)confirmButton:(id)sender;
 
-
 // World Map
 
 @property (strong, nonatomic) IBOutlet UIView *mainMapView;
@@ -109,7 +108,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *planetSelectionView;
 
-
 - (IBAction)quitButton:(id)sender;
 
 // Menu
@@ -138,3 +136,5 @@ float templateUnit = 30;
 NSMutableDictionary *user;
 NSMutableDictionary *guest;
 NSMutableDictionary *spellbook;
+
+NSTimer* flickrTimer;

@@ -21,7 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich"];
+	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent"];
 	
 	return attributes;
 }
@@ -31,14 +31,14 @@
 	return [NSString stringWithFormat:@"%@%@%@",[self syllableFromAttribute:attr1:1],[self syllableFromAttribute:attr2:2],[self syllableFromAttribute:attr3:3]];
 }
 
--(NSString*)customFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
+-(NSString*)guestCustomFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
 {
-	NSString* guestName = [NSString stringWithFormat:@"%@%@%@",[self syllableFromAttribute:attr1:1],[self syllableFromAttribute:attr2:2],[self syllableFromAttribute:attr3:3]];
+	NSString* guestName = [self guestNameFromAttributes:attr1:attr2:attr3];
 	NSString* guestAction = [self syllableFromAttribute:attr1:4];
 	NSString* guesttarget = [self syllableFromAttribute:attr2:5];
 	NSString* guestBody   = [self syllableFromAttribute:attr3:6];
 	
-	return [NSString stringWithFormat:@"As it is custom, %@ %@ your %@ with its %@",guestName,guestAction,guesttarget,guestBody];
+	return [NSString stringWithFormat:@"As it is their customary and diplomatic salute, %@ %@ your %@ with their %@",guestName,guestAction,guesttarget,guestBody];
 }
 
 -(NSString*)syllableFromAttribute :(NSString*)attribute :(int)order
@@ -68,7 +68,7 @@
 	if([attribute isEqualToString:@"greedy"] && order == 2){ return @"onim"; }
 	if([attribute isEqualToString:@"greedy"] && order == 3){ return @"eq"; }
 	if([attribute isEqualToString:@"greedy"] && order == 4){ return @"scratches"; }
-	if([attribute isEqualToString:@"greedy"] && order == 5){ return @"fingers"; }
+	if([attribute isEqualToString:@"greedy"] && order == 5){ return @"hand"; }
 	if([attribute isEqualToString:@"greedy"] && order == 6){ return @"wand"; }
 	
 	if([attribute isEqualToString:@"polite"] && order == 1){ return @"Led"; }
@@ -81,8 +81,8 @@
 	if([attribute isEqualToString:@"tribal"] && order == 1){ return @"Bras"; }
 	if([attribute isEqualToString:@"tribal"] && order == 2){ return @"arg"; }
 	if([attribute isEqualToString:@"tribal"] && order == 3){ return @"ulb"; }
-	if([attribute isEqualToString:@"tribal"] && order == 4){ return @"stabs"; }
-	if([attribute isEqualToString:@"tribal"] && order == 5){ return @"breasts"; }
+	if([attribute isEqualToString:@"tribal"] && order == 4){ return @"bashes"; }
+	if([attribute isEqualToString:@"tribal"] && order == 5){ return @"breast"; }
 	if([attribute isEqualToString:@"tribal"] && order == 6){ return @"staff"; }
 	
 	if([attribute isEqualToString:@"rich"] && order == 1){ return @"Den"; }
@@ -91,6 +91,27 @@
 	if([attribute isEqualToString:@"rich"] && order == 4){ return @"pats"; }
 	if([attribute isEqualToString:@"rich"] && order == 5){ return @"hand"; }
 	if([attribute isEqualToString:@"rich"] && order == 6){ return @"gloved hand"; }
+	
+	if([attribute isEqualToString:@"evil"] && order == 1){ return @"Khav"; }
+	if([attribute isEqualToString:@"evil"] && order == 2){ return @"iol"; }
+	if([attribute isEqualToString:@"evil"] && order == 3){ return @"olat"; }
+	if([attribute isEqualToString:@"evil"] && order == 4){ return @"stabs"; }
+	if([attribute isEqualToString:@"evil"] && order == 5){ return @"eyes"; }
+	if([attribute isEqualToString:@"evil"] && order == 6){ return @"knife"; }
+	
+	if([attribute isEqualToString:@"sadist"] && order == 1){ return @"Il"; }
+	if([attribute isEqualToString:@"sadist"] && order == 2){ return @"ol"; }
+	if([attribute isEqualToString:@"sadist"] && order == 3){ return @"lem"; }
+	if([attribute isEqualToString:@"sadist"] && order == 4){ return @"cuts"; }
+	if([attribute isEqualToString:@"sadist"] && order == 5){ return @"head"; }
+	if([attribute isEqualToString:@"sadist"] && order == 6){ return @"toenail"; }
+	
+	if([attribute isEqualToString:@"pestilent"] && order == 1){ return @"Erq"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 2){ return @"ash"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 3){ return @"mol"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 4){ return @"rubs"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 5){ return @"troath"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 6){ return @"armpit"; }
 	
 	return @"wip";
 }
