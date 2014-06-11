@@ -278,6 +278,20 @@
 	NSString* guestAttr2 = guest[@"attributes"][1];
 	NSString* guestAttr3 = guest[@"attributes"][2];
 	
+	NSString* positive1 = @"";
+	NSString* positive2 = @"";
+	NSString* positive3 = @"";
+	int positiveSum = 0;
+	
+	NSString* negative1 = @"";
+	NSString* negative2 = @"";
+	NSString* negative3 = @"";
+	int negativeSum = 0;
+	
+	int reaction1 = [self reactionFromAttribute:guestAttr1:action:spell:0];
+	int reaction2 = [self reactionFromAttribute:guestAttr2:action:spell:1];
+	int reaction3 = [self reactionFromAttribute:guestAttr3:action:spell:2];
+	
 	// 1.action process
 	
 	if([action isEqualToString:@"say"]){
@@ -295,45 +309,37 @@
 	
 	// 2.positive process
 	
-	NSString* positive1 = @"";
-	NSString* positive2 = @"";
-	NSString* positive3 = @"";
-	int positiveSum = 0;
-	if( [self reactionFromAttribute:guestAttr1:action:spell] > 0){
-		positive1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr1:action:spell] ];
-		positiveSum += [self reactionFromAttribute:guestAttr1:action:spell];
+	if( reaction1 > 0){
+		positive1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction1 ];
+		positiveSum += reaction1;
 	}
-	if( [self reactionFromAttribute:guestAttr2:action:spell] > 0){
-		positive2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr2:action:spell] ];
-		positiveSum += [self reactionFromAttribute:guestAttr2:action:spell];
+	if( reaction2 > 0){
+		positive2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction2 ];
+		positiveSum += reaction2;
 	}
-	if( [self reactionFromAttribute:guestAttr3:action:spell] > 0){
-		positive3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr3:action:spell] ];
-		positiveSum += [self reactionFromAttribute:guestAttr3:action:spell];
+	if( reaction3 > 0){
+		positive3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction3 ];
+		positiveSum += reaction3;
 	}
 	
 	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",positive1,positive2,positive3,positiveSum];
 	
 	// 3.negative process
 	
-	NSString* negative1 = @"";
-	NSString* negative2 = @"";
-	NSString* negative3 = @"";
-	int negativeSum = 0;
-	if( [self reactionFromAttribute:guestAttr1:action:spell] < 0){
-		negative1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr1:action:spell] ];
-		negativeSum += [self reactionFromAttribute:guestAttr1:action:spell];
+	if( reaction1 < 0){
+		negative1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction1 ];
+		negativeSum += reaction1;
 	}
-	if( [self reactionFromAttribute:guestAttr2:action:spell] < 0){
-		negative2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr2:action:spell] ];
-		negativeSum += [self reactionFromAttribute:guestAttr2:action:spell];
+	if( reaction2 < 0){
+		negative2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction2 ];
+		negativeSum += reaction2;
 	}
-	if( [self reactionFromAttribute:guestAttr3:action:spell] < 0){
-		negative3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr3:action:spell] ];
-		negativeSum += [self reactionFromAttribute:guestAttr3:action:spell];
+	if( reaction3 < 0){
+		negative3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction3 ];
+		negativeSum += reaction3;
 	}
 	
-	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",negative1,negative2,negative3,positiveSum];
+	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",negative1,negative2,negative3,negativeSum];
 	
 	// 4. Summary
 	
