@@ -242,9 +242,9 @@
 	
 	user[@"relationship"] = to_s(to_i(user[@"relationship"])+guestAttributeReactionSum);
 	
+	[self sessionResultScreenUpdate:action:spell];
 	[self sessionResultScreenDisplay];
 	[self sessionRoundsViewUpdate];
-
 }
 
 -(void)sessionRoundsViewUpdate
@@ -269,11 +269,32 @@
 			_roundsCount4View.backgroundColor = [UIColor blackColor];
 			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
 		}
-		
-		
-	} completion:^(BOOL finished){
-		
-	}];
+	} completion:^(BOOL finished){}];
+}
+
+-(void)sessionResultScreenUpdate :(NSString*)action :(NSString*)spell
+{
+	NSString* guestName = guest[@"name"];
+	NSString* guestAttr1 = guest[@"attributes"][0];
+	// action process
+	
+	if([action isEqualToString:@"say"]){
+		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ \"%@\" to %@.",action,spell,guestName];
+	}
+	if([action isEqualToString:@"give"]){
+		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@ to %@",action,spell,guestName];
+	}
+	if([action isEqualToString:@"touch"]){
+		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@'s %@",action,spell,guestName];
+	}
+	if([action isEqualToString:@"leave"]){
+		_resultPaneLabel1.text = @"Run away? ";
+	}
+	
+	if( [self reactionFromAttribute:guestAttr1:action:spell] > 0){
+	
+	}
+	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@ likes to talk",guestName];
 }
 
 -(void)sessionResultScreenDisplay
@@ -649,6 +670,8 @@
 {	
 	if(to_i(user[@"selection"])==1){
 		guest[@"attributes"] = guest[@"attributes_potential"][0];
+		guest[@"name"] = _planetChoice1GuestLabel.text;
+		
 		[self flickrView];
 		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];
@@ -657,9 +680,12 @@
 		[self mapViewPlanetSelectorAlign:1];
 	}
 }
-- (IBAction)planetChoice2Button:(id)sender {
+- (IBAction)planetChoice2Button:(id)sender
+{
 	if(to_i(user[@"selection"])==2){
 		guest[@"attributes"] = guest[@"attributes_potential"][1];
+		guest[@"name"] = _planetChoice2GuestLabel.text;
+		
 		[self flickrView];
 		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];

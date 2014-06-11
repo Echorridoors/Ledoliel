@@ -116,6 +116,12 @@
 	return @"wip";
 }
 
+-(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell
+{
+	return 0;
+}
+
+
 
 
 @end

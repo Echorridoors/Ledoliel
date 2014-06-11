@@ -15,5 +15,6 @@
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3;
 -(NSString*)guestCustomFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3;
 -(NSString*)syllableFromAttribute :(NSString*)attribute :(int)order;
+-(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell;
 
 @end
