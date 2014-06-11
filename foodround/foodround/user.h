@@ -11,5 +11,6 @@
 @interface UIViewController (user)
 
 -(NSMutableDictionary*)userStart;
+-(NSArray*)userSpells;
 
 @end

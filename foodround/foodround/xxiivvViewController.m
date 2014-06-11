@@ -231,7 +231,7 @@
 	NSLog(@"TURN  | #%d:%@ -> %@",currentGameRound,action,spell);
 	
 	// replace with New Spell
-	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = @"eggs";
+	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
 	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
 	int guestAttributeReaction1 = to_i(spellbook[spell][action][guest[@"attributes"][0]]);
@@ -244,7 +244,6 @@
 	
 	[self sessionResultScreenUpdate:action:spell];
 	[self sessionResultScreenDisplay];
-	[self sessionRoundsViewUpdate];
 }
 
 -(void)sessionRoundsViewUpdate
@@ -276,7 +275,10 @@
 {
 	NSString* guestName = guest[@"name"];
 	NSString* guestAttr1 = guest[@"attributes"][0];
-	// action process
+	NSString* guestAttr2 = guest[@"attributes"][1];
+	NSString* guestAttr3 = guest[@"attributes"][2];
+	
+	// 1.action process
 	
 	if([action isEqualToString:@"say"]){
 		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ \"%@\" to %@.",action,spell,guestName];
@@ -285,16 +287,66 @@
 		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@ to %@",action,spell,guestName];
 	}
 	if([action isEqualToString:@"touch"]){
-		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@'s %@",action,spell,guestName];
+		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@'s %@",action,guestName,spell];
 	}
 	if([action isEqualToString:@"leave"]){
 		_resultPaneLabel1.text = @"Run away? ";
 	}
 	
-	if( [self reactionFromAttribute:guestAttr1:action:spell] > 0){
+	// 2.positive process
 	
+	NSString* positive1 = @"";
+	NSString* positive2 = @"";
+	NSString* positive3 = @"";
+	int positiveSum = 0;
+	if( [self reactionFromAttribute:guestAttr1:action:spell] > 0){
+		positive1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr1:action:spell] ];
+		positiveSum += [self reactionFromAttribute:guestAttr1:action:spell];
 	}
-	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@ likes to talk",guestName];
+	if( [self reactionFromAttribute:guestAttr2:action:spell] > 0){
+		positive2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr2:action:spell] ];
+		positiveSum += [self reactionFromAttribute:guestAttr2:action:spell];
+	}
+	if( [self reactionFromAttribute:guestAttr3:action:spell] > 0){
+		positive3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr3:action:spell] ];
+		positiveSum += [self reactionFromAttribute:guestAttr3:action:spell];
+	}
+	
+	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",positive1,positive2,positive3,positiveSum];
+	
+	// 3.negative process
+	
+	NSString* negative1 = @"";
+	NSString* negative2 = @"";
+	NSString* negative3 = @"";
+	int negativeSum = 0;
+	if( [self reactionFromAttribute:guestAttr1:action:spell] < 0){
+		negative1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr1:action:spell] ];
+		negativeSum += [self reactionFromAttribute:guestAttr1:action:spell];
+	}
+	if( [self reactionFromAttribute:guestAttr2:action:spell] < 0){
+		negative2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr2:action:spell] ];
+		negativeSum += [self reactionFromAttribute:guestAttr2:action:spell];
+	}
+	if( [self reactionFromAttribute:guestAttr3:action:spell] < 0){
+		negative3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,[self reactionFromAttribute:guestAttr3:action:spell] ];
+		negativeSum += [self reactionFromAttribute:guestAttr3:action:spell];
+	}
+	
+	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",negative1,negative2,negative3,positiveSum];
+	
+	// 4. Summary
+	
+	if( positiveSum + negativeSum > 0 ){
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You gained %d",(positiveSum + negativeSum)];
+	}
+	else if( positiveSum + negativeSum < 0 ){
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You lost %d",(positiveSum + negativeSum)];
+	}
+	else{
+		_resultPaneLabel4.text = @"Unchanged";
+	}
+	
 }
 
 -(void)sessionResultScreenDisplay
@@ -358,8 +410,13 @@
 	
 	
 	if(currentSessionResultscreenPosition == 3){
+		currentGameRound += 1;
+		
 		[self sessionResultScreenHide];
 		[self guestResponseDisplay];
+		[self sessionRoundsViewUpdate];
+		
+		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound];
 		
 	}else{
 		currentSessionResultscreenPosition += 1;	
@@ -518,8 +575,6 @@
 }
 
 - (IBAction)confirmButton:(id)sender {
-	
-	currentGameRound += 1;
 	
 	[self playTurn];
 	[self hintHide];
