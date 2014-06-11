@@ -10,6 +10,7 @@
 
 @interface UIViewController (tools)
 
-- (id)randomObjectInArray:(NSArray*)arrayInput;
+-(id)randomObjectInArray:(NSArray*)arrayInput;
+-(NSArray*)shuffleArray :(NSArray*)array;
 
 @end

@@ -944,16 +944,6 @@
 	}];
 }
 
--(NSArray*)shuffleArray :(NSArray*)array
-{
-	NSMutableArray *shuffledArray = [[NSMutableArray alloc] initWithArray:array];
-	for (int i = shuffledArray.count - 1; i >= 0; --i) {
-		int r = arc4random_uniform(shuffledArray.count);
-		[shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:r];
-	}
-	
-	return shuffledArray;
-}
 
 
 @end

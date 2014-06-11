@@ -21,9 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	NSArray* attributes = @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent"];
-	
-	return attributes;
+	return @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious"];
 }
 
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
@@ -113,11 +111,25 @@
 	if([attribute isEqualToString:@"pestilent"] && order == 5){ return @"troath"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 6){ return @"armpit"; }
 	
+	if([attribute isEqualToString:@"religious"] && order == 1){ return @"arch"; }
+	if([attribute isEqualToString:@"religious"] && order == 2){ return @"orell"; }
+	if([attribute isEqualToString:@"religious"] && order == 3){ return @"stef"; }
+	if([attribute isEqualToString:@"religious"] && order == 4){ return @"gropes"; }
+	if([attribute isEqualToString:@"religious"] && order == 5){ return @"forehead"; }
+	if([attribute isEqualToString:@"religious"] && order == 6){ return @"robe"; }
+	
 	return @"wip";
 }
 
 -(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell
 {
+	// Rich
+	if( [attribute isEqualToString:@"rich"] ){
+		if( [action isEqualToString:@"touch"] ){
+			if( [spell isEqualToString:@"money"]){ return -1;}
+		}
+	}
+	
 	return 0;
 }
 
