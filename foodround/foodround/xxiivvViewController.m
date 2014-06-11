@@ -243,7 +243,37 @@
 	user[@"relationship"] = to_s(to_i(user[@"relationship"])+guestAttributeReactionSum);
 	
 	[self sessionResultScreenDisplay];
+	[self sessionRoundsViewUpdate];
 
+}
+
+-(void)sessionRoundsViewUpdate
+{
+	float roundsCircleSize = templateUnit*0.35;
+	
+	[UIView animateWithDuration:0.5 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		if( currentGameRound > -1 ){
+			_roundsCount1View.backgroundColor = [UIColor blackColor];
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 0, 3);
+		}
+		if( currentGameRound > 0 ){
+			_roundsCount2View.backgroundColor = [UIColor blackColor];
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 1*templateUnit-(roundsCircleSize/2), 3);
+		}
+		if( currentGameRound > 1 ){
+			_roundsCount3View.backgroundColor = [UIColor blackColor];
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 2*templateUnit-(roundsCircleSize/2), 3);
+		}
+		if( currentGameRound > 2 ){
+			_roundsCount4View.backgroundColor = [UIColor blackColor];
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
+		}
+		
+		
+	} completion:^(BOOL finished){
+		
+	}];
 }
 
 -(void)sessionResultScreenDisplay
@@ -480,7 +510,7 @@
     return YES;
 }
 
-#pragma mark Menu
+#pragma mark 1.Menu
 
 -(void)menuViewInit
 {
@@ -495,7 +525,7 @@
 	self.mainMenuView.hidden = NO;
 }
 
-#pragma mark Map
+#pragma mark 2.Map
 
 -(void)mapViewInit
 {
@@ -598,7 +628,7 @@
 
 -(void)mapViewPlanetSelectorAlign :(int)choice
 {
-	[UIView animateWithDuration:0.2 animations:^(void){
+	[UIView animateWithDuration:0.15 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
 		if(choice == 1){
@@ -655,7 +685,7 @@
 	[flickrTimer invalidate];
 }
 
-#pragma mark Session
+#pragma mark 3.Session
 
 -(void)sessionViewInit
 {
@@ -673,6 +703,7 @@
 	[self alignSelection:0];
 	[self menuSelectionLoad];
 	[self statusBarUpdate];
+	[self sessionRoundsViewUpdate];
 	
 }
 
@@ -734,6 +765,7 @@
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
 	
+	self.statusView.hidden = YES;
 	self.statusView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
 	self.relationshipLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	
@@ -753,6 +785,30 @@
 	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	
+	// Rounds Interface
+	
+	float roundsCircleSize = templateUnit*0.35;
+	
+	_roundsView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+	_roundsView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
+	_roundsLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
+	_roundsLabel.text = @"Round 1";
+	_roundsCount1View.frame = CGRectMake(screenWidth/2, templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount1View.layer.cornerRadius = roundsCircleSize/2;
+	_roundsCount2View.frame = CGRectMake(screenWidth/2 + (templateUnit), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount2View.layer.cornerRadius = roundsCircleSize/2;
+	_roundsCount3View.frame = CGRectMake(screenWidth/2 + (templateUnit*2), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount3View.layer.cornerRadius = roundsCircleSize/2;
+	_roundsCount4View.frame = CGRectMake(screenWidth/2 + (templateUnit*3), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount4View.layer.cornerRadius = roundsCircleSize/2;
+	_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
+	
+	_roundsCount1View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	_roundsCount2View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	_roundsCount3View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	_roundsCount4View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	
 }
 
 - (IBAction)gameStartButton:(id)sender {
@@ -763,7 +819,6 @@
 - (IBAction)quitButton:(id)sender {
 	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit") :0];
 }
-
 
 #pragma mark Modal
 

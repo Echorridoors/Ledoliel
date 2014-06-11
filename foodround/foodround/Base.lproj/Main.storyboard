@@ -41,6 +41,43 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="2WQ-Un-9kw" userLabel="roundsView">
+                                        <rect key="frame" x="40" y="71" width="80" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" id="04R-5X-7lj" userLabel="roundsLabel">
+                                                <rect key="frame" x="19" y="61" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" id="K4K-ig-nxf" userLabel="roundsProgressView">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="9JY-hw-lmX" userLabel="roundsCount1View">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="d4Y-ue-WpB" userLabel="roundsCount2View">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="Zsr-k5-tLR" userLabel="roundsCount3View">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="OkF-F8-Cgd" userLabel="roundsCount4View">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </view>
+                                        </subviews>
+                                    </view>
                                     <view contentMode="scaleToFill" id="OcF-GL-Hcg" userLabel="resultView">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -483,6 +520,13 @@
                                             <action selector="gameStartButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kHN-UI-jr9"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GOAL: Survive 4 rounds of diplomacy without getting your head eaten by the other political leader." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dZ-qt-OZS">
+                                        <rect key="frame" x="20" y="350" width="273" height="77"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -501,19 +545,19 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Czg-sp-mtl" userLabel="modalButton">
+                                                <rect key="frame" x="17" y="56" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="modalButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="r3R-DY-k5L"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Czg-sp-mtl" userLabel="modalButton">
-                                        <rect key="frame" x="57" y="127" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="modalButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="r3R-DY-k5L"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -572,6 +616,13 @@
                         <outlet property="resultPaneLabel3" destination="QSu-XV-3Or" id="cEy-Vc-p7f"/>
                         <outlet property="resultPaneLabel4" destination="bUm-xr-xco" id="inv-4j-zEc"/>
                         <outlet property="resultView" destination="OcF-GL-Hcg" id="cIb-t2-NaK"/>
+                        <outlet property="roundsCount1View" destination="9JY-hw-lmX" id="llx-Q7-YlR"/>
+                        <outlet property="roundsCount2View" destination="d4Y-ue-WpB" id="dE6-eZ-Mf8"/>
+                        <outlet property="roundsCount3View" destination="Zsr-k5-tLR" id="Hgg-fN-a0D"/>
+                        <outlet property="roundsCount4View" destination="OkF-F8-Cgd" id="bDD-o8-aWX"/>
+                        <outlet property="roundsLabel" destination="04R-5X-7lj" id="Wdc-hv-9aP"/>
+                        <outlet property="roundsProgressView" destination="K4K-ig-nxf" id="cNG-46-2yV"/>
+                        <outlet property="roundsView" destination="2WQ-Un-9kw" id="Y36-nf-cCK"/>
                         <outlet property="selectionView" destination="ZtQ-MU-Gku" id="Npn-1O-nVz"/>
                         <outlet property="selectorView" destination="UVE-th-haN" id="4kH-Su-OPo"/>
                         <outlet property="spellbookGiveLabel" destination="Npt-ca-2dJ" id="tzF-FA-hmJ"/>

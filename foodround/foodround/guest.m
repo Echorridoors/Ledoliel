@@ -83,7 +83,7 @@
 	if([attribute isEqualToString:@"tribal"] && order == 3){ return @"ulb"; }
 	if([attribute isEqualToString:@"tribal"] && order == 4){ return @"bashes"; }
 	if([attribute isEqualToString:@"tribal"] && order == 5){ return @"breast"; }
-	if([attribute isEqualToString:@"tribal"] && order == 6){ return @"staff"; }
+	if([attribute isEqualToString:@"tribal"] && order == 6){ return @"tail"; }
 	
 	if([attribute isEqualToString:@"rich"] && order == 1){ return @"Den"; }
 	if([attribute isEqualToString:@"rich"] && order == 2){ return @"aml"; }
@@ -104,7 +104,7 @@
 	if([attribute isEqualToString:@"sadist"] && order == 3){ return @"lem"; }
 	if([attribute isEqualToString:@"sadist"] && order == 4){ return @"cuts"; }
 	if([attribute isEqualToString:@"sadist"] && order == 5){ return @"head"; }
-	if([attribute isEqualToString:@"sadist"] && order == 6){ return @"toenail"; }
+	if([attribute isEqualToString:@"sadist"] && order == 6){ return @"toenails"; }
 	
 	if([attribute isEqualToString:@"pestilent"] && order == 1){ return @"Erq"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 2){ return @"ash"; }

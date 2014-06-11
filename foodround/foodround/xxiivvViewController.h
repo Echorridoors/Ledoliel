@@ -52,6 +52,15 @@
 @property (strong, nonatomic) IBOutlet UIView *guestGraphics;
 @property (strong, nonatomic) IBOutlet UIImageView *guestGraphic1;
 
+@property (strong, nonatomic) IBOutlet UIView *roundsView;
+@property (strong, nonatomic) IBOutlet UILabel *roundsLabel;
+@property (strong, nonatomic) IBOutlet UIView *roundsProgressView;
+@property (strong, nonatomic) IBOutlet UIView *roundsCount1View;
+@property (strong, nonatomic) IBOutlet UIView *roundsCount2View;
+@property (strong, nonatomic) IBOutlet UIView *roundsCount3View;
+@property (strong, nonatomic) IBOutlet UIView *roundsCount4View;
+
+
 
 - (IBAction)resultCloseButton:(id)sender;
 
