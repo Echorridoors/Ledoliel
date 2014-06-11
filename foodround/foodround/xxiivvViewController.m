@@ -540,7 +540,7 @@
 	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice1Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
 	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
 	self.planetChoice1Graphic1.image = [UIImage imageNamed:@"planet1.png"];
 	
@@ -552,12 +552,15 @@
 	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
+	self.planetChoice2Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
 	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
 	self.planetChoice2Graphic1.image = [UIImage imageNamed:@"planet1.png"];
 	
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
+	
+	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
+	self.planetSelectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
 	
 }
 
@@ -593,6 +596,44 @@
 	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];
 }
 
+-(void)mapViewPlanetSelectorAlign :(int)choice
+{
+	[UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		if(choice == 1){
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
+		}
+		else{
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
+		}
+		
+	} completion:^(BOOL finished){
+		user[@"selection"] = [NSString stringWithFormat:@"%d",choice];
+		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][(choice-1)][0]:guest[@"attributes_potential"][(choice-1)][1]:guest[@"attributes_potential"][(choice-1)][2]]];
+	}];
+}
+
+
+- (IBAction)planetChoice1Button:(id)sender
+{	
+	if(to_i(user[@"selection"])==1){
+		guest[@"attributes"] = guest[@"attributes_potential"][0];
+		[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+	}
+	else{
+		[self mapViewPlanetSelectorAlign:1];
+	}
+}
+- (IBAction)planetChoice2Button:(id)sender {
+	if(to_i(user[@"selection"])==2){
+		[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+	}
+	else{
+		[self mapViewPlanetSelectorAlign:2];
+	}
+}
+
 #pragma mark Session
 
 -(void)sessionViewInit
@@ -600,7 +641,7 @@
 	console(@"- VIEW | Session View Init");
 	[self sessionViewTemplate];
 	
-	self.guestNameLabel.text = guest[@"name"];
+	self.guestNameLabel.text = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
 	
 	[self alignSelection:0];
@@ -696,13 +737,7 @@
 - (IBAction)quitButton:(id)sender {
 	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
 }
-- (IBAction)planetChoice1Button:(id)sender {
-	NSLog(@"+ GAME | New Game");
-	[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
-}
-- (IBAction)planetChoice2Button:(id)sender {
-	[self modalViewDisplay:[self customFromAttributes:guest[@"attributes_potential"][1][0]:guest[@"attributes_potential"][1][1]:guest[@"attributes_potential"][1][2]]];
-}
+
 
 #pragma mark Modal
 

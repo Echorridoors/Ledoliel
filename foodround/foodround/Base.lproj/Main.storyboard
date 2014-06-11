@@ -341,6 +341,11 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" id="mJ7-Xg-ms6" userLabel="planetSelectionView">
+                                        <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleToFill" id="WY7-ny-Jrp" userLabel="planetChoice1View">
                                         <rect key="frame" x="80" y="142" width="160" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -556,6 +561,7 @@
                         <outlet property="planetChoice2GuestAttr3Label" destination="jkW-r3-oUy" id="q1X-wv-f9A"/>
                         <outlet property="planetChoice2GuestLabel" destination="TMC-Dg-Vg1" id="twU-W4-5hd"/>
                         <outlet property="planetChoice2View" destination="3qQ-Qq-OZ6" id="aEg-B4-sEI"/>
+                        <outlet property="planetSelectionView" destination="mJ7-Xg-ms6" id="EKJ-7g-euB"/>
                         <outlet property="quitButton" destination="Aad-UQ-go6" id="5QT-WC-qik"/>
                         <outlet property="relationshipLabel" destination="DH9-dY-Oxd" id="FZb-Ol-QFk"/>
                         <outlet property="relationshipRating" destination="Ock-ZY-FOk" id="giD-Sf-ZNY"/>

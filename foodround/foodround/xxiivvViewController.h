@@ -107,6 +107,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic1;
 - (IBAction)planetChoice2Button:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIView *planetSelectionView;
 
 
 - (IBAction)quitButton:(id)sender;
