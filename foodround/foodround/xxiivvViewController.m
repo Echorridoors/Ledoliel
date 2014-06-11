@@ -38,6 +38,7 @@
 	guest = [self guestStart];
 	spellbook = [self spellbookStart];
 	[self menuViewInit];
+	[self modalViewInit];
 }
 
 - (void)didReceiveMemoryWarning
@@ -535,11 +536,10 @@
 	self.quitButton.frame = CGRectMake(screenWidth/2, 0, (screenWidth/2)-templateUnit, templateUnit);
 	
 	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit*4);
-	self.planetChoice1NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
 	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
 	self.planetChoice1Graphic1.image = [UIImage imageNamed:@"planet1.png"];
@@ -548,18 +548,16 @@
 	self.planetChoice1Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
 	
 	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*9, screenWidth-(2*templateUnit), templateUnit*4);
-	self.planetChoice2NameLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*2.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2-templateUnit/2, templateUnit*3, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestLabel.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, 0, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
+	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2Graphics.frame = CGRectMake(0, 0, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit);
 	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
 	self.planetChoice2Graphic1.image = [UIImage imageNamed:@"planet1.png"];
 	
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
-	
 	
 }
 
@@ -580,17 +578,19 @@
 	NSArray* attributeShuffle1 = [self shuffleArray:[self guestAttributes]];
 	NSArray* attributeShuffle2 = [self shuffleArray:[self guestAttributes]];
 	
+	guest[@"attributes_potential"][0] = @[attributeShuffle1[0],attributeShuffle1[1],attributeShuffle1[2]];
 	self.planetChoice1GuestAttr1Label.text = attributeShuffle1[0];
 	self.planetChoice1GuestAttr2Label.text = attributeShuffle1[1];
 	self.planetChoice1GuestAttr3Label.text = attributeShuffle1[2];
 	
 	self.planetChoice1GuestLabel.text = [self guestNameFromAttributes:attributeShuffle1[0]:attributeShuffle1[1]:attributeShuffle1[2]];
 	
+	guest[@"attributes_potential"][1] = @[attributeShuffle2[0],attributeShuffle2[1],attributeShuffle2[2]];
 	self.planetChoice2GuestAttr1Label.text = attributeShuffle2[0];
 	self.planetChoice2GuestAttr2Label.text = attributeShuffle2[1];
 	self.planetChoice2GuestAttr3Label.text = attributeShuffle2[2];
 	
-	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];	
+	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];
 }
 
 #pragma mark Session
@@ -692,12 +692,73 @@
 	NSLog(@"+ GAME | New Game");
 	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit")];
 }
+
 - (IBAction)quitButton:(id)sender {
 	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit")];
 }
 - (IBAction)planetChoice1Button:(id)sender {
 	NSLog(@"+ GAME | New Game");
 	[self transitionView:@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit")];
+}
+- (IBAction)planetChoice2Button:(id)sender {
+	[self modalViewDisplay:[self customFromAttributes:guest[@"attributes_potential"][1][0]:guest[@"attributes_potential"][1][1]:guest[@"attributes_potential"][1][2]]];
+}
+
+#pragma mark Modal
+
+-(void)modalViewInit
+{
+	console(@"- VIEW | Modal View Init");
+	[self modalViewTemplate];
+}
+
+-(void)modalViewTemplate
+{
+	self.modalView.hidden = YES;
+	self.modalView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
+	self.modalView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+	
+	self.modalLabelFrame.frame = CGRectMake(templateUnit, screenHeight/2-(4*templateUnit/2), screenWidth-(2*templateUnit), 4*templateUnit);
+	self.modalLabelFrame.backgroundColor = [UIColor whiteColor];
+	
+	self.modalLabel.frame = CGRectMake((templateUnit/2), (templateUnit/2), self.modalLabelFrame.frame.size.width - templateUnit, self.modalLabelFrame.frame.size.height - templateUnit);
+	
+	self.modalLabel.text = @"As it is customary for Megoneldisians, the secretary of defence spits in your face.";
+	self.modalButton.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+}
+
+-(void)modalViewDisplay :(NSString*)message
+{
+	self.modalView.alpha = 0;
+	self.modalView.hidden = NO;
+	
+	self.modalLabelFrame.frame = CGRectMake(templateUnit, screenHeight/2-(3*templateUnit/2), screenWidth-(2*templateUnit), 4*templateUnit);
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	self.modalView.alpha = 1;
+	self.modalLabelFrame.frame = CGRectMake(templateUnit, screenHeight/2-(4*templateUnit/2), screenWidth-(2*templateUnit), 4*templateUnit);
+	self.modalLabel.text = message;
+	
+	[UIView commitAnimations];
+}
+
+-(void)modalViewHide
+{
+	[UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		self.modalLabelFrame.frame = CGRectMake(templateUnit, screenHeight/2-(3*templateUnit/2), screenWidth-(2*templateUnit), 4*templateUnit);
+		self.modalView.alpha = 0;
+	} completion:^(BOOL finished){
+		self.modalView.hidden = YES;
+	}];
+}
+
+- (IBAction)modalButton:(id)sender {
+	NSLog(@"x MODL | Close modal");
+	[self modalViewHide];
 }
 
 #pragma mark Transitions
@@ -749,7 +810,6 @@
 	
 	return shuffledArray;
 }
-
 
 
 @end

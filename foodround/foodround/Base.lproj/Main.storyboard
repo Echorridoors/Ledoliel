@@ -355,13 +355,6 @@
                                                     </imageView>
                                                 </subviews>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Gb-OV-nPY" userLabel="planetChoice1NameLabel">
-                                                <rect key="frame" x="5" y="132" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Woeful" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jBG-g1-q13" userLabel="planetChoice1GuestLabel">
                                                 <rect key="frame" x="8" y="132" width="143" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -416,13 +409,6 @@
                                                     </imageView>
                                                 </subviews>
                                             </view>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Planet Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Tip-Mp-PZ8" userLabel="planetChoice2NameLabel">
-                                                <rect key="frame" x="5" y="132" width="149" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Woeful" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TMC-Dg-Vg1" userLabel="planetChoice2GuestLabel">
                                                 <rect key="frame" x="8" y="132" width="143" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -458,7 +444,7 @@
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="planetChoice1Button:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zuV-pc-FXX"/>
+                                                    <action selector="planetChoice2Button:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="7Lz-BA-DNi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -495,6 +481,37 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" id="Crp-ga-Cqf" userLabel="modalView">
+                                <rect key="frame" x="80" y="142" width="160" height="284"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="pUQ-lc-E6V" userLabel="modalLabelFrame">
+                                        <rect key="frame" x="40" y="71" width="80" height="142"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="otq-cx-yd7" userLabel="modalLabel">
+                                                <rect key="frame" x="19" y="61" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Czg-sp-mtl" userLabel="modalButton">
+                                        <rect key="frame" x="57" y="127" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="modalButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="r3R-DY-k5L"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -519,6 +536,10 @@
                         <outlet property="menuOption3Button" destination="ZTV-e5-M17" id="fSc-26-meb"/>
                         <outlet property="menuOption4Button" destination="HYh-Wr-jPm" id="15d-gI-ir4"/>
                         <outlet property="menuView" destination="re1-4W-BaW" id="qe5-Hv-ddh"/>
+                        <outlet property="modalButton" destination="Czg-sp-mtl" id="RyO-nu-vuW"/>
+                        <outlet property="modalLabel" destination="otq-cx-yd7" id="aN8-Eh-ZQK"/>
+                        <outlet property="modalLabelFrame" destination="pUQ-lc-E6V" id="qO4-7r-vgE"/>
+                        <outlet property="modalView" destination="Crp-ga-Cqf" id="y3o-RA-CqE"/>
                         <outlet property="planetChoice1Button" destination="Imn-1W-6Kp" id="rvB-iN-hlB"/>
                         <outlet property="planetChoice1Graphic1" destination="iOd-xs-HhK" id="p0r-Dd-WH2"/>
                         <outlet property="planetChoice1Graphics" destination="ejj-7V-UlY" id="GvG-68-ALC"/>
@@ -526,7 +547,6 @@
                         <outlet property="planetChoice1GuestAttr2Label" destination="4JY-Xi-fni" id="Jjg-89-pSz"/>
                         <outlet property="planetChoice1GuestAttr3Label" destination="a4E-6e-SaI" id="BDT-6k-kJb"/>
                         <outlet property="planetChoice1GuestLabel" destination="jBG-g1-q13" id="pPa-XN-5Rq"/>
-                        <outlet property="planetChoice1NameLabel" destination="2Gb-OV-nPY" id="KX5-4p-gP6"/>
                         <outlet property="planetChoice1View" destination="WY7-ny-Jrp" id="t3d-gQ-i0u"/>
                         <outlet property="planetChoice2Button" destination="cpw-iz-gqh" id="KVR-bo-McZ"/>
                         <outlet property="planetChoice2Graphic1" destination="8Pe-KH-CBI" id="VAr-bh-0UK"/>
@@ -535,7 +555,6 @@
                         <outlet property="planetChoice2GuestAttr2Label" destination="TQM-fq-TJZ" id="1Ia-kJ-yXe"/>
                         <outlet property="planetChoice2GuestAttr3Label" destination="jkW-r3-oUy" id="q1X-wv-f9A"/>
                         <outlet property="planetChoice2GuestLabel" destination="TMC-Dg-Vg1" id="twU-W4-5hd"/>
-                        <outlet property="planetChoice2NameLabel" destination="Tip-Mp-PZ8" id="eI1-yf-gx0"/>
                         <outlet property="planetChoice2View" destination="3qQ-Qq-OZ6" id="aEg-B4-sEI"/>
                         <outlet property="quitButton" destination="Aad-UQ-go6" id="5QT-WC-qik"/>
                         <outlet property="relationshipLabel" destination="DH9-dY-Oxd" id="FZb-Ol-QFk"/>

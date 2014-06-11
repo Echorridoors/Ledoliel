@@ -87,7 +87,6 @@
 @property (strong, nonatomic) IBOutlet UIButton *quitButton;
 
 @property (strong, nonatomic) IBOutlet UIView *planetChoice1View;
-@property (strong, nonatomic) IBOutlet UILabel *planetChoice1NameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestLabel;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr1Label;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr2Label;
@@ -98,7 +97,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *planetChoice2View;
 @property (strong, nonatomic) IBOutlet UIView *planetChoice2Graphics;
-@property (strong, nonatomic) IBOutlet UILabel *planetChoice2NameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestLabel;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestAttr1Label;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice2GuestAttr2Label;
@@ -107,6 +105,8 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice1Graphic1;
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic1;
+- (IBAction)planetChoice2Button:(id)sender;
+
 
 
 - (IBAction)quitButton:(id)sender;
@@ -118,8 +118,13 @@
 
 - (IBAction)gameStartButton:(id)sender;
 
-- (IBAction)testButton:(id)sender;
+// Modal
 
+@property (strong, nonatomic) IBOutlet UIView *modalView;
+@property (strong, nonatomic) IBOutlet UILabel *modalLabel;
+@property (strong, nonatomic) IBOutlet UIButton *modalButton;
+@property (strong, nonatomic) IBOutlet UIView *modalLabelFrame;
+- (IBAction)modalButton:(id)sender;
 
 @end
 
