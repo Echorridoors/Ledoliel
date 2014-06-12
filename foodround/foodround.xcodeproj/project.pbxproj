@@ -27,7 +27,6 @@
 		03F9904C1940AA54009A1D74 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904B1940AA54009A1D74 /* user.m */; };
 		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
-		03F990551940AD6C009A1D74 /* spellbook.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990541940AD6C009A1D74 /* spellbook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +69,6 @@
 		03F9904E1940AAD5009A1D74 /* template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = template.m; sourceTree = "<group>"; };
 		03F990501940AC9F009A1D74 /* guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guest.h; sourceTree = "<group>"; };
 		03F990511940AC9F009A1D74 /* guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guest.m; sourceTree = "<group>"; };
-		03F990531940AD6C009A1D74 /* spellbook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = spellbook.h; sourceTree = "<group>"; };
-		03F990541940AD6C009A1D74 /* spellbook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = spellbook.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,8 +141,6 @@
 				03F9904B1940AA54009A1D74 /* user.m */,
 				03F990501940AC9F009A1D74 /* guest.h */,
 				03F990511940AC9F009A1D74 /* guest.m */,
-				03F990531940AD6C009A1D74 /* spellbook.h */,
-				03F990541940AD6C009A1D74 /* spellbook.m */,
 				03B5FE2C1940BB6800C8DD20 /* tools.h */,
 				03B5FE2D1940BB6800C8DD20 /* tools.m */,
 				031DBC1A193F89690061F6F8 /* Images.xcassets */,
@@ -289,7 +284,6 @@
 				03F990521940AC9F009A1D74 /* guest.m in Sources */,
 				03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */,
 				031DBC19193F89690061F6F8 /* xxiivvViewController.m in Sources */,
-				03F990551940AD6C009A1D74 /* spellbook.m in Sources */,
 				031DBC0F193F89690061F6F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

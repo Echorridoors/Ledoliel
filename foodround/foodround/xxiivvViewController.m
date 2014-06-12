@@ -16,7 +16,6 @@
 #import "template.h"
 #import "user.h"
 #import "guest.h"
-#import "spellbook.h"
 #import "tools.h"
 
 @interface xxiivvViewController ()
@@ -36,7 +35,6 @@
 	console(@"GAME  | Init");
 	
 	guest = [self guestStart];
-	spellbook = [self spellbookStart];
 	[self menuViewInit];
 	[self modalViewInit];
 }
@@ -228,19 +226,9 @@
 	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
 	
-	NSLog(@"TURN  | #%d:%@ -> %@",currentGameRound,action,spell);
-	
 	// replace with New Spell
 	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
 	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
-	
-	int guestAttributeReaction1 = to_i(spellbook[spell][action][guest[@"attributes"][0]]);
-	int guestAttributeReaction2 = to_i(spellbook[spell][action][guest[@"attributes"][1]]);
-	int guestAttributeReaction3 = to_i(spellbook[spell][action][guest[@"attributes"][2]]);
-	
-	int guestAttributeReactionSum = guestAttributeReaction1 + guestAttributeReaction2 + guestAttributeReaction3;
-	
-	user[@"relationship"] = to_s(to_i(user[@"relationship"])+guestAttributeReactionSum);
 	
 	[self sessionResultScreenUpdate:action:spell];
 	[self sessionResultScreenDisplay];
@@ -378,6 +366,7 @@
 		self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 		self.resultView.alpha = 1;
 		self.resultCloseButton.alpha = 1;
+		self.statusView.alpha = 0;
 		
 	} completion:^(BOOL finished){ [UIView animateWithDuration:0.2 animations:^(void){
 		
@@ -422,7 +411,7 @@
 		[self guestResponseDisplay];
 		[self sessionRoundsViewUpdate];
 		
-		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound];
+		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
 	}else{
 		currentSessionResultscreenPosition += 1;	
@@ -479,44 +468,22 @@
 			[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 			self.resultView.hidden = YES;
 			self.resultCloseButton.hidden = YES;
+			self.statusView.alpha = 1;
 		} completion:^(BOOL finished){
 		}];
 	}];
 }
 
 -(void)statusBarUpdate
-{
-	
+{// todo
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	
-	if(to_i(user[@"relationship"]) == -2){
-		self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width/2, 4);
-		self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-		self.relationshipLabel.text = @"enemy";
-	}
-	else if(to_i(user[@"relationship"]) == -1){
-		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/4, 0, self.relationshipRating.frame.size.width/4, 4);
-		self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-		self.relationshipLabel.text = @"hostile";
-	}
-	else if(to_i(user[@"relationship"]) == 0){
-		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, 1, 4);
-		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
-		self.relationshipLabel.text = @"neutral";
-	}
-	else if(to_i(user[@"relationship"]) == 1){
-		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, self.relationshipRating.frame.size.width/4, 4);
-		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
-		self.relationshipLabel.text = @"friendly";
-	}
-	else if(to_i(user[@"relationship"]) == 2){
-		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, self.relationshipRating.frame.size.width/2, 4);
-		self.relationshipRatingBar.backgroundColor = [UIColor whiteColor];
-		self.relationshipLabel.text = @"mate";
-	}
+	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width/2, self.relationshipRating.frame.size.height);
+	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+	self.relationshipLabel.text = @"Enemy";
+	// to_i(user[@"relationship"])
 	
 	[UIView commitAnimations];
 			
@@ -617,6 +584,7 @@
 	
 	[self mapViewGeneratePlanets];
 	[self mapViewTemplate];
+	[self mapViewTemplateAnimate];
 	[self mapViewSpellUpdate];
 	
 }
@@ -627,6 +595,7 @@
 	// Spellbook preview
 	
 	self.spellbookPreviewView.backgroundColor = [UIColor whiteColor];
+	self.spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(3*templateUnit), screenWidth, templateUnit*4);
 	
 	float templateThirdUnit = (screenWidth-(2*templateUnit))/3;
 	
@@ -674,6 +643,27 @@
 	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
 	self.planetSelectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
 	
+}
+
+-(void)mapViewTemplateAnimate
+{
+	self.spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(1*templateUnit), screenWidth, templateUnit*4);
+	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(3*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*5, screenWidth-(2*templateUnit), templateUnit*4);
+	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*13, screenWidth-(2*templateUnit), templateUnit*4);
+	
+	[UIView animateWithDuration:0.5 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationDelay:0.2];
+		self.spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(3*templateUnit), screenWidth, templateUnit*4);
+		self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+		
+		self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit*4);
+		self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*9, screenWidth-(2*templateUnit), templateUnit*4);
+		
+	} completion:^(BOOL finished){
+		
+	}];
 }
 
 -(void)mapViewSpellUpdate
@@ -844,7 +834,6 @@
 	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.hidden = YES;
 	self.guestStatusView.alpha = 0;
-	//	self.guestStatusView.backgroundColor = [UIColor colorWithRed:0.40 green:0.83 blue:0.72 alpha:1];
 	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
 	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
 	self.guestStatusLabel.textColor = [UIColor blackColor];
@@ -852,26 +841,29 @@
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
 	
-	self.statusView.hidden = YES;
-	self.statusView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
-	self.relationshipLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	
 	self.hintView.backgroundColor = [UIColor redColor];
 	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);
 	self.hintLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.hintLabel.font = [UIFont boldSystemFontOfSize:12];
 	
-	self.statusView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
-	self.relationshipRating.backgroundColor = [UIColor blackColor];
-	self.relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit/2-2, (screenWidth/2)-templateUnit, 4);
-	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
-	
 	self.guestGraphics.frame = CGRectMake(0, 0, screenWidth, screenHeight);
 	self.guestGraphic1.frame = self.guestGraphics.frame;
 	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	
+	// Status
+	
+	self.statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
+	
+	self.relationshipLabel.frame = CGRectMake(0, 0, screenWidth, templateUnit);
+	self.relationshipLabel.textColor = [UIColor blackColor];
+	
+	self.relationshipRating.backgroundColor = [UIColor blackColor];
+	self.relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.5, screenWidth-(2*templateUnit), 1);
+	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
 	
 	// Rounds Interface
 	
