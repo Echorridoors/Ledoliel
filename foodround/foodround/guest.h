@@ -16,5 +16,6 @@
 -(NSString*)guestCustomFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3;
 -(NSString*)syllableFromAttribute :(NSString*)attribute :(int)order;
 -(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell :(int)order;
+-(int)multiplayerFromAttribute :(NSString*)attribute :(NSString*)action;
 
 @end

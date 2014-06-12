@@ -230,7 +230,7 @@
 	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
 	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
-	[self sessionResultScreenUpdate:action:spell];
+	[self sessionResultScreenUpdate :action:spell];
 	[self sessionResultScreenDisplay];
 }
 
@@ -266,14 +266,8 @@
 	NSString* guestAttr2 = guest[@"attributes"][1];
 	NSString* guestAttr3 = guest[@"attributes"][2];
 	
-	NSString* positive1 = @"";
-	NSString* positive2 = @"";
-	NSString* positive3 = @"";
 	int positiveSum = 0;
 	
-	NSString* negative1 = @"";
-	NSString* negative2 = @"";
-	NSString* negative3 = @"";
 	int negativeSum = 0;
 	
 	int reaction1 = [self reactionFromAttribute:guestAttr1:action:spell:0];
@@ -282,64 +276,76 @@
 	
 	// 1.action process
 	
-	if([action isEqualToString:@"say"]){
-		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ \"%@\" to %@.",action,spell,guestName];
-	}
-	if([action isEqualToString:@"give"]){
-		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@ to %@",action,spell,guestName];
-	}
-	if([action isEqualToString:@"touch"]){
-		_resultPaneLabel1.text = [NSString stringWithFormat:@"You %@ %@'s %@",action,guestName,spell];
-	}
-	if([action isEqualToString:@"leave"]){
-		_resultPaneLabel1.text = @"Run away? ";
-	}
+	NSString* sentence1 = @"";
+	NSString* sentence2 = @"";
+	NSString* sentence3 = @"";
+	NSString* sentence4 = @"";
+
+	if([action isEqualToString:@"say"])		{ sentence1 = [NSString stringWithFormat:@"You %@ \"%@\" to %@. ",action,spell,guestName]; }
+	if([action isEqualToString:@"give"])	{ sentence1 = [NSString stringWithFormat:@"You %@ %@ to %@. ",action,spell,guestName]; }
+	if([action isEqualToString:@"touch"])	{ sentence1 = [NSString stringWithFormat:@"You %@ %@'s %@. ",action,guestName,spell]; }
+	if([action isEqualToString:@"leave"])	{ sentence1 = @"You ran away. "; }
+	
+	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"say"] ){ sentence2 = @"Your guest is a communicative one it. "; }
+	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"say"] ){ sentence3 = @"They enjoys conversing. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"say"] ){ sentence4 = @"Your guest likes to hear your voice. "; }
+	
+	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"touch"] ){ sentence2 = @"Your guest is a physical one. "; }
+	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"touch"] ){ sentence3 = @"They enjoy things touching. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"touch"] ){ sentence4 = @"Your guest likes to be touched. "; }
+	
+	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"give"] ){ sentence2 = @"Your guest wants to have everything. "; }
+	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"give"] ){ sentence3 = @"They enjoy being given things. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"give"] ){ sentence4 = @"Your guest likes stuff. "; }
+	
+	int multiplyer = 1 + [self multiplayerFromAttribute:guestAttr1:action] + [self multiplayerFromAttribute:guestAttr2:action] + [self multiplayerFromAttribute:guestAttr3:action];
+	
+	_resultPaneLabel1.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
+	
+	_resultLabelInit.text = [NSString stringWithFormat:@"%dx",multiplyer];
 	
 	// 2.positive process
 	
-	if( reaction1 > 0){
-		positive1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction1 ];
-		positiveSum += reaction1;
-	}
-	if( reaction2 > 0){
-		positive2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction2 ];
-		positiveSum += reaction2;
-	}
-	if( reaction3 > 0){
-		positive3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction3 ];
-		positiveSum += reaction3;
-	}
+	sentence1 = @"";	sentence2 = @"";	sentence3 = @"";	sentence4 = @"";
 	
-	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",positive1,positive2,positive3,positiveSum];
+	if( reaction1 > 0 ){ positiveSum += reaction1; sentence1 = [NSString stringWithFormat:@"%@'s %@ trait appreciates %@. ",guestName,guestAttr1,spell];}
+	if( reaction2 > 0 ){ positiveSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness loves %@ and you. ",guestName,guestAttr2,spell];}
+	if( reaction3 > 0 ){ positiveSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, likes %@. ",guestName,guestAttr3,spell];}
 	
+	_resultLabelPositive.text = [NSString stringWithFormat:@"+%d",positiveSum];
+	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
+	if( [_resultPaneLabel2.text isEqualToString: @""] ){ _resultPaneLabel2.text = @"Is not impressed with your actions."; }
+
 	// 3.negative process
 	
-	if( reaction1 < 0){
-		negative1 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction1 ];
-		negativeSum += reaction1;
-	}
-	if( reaction2 < 0){
-		negative2 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction2 ];
-		negativeSum += reaction2;
-	}
-	if( reaction3 < 0){
-		negative3 = [NSString stringWithFormat:@"%@ %@ (%d) ",action,spell,reaction3 ];
-		negativeSum += reaction3;
-	}
+	sentence1 = @"";	sentence2 = @"";	sentence3 = @"";	sentence4 = @"";
 	
-	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@ sum:%d",negative1,negative2,negative3,negativeSum];
+	if( reaction1 < 0 ){ negativeSum += reaction1; sentence1 = [NSString stringWithFormat:@"%@'s %@ trait hates %@. ",guestName,guestAttr1,spell];}
+	if( reaction2 < 0 ){ negativeSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness despises %@. ",guestName,guestAttr2,spell];}
+	if( reaction3 < 0 ){ negativeSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, finds %@ repulsive. ",guestName,guestAttr3,spell];}
 	
+	_resultLabelNegative.text = [NSString stringWithFormat:@"%d",negativeSum];
+	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
+	if( [_resultPaneLabel3.text isEqualToString: @""] ){ _resultPaneLabel3.text = @"Is unchanged by your actions."; }
+
 	// 4. Summary
 	
 	if( positiveSum + negativeSum > 0 ){
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You gained %d",(positiveSum + negativeSum)];
+		_resultLabelSummary.textColor = [UIColor whiteColor];
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pleased %@",guestName];
 	}
 	else if( positiveSum + negativeSum < 0 ){
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You lost %d",(positiveSum + negativeSum)];
+		_resultLabelSummary.textColor = [UIColor redColor];
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You displeased %@",guestName];
 	}
 	else{
 		_resultPaneLabel4.text = @"Unchanged";
 	}
+	_resultLabelSummary.text = [NSString stringWithFormat:@"%d",(positiveSum + negativeSum)];
+	
+	// Update Relationship
+	
+	user[@"relationship"] = to_s((positiveSum+negativeSum));
 	
 }
 
@@ -355,6 +361,16 @@
 	self.resultPaneLabel3.alpha = 0;
 	self.resultPaneLabel4.alpha = 0;
 	
+	_resultLabelInit.alpha = 0;
+	_resultLabelInit.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*0, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelPositive.alpha = 0;
+	_resultLabelPositive.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*1, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelNegative.alpha = 0;
+	_resultLabelNegative.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*2, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelSummary.alpha = 0;
+	_resultLabelSummary.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
+	
+	
 	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, 1);
 	
 	[self.resultCloseButton setTitle:@"Skip" forState:UIControlStateNormal];
@@ -367,6 +383,9 @@
 		self.resultView.alpha = 1;
 		self.resultCloseButton.alpha = 1;
 		self.statusView.alpha = 0;
+		
+		_resultLabelInit.alpha = 1;
+		_resultLabelInit.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*0, templateUnit*2, self.resultView.frame.size.height/4);
 		
 	} completion:^(BOOL finished){ [UIView animateWithDuration:0.2 animations:^(void){
 		
@@ -382,6 +401,8 @@
 	}];
 	}];
 	}];
+	
+	
 }
 -(void)sessionResultScreenSkip
 {
@@ -391,12 +412,18 @@
 	
 	if(currentSessionResultscreenPosition == 0){
 		self.resultPaneLabel2.alpha = 1;
+		_resultLabelPositive.alpha = 1;
+		_resultLabelPositive.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*1, templateUnit*2, self.resultView.frame.size.height/4);
 	}
 	if(currentSessionResultscreenPosition == 1){
 		self.resultPaneLabel3.alpha = 1;
+		_resultLabelNegative.alpha = 1;
+		_resultLabelNegative.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*2, templateUnit*2, self.resultView.frame.size.height/4);
 	}
 	if(currentSessionResultscreenPosition == 2){
 		self.resultPaneLabel4.alpha = 1;
+		_resultLabelSummary.alpha = 1;
+		_resultLabelSummary.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
 		[self.resultCloseButton setTitle:@"Close" forState:UIControlStateNormal];
 		[self statusBarUpdate];
 	}
@@ -480,6 +507,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
+	self.relationshipRatingBar.hidden = YES;
 	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width/2, self.relationshipRating.frame.size.height);
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
 	self.relationshipLabel.text = @"Enemy";
@@ -547,12 +575,11 @@
 	
 }
 
-- (IBAction)confirmButton:(id)sender {
-	
+- (IBAction)confirmButton:(id)sender
+{
 	[self playTurn];
 	[self hintHide];
 	[self alignDeselection];
-	
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -768,6 +795,7 @@
 {
 	console(@"- VIEW | Session View Init");
 	[self sessionViewTemplate];
+	[self sessionViewTemplateAnimate];
 	
 	NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	NSString* guestCustom = [self guestCustomFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
@@ -813,10 +841,20 @@
 	self.resultPaneLabel3.textColor = [UIColor whiteColor];
 	self.resultPaneLabel4.textColor = [UIColor whiteColor];
 	
-	self.resultPaneLabel1.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*0, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel2.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*1, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel3.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*2, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
-	self.resultPaneLabel4.frame = CGRectMake(templateUnit, (self.resultView.frame.size.height/4)*3, screenWidth-(2*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel1.frame = CGRectMake(templateUnit*2, (self.resultView.frame.size.height/4)*0, screenWidth-(3*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel2.frame = CGRectMake(templateUnit*2, (self.resultView.frame.size.height/4)*1, screenWidth-(3*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel3.frame = CGRectMake(templateUnit*2, (self.resultView.frame.size.height/4)*2, screenWidth-(3*templateUnit), self.resultView.frame.size.height/4);
+	self.resultPaneLabel4.frame = CGRectMake(templateUnit*2, (self.resultView.frame.size.height/4)*3, screenWidth-(3*templateUnit), self.resultView.frame.size.height/4);
+	
+	_resultLabelInit.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*0, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelPositive.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*1, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelNegative.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*2, templateUnit*2, self.resultView.frame.size.height/4);
+	_resultLabelSummary.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
+	
+//	_resultLabelPositive.backgroundColor = [UIColor greenColor];
+//	_resultLabelNegative.backgroundColor = [UIColor redColor];
+//	_resultLabelSummary.backgroundColor = [UIColor whiteColor];
+	
 	
 	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
@@ -887,6 +925,34 @@
 	_roundsCount2View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount3View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount4View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	
+}
+-(void)sessionViewTemplateAnimate
+{
+	_statusView.alpha = 0;
+	_statusView.frame = CGRectMake(0, templateUnit*2, screenWidth, templateUnit*3);
+	_relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit*1.5, 0, 1);
+	
+	[UIView animateWithDuration:0.2 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationDelay:0.9];
+		
+		_statusView.alpha = 1;
+		_statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
+		
+		
+		
+	} completion:^(BOOL finished){}];
+	
+	
+	[UIView animateWithDuration:0.5 animations:^(void){
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		[UIView setAnimationDelay:1.5];
+
+		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.5, screenWidth-(2*templateUnit), 1);
+		
+	} completion:^(BOOL finished){}];
+	
 	
 }
 

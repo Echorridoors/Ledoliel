@@ -134,6 +134,34 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tjs-FX-q1X" userLabel="resultLabelInit">
+                                                <rect key="frame" x="59" y="132" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FUa-il-cje" userLabel="resultLabelPositive">
+                                                <rect key="frame" x="59" y="132" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QqD-Jb-r25" userLabel="resultLabelNegative">
+                                                <rect key="frame" x="59" y="132" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+4" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dVn-Bo-BNT" userLabel="resultLabelSummary">
+                                                <rect key="frame" x="59" y="132" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" id="yki-k1-6L3" userLabel="hintView">
@@ -610,6 +638,10 @@
                         <outlet property="relationshipRating" destination="Ock-ZY-FOk" id="giD-Sf-ZNY"/>
                         <outlet property="relationshipRatingBar" destination="dQb-o9-pf8" id="HMA-Zs-oGv"/>
                         <outlet property="resultCloseButton" destination="oLy-Vv-qxh" id="9qv-dy-6Vr"/>
+                        <outlet property="resultLabelInit" destination="tjs-FX-q1X" id="hi0-rm-9C8"/>
+                        <outlet property="resultLabelNegative" destination="QqD-Jb-r25" id="CAI-2Z-YSN"/>
+                        <outlet property="resultLabelPositive" destination="FUa-il-cje" id="wGb-KQ-64M"/>
+                        <outlet property="resultLabelSummary" destination="dVn-Bo-BNT" id="8X8-48-cBa"/>
                         <outlet property="resultPaneLabel1" destination="QI2-vz-EvF" id="RXZ-kv-9Ny"/>
                         <outlet property="resultPaneLabel2" destination="S2L-DD-qqx" id="Bi2-i0-ZS0"/>
                         <outlet property="resultPaneLabel3" destination="QSu-XV-3Or" id="cEy-Vc-p7f"/>

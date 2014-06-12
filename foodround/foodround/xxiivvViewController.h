@@ -45,6 +45,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *resultPaneLabel4;
 @property (strong, nonatomic) IBOutlet UIButton *resultCloseButton;
 
+@property (strong, nonatomic) IBOutlet UILabel *resultLabelInit;
+@property (strong, nonatomic) IBOutlet UILabel *resultLabelPositive;
+@property (strong, nonatomic) IBOutlet UILabel *resultLabelNegative;
+@property (strong, nonatomic) IBOutlet UILabel *resultLabelSummary;
+
 @property (strong, nonatomic) IBOutlet UIView *guestStatusView;
 @property (strong, nonatomic) IBOutlet UILabel *guestStatusLabel;
 @property (strong, nonatomic) IBOutlet UILabel *guestStatusNoteLabel;

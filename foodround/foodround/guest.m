@@ -121,19 +121,37 @@
 	return @"wip";
 }
 
+
+-(int)multiplayerFromAttribute :(NSString*)attribute :(NSString*)action
+{
+	int multiplyer = 0;
+	
+	// Plus
+	
+	if( [attribute isEqualToString:@"deviant"] && [action isEqualToString:@"touch"])	{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"lustful"] && [action isEqualToString:@"touch"])	{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"childish"] && [action isEqualToString:@"give"])	{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"greedy"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"polite"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"tribal"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"rich"] && [action isEqualToString:@"say"])			{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"evil"] && [action isEqualToString:@"say"])			{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"sadist"] && [action isEqualToString:@"touch"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"pestilent"] && [action isEqualToString:@"touch"])	{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"religious"] && [action isEqualToString:@"say"])	{ multiplyer = 1;}
+	
+	return multiplyer;
+}
+
+
 -(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell :(int)order
 {
 	NSLog(@"! %@ %@ %@",attribute,action,spell);
 	
-	int mod = 0;
 	int value = 0;
 	int orderMultiplyer = 3-order;
 	
 	if( [attribute isEqualToString:@"deviant"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = -1;}
 		if( [spell isEqualToString:@"food"])	{ value = 1;}
@@ -144,14 +162,10 @@
 		if( [spell isEqualToString:@"children"]){ value = -1;}
 		if( [spell isEqualToString:@"flower"])	{ value = -1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 		
 	}
 	if( [attribute isEqualToString:@"lustful"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 1;}
 		if( [spell isEqualToString:@"food"])	{ value = 1;}
@@ -162,13 +176,9 @@
 		if( [spell isEqualToString:@"children"]){ value = 1;}
 		if( [spell isEqualToString:@"flower"])	{ value = -1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"childish"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 0; }
-		if([action isEqualToString:@"give"]){ mod = 1; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = -1;}
 		if( [spell isEqualToString:@"food"])	{ value = 1;}
@@ -179,13 +189,9 @@
 		if( [spell isEqualToString:@"children"]){ value = 1;}
 		if( [spell isEqualToString:@"flower"])	{ value = 1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"rich"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 0; }
-		if([action isEqualToString:@"give"]){ mod = 1; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 1;}
 		if( [spell isEqualToString:@"food"])	{ value = 1;}
@@ -196,13 +202,9 @@
 		if( [spell isEqualToString:@"children"]){ value = -1;}
 		if( [spell isEqualToString:@"flower"])	{ value = -1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"greedy"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 2;}
 		if( [spell isEqualToString:@"food"])	{ value = 2;}
@@ -213,13 +215,9 @@
 		if( [spell isEqualToString:@"children"]){ value = -1;}
 		if( [spell isEqualToString:@"flower"])	{ value = -1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"polite"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 1; }
-		if([action isEqualToString:@"touch"]){ mod = 0; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 1;}
 		if( [spell isEqualToString:@"food"])	{ value = 2;}
@@ -230,13 +228,9 @@
 		if( [spell isEqualToString:@"children"]){ value = -2;}
 		if( [spell isEqualToString:@"flower"])	{ value = -1;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"tribal"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = -2;}
 		if( [spell isEqualToString:@"food"])	{ value = 2;}
@@ -247,13 +241,9 @@
 		if( [spell isEqualToString:@"children"]){ value = 0;}
 		if( [spell isEqualToString:@"flower"])	{ value = -2;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"evil"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 2;}
 		if( [spell isEqualToString:@"food"])	{ value = -1;}
@@ -264,13 +254,9 @@
 		if( [spell isEqualToString:@"children"]){ value = -2;}
 		if( [spell isEqualToString:@"flower"])	{ value = -5;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"sadist"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = -1;}
 		if( [spell isEqualToString:@"food"])	{ value = -1;}
@@ -281,13 +267,9 @@
 		if( [spell isEqualToString:@"children"]){ value = 2;}
 		if( [spell isEqualToString:@"flower"])	{ value = 0;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"pestilent"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 0; }
-		if([action isEqualToString:@"touch"]){ mod = 1; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 1;}
 		if( [spell isEqualToString:@"food"])	{ value = -1;}
@@ -298,13 +280,9 @@
 		if( [spell isEqualToString:@"children"]){ value = 1;}
 		if( [spell isEqualToString:@"flower"])	{ value = -3;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"religious"] ){
-		
-		if([action isEqualToString:@"say"]){ mod = 1; }
-		if([action isEqualToString:@"touch"]){ mod = 0; }
-		if([action isEqualToString:@"give"]){ mod = 0; }
 		
 		if( [spell isEqualToString:@"money"])	{ value = 2;}
 		if( [spell isEqualToString:@"food"])	{ value = -1;}
@@ -315,7 +293,7 @@
 		if( [spell isEqualToString:@"children"]){ value = 3;}
 		if( [spell isEqualToString:@"flower"])	{ value = -3;}
 		
-		return (value+mod)*orderMultiplyer;
+		return value*orderMultiplyer;
 	}
 	
 	return 0;
