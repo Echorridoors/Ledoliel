@@ -967,29 +967,45 @@
 	// Guest Graphics
 	_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
 	
-	_guestGraphic1.frame = CGRectMake(0, 0, screenWidth, screenWidth);
-	_guestGraphic1.hidden = YES;
 	
-	_guestGraphicHead.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
-	_guestGraphicHead.image = [UIImage imageNamed:@"head.1.png"];
+	UIImage* faceGraphic = [UIImage imageNamed:@"face.2.png"];
+	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicFaceLeft.image = faceGraphic;
+	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
+	UIImage* headGraphic = [UIImage imageNamed:@"head.2.png"];
+	_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadLeft.image = headGraphic;
+	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	_guestGraphicFace.hidden = YES;
-	_guestGraphicFace.backgroundColor = [UIColor redColor];
-	_guestGraphicFace.alpha = 0.2;
-	_guestGraphicFace.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
+	UIImage* eyesGraphic = [UIImage imageNamed:@"eyes.2.png"];
+	_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesLeft.image = eyesGraphic;
+	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	_guestGraphicNeck.frame = CGRectMake(screenWidth/4, screenWidth/4, screenWidth/2, screenWidth/2);
-	_guestGraphicNeck.image = [UIImage imageNamed:@"neck.1.png"];
-	
+	UIImage* neckGraphic = [UIImage imageNamed:@"neck.2.png"];
+	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckLeft.image = neckGraphic;
+	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	UIImage* shoulderGraphic = [UIImage imageNamed:@"shoulder.1.png"];
-	
 	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
-	_guestGraphicShoulderLeft.image = shoulderGraphic;
-	
 	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
+	
+	UIImage* armorGraphic = [UIImage imageNamed:@"armor.2.png"];
+	_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorLeft.image = armorGraphic;
+	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
+	
+	_guestGraphicMouth.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.1.png"];
 	
 }
 -(void)sessionViewTemplateAnimate

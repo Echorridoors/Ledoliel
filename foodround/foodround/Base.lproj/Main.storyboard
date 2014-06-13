@@ -20,15 +20,19 @@
                                         <rect key="frame" x="40" y="71" width="80" height="142"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="char1.png" id="cGK-0x-sjy" userLabel="guestGraphic1">
-                                                <rect key="frame" x="-132" y="-213" width="344" height="568"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cdI-U7-6od" userLabel="guestGraphicHead">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cdI-U7-6od" userLabel="guestGraphicHeadLeft">
                                                 <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sn1-Uf-wPk" userLabel="guestGraphicNeck">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="gor-0R-iB5" userLabel="guestGraphicHeadRight">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sn1-Uf-wPk" userLabel="guestGraphicNeckLeft">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LGr-et-XBp" userLabel="guestGraphicNeckRight">
                                                 <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -40,11 +44,31 @@
                                                 <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hre-VS-jZE" userLabel="guestGraphicFace">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="hre-VS-jZE" userLabel="guestGraphicFaceLeft">
                                                 <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="lIM-e0-SSg" userLabel="guestGraphicEyes">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="KkK-2S-y7V" userLabel="guestGraphicFaceRight">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="137-Oo-PKC" userLabel="guestGraphicArmorLeft">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="wWh-Xn-9V1" userLabel="guestGraphicArmorRight">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="umT-vx-h4a" userLabel="guestGraphicEyesLeft">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="XdR-tf-RA4" userLabel="guestGraphicEyesRight">
+                                                <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="PNz-7r-Z9r" userLabel="guestGraphicMouth">
                                                 <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -642,11 +666,17 @@
                         <outlet property="destinationLabel" destination="XzP-Cb-P8v" id="s67-EB-duH"/>
                         <outlet property="gameStartButton" destination="vBW-h8-SxZ" id="S4d-qn-s0Z"/>
                         <outlet property="guestAttrLabel" destination="llS-xP-QJV" id="ZtK-y5-heu"/>
-                        <outlet property="guestGraphic1" destination="cGK-0x-sjy" id="sUa-MC-ZZ0"/>
-                        <outlet property="guestGraphicEyes" destination="lIM-e0-SSg" id="a1A-dQ-mxG"/>
-                        <outlet property="guestGraphicFace" destination="hre-VS-jZE" id="PXg-ZJ-xWB"/>
-                        <outlet property="guestGraphicHead" destination="cdI-U7-6od" id="68m-ay-x9h"/>
-                        <outlet property="guestGraphicNeck" destination="sn1-Uf-wPk" id="RX5-wq-dVb"/>
+                        <outlet property="guestGraphicArmorLeft" destination="137-Oo-PKC" id="OGv-bC-ISR"/>
+                        <outlet property="guestGraphicArmorRight" destination="wWh-Xn-9V1" id="K0G-Yx-PpS"/>
+                        <outlet property="guestGraphicEyesLeft" destination="umT-vx-h4a" id="DLp-Sx-cce"/>
+                        <outlet property="guestGraphicEyesRight" destination="XdR-tf-RA4" id="DpI-op-dGS"/>
+                        <outlet property="guestGraphicFaceLeft" destination="hre-VS-jZE" id="A2j-gC-mAz"/>
+                        <outlet property="guestGraphicFaceRight" destination="KkK-2S-y7V" id="Dat-g5-JNl"/>
+                        <outlet property="guestGraphicHeadLeft" destination="cdI-U7-6od" id="Z1k-KI-EFm"/>
+                        <outlet property="guestGraphicHeadRight" destination="gor-0R-iB5" id="Lkj-1l-f6A"/>
+                        <outlet property="guestGraphicMouth" destination="PNz-7r-Z9r" id="zkI-Rp-yp3"/>
+                        <outlet property="guestGraphicNeckLeft" destination="sn1-Uf-wPk" id="4Vz-Mv-eZr"/>
+                        <outlet property="guestGraphicNeckRight" destination="LGr-et-XBp" id="Bsp-DS-Brr"/>
                         <outlet property="guestGraphicShoulderLeft" destination="QlY-LI-inz" id="DeP-pY-KY0"/>
                         <outlet property="guestGraphicShoulderRight" destination="jsZ-ez-WWf" id="Q8T-iy-4sH"/>
                         <outlet property="guestGraphics" destination="yaR-qB-Ppn" id="Nkr-HH-lng"/>
@@ -732,9 +762,6 @@
             <point key="canvasLocation" x="1500" y="-198"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="char1.png" width="2000" height="3000"/>
-    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

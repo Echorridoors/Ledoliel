@@ -70,13 +70,19 @@
 
 // Guest Graphics
 
-@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicHead;
-@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicNeck;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicHeadLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicHeadRight;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicNeckLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicNeckRight;
 @property (strong, nonatomic) IBOutlet UIImageView *guestGraphicShoulderLeft;
 @property (strong, nonatomic) IBOutlet UIImageView *guestGraphicShoulderRight;
-@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicFace;
-@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicEyes;
-
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicFaceLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicFaceRight;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicArmorLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicArmorRight;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicEyesLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicEyesRight;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicMouth;
 
 // Actions
 
