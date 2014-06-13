@@ -19,8 +19,6 @@
 	
 	NSArray* spellRandom = [self shuffleArray:[self userSpells]];
 	
-	NSLog(@"! %@",spellRandom);
-	
 	newUser[@"spellbook"] = [[NSMutableDictionary alloc]initWithCapacity:3];
 	
 	newUser[@"spellbook"][@"say"] = [[NSMutableArray alloc]initWithCapacity:2];

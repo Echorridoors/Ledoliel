@@ -145,9 +145,7 @@
 
 
 -(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell :(int)order
-{
-	NSLog(@"! %@ %@ %@",attribute,action,spell);
-	
+{	
 	int value = 0;
 	int orderMultiplyer = 3-order;
 	

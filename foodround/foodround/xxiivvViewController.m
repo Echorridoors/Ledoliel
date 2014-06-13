@@ -33,7 +33,7 @@
 
 -(void)start
 {
-	console(@"GAME  | Init");
+	console(@"@ GAME | Init");
 	
 	guest = [self guestStart];
 	[self menuViewInit];
@@ -177,7 +177,6 @@
 
 -(void)hintDisplay
 {
-	NSLog(@"%d",currentSubmenuSelection);
 	NSString *menuSel = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
 
@@ -438,16 +437,18 @@
 	
 	[UIView commitAnimations];
 	
-	
 	if(currentSessionResultscreenPosition == 3){
 		currentGameRound += 1;
 		
-		[self sessionResultScreenHide];
-		[self guestResponseDisplay];
+		if(currentGameRound == 4){
+			[self guestEndDisplay];
+		}
+		else{
+			[self guestResponseDisplay];
+		}
 		[self sessionRoundsViewUpdate];
 		[self statusBarUpdate];
-		[self endSession];
-		
+		[self sessionResultScreenHide];
 		
 		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
@@ -456,7 +457,7 @@
 	}
 }
 
--(void)endSession
+-(void)guestEndDisplay
 {
 	NSLog(@"HEY");	
 }
@@ -554,7 +555,7 @@
 	_relationshipValueLabel.text = user[@"relationship"];
 	_relationshipLabel.text = [[self relatioshipNameFromValue:to_i(user[@"relationship"])] capitalizedString];
 	
-	NSLog(@"GUEST | Alignment: %d",to_i(user[@"relationship"]));
+	NSLog(@"  GEST | Relationship: %d",to_i(user[@"relationship"]));
 }
 
 
@@ -640,7 +641,7 @@
 
 -(void)menuViewTemplate
 {
-	console(@"+ TMPL | Menu");
+	console(@"  TMPL | Menu");
 	self.mainMenuView.hidden = NO;
 }
 
@@ -661,7 +662,7 @@
 
 -(void)mapViewTemplate
 {
-	console(@"+ TMPL | World Map");
+	console(@"  TMPL | World Map");
 	// Spellbook preview
 	
 	self.spellbookPreviewView.backgroundColor = [UIColor whiteColor];
@@ -748,7 +749,7 @@
 
 -(void)mapViewGeneratePlanets
 {
-	console(@"  VIEW | (map)Generate Planets");
+	console(@"  VIEW | Generate Planets");
 	
 	NSArray* attributeShuffle1 = [self shuffleArray:[self guestAttributes]];
 	NSArray* attributeShuffle2 = [self shuffleArray:[self guestAttributes]];
@@ -836,7 +837,7 @@
 
 -(void)sessionViewInit
 {
-	console(@"- VIEW | Session View Init");
+	console(@"! VIEW | Session View Init");
 	[self sessionViewTemplate];
 	[self sessionViewTemplateAnimate];
 	
@@ -857,7 +858,7 @@
 
 -(void)sessionViewTemplate
 {
-	console(@"TMPL  | Start");
+	console(@"  TMPL | Session");
 	
 	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 	
@@ -1010,12 +1011,13 @@
 
 -(void)modalViewInit
 {
-	console(@"- VIEW | Modal View Init");
+	console(@"! VIEW | Modal View Init");
 	[self modalViewTemplate];
 }
 
 -(void)modalViewTemplate
 {
+	console(@"  TMPL | Modal");
 	self.modalView.hidden = YES;
 	self.modalView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7];
 	self.modalView.frame = CGRectMake(0, 0, screenWidth, screenHeight);
