@@ -67,10 +67,21 @@
 @property (strong, nonatomic) IBOutlet UIView *roundsCount4View;
 
 @property (strong, nonatomic) IBOutlet UIButton *guestStatusCloseButton;
+
+// Guest Graphics
+
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicHead;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicNeck;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicShoulderLeft;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicShoulderRight;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicFace;
+@property (strong, nonatomic) IBOutlet UIImageView *guestGraphicEyes;
+
+
+// Actions
+
 - (IBAction)guestStatusCloseButton:(id)sender;
-
 - (IBAction)resultCloseButton:(id)sender;
-
 - (IBAction)menuOption1Button:(id)sender;
 - (IBAction)menuOption2Button:(id)sender;
 - (IBAction)menuOption3Button:(id)sender;

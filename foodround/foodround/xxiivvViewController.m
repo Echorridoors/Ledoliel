@@ -499,7 +499,6 @@
 
 -(void)guestResponseHide
 {
-	NSLog(@"> close");
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.3];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -553,7 +552,7 @@
 	[UIView commitAnimations];
 	
 	_relationshipValueLabel.text = user[@"relationship"];
-	_relationshipLabel.text = [[self relatioshipNameFromValue:to_i(user[@"relationship"])] capitalizedString];
+	_relationshipLabel.text = [[self relatioshipNameFromValue:to_i(user[@"relationship"])] uppercaseString];
 	
 	NSLog(@"  GEST | Relationship: %d",to_i(user[@"relationship"]));
 }
@@ -925,9 +924,6 @@
 	self.hintLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.hintLabel.font = [UIFont boldSystemFontOfSize:12];
 	
-	self.guestGraphics.frame = CGRectMake(0, 0, screenWidth, screenHeight);
-	self.guestGraphic1.frame = self.guestGraphics.frame;
-	
 	[self.confirmButton setFrame:CGRectMake(0, 0, screenWidth-templateUnit, templateUnit)];
 	[self.confirmButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	
@@ -967,6 +963,33 @@
 	_roundsCount2View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount3View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount4View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+	
+	// Guest Graphics
+	_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
+	
+	_guestGraphic1.frame = CGRectMake(0, 0, screenWidth, screenWidth);
+	_guestGraphic1.hidden = YES;
+	
+	_guestGraphicHead.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicHead.image = [UIImage imageNamed:@"head.1.png"];
+	
+	
+	_guestGraphicFace.hidden = YES;
+	_guestGraphicFace.backgroundColor = [UIColor redColor];
+	_guestGraphicFace.alpha = 0.2;
+	_guestGraphicFace.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
+	
+	_guestGraphicNeck.frame = CGRectMake(screenWidth/4, screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicNeck.image = [UIImage imageNamed:@"neck.1.png"];
+	
+	
+	UIImage* shoulderGraphic = [UIImage imageNamed:@"shoulder.1.png"];
+	
+	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderLeft.image = shoulderGraphic;
+	
+	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 }
 -(void)sessionViewTemplateAnimate
