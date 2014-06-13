@@ -969,7 +969,7 @@
 	
 	NSString* imageName;
 	
-	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(6)];
+	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(7)];
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
@@ -990,27 +990,26 @@
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(1)];
+	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(5)];
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
 	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(1)];
+	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(2)];
 	UIImage* shoulderGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(1)];
+	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(2)];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
-	
 	
 	imageName = [NSString stringWithFormat:@"mouth.%d.png",1+arc4random_uniform(7)];
 	
