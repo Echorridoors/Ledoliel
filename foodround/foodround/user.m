@@ -65,7 +65,7 @@
 
 -(NSArray*)userSpells
 {
-	return @[@"money",@"food",@"toys",@"weapons",@"children",@"gold",@"coal"];
+	return @[@"money",@"food",@"toys",@"weapons",@"children",@"gold",@"garbage",@"genitals",@"foam",@"mud",@"love"];
 }
 
 

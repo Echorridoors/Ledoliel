@@ -66,7 +66,8 @@
 @property (strong, nonatomic) IBOutlet UIView *roundsCount3View;
 @property (strong, nonatomic) IBOutlet UIView *roundsCount4View;
 
-
+@property (strong, nonatomic) IBOutlet UIButton *guestStatusCloseButton;
+- (IBAction)guestStatusCloseButton:(id)sender;
 
 - (IBAction)resultCloseButton:(id)sender;
 

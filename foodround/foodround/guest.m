@@ -301,7 +301,6 @@
 
 -(NSString*)relatioshipNameFromValue :(int)value
 {
-
 	if(value > 15){ return @"friendly"; }
 	else if(value > 10){ return @"accepting"; }
 	else if(value > 5){ return @"casual"; }
@@ -313,6 +312,22 @@
 	else if(value < -1){ return @"annoyed"; }
 	
 	return @"neutral";
+}
+
+-(NSString*)actionFromRelationship :(int)relationship
+{
+	if(relationship < -15 ){ return @"punches you with their"; }
+	if(relationship < -10 ){ return @"slaps you with their"; }
+	if(relationship < -5 ){ return @"hits you with their"; }
+	
+	if(relationship == 0 ){ return @"shows you their"; }
+	
+	if(relationship > 15 ){ return @"offers you their"; }
+	if(relationship > 10 ){ return @"presents you their"; }
+	if(relationship > 5 ){ return @"shows you their"; }
+	
+	
+	return @"punches";
 }
 
 

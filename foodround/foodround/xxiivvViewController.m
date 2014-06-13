@@ -228,8 +228,8 @@
 	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
 	
 	// replace with New Spell
-	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
-	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
+//	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
+//	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
 	[self sessionResultScreenUpdate :action:spell];
 	[self sessionResultScreenDisplay];
@@ -320,7 +320,7 @@
 	if( reaction2 > 0 ){ positiveSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness loves %@ and you. ",guestName,guestAttr2,spell];}
 	if( reaction3 > 0 ){ positiveSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, likes %@. ",guestName,guestAttr3,spell];}
 	
-	_resultLabelPositive.text = [NSString stringWithFormat:@"+%d",positiveSum*multiplyer];
+	_resultLabelPositive.text = [NSString stringWithFormat:@"%d",positiveSum*multiplyer];
 	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
 	if( [_resultPaneLabel2.text isEqualToString: @""] ){ _resultPaneLabel2.text = @"Is not impressed with your actions."; }
 
@@ -412,7 +412,6 @@
 	}];
 	}];
 	
-	
 }
 -(void)sessionResultScreenSkip
 {
@@ -447,6 +446,8 @@
 		[self guestResponseDisplay];
 		[self sessionRoundsViewUpdate];
 		[self statusBarUpdate];
+		[self endSession];
+		
 		
 		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
@@ -455,17 +456,24 @@
 	}
 }
 
+-(void)endSession
+{
+	NSLog(@"HEY");	
+}
+
 -(void)guestResponseDisplay
 {
-	self.guestStatusLabel.text = @"The Woeful touches your eggs.";
-	self.guestStatusNoteLabel.text = @"Added \"eggs\" to your inventory";
+	NSString* newSpell = [self shuffleArray:[self userSpells]][0];
+	self.guestStatusLabel.text = [NSString stringWithFormat:@"%@ %@ %@.",[guest[@"name"] capitalizedString], [self actionFromRelationship:to_i(user[@"relationship"])],newSpell ];
+	self.guestStatusNoteLabel.text = [NSString stringWithFormat:@"Added \"%@\" to your devices",newSpell];
+	
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	
 	self.guestStatusView.hidden = NO;
 	
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-//	[UIView setAnimationDelay:0.5];
 	
 	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
@@ -474,7 +482,18 @@
 	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
 	self.guestStatusLabel.alpha = 1;
 	
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
 	[UIView commitAnimations];
+	
+	
+	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
+	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
+	
+	// replace with New Spell
+	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = newSpell;
+	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
+	
 }
 
 -(void)guestResponseHide
@@ -538,6 +557,10 @@
 	NSLog(@"GUEST | Alignment: %d",to_i(user[@"relationship"]));
 }
 
+
+- (IBAction)guestStatusCloseButton:(id)sender {
+	[self guestResponseHide];
+}
 
 - (IBAction)resultCloseButton:(id)sender {
 	[self sessionResultScreenSkip];
@@ -871,10 +894,6 @@
 	_resultLabelNegative.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*2, templateUnit*2, self.resultView.frame.size.height/4);
 	_resultLabelSummary.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
 	
-//	_resultLabelPositive.backgroundColor = [UIColor greenColor];
-//	_resultLabelNegative.backgroundColor = [UIColor redColor];
-//	_resultLabelSummary.backgroundColor = [UIColor whiteColor];
-	
 	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
 	self.menuOption3Button.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-templateUnit, templateUnit);
@@ -897,7 +916,8 @@
 	
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
-	
+
+	_guestStatusCloseButton.frame = CGRectMake(0, 0, _guestStatusView.frame.size.width, _guestStatusView.frame.size.height);
 	
 	self.hintView.backgroundColor = [UIColor redColor];
 	self.hintView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit);

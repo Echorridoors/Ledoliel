@@ -214,6 +214,16 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="AJT-6X-9Kk" userLabel="guestStatusCloseButton">
+                                                <rect key="frame" x="57" y="127" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="guestStatusCloseButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FF3-e9-EhR"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
@@ -606,6 +616,7 @@
                         <outlet property="guestGraphic1" destination="cGK-0x-sjy" id="sUa-MC-ZZ0"/>
                         <outlet property="guestGraphics" destination="yaR-qB-Ppn" id="Nkr-HH-lng"/>
                         <outlet property="guestNameLabel" destination="YGU-Rz-vTJ" id="RpZ-CW-l2p"/>
+                        <outlet property="guestStatusCloseButton" destination="AJT-6X-9Kk" id="J6A-UQ-4nZ"/>
                         <outlet property="guestStatusLabel" destination="ep8-VV-xRF" id="2gw-Eq-KML"/>
                         <outlet property="guestStatusNoteLabel" destination="vE1-cc-nYW" id="l3d-qe-Ch3"/>
                         <outlet property="guestStatusView" destination="AnO-Yw-gGW" id="Ir3-vR-83K"/>
