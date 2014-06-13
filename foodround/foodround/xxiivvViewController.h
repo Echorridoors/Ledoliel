@@ -31,6 +31,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *relationshipLabel;
 @property (strong, nonatomic) IBOutlet UIView *relationshipRating;
 @property (strong, nonatomic) IBOutlet UIView *relationshipRatingBar;
+@property (strong, nonatomic) IBOutlet UILabel *relationshipValueLabel;
 @property (strong, nonatomic) IBOutlet UIView *hintView;
 @property (strong, nonatomic) IBOutlet UILabel *hintLabel;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;

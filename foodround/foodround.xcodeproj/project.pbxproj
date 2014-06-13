@@ -21,6 +21,7 @@
 		031DBC24193F89690061F6F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031DBC06193F89690061F6F8 /* UIKit.framework */; };
 		031DBC2C193F89690061F6F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 031DBC2A193F89690061F6F8 /* InfoPlist.strings */; };
 		031DBC2E193F89690061F6F8 /* foodroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031DBC2D193F89690061F6F8 /* foodroundTests.m */; };
+		033C8D3E194A44AF00265277 /* dashed.png in Resources */ = {isa = PBXBuildFile; fileRef = 033C8D3D194A44AF00265277 /* dashed.png */; };
 		03B5FE2B1940B15E00C8DD20 /* char1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B5FE2A1940B15E00C8DD20 /* char1.png */; };
 		03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 03B5FE2D1940BB6800C8DD20 /* tools.m */; };
 		03D4BC64194235990048AFCD /* planet1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03D4BC63194235990048AFCD /* planet1.png */; };
@@ -59,6 +60,7 @@
 		031DBC29193F89690061F6F8 /* foodroundTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "foodroundTests-Info.plist"; sourceTree = "<group>"; };
 		031DBC2B193F89690061F6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		031DBC2D193F89690061F6F8 /* foodroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodroundTests.m; sourceTree = "<group>"; };
+		033C8D3D194A44AF00265277 /* dashed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashed.png; path = en.assets/dashed.png; sourceTree = "<group>"; };
 		03B5FE2A1940B15E00C8DD20 /* char1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = char1.png; path = en.assets/char1.png; sourceTree = "<group>"; };
 		03B5FE2C1940BB6800C8DD20 /* tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tools.h; sourceTree = "<group>"; };
 		03B5FE2D1940BB6800C8DD20 /* tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = tools.m; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				033C8D3D194A44AF00265277 /* dashed.png */,
 				03D4BC63194235990048AFCD /* planet1.png */,
 				03B5FE2A1940B15E00C8DD20 /* char1.png */,
 				031DBC11193F89690061F6F8 /* xxiivvAppDelegate.h */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				033C8D3E194A44AF00265277 /* dashed.png in Resources */,
 				031DBC1B193F89690061F6F8 /* Images.xcassets in Resources */,
 				03D4BC64194235990048AFCD /* planet1.png in Resources */,
 				031DBC0D193F89690061F6F8 /* InfoPlist.strings in Resources */,

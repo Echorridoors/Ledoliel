@@ -17,5 +17,6 @@
 -(NSString*)syllableFromAttribute :(NSString*)attribute :(int)order;
 -(int)reactionFromAttribute :(NSString*)attribute :(NSString*)action :(NSString*)spell :(int)order;
 -(int)multiplayerFromAttribute :(NSString*)attribute :(NSString*)action;
+-(NSString*)relatioshipNameFromValue :(int)value;
 
 @end

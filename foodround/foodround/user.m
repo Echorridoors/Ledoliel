@@ -58,6 +58,7 @@
 	newUser[@"session"] = [[NSMutableDictionary alloc]initWithCapacity:3];
 	
 	newUser[@"session"][@"guestRelationship"] = @"0";
+	newUser[@"relationship"] = @"0";
 	
 	return newUser;
 }

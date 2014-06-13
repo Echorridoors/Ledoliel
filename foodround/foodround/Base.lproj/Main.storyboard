@@ -63,6 +63,13 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AsN-7Y-QIB" userLabel="relationshipValueLabel">
+                                                <rect key="frame" x="139" y="6" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" id="2WQ-Un-9kw" userLabel="roundsView">
@@ -637,6 +644,7 @@
                         <outlet property="relationshipLabel" destination="DH9-dY-Oxd" id="FZb-Ol-QFk"/>
                         <outlet property="relationshipRating" destination="Ock-ZY-FOk" id="giD-Sf-ZNY"/>
                         <outlet property="relationshipRatingBar" destination="dQb-o9-pf8" id="HMA-Zs-oGv"/>
+                        <outlet property="relationshipValueLabel" destination="AsN-7Y-QIB" id="Rh1-Pg-U2D"/>
                         <outlet property="resultCloseButton" destination="oLy-Vv-qxh" id="9qv-dy-6Vr"/>
                         <outlet property="resultLabelInit" destination="tjs-FX-q1X" id="hi0-rm-9C8"/>
                         <outlet property="resultLabelNegative" destination="QqD-Jb-r25" id="CAI-2Z-YSN"/>

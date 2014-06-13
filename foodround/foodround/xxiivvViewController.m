@@ -8,6 +8,7 @@
 #define console(arg) NSLog(arg)
 #define to_i(arg) [arg intValue]
 #define to_s(arg) [NSString stringWithFormat:@"%d",arg]
+#define to_f(arg) [arg floatValue]
 
 #define screenWidth self.view.frame.size.width
 #define screenHeight self.view.frame.size.height
@@ -302,7 +303,14 @@
 	
 	_resultPaneLabel1.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
 	
-	_resultLabelInit.text = [NSString stringWithFormat:@"%dx",multiplyer];
+	if(multiplyer>1){
+		_resultLabelInit.alpha = 1;
+		_resultLabelInit.text = [NSString stringWithFormat:@"%dx",multiplyer];
+	}
+	else{
+		_resultLabelInit.alpha = 0.5;
+		_resultLabelInit.text = @"1x";
+	}
 	
 	// 2.positive process
 	
@@ -312,7 +320,7 @@
 	if( reaction2 > 0 ){ positiveSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness loves %@ and you. ",guestName,guestAttr2,spell];}
 	if( reaction3 > 0 ){ positiveSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, likes %@. ",guestName,guestAttr3,spell];}
 	
-	_resultLabelPositive.text = [NSString stringWithFormat:@"+%d",positiveSum];
+	_resultLabelPositive.text = [NSString stringWithFormat:@"+%d",positiveSum*multiplyer];
 	_resultPaneLabel2.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
 	if( [_resultPaneLabel2.text isEqualToString: @""] ){ _resultPaneLabel2.text = @"Is not impressed with your actions."; }
 
@@ -324,7 +332,7 @@
 	if( reaction2 < 0 ){ negativeSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness despises %@. ",guestName,guestAttr2,spell];}
 	if( reaction3 < 0 ){ negativeSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, finds %@ repulsive. ",guestName,guestAttr3,spell];}
 	
-	_resultLabelNegative.text = [NSString stringWithFormat:@"%d",negativeSum];
+	_resultLabelNegative.text = [NSString stringWithFormat:@"%d",negativeSum*multiplyer];
 	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
 	if( [_resultPaneLabel3.text isEqualToString: @""] ){ _resultPaneLabel3.text = @"Is unchanged by your actions."; }
 
@@ -332,21 +340,24 @@
 	
 	if( positiveSum + negativeSum > 0 ){
 		_resultLabelSummary.textColor = [UIColor whiteColor];
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pleased %@",guestName];
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pleased %@.",guestName];
 	}
 	else if( positiveSum + negativeSum < 0 ){
 		_resultLabelSummary.textColor = [UIColor redColor];
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You displeased %@",guestName];
+		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pissed off %@.",guestName];
 	}
 	else{
 		_resultPaneLabel4.text = @"Unchanged";
 	}
-	_resultLabelSummary.text = [NSString stringWithFormat:@"%d",(positiveSum + negativeSum)];
+	
+	int roundOutcome = (positiveSum + negativeSum)*multiplyer;
+	
+	_resultLabelSummary.text = [NSString stringWithFormat:@"%d",roundOutcome];
 	
 	// Update Relationship
 	
-	user[@"relationship"] = to_s((positiveSum+negativeSum));
-	
+	user[@"relationship"] = to_s((to_i(user[@"relationship"])+roundOutcome));
+		
 }
 
 -(void)sessionResultScreenDisplay
@@ -369,7 +380,6 @@
 	_resultLabelNegative.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*2, templateUnit*2, self.resultView.frame.size.height/4);
 	_resultLabelSummary.alpha = 0;
 	_resultLabelSummary.frame = CGRectMake(templateUnit*-0.5, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
-	
 	
 	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, 1);
 	
@@ -425,7 +435,6 @@
 		_resultLabelSummary.alpha = 1;
 		_resultLabelSummary.frame = CGRectMake(0, (self.resultView.frame.size.height/4)*3, templateUnit*2, self.resultView.frame.size.height/4);
 		[self.resultCloseButton setTitle:@"Close" forState:UIControlStateNormal];
-		[self statusBarUpdate];
 	}
 	
 	[UIView commitAnimations];
@@ -437,6 +446,7 @@
 		[self sessionResultScreenHide];
 		[self guestResponseDisplay];
 		[self sessionRoundsViewUpdate];
+		[self statusBarUpdate];
 		
 		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
@@ -502,19 +512,29 @@
 }
 
 -(void)statusBarUpdate
-{// todo
+{
 	[UIView beginAnimations:@"advancedAnimations" context:nil];
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.relationshipRatingBar.hidden = YES;
-	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width/2, self.relationshipRating.frame.size.height);
-	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
-	self.relationshipLabel.text = @"Enemy";
-	// to_i(user[@"relationship"])
+	float progressWidth = 0;
+	
+	if(to_i(user[@"relationship"]) > 0){
+		progressWidth = (to_f(user[@"relationship"]) / 30) * self.relationshipRating.frame.size.width/2;
+		self.relationshipRatingBar.backgroundColor = [UIColor blackColor];
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2, 0, progressWidth, 1);
+	}
+	else{
+		progressWidth = (-1*to_f(user[@"relationship"]) / 30) * self.relationshipRating.frame.size.width/2;
+		self.relationshipRatingBar.backgroundColor = [UIColor redColor];
+		self.relationshipRatingBar.frame = CGRectMake(self.relationshipRating.frame.size.width/2-progressWidth, 0, progressWidth, 1);
+	}
 	
 	[UIView commitAnimations];
-			
+	
+	_relationshipValueLabel.text = user[@"relationship"];
+	_relationshipLabel.text = [[self relatioshipNameFromValue:to_i(user[@"relationship"])] capitalizedString];
+	
 	NSLog(@"GUEST | Alignment: %d",to_i(user[@"relationship"]));
 }
 
@@ -855,7 +875,6 @@
 //	_resultLabelNegative.backgroundColor = [UIColor redColor];
 //	_resultLabelSummary.backgroundColor = [UIColor whiteColor];
 	
-	
 	self.menuOption1Button.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.menuOption2Button.frame = CGRectMake(templateUnit, templateUnit, screenWidth-templateUnit, templateUnit);
 	self.menuOption3Button.frame = CGRectMake(templateUnit, templateUnit*2, screenWidth-templateUnit, templateUnit);
@@ -898,10 +917,12 @@
 	self.relationshipLabel.frame = CGRectMake(0, 0, screenWidth, templateUnit);
 	self.relationshipLabel.textColor = [UIColor blackColor];
 	
-	self.relationshipRating.backgroundColor = [UIColor blackColor];
+	self.relationshipRating.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"dashed.png"]];
 	self.relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.5, screenWidth-(2*templateUnit), 1);
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
 	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
+
+	_relationshipValueLabel.frame = CGRectMake(screenWidth/2-templateUnit, templateUnit*1.5, templateUnit*2, templateUnit);
 	
 	// Rounds Interface
 	
@@ -931,7 +952,7 @@
 {
 	_statusView.alpha = 0;
 	_statusView.frame = CGRectMake(0, templateUnit*2, screenWidth, templateUnit*3);
-	_relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit*1.5, 0, 1);
+	_relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit*1.3, 0, 1);
 	
 	[UIView animateWithDuration:0.2 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -949,7 +970,7 @@
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[UIView setAnimationDelay:1.5];
 
-		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.5, screenWidth-(2*templateUnit), 1);
+		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.3, screenWidth-(2*templateUnit), 1);
 		
 	} completion:^(BOOL finished){}];
 	

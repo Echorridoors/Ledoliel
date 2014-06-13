@@ -222,7 +222,7 @@
 		if( [spell isEqualToString:@"money"])	{ value = 1;}
 		if( [spell isEqualToString:@"food"])	{ value = 2;}
 		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
+		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
 		if( [spell isEqualToString:@"gold"])	{ value = 1;}
 		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
 		if( [spell isEqualToString:@"children"]){ value = -2;}
@@ -247,7 +247,7 @@
 		
 		if( [spell isEqualToString:@"money"])	{ value = 2;}
 		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
+		if( [spell isEqualToString:@"toys"])	{ value = -1;}
 		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
 		if( [spell isEqualToString:@"gold"])	{ value = 1;}
 		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
@@ -297,6 +297,22 @@
 	}
 	
 	return 0;
+}
+
+-(NSString*)relatioshipNameFromValue :(int)value
+{
+
+	if(value > 15){ return @"friendly"; }
+	else if(value > 10){ return @"accepting"; }
+	else if(value > 5){ return @"casual"; }
+	else if(value > 1){ return @"casual"; }
+	
+	else if(value < -15){ return @"enemy"; }
+	else if(value < -10){ return @"hostile"; }
+	else if(value < -5){ return @"offended"; }
+	else if(value < -1){ return @"annoyed"; }
+	
+	return @"neutral";
 }
 
 
