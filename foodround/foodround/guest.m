@@ -21,7 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	return @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious"];
+	return @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"scientific",@"mute",@"industrial",@"scientific",@"classical",@"spectral",@"blind",@"ghostly",@"aggressive",@"violent",@"peaceful",@"wise",@"ancient",@"archaic",@"selfish",@"honest",@"gentle",@"gross"];
 }
 
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
@@ -118,7 +118,7 @@
 	if([attribute isEqualToString:@"religious"] && order == 5){ return @"forehead"; }
 	if([attribute isEqualToString:@"religious"] && order == 6){ return @"robe"; }
 	
-	return @"wip";
+	return @"";
 }
 
 

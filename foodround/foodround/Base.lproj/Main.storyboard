@@ -491,6 +491,14 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qe1-SV-1Cc" userLabel="planetChoice1Graphic2">
+                                                        <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rZg-Xl-PfU" userLabel="planetChoice1Graphic3">
+                                                        <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
                                                 </subviews>
                                             </view>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Woeful" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jBG-g1-q13" userLabel="planetChoice1GuestLabel">
@@ -544,6 +552,14 @@
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Pe-KH-CBI" userLabel="planetChoice2Graphic1">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jkW-ed-6ho" userLabel="planetChoice2Graphic2">
+                                                        <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AIz-vD-YTM" userLabel="planetChoice2Graphic3">
+                                                        <rect key="frame" x="20" y="36" width="40" height="71"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                 </subviews>
                                             </view>
@@ -701,6 +717,8 @@
                         <outlet property="modalView" destination="Crp-ga-Cqf" id="y3o-RA-CqE"/>
                         <outlet property="planetChoice1Button" destination="Imn-1W-6Kp" id="rvB-iN-hlB"/>
                         <outlet property="planetChoice1Graphic1" destination="iOd-xs-HhK" id="p0r-Dd-WH2"/>
+                        <outlet property="planetChoice1Graphic2" destination="Qe1-SV-1Cc" id="kMO-ss-ZTF"/>
+                        <outlet property="planetChoice1Graphic3" destination="rZg-Xl-PfU" id="Dke-89-2Ft"/>
                         <outlet property="planetChoice1Graphics" destination="ejj-7V-UlY" id="GvG-68-ALC"/>
                         <outlet property="planetChoice1GuestAttr1Label" destination="4WV-kQ-Zrw" id="Kiw-ht-I9q"/>
                         <outlet property="planetChoice1GuestAttr2Label" destination="4JY-Xi-fni" id="Jjg-89-pSz"/>
@@ -709,6 +727,8 @@
                         <outlet property="planetChoice1View" destination="WY7-ny-Jrp" id="t3d-gQ-i0u"/>
                         <outlet property="planetChoice2Button" destination="cpw-iz-gqh" id="KVR-bo-McZ"/>
                         <outlet property="planetChoice2Graphic1" destination="8Pe-KH-CBI" id="VAr-bh-0UK"/>
+                        <outlet property="planetChoice2Graphic2" destination="jkW-ed-6ho" id="YwH-C7-GMF"/>
+                        <outlet property="planetChoice2Graphic3" destination="AIz-vD-YTM" id="PLg-h7-wRb"/>
                         <outlet property="planetChoice2Graphics" destination="M0Z-Hh-fxH" id="4AI-ja-xq5"/>
                         <outlet property="planetChoice2GuestAttr1Label" destination="Txr-ty-MYr" id="QuU-9j-JDF"/>
                         <outlet property="planetChoice2GuestAttr2Label" destination="TQM-fq-TJZ" id="1Ia-kJ-yXe"/>

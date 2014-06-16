@@ -124,6 +124,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr2Label;
 @property (strong, nonatomic) IBOutlet UILabel *planetChoice1GuestAttr3Label;
 @property (strong, nonatomic) IBOutlet UIView *planetChoice1Graphics;
+
 @property (strong, nonatomic) IBOutlet UIButton *planetChoice1Button;
 - (IBAction)planetChoice1Button:(id)sender;
 
@@ -136,7 +137,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *planetChoice2Button;
 
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice1Graphic1;
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice1Graphic2;
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice1Graphic3;
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic1;
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic2;
+@property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic3;
+
+
+
 - (IBAction)planetChoice2Button:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIView *planetSelectionView;

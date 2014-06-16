@@ -693,7 +693,8 @@
 	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
 	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
-	self.planetChoice1Graphic1.image = [UIImage imageNamed:@"planet1.png"];
+	self.planetChoice1Graphic2.frame = self.planetChoice1Graphics.frame;
+	self.planetChoice1Graphic3.frame = self.planetChoice1Graphics.frame;
 	
 	[self.planetChoice1Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice1Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
@@ -705,7 +706,8 @@
 	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
 	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
-	self.planetChoice2Graphic1.image = [UIImage imageNamed:@"planet1.png"];
+	self.planetChoice2Graphic2.frame = self.planetChoice1Graphics.frame;
+	self.planetChoice2Graphic3.frame = self.planetChoice1Graphics.frame;
 	
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
@@ -758,12 +760,35 @@
 	self.planetChoice1GuestAttr2Label.text = attributeShuffle1[1];
 	self.planetChoice1GuestAttr3Label.text = attributeShuffle1[2];
 	
+	int spriteSurfaceCount = 5;
+	int spriteDecalCount = 10;
+	
+	int attr1Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle1[0]];
+	int attr2Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle1[1]];
+	int attr3Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle1[2]];
+	int attr4Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle2[0]];
+	int attr5Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle2[1]];
+	int attr6Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle2[2]];
+	
+	NSString* planet1Surface = [NSString stringWithFormat:@"planet.surface.%d.png",attr1Pos % spriteSurfaceCount];
+	NSString* planet1Decal1 = [NSString stringWithFormat:@"planet.decal.%d.png",attr2Pos % spriteDecalCount];
+	NSString* planet1Decal2 = [NSString stringWithFormat:@"planet.decal.%d.png",attr3Pos % spriteDecalCount];
+	
+	self.planetChoice1Graphic1.image = [UIImage imageNamed:planet1Surface];
+	self.planetChoice1Graphic2.image = [UIImage imageNamed:planet1Decal1];
+	self.planetChoice1Graphic3.image = [UIImage imageNamed:planet1Decal2];
+	
 	self.planetChoice1GuestLabel.text = [self guestNameFromAttributes:attributeShuffle1[0]:attributeShuffle1[1]:attributeShuffle1[2]];
 	
 	guest[@"attributes_potential"][1] = @[attributeShuffle2[0],attributeShuffle2[1],attributeShuffle2[2]];
+	
 	self.planetChoice2GuestAttr1Label.text = attributeShuffle2[0];
 	self.planetChoice2GuestAttr2Label.text = attributeShuffle2[1];
 	self.planetChoice2GuestAttr3Label.text = attributeShuffle2[2];
+	
+	self.planetChoice2Graphic1.image = [UIImage imageNamed:[NSString stringWithFormat:@"planet.surface.%d.png",attr4Pos % spriteSurfaceCount]];
+	self.planetChoice2Graphic2.image = [UIImage imageNamed:[NSString stringWithFormat:@"planet.decal.%d.png",attr5Pos % spriteDecalCount]];
+	self.planetChoice2Graphic3.image = [UIImage imageNamed:[NSString stringWithFormat:@"planet.decal.%d.png",attr6Pos % spriteDecalCount]];
 	
 	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];
 }
@@ -969,28 +994,28 @@
 	
 	NSString* imageName;
 	
-	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(7)];
+	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(9)];
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(7)];
+	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(9)];
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(5)];
+	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(9)];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(5)];
+	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(9)];
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
 	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
