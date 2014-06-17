@@ -142,7 +142,7 @@
 	if([attribute isEqualToString:@"wise"] && order == 1){ return @"erl"; }
 	if([attribute isEqualToString:@"wise"] && order == 2){ return @"ionel"; }
 	if([attribute isEqualToString:@"wise"] && order == 3){ return @"dente"; }
-	if([attribute isEqualToString:@"wise"] && order == 4){ return @"bows"; }
+	if([attribute isEqualToString:@"wise"] && order == 4){ return @"blows"; }
 	if([attribute isEqualToString:@"wise"] && order == 5){ return @"honour"; }
 	if([attribute isEqualToString:@"wise"] && order == 6){ return @"books"; }
 	
@@ -347,9 +347,10 @@
 		// Positive
 		if( [spell isEqualToString:@"blood"])		{ value = 2;}
 		if( [spell isEqualToString:@"weapons"])		{ value = 2;}
-		if( [spell isEqualToString:@"guts"])		{ value = 2;}
+		if( [spell isEqualToString:@"guts"])		{ value = 1;}
 		if( [spell isEqualToString:@"toys"])		{ value = 1;}
 		if( [spell isEqualToString:@"drugs"])		{ value = 1;}
+		if( [spell isEqualToString:@"pain"])		{ value = 1;}
 		
 		// Negative
 		if( [spell isEqualToString:@"kittens"])		{ value = -2;}
@@ -521,14 +522,14 @@
 
 -(NSString*)relatioshipNameFromValue :(int)value
 {
-	if(value > 15){ return @"friendly"; }
-	else if(value > 10){ return @"accepting"; }
-	else if(value > 5){ return @"casual"; }
+	if(value > 15){ return @"loving"; }
+	else if(value > 10){ return @"friendly"; }
+	else if(value > 5){ return @"accepting"; }
 	else if(value > 1){ return @"casual"; }
 	
 	else if(value < -15){ return @"enemy"; }
-	else if(value < -10){ return @"hostile"; }
-	else if(value < -5){ return @"offended"; }
+	else if(value < -10){ return @"homicidal"; }
+	else if(value < -5){ return @"hostile"; }
 	else if(value < -1){ return @"annoyed"; }
 	
 	return @"neutral";

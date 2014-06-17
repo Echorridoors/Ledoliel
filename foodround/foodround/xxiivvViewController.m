@@ -356,7 +356,12 @@
 	// Update Relationship
 	
 	user[@"relationship"] = to_s((to_i(user[@"relationship"])+roundOutcome));
-		
+	
+	// Cap at 30
+	
+	if( to_i(user[@"relationship"]) > 30 ){ user[@"relationship"] = @"30"; }
+	if( to_i(user[@"relationship"]) <-30 ){ user[@"relationship"] = @"-30"; }
+	
 }
 
 -(void)sessionResultScreenDisplay
@@ -439,8 +444,15 @@
 	
 	if(currentSessionResultscreenPosition == 3){
 		currentGameRound += 1;
+		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
 		if(currentGameRound == 4){
+			_roundsLabel.text = @"Round End";
+			
+			if(to_i(user[@"relationship"]) < 0){
+				user[@"alive"] = @"0";
+			}
+			
 			[self guestEndDisplay];
 		}
 		else{
@@ -450,16 +462,10 @@
 		[self statusBarUpdate];
 		[self sessionResultScreenHide];
 		
-		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
 	}else{
 		currentSessionResultscreenPosition += 1;	
 	}
-}
-
--(void)guestEndDisplay
-{
-	NSLog(@"HEY");	
 }
 
 -(void)guestResponseDisplay
@@ -468,7 +474,7 @@
 	self.guestStatusLabel.text = [NSString stringWithFormat:@"%@ %@ %@.",[guest[@"name"] capitalizedString], [self actionFromRelationship:to_i(user[@"relationship"])],newSpell ];
 	self.guestStatusNoteLabel.text = [NSString stringWithFormat:@"Added \"%@\" to your devices",newSpell];
 	
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	
 	self.guestStatusView.hidden = NO;
 	
@@ -482,11 +488,17 @@
 	
 	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
 	self.guestStatusLabel.alpha = 1;
+
+	[UIView commitAnimations];
+	
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	
 	[UIView commitAnimations];
-	
 	
 	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
@@ -495,6 +507,52 @@
 	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = newSpell;
 	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
 	
+}
+-(void)guestEndDisplay
+{
+	self.guestStatusLabel.text = @"Kills you";
+	self.guestStatusNoteLabel.text = @"Tap to return to the menu.";
+	
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	_guestStatusCloseButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1];
+	_guestStatusCloseButton.frame = CGRectMake(0, screenHeight-(templateUnit*6), screenWidth, templateUnit*4);
+	_guestStatusCloseButton.alpha = 0;
+	[_guestStatusCloseButton setTitle:@"Return to menu" forState:UIControlStateNormal];
+	
+	self.guestStatusView.hidden = NO;
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.2];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(2*templateUnit));
+
+	if(to_i(user[@"alive"]) == 0){
+		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
+	}
+	else{
+		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
+	}
+	
+	self.guestStatusView.alpha = 1;
+	
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
+	self.guestStatusLabel.alpha = 1;
+	
+	[UIView commitAnimations];
+	
+	[UIView beginAnimations:@"advancedAnimations" context:nil];
+	[UIView setAnimationDuration:0.5];
+	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+	
+	_guestStatusCloseButton.alpha = 1;
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	_menuView.hidden = YES;
+	_menuView.hidden = YES;
+	
+	[UIView commitAnimations];
 }
 
 -(void)guestResponseHide
@@ -558,8 +616,21 @@
 }
 
 
-- (IBAction)guestStatusCloseButton:(id)sender {
-	[self guestResponseHide];
+- (IBAction)guestStatusCloseButton:(id)sender
+{
+	if(currentGameRound == 4){
+		if( to_i(user[@"alive"]) == 1 ){
+			// To Map
+			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"menuViewInit"):0.0];
+		}
+		else{
+			// To Menu
+			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
+		}
+	}
+	else{
+		[self guestResponseHide];
+	}
 }
 
 - (IBAction)resultCloseButton:(id)sender {
@@ -642,6 +713,7 @@
 {
 	console(@"  TMPL | Menu");
 	self.mainMenuView.hidden = NO;
+	_mainMenuView.backgroundColor = [UIColor blueColor];
 }
 
 #pragma mark 2.Map
@@ -820,7 +892,7 @@
 		guest[@"attributes"] = guest[@"attributes_potential"][0];
 		guest[@"name"] = _planetChoice1GuestLabel.text;
 	
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.0];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:1];
@@ -832,7 +904,7 @@
 		guest[@"attributes"] = guest[@"attributes_potential"][1];
 		guest[@"name"] = _planetChoice2GuestLabel.text;
 		
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.0];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:2];
@@ -853,7 +925,7 @@
 	self.guestNameLabel.text = guestName;
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
 	
-	[self modalViewDisplay:guestCustom:1.5];
+	[self modalViewDisplay:guestCustom:0.75];
 	
 	[self alignSelection:0];
 	[self menuSelectionLoad];
@@ -1035,7 +1107,7 @@
 	
 	[UIView animateWithDuration:0.2 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		[UIView setAnimationDelay:0.9];
+		[UIView setAnimationDelay:0.2];
 		
 		_statusView.alpha = 1;
 		_statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
@@ -1045,7 +1117,7 @@
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		[UIView setAnimationDelay:1.5];
+		[UIView setAnimationDelay:0.2];
 		
 		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
 		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.3, screenWidth-(2*templateUnit), 1);

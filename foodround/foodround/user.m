@@ -57,6 +57,7 @@
 	
 	newUser[@"session"][@"guestRelationship"] = @"0";
 	newUser[@"relationship"] = @"0";
+	newUser[@"alive"] = @"0";
 	
 	return newUser;
 }
