@@ -501,7 +501,6 @@
 	[UIView commitAnimations];
 	
 	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
-	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
 	
 	// replace with New Spell
 	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = newSpell;
@@ -550,7 +549,6 @@
 	_guestStatusCloseButton.alpha = 1;
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	
-	_menuView.hidden = YES;
 	_menuView.hidden = YES;
 	
 	[UIView commitAnimations];
@@ -785,7 +783,7 @@
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
 	
-	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice1View.frame.size.height + (templateUnit));
+	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
 	self.planetSelectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
 	self.planetSelectionView.alpha = 0.3;
 	
@@ -869,16 +867,25 @@
 
 -(void)mapViewPlanetSelectorAlign :(int)choice
 {
+	// Align
+	if(choice == 1){
+		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
+	}
+	else{
+		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, 0, self.planetChoice2View.frame.size.height + (templateUnit));
+	}
+	
+	// Animate
 	[UIView animateWithDuration:0.15 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
 		if(choice == 1){
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice1View.frame.size.height + (templateUnit));
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
 		}
 		else{
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice2View.frame.size.height + (templateUnit));
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
 		}
-		self.planetSelectionView.alpha = 1;
+		self.planetSelectionView.alpha = 0.2;
 		
 	} completion:^(BOOL finished){
 		user[@"selection"] = [NSString stringWithFormat:@"%d",choice];
@@ -886,30 +893,42 @@
 	}];
 }
 
-
 - (IBAction)planetChoice1Button:(id)sender
 {	
-	if(to_i(user[@"selection"])==1){
-		guest[@"attributes"] = guest[@"attributes_potential"][0];
-		guest[@"name"] = _planetChoice1GuestLabel.text;
+	guest[@"attributes"] = guest[@"attributes_potential"][0];
+	guest[@"name"] = _planetChoice1GuestLabel.text;
 	
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.0];
-	}
-	else{
-		[self mapViewPlanetSelectorAlign:1];
-	}
+	// Align
+	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
+	
+	// Animate
+	[UIView animateWithDuration:0.2 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
+		self.planetSelectionView.alpha = 0.1;
+	} completion:^(BOOL finished){
+		user[@"selection"] = [NSString stringWithFormat:@"%d",1];
+		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][0][0]:guest[@"attributes_potential"][0][1]:guest[@"attributes_potential"][0][2]]];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
+	}];
 }
+
 - (IBAction)planetChoice2Button:(id)sender
 {
-	if(to_i(user[@"selection"])==2){
-		guest[@"attributes"] = guest[@"attributes_potential"][1];
-		guest[@"name"] = _planetChoice2GuestLabel.text;
-		
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.0];
-	}
-	else{
-		[self mapViewPlanetSelectorAlign:2];
-	}
+	guest[@"attributes"] = guest[@"attributes_potential"][1];
+	guest[@"name"] = _planetChoice2GuestLabel.text;
+	
+	// Align
+	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, 0, self.planetChoice2View.frame.size.height + (templateUnit));
+	
+	// Animate
+	[UIView animateWithDuration:0.2 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
+		self.planetSelectionView.alpha = 0.1;
+	} completion:^(BOOL finished){
+		user[@"selection"] = [NSString stringWithFormat:@"%d",2];
+		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][1][0]:guest[@"attributes_potential"][1][1]:guest[@"attributes_potential"][1][2]]];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
+	}];
 }
 
 #pragma mark 3.Session
@@ -939,6 +958,7 @@
 {
 	console(@"  TMPL | Session");
 	
+	_menuView.hidden = NO;
 	self.menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 	
 	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);

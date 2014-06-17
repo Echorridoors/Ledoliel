@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:foodround.xcodeproj">
+      location = "self:Ledoliel.xcodeproj">
    </FileRef>
 </Workspace>
