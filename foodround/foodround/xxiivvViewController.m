@@ -712,8 +712,9 @@
 	[self.planetChoice2Button setTitle:@"" forState:UIControlStateNormal];
 	self.planetChoice2Button.frame = CGRectMake(0, 0, _planetChoice1View.frame.size.width, _planetChoice1View.frame.size.height);
 	
-	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
-	self.planetSelectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.2];
+	self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice1View.frame.size.height + (templateUnit));
+	self.planetSelectionView.backgroundColor = [UIColor colorWithWhite:1 alpha:1];
+	self.planetSelectionView.alpha = 0.3;
 	
 }
 
@@ -778,7 +779,7 @@
 	self.planetChoice1Graphic2.image = [UIImage imageNamed:planet1Decal1];
 	self.planetChoice1Graphic3.image = [UIImage imageNamed:planet1Decal2];
 	
-	self.planetChoice1GuestLabel.text = [self guestNameFromAttributes:attributeShuffle1[0]:attributeShuffle1[1]:attributeShuffle1[2]];
+	self.planetChoice1GuestLabel.text = [[self guestNameFromAttributes:attributeShuffle1[0]:attributeShuffle1[1]:attributeShuffle1[2]] capitalizedString];
 	
 	guest[@"attributes_potential"][1] = @[attributeShuffle2[0],attributeShuffle2[1],attributeShuffle2[2]];
 	
@@ -790,7 +791,7 @@
 	self.planetChoice2Graphic2.image = [UIImage imageNamed:[NSString stringWithFormat:@"planet.decal.%d.png",attr5Pos % spriteDecalCount]];
 	self.planetChoice2Graphic3.image = [UIImage imageNamed:[NSString stringWithFormat:@"planet.decal.%d.png",attr6Pos % spriteDecalCount]];
 	
-	self.planetChoice2GuestLabel.text = [self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]];
+	self.planetChoice2GuestLabel.text = [[self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]] capitalizedString];
 }
 
 -(void)mapViewPlanetSelectorAlign :(int)choice
@@ -799,11 +800,12 @@
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
 		if(choice == 1){
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice1View.frame.size.height + (templateUnit));
 		}
 		else{
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
+			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, templateUnit/4, self.planetChoice2View.frame.size.height + (templateUnit));
 		}
+		self.planetSelectionView.alpha = 1;
 		
 	} completion:^(BOOL finished){
 		user[@"selection"] = [NSString stringWithFormat:@"%d",choice];
@@ -817,10 +819,8 @@
 	if(to_i(user[@"selection"])==1){
 		guest[@"attributes"] = guest[@"attributes_potential"][0];
 		guest[@"name"] = _planetChoice1GuestLabel.text;
-		
-		[self flickrView];
-		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];
+	
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:1];
@@ -832,29 +832,11 @@
 		guest[@"attributes"] = guest[@"attributes_potential"][1];
 		guest[@"name"] = _planetChoice2GuestLabel.text;
 		
-		[self flickrView];
-		[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(flickerViewStop) userInfo:nil repeats:NO];
-		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0.5];
+		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
 	}
 	else{
 		[self mapViewPlanetSelectorAlign:2];
 	}
-}
-
--(void)flickrView
-{
-	flickrTimer = [NSTimer scheduledTimerWithTimeInterval:0.05 target:self selector:@selector(flickrView) userInfo:nil repeats:NO];
-	if( _planetSelectionView.hidden == YES){
-		_planetSelectionView.hidden = NO;
-	}
-	else{
-		_planetSelectionView.hidden = YES;
-	}
-}
-
--(void)flickerViewStop
-{
-	[flickrTimer invalidate];
 }
 
 #pragma mark 3.Session
@@ -1048,6 +1030,9 @@
 	_statusView.frame = CGRectMake(0, templateUnit*2, screenWidth, templateUnit*3);
 	_relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit*1.3, 0, 1);
 	
+	_guestGraphics.alpha = 0;
+	_guestGraphics.frame = CGRectMake(0, screenHeight/4, screenWidth, screenWidth);
+	
 	[UIView animateWithDuration:0.2 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[UIView setAnimationDelay:0.9];
@@ -1055,19 +1040,18 @@
 		_statusView.alpha = 1;
 		_statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
 		
-		
-		
 	} completion:^(BOOL finished){}];
 	
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[UIView setAnimationDelay:1.5];
-
+		
+		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
 		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.3, screenWidth-(2*templateUnit), 1);
+		_guestGraphics.alpha = 1;
 		
 	} completion:^(BOOL finished){}];
-	
 	
 }
 

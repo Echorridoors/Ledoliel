@@ -63,7 +63,7 @@
 
 -(NSArray*)userSpells
 {
-	return @[@"money",@"food",@"toys",@"weapons",@"children",@"gold",@"garbage",@"genitals",@"foam",@"mud",@"love"];
+	return @[@"money",@"food",@"toys",@"weapons",@"children",@"gold",@"garbage",@"genitals",@"furs",@"mud",@"love",@"ink",@"blood",@"kitten",@"music",@"books",@"acid",@"paperwork",@"rotten limbs",@"mansion",@"island",@"phone",@"feces",@"pain",@"livestock",@"minerals",@"a solar system",@"army",@"puppies",@"power tools",@"education",@"drugs",@"palm pilot",@"lair",@"faith"];
 }
 
 
