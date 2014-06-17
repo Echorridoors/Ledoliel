@@ -510,9 +510,6 @@
 }
 -(void)guestEndDisplay
 {
-	self.guestStatusLabel.text = @"Kills you";
-	self.guestStatusNoteLabel.text = @"Tap to return to the menu.";
-	
 	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	
 	_guestStatusCloseButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1];
@@ -529,9 +526,13 @@
 	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(2*templateUnit));
 
 	if(to_i(user[@"alive"]) == 0){
+		self.guestStatusLabel.text = @"You failed.";
+		self.guestStatusNoteLabel.text = @"Tap to try again.";
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
 	else{
+		self.guestStatusLabel.text = @"You succeeded.";
+		self.guestStatusNoteLabel.text = @"Tap to choose your next destination";
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
 	
