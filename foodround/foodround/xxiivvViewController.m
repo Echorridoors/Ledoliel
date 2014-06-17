@@ -994,28 +994,28 @@
 	
 	NSString* imageName;
 	
-	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(9)];
+	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(10)];
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(9)];
+	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(10)];
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(9)];
+	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(10)];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(9)];
+	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(10)];
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
 	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
@@ -1036,7 +1036,7 @@
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"mouth.%d.png",1+arc4random_uniform(7)];
+	imageName = [NSString stringWithFormat:@"mouth.%d.png",1+arc4random_uniform(10)];
 	
 	_guestGraphicMouth.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicMouth.image =  [UIImage imageNamed:imageName];
