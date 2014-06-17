@@ -21,7 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	return @[@"deviant",@"lustful",@"childish",@"greedy",@"polite",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient"];
+	return @[@"deviant",@"lustful",@"childish",@"greedy",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient"];
 }
 
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
@@ -69,13 +69,6 @@
 	if([attribute isEqualToString:@"greedy"] && order == 5){ return @"mother"; }
 	if([attribute isEqualToString:@"greedy"] && order == 6){ return @"rusty cane"; }
 	
-	if([attribute isEqualToString:@"polite"] && order == 1){ return @"Led"; }
-	if([attribute isEqualToString:@"polite"] && order == 2){ return @"erl"; }
-	if([attribute isEqualToString:@"polite"] && order == 3){ return @"der"; }
-	if([attribute isEqualToString:@"polite"] && order == 4){ return @"holds"; }
-	if([attribute isEqualToString:@"polite"] && order == 5){ return @"mouth"; }
-	if([attribute isEqualToString:@"polite"] && order == 6){ return @"gloved hand"; }
-	
 	if([attribute isEqualToString:@"tribal"] && order == 1){ return @"Bras"; }
 	if([attribute isEqualToString:@"tribal"] && order == 2){ return @"arg"; }
 	if([attribute isEqualToString:@"tribal"] && order == 3){ return @"ulb"; }
@@ -88,7 +81,7 @@
 	if([attribute isEqualToString:@"rich"] && order == 3){ return @"ivec"; }
 	if([attribute isEqualToString:@"rich"] && order == 4){ return @"pats"; }
 	if([attribute isEqualToString:@"rich"] && order == 5){ return @"head"; }
-	if([attribute isEqualToString:@"rich"] && order == 6){ return @"saber"; }
+	if([attribute isEqualToString:@"rich"] && order == 6){ return @"gloved hand"; }
 	
 	if([attribute isEqualToString:@"evil"] && order == 1){ return @"Khav"; }
 	if([attribute isEqualToString:@"evil"] && order == 2){ return @"iol"; }
@@ -174,7 +167,6 @@
 	if( [attribute isEqualToString:@"lustful"] && [action isEqualToString:@"touch"])	{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"childish"] && [action isEqualToString:@"give"])	{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"greedy"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
-	if( [attribute isEqualToString:@"polite"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"tribal"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"rich"] && [action isEqualToString:@"say"])			{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"evil"] && [action isEqualToString:@"say"])			{ multiplyer = 1;}
@@ -197,225 +189,309 @@
 	int value = 0;
 	int orderMultiplyer = 3-order;
 	
+	// 8 each
+	
 	if( [attribute isEqualToString:@"deviant"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = -1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
-		
+		// Positive
+		if( [spell isEqualToString:@"toys"])		{ value = 1;}
+		if( [spell isEqualToString:@"ink"])			{ value = 1;}
+		if( [spell isEqualToString:@"acid"])		{ value = 1;}
+		if( [spell isEqualToString:@"rotten limbs"]){ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		if( [spell isEqualToString:@"feces"])		{ value = 1;}
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"pain"])		{ value = 1;}
+
+		// Negative
+		if( [spell isEqualToString:@"money"])		{ value = -1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = -1;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -1;}
+		if( [spell isEqualToString:@"education"])	{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -1;}
+		if( [spell isEqualToString:@"weapons"])		{ value = -1;}
+		if( [spell isEqualToString:@"gold"])		{ value = -1;}
+		if( [spell isEqualToString:@"army"])		{ value = -1;}
+
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"lustful"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = -1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = 1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 1;}
+		if( [spell isEqualToString:@"genitals"])	{ value = 1;}
+		if( [spell isEqualToString:@"love"])		{ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		if( [spell isEqualToString:@"kitten"])		{ value = 1;}
+		if( [spell isEqualToString:@"toys"])		{ value = 1;}
+		if( [spell isEqualToString:@"blood"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"garbage"])		{ value = -1;}
+		if( [spell isEqualToString:@"rotten limbs"]){ value = -1;}
+		if( [spell isEqualToString:@"ego"])			{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -3;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"childish"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = -1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = -1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = 1;}
-		if( [spell isEqualToString:@"flower"])	{ value = 1;}
+		// Positive
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"toys"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 3;}
+		if( [spell isEqualToString:@"love"])		{ value = 1;}
+		if( [spell isEqualToString:@"mud"])			{ value = 2;}
+
+		// Negative
+		if( [spell isEqualToString:@"money"])		{ value = -1;}
+		if( [spell isEqualToString:@"blood"])		{ value = -1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = -2;}
+		if( [spell isEqualToString:@"pain"])		{ value = -2;}
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"rich"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
+		if( [spell isEqualToString:@"blood"])		{ value = 1;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = 1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = 1;}
+		if( [spell isEqualToString:@"ego"])			{ value = 1;}
+		if( [spell isEqualToString:@"gold"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"children"])	{ value = -2;}
+		if( [spell isEqualToString:@"toys"])		{ value = -2;}
+		if( [spell isEqualToString:@"garbage"])		{ value = -2;}
+		if( [spell isEqualToString:@"pain"])		{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"greedy"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 2;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = 1;}
+		if( [spell isEqualToString:@"solar system"]){ value = 2;}
+		if( [spell isEqualToString:@"ego"])			{ value = 1;}
 		
-		return value*orderMultiplyer;
-	}
-	if( [attribute isEqualToString:@"polite"] ){
-		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -2;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Negative
+		if( [spell isEqualToString:@"love"])		{ value = -1;}
+		if( [spell isEqualToString:@"blood"])		{ value = -1;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -1;}
+		if( [spell isEqualToString:@"garbage"])		{ value = -1;}
+		if( [spell isEqualToString:@"genitals"])	{ value = -1;}
+		if( [spell isEqualToString:@"mud"])			{ value = -1;}
+		if( [spell isEqualToString:@"feces"])		{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"tribal"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = -2;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -2;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = 0;}
-		if( [spell isEqualToString:@"flower"])	{ value = -2;}
+		// Positive
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 2;}
+		if( [spell isEqualToString:@"gold"])		{ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 2;}
+		if( [spell isEqualToString:@"army"])		{ value = 1;}
+		if( [spell isEqualToString:@"faith"])		{ value = 1;}
+
+		// Negative
+		if( [spell isEqualToString:@"money"])		{ value = -2;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
+		if( [spell isEqualToString:@"mansion"])		{ value = -2;}
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"evil"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 2;}
-		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = -2;}
-		if( [spell isEqualToString:@"flower"])	{ value = -5;}
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
+		if( [spell isEqualToString:@"blood"])		{ value = 1;}
+		if( [spell isEqualToString:@"solar system"]){ value = 1;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = 1;}
+		if( [spell isEqualToString:@"army"])		{ value = 1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = 1;}
+		if( [spell isEqualToString:@"ego"])			{ value = 1;}
+
+		// Negative
+		if( [spell isEqualToString:@"toys"])		{ value = -2;}
+		if( [spell isEqualToString:@"children"])	{ value = -2;}
+		if( [spell isEqualToString:@"genitals"])	{ value = -1;}
+		if( [spell isEqualToString:@"food"])		{ value = -1;}
+		if( [spell isEqualToString:@"love"])		{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"sadist"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = -1;}
-		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 2;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 2;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = 2;}
-		if( [spell isEqualToString:@"flower"])	{ value = 0;}
+		// Positive
+		if( [spell isEqualToString:@"blood"])		{ value = 2;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 2;}
+		if( [spell isEqualToString:@"guts"])		{ value = 2;}
+		if( [spell isEqualToString:@"toys"])		{ value = 2;}
+		
+		// Negative
+		if( [spell isEqualToString:@"kittens"])		{ value = -2;}
+		if( [spell isEqualToString:@"children"])	{ value = -2;}
+		if( [spell isEqualToString:@"money"])		{ value = -2;}
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"pestilent"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = 1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -3;}
+		// Positive
+		if( [spell isEqualToString:@"guts"])		{ value = 1;}
+		if( [spell isEqualToString:@"blood"])		{ value = 1;}
+		if( [spell isEqualToString:@"feces"])		{ value = 2;}
+		if( [spell isEqualToString:@"kittens"])		{ value = 1;}
+		if( [spell isEqualToString:@"animals"])		{ value = 1;}
+		if( [spell isEqualToString:@"gold"])		{ value = 1;}
+		if( [spell isEqualToString:@"garbage"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"education"])	{ value = -1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = -1;}
+		if( [spell isEqualToString:@"money"])		{ value = -1;}
+		if( [spell isEqualToString:@"love"])		{ value = -3;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"religious"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 2;}
-		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 2;}
-		if( [spell isEqualToString:@"gold"])	{ value = 2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -3;}
-		if( [spell isEqualToString:@"children"]){ value = 3;}
-		if( [spell isEqualToString:@"flower"])	{ value = -3;}
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
+		if( [spell isEqualToString:@"faith"])		{ value = 2;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 3;}
+		if( [spell isEqualToString:@"blood"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"love"])		{ value = 00;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 00;}
+		if( [spell isEqualToString:@"feces"])		{ value = 00;}
+		if( [spell isEqualToString:@"kittens"])		{ value = 00;}
 		
 		return value*orderMultiplyer;
 	}
 	
 	if( [attribute isEqualToString:@"industrial"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 2;}
-		if( [spell isEqualToString:@"gold"])	{ value = 2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -2;}
-		if( [spell isEqualToString:@"flower"])	{ value = -2;}
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 2;}
+		if( [spell isEqualToString:@"gold"])		{ value = 2;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
+		if( [spell isEqualToString:@"army"])		{ value = 1;}
+		if( [spell isEqualToString:@"garbage"])		{ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
+		if( [spell isEqualToString:@"love"])		{ value = -2;}
+		if( [spell isEqualToString:@"toys"])		{ value = -2;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"scientific"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = -1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = -1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = 1;}
+		// Positive
+		if( [spell isEqualToString:@"kittens"])		{ value = 2;}
+		if( [spell isEqualToString:@"money"])		{ value = 2;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = 2;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 2;}
+		
+		// Negative
+		if( [spell isEqualToString:@"children"])	{ value = -2;}
+		if( [spell isEqualToString:@"food"])		{ value = -2;}
+		if( [spell isEqualToString:@"love"])		{ value = -2;}
+		if( [spell isEqualToString:@"faith"])		{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"violent"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = -1;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 2;}
-		if( [spell isEqualToString:@"gold"])	{ value = -2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"kittens"])		{ value = 2;}
+		if( [spell isEqualToString:@"money"])		{ value = 2;}
+		if( [spell isEqualToString:@"gold"])		{ value = 2;}
+		if( [spell isEqualToString:@"love"])		{ value = 1;}
+		if( [spell isEqualToString:@"genitals"])	{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"gold"])		{ value = -2;}
+		if( [spell isEqualToString:@"toys"])		{ value = -2;}
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
+		if( [spell isEqualToString:@"pain"])		{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"gentle"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 2;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = -1;}
-		if( [spell isEqualToString:@"gold"])	{ value = -1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -1;}
-		if( [spell isEqualToString:@"children"]){ value = 3;}
-		if( [spell isEqualToString:@"flower"])	{ value = 2;}
+		// Positive
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"toys"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 1;}
+		if( [spell isEqualToString:@"genitals"])	{ value = 1;}
+		if( [spell isEqualToString:@"education"])	{ value = 1;}
+		if( [spell isEqualToString:@"love"])		{ value = 1;}
+		if( [spell isEqualToString:@"faith"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"pain"])		{ value = -2;}
+		if( [spell isEqualToString:@"money"])		{ value = -2;}
+		if( [spell isEqualToString:@"gold"])		{ value = -2;}
+		if( [spell isEqualToString:@"army"])		{ value = -2;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"wise"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 1;}
-		if( [spell isEqualToString:@"food"])	{ value = 1;}
-		if( [spell isEqualToString:@"toys"])	{ value = 1;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 1;}
-		if( [spell isEqualToString:@"gold"])	{ value = 1;}
-		if( [spell isEqualToString:@"cocktail"]){ value = 1;}
-		if( [spell isEqualToString:@"children"]){ value = -1;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"education"])	{ value = 2;}
+		if( [spell isEqualToString:@"love"])		{ value = 2;}
+		if( [spell isEqualToString:@"money"])		{ value = 2;}
+		if( [spell isEqualToString:@"food"])		{ value = 2;}
+		
+		// Negative
+		if( [spell isEqualToString:@"pain"])		{ value = -2;}
+		if( [spell isEqualToString:@"blood"])		{ value = -2;}
+		if( [spell isEqualToString:@"genitals"])	{ value = -2;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
+		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"ancient"] ){
 		
-		if( [spell isEqualToString:@"money"])	{ value = 2;}
-		if( [spell isEqualToString:@"food"])	{ value = 2;}
-		if( [spell isEqualToString:@"toys"])	{ value = -2;}
-		if( [spell isEqualToString:@"weapons"])	{ value = 2;}
-		if( [spell isEqualToString:@"gold"])	{ value = 2;}
-		if( [spell isEqualToString:@"cocktail"]){ value = -2;}
-		if( [spell isEqualToString:@"children"]){ value = -3;}
-		if( [spell isEqualToString:@"flower"])	{ value = -1;}
+		// Positive
+		if( [spell isEqualToString:@"gold"])		{ value = 2;}
+		if( [spell isEqualToString:@"love"])		{ value = 2;}
+		if( [spell isEqualToString:@"children"])	{ value = 2;}
+		if( [spell isEqualToString:@"faith"])		{ value = 2;}
+		
+		// Negative
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
+		if( [spell isEqualToString:@"blood"])		{ value = -2;}
+		if( [spell isEqualToString:@"genitals"])	{ value = -2;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
