@@ -1022,14 +1022,14 @@
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(2)];
+	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(5)];
 	UIImage* shoulderGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(2)];
+	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(5)];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);

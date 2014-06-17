@@ -28,6 +28,12 @@
 		032FE8C01950793900022AA2 /* head.10.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8BB1950793900022AA2 /* head.10.png */; };
 		032FE8C11950793900022AA2 /* mouth.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8BC1950793900022AA2 /* mouth.9.png */; };
 		032FE8C21950793900022AA2 /* mouth.10.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8BD1950793900022AA2 /* mouth.10.png */; };
+		032FE8C619507D2A00022AA2 /* shoulder.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8C319507D2A00022AA2 /* shoulder.3.png */; };
+		032FE8C719507D2A00022AA2 /* shoulder.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8C419507D2A00022AA2 /* shoulder.4.png */; };
+		032FE8C819507D2A00022AA2 /* shoulder.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8C519507D2A00022AA2 /* shoulder.5.png */; };
+		032FE8CC19507EE800022AA2 /* armor.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8C919507EE800022AA2 /* armor.3.png */; };
+		032FE8CD19507EE800022AA2 /* armor.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CA19507EE800022AA2 /* armor.4.png */; };
+		032FE8CE19507EE800022AA2 /* armor.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CB19507EE800022AA2 /* armor.5.png */; };
 		033C8D3E194A44AF00265277 /* dashed.png in Resources */ = {isa = PBXBuildFile; fileRef = 033C8D3D194A44AF00265277 /* dashed.png */; };
 		03AAB934194F620300A3CC69 /* planet.decal.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB933194F620300A3CC69 /* planet.decal.1.png */; };
 		03AAB938194F666700A3CC69 /* planet.surface.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB935194F666700A3CC69 /* planet.surface.0.png */; };
@@ -136,6 +142,12 @@
 		032FE8BB1950793900022AA2 /* head.10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = head.10.png; path = en.assets/head.10.png; sourceTree = "<group>"; };
 		032FE8BC1950793900022AA2 /* mouth.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mouth.9.png; path = en.assets/mouth.9.png; sourceTree = "<group>"; };
 		032FE8BD1950793900022AA2 /* mouth.10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mouth.10.png; path = en.assets/mouth.10.png; sourceTree = "<group>"; };
+		032FE8C319507D2A00022AA2 /* shoulder.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoulder.3.png; path = en.assets/shoulder.3.png; sourceTree = "<group>"; };
+		032FE8C419507D2A00022AA2 /* shoulder.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoulder.4.png; path = en.assets/shoulder.4.png; sourceTree = "<group>"; };
+		032FE8C519507D2A00022AA2 /* shoulder.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = shoulder.5.png; path = en.assets/shoulder.5.png; sourceTree = "<group>"; };
+		032FE8C919507EE800022AA2 /* armor.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.3.png; path = en.assets/armor.3.png; sourceTree = "<group>"; };
+		032FE8CA19507EE800022AA2 /* armor.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.4.png; path = en.assets/armor.4.png; sourceTree = "<group>"; };
+		032FE8CB19507EE800022AA2 /* armor.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.5.png; path = en.assets/armor.5.png; sourceTree = "<group>"; };
 		033C8D3D194A44AF00265277 /* dashed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashed.png; path = en.assets/dashed.png; sourceTree = "<group>"; };
 		03AAB933194F620300A3CC69 /* planet.decal.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.decal.1.png; path = en.assets/planet.decal.1.png; sourceTree = "<group>"; };
 		03AAB935194F666700A3CC69 /* planet.surface.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.0.png; path = en.assets/planet.surface.0.png; sourceTree = "<group>"; };
@@ -344,6 +356,12 @@
 		03B884E0194B883A0094BFE0 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8C919507EE800022AA2 /* armor.3.png */,
+				032FE8CA19507EE800022AA2 /* armor.4.png */,
+				032FE8CB19507EE800022AA2 /* armor.5.png */,
+				032FE8C319507D2A00022AA2 /* shoulder.3.png */,
+				032FE8C419507D2A00022AA2 /* shoulder.4.png */,
+				032FE8C519507D2A00022AA2 /* shoulder.5.png */,
 				032FE8B91950793900022AA2 /* eyes.10.png */,
 				032FE8BA1950793900022AA2 /* face.10.png */,
 				032FE8BB1950793900022AA2 /* head.10.png */,
@@ -537,6 +555,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				032FE8C719507D2A00022AA2 /* shoulder.4.png in Resources */,
 				03AAB934194F620300A3CC69 /* planet.decal.1.png in Resources */,
 				03AAB942194F679E00A3CC69 /* planet.decal.7.png in Resources */,
 				03B884F3194B905C0094BFE0 /* mouth.7.png in Resources */,
@@ -544,6 +563,7 @@
 				03B884E7194B8A080094BFE0 /* head.3.png in Resources */,
 				03B88515194BA30E0094BFE0 /* neck.5.png in Resources */,
 				03AAB95F194F87D300A3CC69 /* head.8.png in Resources */,
+				032FE8C819507D2A00022AA2 /* shoulder.5.png in Resources */,
 				03B88501194B971E0094BFE0 /* head.6.png in Resources */,
 				03AAB96F194FA07300A3CC69 /* neck.8.png in Resources */,
 				033C8D3E194A44AF00265277 /* dashed.png in Resources */,
@@ -552,7 +572,9 @@
 				03B8850D194B9CBB0094BFE0 /* head.7.png in Resources */,
 				03AAB940194F679E00A3CC69 /* planet.decal.5.png in Resources */,
 				03AAB965194F902B00A3CC69 /* face.8.png in Resources */,
+				032FE8CD19507EE800022AA2 /* armor.4.png in Resources */,
 				032FE8B7195076F000022AA2 /* neck.9.png in Resources */,
+				032FE8CE19507EE800022AA2 /* armor.5.png in Resources */,
 				03AAB939194F666700A3CC69 /* planet.decal.2.png in Resources */,
 				031DBC1B193F89690061F6F8 /* Images.xcassets in Resources */,
 				032FE8C21950793900022AA2 /* mouth.10.png in Resources */,
@@ -577,6 +599,7 @@
 				03B884DC194B7D240094BFE0 /* neck.2.png in Resources */,
 				03B884F0194B905C0094BFE0 /* mouth.4.png in Resources */,
 				03AAB944194F68E800A3CC69 /* planet.decal.8.png in Resources */,
+				032FE8C619507D2A00022AA2 /* shoulder.3.png in Resources */,
 				032FE8B8195076F000022AA2 /* neck.10.png in Resources */,
 				03B88512194BA1B80094BFE0 /* neck.3.png in Resources */,
 				03B884D0194B741B0094BFE0 /* eyes.1.png in Resources */,
@@ -588,6 +611,7 @@
 				03B884FF194B95A00094BFE0 /* head.5.png in Resources */,
 				032FE8C11950793900022AA2 /* mouth.9.png in Resources */,
 				03AAB960194F87D300A3CC69 /* head.9.png in Resources */,
+				032FE8CC19507EE800022AA2 /* armor.3.png in Resources */,
 				031DBC16193F89690061F6F8 /* Main.storyboard in Resources */,
 				03AAB950194F6C5400A3CC69 /* planet.surface.2.png in Resources */,
 				03AAB93A194F666700A3CC69 /* planet.decal.3.png in Resources */,
