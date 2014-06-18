@@ -361,6 +361,8 @@
 	if( to_i(user[@"relationship"]) > 30 ){ user[@"relationship"] = @"30"; }
 	if( to_i(user[@"relationship"]) <-30 ){ user[@"relationship"] = @"-30"; }
 	
+	[self sessionViewGuestSpritesUpdate];
+	
 }
 
 -(void)sessionResultScreenDisplay
@@ -1170,6 +1172,21 @@
 		
 	} completion:^(BOOL finished){}];
 	
+}
+
+-(void)sessionViewGuestSpritesUpdate
+{
+	
+	if( to_i(user[@"relationship"]) < -20 ){
+		_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.3.png"];
+	}
+	else if( to_i(user[@"relationship"]) < -10 ){
+		_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.9.png"];
+	}
+	else if( to_i(user[@"relationship"]) < 0 ){
+		_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.6.png"];
+	}
+
 }
 
 - (IBAction)gameStartButton:(id)sender {

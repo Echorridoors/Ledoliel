@@ -365,8 +365,6 @@
 				032FE8B91950793900022AA2 /* eyes.10.png */,
 				032FE8BA1950793900022AA2 /* face.10.png */,
 				032FE8BB1950793900022AA2 /* head.10.png */,
-				032FE8BC1950793900022AA2 /* mouth.9.png */,
-				032FE8BD1950793900022AA2 /* mouth.10.png */,
 				032FE8B5195076F000022AA2 /* neck.9.png */,
 				032FE8B6195076F000022AA2 /* neck.10.png */,
 				03AAB96E194FA07300A3CC69 /* neck.8.png */,
@@ -414,6 +412,8 @@
 				03B884EC194B905C0094BFE0 /* mouth.6.png */,
 				03B884ED194B905C0094BFE0 /* mouth.7.png */,
 				03B884EE194B905C0094BFE0 /* mouth.8.png */,
+				032FE8BC1950793900022AA2 /* mouth.9.png */,
+				032FE8BD1950793900022AA2 /* mouth.10.png */,
 			);
 			name = mouth;
 			sourceTree = "<group>";
