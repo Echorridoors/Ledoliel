@@ -19,6 +19,7 @@
 #import "guest.h"
 #import "tools.h"
 
+
 @interface xxiivvViewController ()
 
 @end
@@ -545,7 +546,7 @@
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
 	else{
-		self.guestStatusLabel.text = @"You ";
+		self.guestStatusLabel.text = @"You have survived the diplomatic exchange.";
 		self.guestStatusNoteLabel.text = @"Tap to choose your next destination";
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
@@ -630,85 +631,7 @@
 }
 
 
-- (IBAction)guestStatusCloseButton:(id)sender
-{
-	if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
-		if( to_i(user[@"alive"]) == 1 ){
-			// To Map
-			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"mapViewInit"):0.0];
-		}
-		else{
-			// To Menu
-			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
-		}
-	}
-	else{
-		[self guestResponseHide];
-	}
-}
 
-- (IBAction)resultCloseButton:(id)sender {
-	[self sessionResultScreenSkip];
-}
-
-- (IBAction)menuOption1Button:(id)sender
-{
-	[self alignSelection:0];
-	[self menuSelectionLoad];
-	[self hintHide];
-	[self guestResponseHide];
-}
-- (IBAction)menuOption2Button:(id)sender
-{
-	[self alignSelection:1];
-	[self menuSelectionLoad];
-	[self hintHide];
-	[self guestResponseHide];
-}
-- (IBAction)menuOption3Button:(id)sender
-{
-	[self alignSelection:2];
-	[self menuSelectionLoad];
-	[self hintHide];
-	[self guestResponseHide];
-}
-- (IBAction)menuOption4Button:(id)sender
-{
-//	[self hintHide];
-	[self alignSelection:3];
-	[self menuSelectionLoad];
-	[self guestResponseHide];
-	currentSubmenuSelection = 0;
-	[self hintDisplay];
-}
-
-- (IBAction)submenuOption1Button:(id)sender {
-	
-	if( currentSubmenuSelection == 0){ return; }
-	currentSubmenuSelection = 0;
-	
-	[self.submenuOption1Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-	[self.submenuOption2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[self hintDisplay];
-}
-
-- (IBAction)submenuOption2Button:(id)sender {
-	
-	if( currentSubmenuSelection == 1){ return; }
-	currentSubmenuSelection = 1;
-	
-	[self.submenuOption1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-	[self.submenuOption2Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-	[self hintDisplay];
-	
-}
-
-- (IBAction)confirmButton:(id)sender
-{
-	[self playTurn];
-	[self hintHide];
-	[self alignDeselection];
-}
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
@@ -892,7 +815,8 @@
 }
 
 - (IBAction)planetChoice1Button:(id)sender
-{	
+{
+	[self playSoundNamed:@"click.fast"];
 	guest[@"attributes"] = guest[@"attributes_potential"][0];
 	guest[@"name"] = _planetChoice1GuestLabel.text;
 	
@@ -911,6 +835,7 @@
 
 - (IBAction)planetChoice2Button:(id)sender
 {
+	[self playSoundNamed:@"click.fast"];
 	guest[@"attributes"] = guest[@"attributes_potential"][1];
 	guest[@"name"] = _planetChoice2GuestLabel.text;
 	
@@ -1200,11 +1125,104 @@
 
 - (IBAction)gameStartButton:(id)sender {
 	NSLog(@"+ GAME | New Game");
+	[self playSoundNamed:@"click.fast"];
 	[self transitionView:@"downward":self.mainMenuView:self.mainMapView:NSSelectorFromString(@"mapViewInit") :0];
 }
 
 - (IBAction)quitButton:(id)sender {
+	[self playSoundNamed:@"click.fast"];
 	[self transitionView:@"upward":self.mainMapView:self.mainMenuView:NSSelectorFromString(@"menuViewInit") :0];
+}
+
+- (IBAction)guestStatusCloseButton:(id)sender
+{
+	[self playSoundNamed:@"click.fast"];
+	if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
+		if( to_i(user[@"alive"]) == 1 ){
+			// To Map
+			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"mapViewInit"):0.0];
+		}
+		else{
+			// To Menu
+			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
+		}
+	}
+	else{
+		[self guestResponseHide];
+	}
+}
+
+- (IBAction)resultCloseButton:(id)sender {
+	[self playSoundNamed:@"click.fast"];
+	[self sessionResultScreenSkip];
+}
+
+- (IBAction)menuOption1Button:(id)sender
+{
+	[self playSoundNamed:@"click.fast"];
+	[self alignSelection:0];
+	[self menuSelectionLoad];
+	[self hintHide];
+	[self guestResponseHide];
+}
+- (IBAction)menuOption2Button:(id)sender
+{
+	[self playSoundNamed:@"click.fast"];
+	[self alignSelection:1];
+	[self menuSelectionLoad];
+	[self hintHide];
+	[self guestResponseHide];
+}
+- (IBAction)menuOption3Button:(id)sender
+{
+	[self playSoundNamed:@"click.fast"];
+	[self alignSelection:2];
+	[self menuSelectionLoad];
+	[self hintHide];
+	[self guestResponseHide];
+}
+- (IBAction)menuOption4Button:(id)sender
+{
+	[self playSoundNamed:@"click.fast"];
+	//	[self hintHide];
+	[self alignSelection:3];
+	[self menuSelectionLoad];
+	[self guestResponseHide];
+	currentSubmenuSelection = 0;
+	[self hintDisplay];
+}
+
+- (IBAction)submenuOption1Button:(id)sender
+{
+	[self playSoundNamed:@"click.high"];
+	
+	if( currentSubmenuSelection == 0){ return; }
+	currentSubmenuSelection = 0;
+	
+	[self.submenuOption1Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+	[self.submenuOption2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[self hintDisplay];
+}
+
+- (IBAction)submenuOption2Button:(id)sender
+{
+	[self playSoundNamed:@"click.high"];
+	
+	if( currentSubmenuSelection == 1){ return; }
+	currentSubmenuSelection = 1;
+	
+	[self.submenuOption1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+	[self.submenuOption2Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+	[self hintDisplay];
+	
+}
+
+- (IBAction)confirmButton:(id)sender
+{
+	[self playSoundNamed:@"click.low"];
+	[self playTurn];
+	[self hintHide];
+	[self alignDeselection];
 }
 
 #pragma mark Modal
@@ -1338,6 +1356,19 @@
 	} completion:^(BOOL finished){
 		touchActive = 1;
 	}];
+	
+}
+
+- (void)playSoundNamed:(NSString*)name {
+	
+	NSLog(@"  UDIO | Playing sound: %@",name);
+	
+	NSString* audioPath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+	NSURL* audioUrl = [NSURL fileURLWithPath:audioPath];
+	audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:nil];
+	audioPlayer.volume = 1;
+	[audioPlayer prepareToPlay];
+	[audioPlayer play];
 	
 }
 

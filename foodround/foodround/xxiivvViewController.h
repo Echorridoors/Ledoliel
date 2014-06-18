@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface xxiivvViewController : UIViewController
 
@@ -180,3 +182,5 @@ NSMutableDictionary *guest;
 NSMutableDictionary *spellbook;
 
 NSTimer* flickrTimer;
+
+AVAudioPlayer *audioPlayer;

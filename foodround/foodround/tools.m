@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 XXIIVV. All rights reserved.
 //
 
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "tools.h"
 
 @implementation UIViewController (tools)
@@ -28,6 +31,7 @@
 	
 	return shuffledArray;
 }
+
 
 
 @end

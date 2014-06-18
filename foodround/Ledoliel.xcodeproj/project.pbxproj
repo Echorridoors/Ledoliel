@@ -100,6 +100,11 @@
 		03B88512194BA1B80094BFE0 /* neck.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88510194BA1B80094BFE0 /* neck.3.png */; };
 		03B88513194BA1B80094BFE0 /* neck.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88511194BA1B80094BFE0 /* neck.4.png */; };
 		03B88515194BA30E0094BFE0 /* neck.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88514194BA30E0094BFE0 /* neck.5.png */; };
+		03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E40195217A7004246AC /* AVFoundation.framework */; };
+		03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E42195217AE004246AC /* AudioToolbox.framework */; };
+		03F73E4919521944004246AC /* click.fast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4619521944004246AC /* click.fast.wav */; };
+		03F73E4F19521DE2004246AC /* click.low.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4E19521DE2004246AC /* click.low.wav */; };
+		03F73E5119521E3E004246AC /* click.high.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E5019521E3E004246AC /* click.high.wav */; };
 		03F9904C1940AA54009A1D74 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904B1940AA54009A1D74 /* user.m */; };
 		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
@@ -215,6 +220,11 @@
 		03B88510194BA1B80094BFE0 /* neck.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.3.png; path = en.assets/neck.3.png; sourceTree = "<group>"; };
 		03B88511194BA1B80094BFE0 /* neck.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.4.png; path = en.assets/neck.4.png; sourceTree = "<group>"; };
 		03B88514194BA30E0094BFE0 /* neck.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.5.png; path = en.assets/neck.5.png; sourceTree = "<group>"; };
+		03F73E40195217A7004246AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		03F73E42195217AE004246AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		03F73E4619521944004246AC /* click.fast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.fast.wav; path = en.assets/click.fast.wav; sourceTree = "<group>"; };
+		03F73E4E19521DE2004246AC /* click.low.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.low.wav; path = en.assets/click.low.wav; sourceTree = "<group>"; };
+		03F73E5019521E3E004246AC /* click.high.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.high.wav; path = en.assets/click.high.wav; sourceTree = "<group>"; };
 		03F9904A1940AA54009A1D74 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 		03F9904B1940AA54009A1D74 /* user.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = user.m; sourceTree = "<group>"; };
 		03F9904D1940AAD5009A1D74 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
@@ -228,6 +238,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */,
+				03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */,
 				031DBC05193F89690061F6F8 /* CoreGraphics.framework in Frameworks */,
 				031DBC07193F89690061F6F8 /* UIKit.framework in Frameworks */,
 				031DBC03193F89690061F6F8 /* Foundation.framework in Frameworks */,
@@ -269,6 +281,8 @@
 		031DBC01193F89690061F6F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				03F73E42195217AE004246AC /* AudioToolbox.framework */,
+				03F73E40195217A7004246AC /* AVFoundation.framework */,
 				031DBC02193F89690061F6F8 /* Foundation.framework */,
 				031DBC04193F89690061F6F8 /* CoreGraphics.framework */,
 				031DBC06193F89690061F6F8 /* UIKit.framework */,
@@ -280,6 +294,9 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				03F73E5019521E3E004246AC /* click.high.wav */,
+				03F73E4E19521DE2004246AC /* click.low.wav */,
+				03F73E4619521944004246AC /* click.fast.wav */,
 				03B884E0194B883A0094BFE0 /* sprites */,
 				031DBC11193F89690061F6F8 /* xxiivvAppDelegate.h */,
 				031DBC12193F89690061F6F8 /* xxiivvAppDelegate.m */,
@@ -568,12 +585,15 @@
 				03AAB95F194F87D300A3CC69 /* head.8.png in Resources */,
 				032FE8C819507D2A00022AA2 /* shoulder.5.png in Resources */,
 				03B88501194B971E0094BFE0 /* head.6.png in Resources */,
+				03F73E5119521E3E004246AC /* click.high.wav in Resources */,
 				03AAB96F194FA07300A3CC69 /* neck.8.png in Resources */,
 				033C8D3E194A44AF00265277 /* dashed.png in Resources */,
+				03F73E4919521944004246AC /* click.fast.wav in Resources */,
 				03AAB96C194F976A00A3CC69 /* eyes.8.png in Resources */,
 				03B884EF194B905C0094BFE0 /* mouth.3.png in Resources */,
 				03B8850D194B9CBB0094BFE0 /* head.7.png in Resources */,
 				03AAB940194F679E00A3CC69 /* planet.decal.5.png in Resources */,
+				03F73E4F19521DE2004246AC /* click.low.wav in Resources */,
 				03AAB965194F902B00A3CC69 /* face.8.png in Resources */,
 				032FE8CD19507EE800022AA2 /* armor.4.png in Resources */,
 				032FE8B7195076F000022AA2 /* neck.9.png in Resources */,
