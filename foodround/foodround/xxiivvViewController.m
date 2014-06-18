@@ -1300,8 +1300,8 @@
 		_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2+(horMod*5), screenWidth/4, screenWidth/2, screenWidth/2);
 		_guestGraphicShoulderLeft.frame = CGRectMake((horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
 		_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2+(horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
-		_guestGraphicArmorLeft.frame = CGRectMake((horMod*7), screenWidth/2, screenWidth/2, screenWidth/2);
-		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2+(horMod*7), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicArmorLeft.frame = CGRectMake((horMod*7), screenWidth/2+(verMod*5), screenWidth/2, screenWidth/2);
+		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2+(horMod*7), screenWidth/2+(verMod*5), screenWidth/2, screenWidth/2);
 		_guestGraphicMouth.frame =CGRectMake(screenWidth/4+(horMod*17), (verMod*20), screenWidth/2, screenWidth/2);
 		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
