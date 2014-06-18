@@ -226,9 +226,7 @@
 	NSString *action = [self menuSelectionIdToName:currentMenuSelection];
 	NSString *spell = user[@"spellbook"][action][currentSubmenuSelection][@"name"];
 	
-	// replace with New Spell
-//	user[@"spellbook"][action][currentSubmenuSelection][@"name"] = [self shuffleArray:[self userSpells]][0];
-//	user[@"spellbook"][action][currentSubmenuSelection][@"status"] = @"new";
+	user[@"lastAction"] = action;
 	
 	[self sessionResultScreenUpdate :action:spell];
 	[self sessionResultScreenDisplay];
@@ -330,6 +328,7 @@
 	if( reaction1 < 0 ){ negativeSum += reaction1; sentence1 = [NSString stringWithFormat:@"%@'s %@ trait hates %@. ",guestName,guestAttr1,spell];}
 	if( reaction2 < 0 ){ negativeSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness despises %@. ",guestName,guestAttr2,spell];}
 	if( reaction3 < 0 ){ negativeSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, finds %@ repulsive. ",guestName,guestAttr3,spell];}
+	if( [action isEqualToString:@"leave"] ){ negativeSum += -5; sentence3 = [NSString stringWithFormat:@"%@ think that you are a coward. ",guestName]; }
 	
 	_resultLabelNegative.text = [NSString stringWithFormat:@"%d",negativeSum*multiplyer];
 	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
@@ -387,7 +386,7 @@
 	
 	self.resultView.frame = CGRectMake(0, templateUnit, screenWidth, 1);
 	
-	[self.resultCloseButton setTitle:@"Skip" forState:UIControlStateNormal];
+	[self.resultCloseButton setTitle:@"Next" forState:UIControlStateNormal];
 	
 	[UIView animateWithDuration:0.3 animations:^(void){
 		
@@ -446,11 +445,15 @@
 		currentGameRound += 1;
 		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
-		if(currentGameRound == 4){
+		if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
 			_roundsLabel.text = @"Round End";
 			
 			if(to_i(user[@"relationship"]) < 0){
 				user[@"alive"] = @"0";
+			}
+			if(to_i(user[@"alive"]) == 1){
+				user[@"stage"] = to_s((to_i(user[@"stage"])+1));
+				NSLog(@"!! %@",user[@"stage"]);
 			}
 			
 			[self guestEndDisplay];
@@ -470,6 +473,11 @@
 
 -(void)guestResponseDisplay
 {
+	_guestStatusCloseButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:0];
+	_guestStatusCloseButton.frame = CGRectMake(0, screenHeight-(templateUnit*6), screenWidth, templateUnit*4);
+	_guestStatusCloseButton.alpha = 0;
+	[_guestStatusCloseButton setTitle:@"" forState:UIControlStateNormal];
+	
 	NSString* newSpell = [self shuffleArray:[self userSpells]][0];
 	self.guestStatusLabel.text = [NSString stringWithFormat:@"%@ %@ %@.",[guest[@"name"] capitalizedString], [self actionFromRelationship:to_i(user[@"relationship"])],newSpell ];
 	self.guestStatusNoteLabel.text = [NSString stringWithFormat:@"Added \"%@\" to your devices",newSpell];
@@ -527,6 +535,11 @@
 	if(to_i(user[@"alive"]) == 0){
 		self.guestStatusLabel.text = @"You failed.";
 		self.guestStatusNoteLabel.text = @"Tap to try again.";
+		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
+	}
+	else if( [user[@"lastAction"] isEqualToString:@"leave"] ){
+		self.guestStatusLabel.text = @"You left.";
+		self.guestStatusNoteLabel.text = @"Tap to continue.";
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
 	else{
@@ -617,10 +630,10 @@
 
 - (IBAction)guestStatusCloseButton:(id)sender
 {
-	if(currentGameRound == 4){
+	if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
 		if( to_i(user[@"alive"]) == 1 ){
 			// To Map
-			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"menuViewInit"):0.0];
+			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"mapViewInit"):0.0];
 		}
 		else{
 			// To Menu
@@ -721,12 +734,22 @@
 {
 	console(@"! VIEW | Map View Init");
 	
-	user = [self userStart];
+	if( to_i(user[@"alive"]) == 0 ){
+		user = [self userStart];
+	}
+	else{
+		if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) ){
+			[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%@",user[@"stage"]]:0];
+		}
+	}
+	
+	_destinationLabel.text = [NSString stringWithFormat:@"Destination no.%@",user[@"stage"]];
 	
 	[self mapViewGeneratePlanets];
 	[self mapViewTemplate];
 	[self mapViewTemplateAnimate];
 	[self mapViewSpellUpdate];
+	
 	
 }
 
@@ -865,34 +888,6 @@
 	self.planetChoice2GuestLabel.text = [[self guestNameFromAttributes:attributeShuffle2[0]:attributeShuffle2[1]:attributeShuffle2[2]] capitalizedString];
 }
 
--(void)mapViewPlanetSelectorAlign :(int)choice
-{
-	// Align
-	if(choice == 1){
-		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, 0, self.planetChoice1View.frame.size.height + (templateUnit));
-	}
-	else{
-		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, 0, self.planetChoice2View.frame.size.height + (templateUnit));
-	}
-	
-	// Animate
-	[UIView animateWithDuration:0.15 animations:^(void){
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-		
-		if(choice == 1){
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
-		}
-		else{
-			self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
-		}
-		self.planetSelectionView.alpha = 0.2;
-		
-	} completion:^(BOOL finished){
-		user[@"selection"] = [NSString stringWithFormat:@"%d",choice];
-		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][(choice-1)][0]:guest[@"attributes_potential"][(choice-1)][1]:guest[@"attributes_potential"][(choice-1)][2]]];
-	}];
-}
-
 - (IBAction)planetChoice1Button:(id)sender
 {	
 	guest[@"attributes"] = guest[@"attributes_potential"][0];
@@ -904,10 +899,9 @@
 	// Animate
 	[UIView animateWithDuration:0.2 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
-		self.planetSelectionView.alpha = 0.1;
+		self.planetSelectionView.alpha = 0.2;
 	} completion:^(BOOL finished){
 		user[@"selection"] = [NSString stringWithFormat:@"%d",1];
-		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][0][0]:guest[@"attributes_potential"][0][1]:guest[@"attributes_potential"][0][2]]];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
 	}];
 }
@@ -923,10 +917,9 @@
 	// Animate
 	[UIView animateWithDuration:0.2 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice2View.frame.origin.y-templateUnit, screenWidth, self.planetChoice2View.frame.size.height + (templateUnit));
-		self.planetSelectionView.alpha = 0.1;
+		self.planetSelectionView.alpha = 0.2;
 	} completion:^(BOOL finished){
 		user[@"selection"] = [NSString stringWithFormat:@"%d",2];
-		_destinationLabel.text = [NSString stringWithFormat:@"Travel to %@?",[self guestNameFromAttributes:guest[@"attributes_potential"][1][0]:guest[@"attributes_potential"][1][1]:guest[@"attributes_potential"][1][2]]];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
 	}];
 }
@@ -935,6 +928,8 @@
 
 -(void)sessionViewInit
 {
+	currentGameRound = 0;
+	
 	console(@"! VIEW | Session View Init");
 	[self sessionViewTemplate];
 	[self sessionViewTemplateAnimate];

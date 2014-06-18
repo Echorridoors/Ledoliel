@@ -57,7 +57,10 @@
 	
 	newUser[@"session"][@"guestRelationship"] = @"0";
 	newUser[@"relationship"] = @"0";
-	newUser[@"alive"] = @"0";
+	newUser[@"alive"] = @"1";
+	newUser[@"stage"] = @"1";
+	newUser[@"lastAction"] = @"";
+	newUser[@"stageBest"] = @"0";
 	
 	return newUser;
 }
