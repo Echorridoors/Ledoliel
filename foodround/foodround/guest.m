@@ -147,9 +147,9 @@
 	if([attribute isEqualToString:@"religious"] && order == 4){ return @"gropes"; }
 	if([attribute isEqualToString:@"religious"] && order == 5){ return @"forehead"; }
 	if([attribute isEqualToString:@"religious"] && order == 6){ return @"mouth"; }
-	if([attribute isEqualToString:@"pestilent"] && order == 7){ return @"shoots"; }
-	if([attribute isEqualToString:@"pestilent"] && order == 8){ return @"beeds"; }
-	if([attribute isEqualToString:@"pestilent"] && order == 9){ return @"head"; }
+	if([attribute isEqualToString:@"religious"] && order == 7){ return @"shoots"; }
+	if([attribute isEqualToString:@"religious"] && order == 8){ return @"beeds"; }
+	if([attribute isEqualToString:@"religious"] && order == 9){ return @"head"; }
 	if([attribute isEqualToString:@"religious"] && order == 10){ return @"gold"; }
 	
 	if([attribute isEqualToString:@"industrial"] && order == 1){ return @"bol"; }
@@ -371,9 +371,10 @@
 		if( [spell isEqualToString:@"food"])		{ value = 1;}
 		if( [spell isEqualToString:@"weapons"])		{ value = 2;}
 		if( [spell isEqualToString:@"gold"])		{ value = 1;}
-		if( [spell isEqualToString:@"alcohol"])		{ value = 2;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
 		if( [spell isEqualToString:@"army"])		{ value = 1;}
 		if( [spell isEqualToString:@"faith"])		{ value = 1;}
+		if( [spell isEqualToString:@"world"])		{ value = 1;}
 
 		// Negative
 		if( [spell isEqualToString:@"money"])		{ value = -2;}
@@ -477,7 +478,8 @@
 		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
 		if( [spell isEqualToString:@"army"])		{ value = 1;}
 		if( [spell isEqualToString:@"garbage"])		{ value = 1;}
-		if( [spell isEqualToString:@"alcohol"])		{ value = 2;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		if( [spell isEqualToString:@"drugs"])		{ value = 1;}
 		
 		// Negative
 		if( [spell isEqualToString:@"education"])	{ value = -2;}
@@ -538,12 +540,13 @@
 		if( [spell isEqualToString:@"love"])		{ value = 1;}
 		if( [spell isEqualToString:@"faith"])		{ value = 1;}
 		if( [spell isEqualToString:@"books"])		{ value = 1;}
+		if( [spell isEqualToString:@"guts"])		{ value = 1;}
 		
 		// Negative
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
 		if( [spell isEqualToString:@"money"])		{ value = -2;}
 		if( [spell isEqualToString:@"gold"])		{ value = -2;}
-		if( [spell isEqualToString:@"army"])		{ value = -1;}
+		if( [spell isEqualToString:@"army"])		{ value = -2;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
 		if( [spell isEqualToString:@"weapons"])		{ value = -1;}
 		

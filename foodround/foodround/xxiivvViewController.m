@@ -453,7 +453,7 @@
 			if(to_i(user[@"relationship"]) < 0){
 				user[@"alive"] = @"0";
 			}
-			if(to_i(user[@"alive"]) == 1){
+			if(to_i(user[@"alive"]) == 1 && ![user[@"lastAction"] isEqualToString:@"leave"] ){
 				user[@"stage"] = to_s((to_i(user[@"stage"])+1));
 				NSLog(@"!! %@",user[@"stage"]);
 			}
@@ -540,12 +540,12 @@
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
 	else if( [user[@"lastAction"] isEqualToString:@"leave"] ){
-		self.guestStatusLabel.text = @"You left.";
+		self.guestStatusLabel.text = @"You left the diplomatic session. Live to fight another day.";
 		self.guestStatusNoteLabel.text = @"Tap to continue.";
-		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
+		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
 	else{
-		self.guestStatusLabel.text = [self successFromAttributes:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]] ];
+		self.guestStatusLabel.text = @"You ";
 		self.guestStatusNoteLabel.text = @"Tap to choose your next destination";
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
@@ -741,7 +741,7 @@
 		user = [self userStart];
 	}
 	else{
-		if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) ){
+		if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) && to_i(user[@"stage"]) > 1 ){
 			[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%@",user[@"stage"]]:0];
 		}
 	}
@@ -942,6 +942,15 @@
 	
 	self.guestNameLabel.text = guestName;
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
+	
+	// activate all devices
+	user[@"spellbook"][@"say"][0][@"status"] = @"normal";
+	user[@"spellbook"][@"say"][1][@"status"] = @"normal";
+	user[@"spellbook"][@"touch"][0][@"status"] = @"normal";
+	user[@"spellbook"][@"touch"][1][@"status"] = @"normal";
+	user[@"spellbook"][@"give"][0][@"status"] = @"normal";
+	user[@"spellbook"][@"give"][1][@"status"] = @"normal";
+	
 	
 	[self modalViewDisplay:guestCustom:0.75];
 	
@@ -1299,8 +1308,12 @@
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+	if(touchActive == 0){ return; }
+	
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint location = [touch locationInView:touch.view];
+	
+	touchActive = 0;
 	
 	float horMod = ((location.x/screenWidth)-0.5);
 	float verMod = ((location.y/screenWidth)-0.5);
@@ -1323,7 +1336,7 @@
 		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	} completion:^(BOOL finished){
-		
+		touchActive = 1;
 	}];
 	
 }
