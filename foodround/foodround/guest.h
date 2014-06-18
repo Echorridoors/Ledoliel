@@ -20,4 +20,7 @@
 -(NSString*)relatioshipNameFromValue :(int)value;
 -(NSString*)actionFromRelationship :(int)relationship;
 
+-(NSString*)failureFromAttributes :(NSString*)name :(NSArray*)attr;
+-(NSString*)successFromAttributes :(NSArray*)attr;
+
 @end

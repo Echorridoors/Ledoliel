@@ -46,7 +46,11 @@
 	if([attribute isEqualToString:@"deviant"] && order == 3){ return @"esse"; }
 	if([attribute isEqualToString:@"deviant"] && order == 4){ return @"slaps"; }
 	if([attribute isEqualToString:@"deviant"] && order == 5){ return @"genitals"; }
-	if([attribute isEqualToString:@"deviant"] && order == 6){ return @"wip"; }
+	if([attribute isEqualToString:@"deviant"] && order == 6){ return @"crop"; }
+	
+	if([attribute isEqualToString:@"deviant"] && order == 7){ return @"lays"; }
+	if([attribute isEqualToString:@"deviant"] && order == 8){ return @"eggs"; }
+	if([attribute isEqualToString:@"deviant"] && order == 9){ return @"skull"; }
 	
 	if([attribute isEqualToString:@"lustful"] && order == 1){ return @"Ishm"; }
 	if([attribute isEqualToString:@"lustful"] && order == 2){ return @"anev"; }
@@ -55,12 +59,20 @@
 	if([attribute isEqualToString:@"lustful"] && order == 5){ return @"thongue"; }
 	if([attribute isEqualToString:@"lustful"] && order == 6){ return @"wet index"; }
 	
+	if([attribute isEqualToString:@"lustful"] && order == 7){ return @"injects"; }
+	if([attribute isEqualToString:@"lustful"] && order == 8){ return @"acid"; }
+	if([attribute isEqualToString:@"lustful"] && order == 9){ return @"veins"; }
+	
 	if([attribute isEqualToString:@"childish"] && order == 1){ return @"Bian"; }
 	if([attribute isEqualToString:@"childish"] && order == 2){ return @"ub"; }
 	if([attribute isEqualToString:@"childish"] && order == 3){ return @"eflo"; }
 	if([attribute isEqualToString:@"childish"] && order == 4){ return @"pokes"; }
 	if([attribute isEqualToString:@"childish"] && order == 5){ return @"nose"; }
 	if([attribute isEqualToString:@"childish"] && order == 6){ return @"fat thumb"; }
+	
+	if([attribute isEqualToString:@"childish"] && order == 7){ return @"spits"; }
+	if([attribute isEqualToString:@"childish"] && order == 8){ return @"poison"; }
+	if([attribute isEqualToString:@"childish"] && order == 9){ return @"eyes"; }
 	
 	if([attribute isEqualToString:@"greedy"] && order == 1){ return @"Arc"; }
 	if([attribute isEqualToString:@"greedy"] && order == 2){ return @"onim"; }
@@ -69,12 +81,20 @@
 	if([attribute isEqualToString:@"greedy"] && order == 5){ return @"mother"; }
 	if([attribute isEqualToString:@"greedy"] && order == 6){ return @"rusty cane"; }
 	
+	if([attribute isEqualToString:@"greedy"] && order == 7){ return @"blows"; }
+	if([attribute isEqualToString:@"greedy"] && order == 8){ return @"puke"; }
+	if([attribute isEqualToString:@"greedy"] && order == 9){ return @"heart"; }
+	
 	if([attribute isEqualToString:@"tribal"] && order == 1){ return @"Bras"; }
 	if([attribute isEqualToString:@"tribal"] && order == 2){ return @"arg"; }
 	if([attribute isEqualToString:@"tribal"] && order == 3){ return @"ulb"; }
 	if([attribute isEqualToString:@"tribal"] && order == 4){ return @"bashes"; }
 	if([attribute isEqualToString:@"tribal"] && order == 5){ return @"breast"; }
 	if([attribute isEqualToString:@"tribal"] && order == 6){ return @"spiky tail"; }
+	
+	if([attribute isEqualToString:@"tribal"] && order == 7){ return @"cooks"; }
+	if([attribute isEqualToString:@"tribal"] && order == 8){ return @"tar"; }
+	if([attribute isEqualToString:@"tribal"] && order == 9){ return @"entrails"; }
 	
 	if([attribute isEqualToString:@"rich"] && order == 1){ return @"Den"; }
 	if([attribute isEqualToString:@"rich"] && order == 2){ return @"aml"; }
@@ -83,12 +103,20 @@
 	if([attribute isEqualToString:@"rich"] && order == 5){ return @"head"; }
 	if([attribute isEqualToString:@"rich"] && order == 6){ return @"gloved hand"; }
 	
+	if([attribute isEqualToString:@"rich"] && order == 7){ return @"fires"; }
+	if([attribute isEqualToString:@"rich"] && order == 8){ return @"rocks"; }
+	if([attribute isEqualToString:@"rich"] && order == 9){ return @"hands"; }
+	
 	if([attribute isEqualToString:@"evil"] && order == 1){ return @"Khav"; }
 	if([attribute isEqualToString:@"evil"] && order == 2){ return @"iol"; }
 	if([attribute isEqualToString:@"evil"] && order == 3){ return @"olat"; }
 	if([attribute isEqualToString:@"evil"] && order == 4){ return @"stabs"; }
 	if([attribute isEqualToString:@"evil"] && order == 5){ return @"eyes"; }
 	if([attribute isEqualToString:@"evil"] && order == 6){ return @"knife"; }
+	
+	if([attribute isEqualToString:@"evil"] && order == 7){ return @"pushes"; }
+	if([attribute isEqualToString:@"evil"] && order == 8){ return @"brambles"; }
+	if([attribute isEqualToString:@"evil"] && order == 9){ return @"ears"; }
 	
 	if([attribute isEqualToString:@"sadist"] && order == 1){ return @"Il"; }
 	if([attribute isEqualToString:@"sadist"] && order == 2){ return @"ol"; }
@@ -97,12 +125,20 @@
 	if([attribute isEqualToString:@"sadist"] && order == 5){ return @"back"; }
 	if([attribute isEqualToString:@"sadist"] && order == 6){ return @"bloody toenails"; }
 	
+	if([attribute isEqualToString:@"sadist"] && order == 7){ return @"inflates"; }
+	if([attribute isEqualToString:@"sadist"] && order == 8){ return @"needles"; }
+	if([attribute isEqualToString:@"sadist"] && order == 9){ return @"skin"; }
+	
 	if([attribute isEqualToString:@"pestilent"] && order == 1){ return @"erq"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 2){ return @"ash"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 3){ return @"mol"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 4){ return @"rubs"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 5){ return @"troath"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 6){ return @"armpit"; }
+	
+	if([attribute isEqualToString:@"pestilent"] && order == 7){ return @"vomits"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 8){ return @"flies"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 9){ return @"legs"; }
 	
 	if([attribute isEqualToString:@"religious"] && order == 1){ return @"arch"; }
 	if([attribute isEqualToString:@"religious"] && order == 2){ return @"orell"; }
@@ -111,12 +147,20 @@
 	if([attribute isEqualToString:@"religious"] && order == 5){ return @"forehead"; }
 	if([attribute isEqualToString:@"religious"] && order == 6){ return @"golden robe"; }
 	
+	if([attribute isEqualToString:@"pestilent"] && order == 7){ return @"shoots"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 8){ return @"beeds"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 9){ return @"head"; }
+	
 	if([attribute isEqualToString:@"industrial"] && order == 1){ return @"bol"; }
 	if([attribute isEqualToString:@"industrial"] && order == 2){ return @"one"; }
 	if([attribute isEqualToString:@"industrial"] && order == 3){ return @"mel"; }
 	if([attribute isEqualToString:@"industrial"] && order == 4){ return @"pulls at"; }
 	if([attribute isEqualToString:@"industrial"] && order == 5){ return @"arms"; }
 	if([attribute isEqualToString:@"industrial"] && order == 6){ return @"strong arms"; }
+	
+	if([attribute isEqualToString:@"industrial"] && order == 7){ return @"hammers"; }
+	if([attribute isEqualToString:@"industrial"] && order == 8){ return @"nails"; }
+	if([attribute isEqualToString:@"industrial"] && order == 9){ return @"chest"; }
 	
 	if([attribute isEqualToString:@"scientific"] && order == 1){ return @"selm"; }
 	if([attribute isEqualToString:@"scientific"] && order == 2){ return @"anis"; }
@@ -125,12 +169,20 @@
 	if([attribute isEqualToString:@"scientific"] && order == 5){ return @"mandibles"; }
 	if([attribute isEqualToString:@"scientific"] && order == 6){ return @"telescope"; }
 	
+	if([attribute isEqualToString:@"scientific"] && order == 7){ return @"sews"; }
+	if([attribute isEqualToString:@"scientific"] && order == 8){ return @"spores"; }
+	if([attribute isEqualToString:@"scientific"] && order == 9){ return @"lungs"; }
+	
 	if([attribute isEqualToString:@"violent"] && order == 1){ return @"kash"; }
 	if([attribute isEqualToString:@"violent"] && order == 2){ return @"iat"; }
 	if([attribute isEqualToString:@"violent"] && order == 3){ return @"det"; }
 	if([attribute isEqualToString:@"violent"] && order == 4){ return @"stabs"; }
 	if([attribute isEqualToString:@"violent"] && order == 5){ return @"heart"; }
 	if([attribute isEqualToString:@"violent"] && order == 6){ return @"rusty fork"; }
+	
+	if([attribute isEqualToString:@"violent"] && order == 7){ return @"installs"; }
+	if([attribute isEqualToString:@"violent"] && order == 8){ return @"bolts"; }
+	if([attribute isEqualToString:@"violent"] && order == 9){ return @"spine"; }
 	
 	if([attribute isEqualToString:@"gentle"] && order == 1){ return @"faun"; }
 	if([attribute isEqualToString:@"gentle"] && order == 2){ return @"iol"; }
@@ -139,6 +191,10 @@
 	if([attribute isEqualToString:@"gentle"] && order == 5){ return @"shoulder"; }
 	if([attribute isEqualToString:@"gentle"] && order == 6){ return @"potted flowers"; }
 	
+	if([attribute isEqualToString:@"gentle"] && order == 7){ return @"mixes"; }
+	if([attribute isEqualToString:@"gentle"] && order == 8){ return @"puss"; }
+	if([attribute isEqualToString:@"gentle"] && order == 9){ return @"thongue"; }
+	
 	if([attribute isEqualToString:@"wise"] && order == 1){ return @"erl"; }
 	if([attribute isEqualToString:@"wise"] && order == 2){ return @"ionel"; }
 	if([attribute isEqualToString:@"wise"] && order == 3){ return @"dente"; }
@@ -146,12 +202,20 @@
 	if([attribute isEqualToString:@"wise"] && order == 5){ return @"honour"; }
 	if([attribute isEqualToString:@"wise"] && order == 6){ return @"books"; }
 	
+	if([attribute isEqualToString:@"wise"] && order == 7){ return @"plants"; }
+	if([attribute isEqualToString:@"wise"] && order == 8){ return @"vines"; }
+	if([attribute isEqualToString:@"wise"] && order == 9){ return @"scalp"; }
+	
 	if([attribute isEqualToString:@"ancient"] && order == 1){ return @"cloc"; }
 	if([attribute isEqualToString:@"ancient"] && order == 2){ return @"elan"; }
 	if([attribute isEqualToString:@"ancient"] && order == 3){ return @"fil"; }
 	if([attribute isEqualToString:@"ancient"] && order == 4){ return @"shouts at"; }
 	if([attribute isEqualToString:@"ancient"] && order == 5){ return @"children"; }
 	if([attribute isEqualToString:@"ancient"] && order == 6){ return @"pocket watch"; }
+	
+	if([attribute isEqualToString:@"ancient"] && order == 7){ return @"hatches"; }
+	if([attribute isEqualToString:@"ancient"] && order == 8){ return @"maggots"; }
+	if([attribute isEqualToString:@"ancient"] && order == 9){ return @"throat"; }
 	
 	return @"";
 }
@@ -525,6 +589,16 @@
 	
 	return 0;
 }
+
+-(NSString*)failureFromAttributes :(NSString*)name :(NSArray*)attr
+{
+	return [NSString stringWithFormat:@"%@ %@ %@ in your %@, killing you.", [name capitalizedString], [self syllableFromAttribute:attr[0]:7], [self syllableFromAttribute:attr[1]:8], [self syllableFromAttribute:attr[2]:9] ];
+}
+-(NSString*)successFromAttributes :(NSArray*)attr
+{
+	return @"";
+}
+
 
 -(NSString*)relatioshipNameFromValue :(int)value
 {

@@ -533,7 +533,7 @@
 	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(2*templateUnit));
 
 	if(to_i(user[@"alive"]) == 0){
-		self.guestStatusLabel.text = @"You failed.";
+		self.guestStatusLabel.text = [self failureFromAttributes:guest[@"name"]:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]]];
 		self.guestStatusNoteLabel.text = @"Tap to try again.";
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
@@ -543,7 +543,7 @@
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
 	else{
-		self.guestStatusLabel.text = @"You succeeded.";
+		self.guestStatusLabel.text = [self successFromAttributes:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]] ];
 		self.guestStatusNoteLabel.text = @"Tap to choose your next destination";
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
@@ -717,6 +717,7 @@
 -(void)menuViewInit
 {
 	console(@"! VIEW | Menu View Init");
+	user = NULL;
 	
 	[self menuViewTemplate];
 }
@@ -1062,47 +1063,48 @@
 	// Guest Graphics
 	_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
 	
+	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+	
 	NSString* imageName;
 	
 	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(10)];
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
-	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(10)];
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
-	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(10)];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
-	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(10)];
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
-	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(5)];
 	UIImage* shoulderGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
-	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
 	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(5)];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
-	_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
-	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
@@ -1114,6 +1116,19 @@
 }
 -(void)sessionViewTemplateAnimate
 {
+	_guestGraphicFaceLeft.frame =CGRectMake(0, 30, screenWidth/2, screenWidth/2);
+	_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 30, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadLeft.frame =CGRectMake(0, 20, screenWidth/2, screenWidth/2);
+	_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 20, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesLeft.frame =CGRectMake(0, 10, screenWidth/2, screenWidth/2);
+	_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 10, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckLeft.frame = CGRectMake(0, -40+screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, -40+screenWidth/4, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderLeft.frame = CGRectMake(0, -50+screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, -50+screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorLeft.frame = CGRectMake(0, -60+screenWidth/2, screenWidth/2, screenWidth/2);
+	_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, -60+screenWidth/2, screenWidth/2, screenWidth/2);
+	
 	_statusView.alpha = 0;
 	_statusView.frame = CGRectMake(0, templateUnit*2, screenWidth, templateUnit*3);
 	_relationshipRating.frame = CGRectMake(screenWidth/2, templateUnit*1.3, 0, 1);
@@ -1138,6 +1153,20 @@
 		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
 		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.3, screenWidth-(2*templateUnit), 1);
 		_guestGraphics.alpha = 1;
+		
+		
+		_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicHeadLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicEyesLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
+		_guestGraphicNeckLeft.frame = CGRectMake(0, screenWidth/4, screenWidth/2, screenWidth/2);
+		_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2, screenWidth/4, screenWidth/2, screenWidth/2);
+		_guestGraphicShoulderLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicArmorLeft.frame = CGRectMake(0, screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2, screenWidth/2, screenWidth/2, screenWidth/2);
 		
 	} completion:^(BOOL finished){}];
 	
@@ -1249,6 +1278,37 @@
 	} completion:^(BOOL finished){
 		fromView.hidden = YES;
 	}];
+}
+
+-(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+	UITouch *touch = [[event allTouches] anyObject];
+	CGPoint location = [touch locationInView:touch.view];
+	
+	float horMod = ((location.x/screenWidth)-0.5);
+	float verMod = ((location.y/screenWidth)-0.5);
+	
+	[UIView animateWithDuration:0.4 animations:^(void){
+		
+		_guestGraphicFaceLeft.frame =CGRectMake( (horMod*15) , (verMod*15), screenWidth/2, screenWidth/2);
+		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2+(horMod*15), (verMod*15), screenWidth/2, screenWidth/2);
+		_guestGraphicHeadLeft.frame =CGRectMake((horMod*10), (verMod*10), screenWidth/2, screenWidth/2);
+		_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2+(horMod*10), (verMod*10), screenWidth/2, screenWidth/2);
+		_guestGraphicEyesLeft.frame =CGRectMake((horMod*20), (verMod*20), screenWidth/2, screenWidth/2);
+		_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2+(horMod*20), (verMod*20), screenWidth/2, screenWidth/2);
+		_guestGraphicNeckLeft.frame = CGRectMake((horMod*5), screenWidth/4, screenWidth/2, screenWidth/2);
+		_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2+(horMod*5), screenWidth/4, screenWidth/2, screenWidth/2);
+		_guestGraphicShoulderLeft.frame = CGRectMake((horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2+(horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicArmorLeft.frame = CGRectMake((horMod*7), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2+(horMod*7), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicMouth.frame =CGRectMake(screenWidth/4+(horMod*17), (verMod*20), screenWidth/2, screenWidth/2);
+		
+		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+	} completion:^(BOOL finished){
+		
+	}];
+	
 }
 
 
