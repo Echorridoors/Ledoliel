@@ -150,7 +150,7 @@
 	if([attribute isEqualToString:@"pestilent"] && order == 7){ return @"shoots"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 8){ return @"beeds"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 9){ return @"head"; }
-	if([attribute isEqualToString:@"religious"] && order == 10){ return @"golden"; }
+	if([attribute isEqualToString:@"religious"] && order == 10){ return @"gold"; }
 	
 	if([attribute isEqualToString:@"industrial"] && order == 1){ return @"bol"; }
 	if([attribute isEqualToString:@"industrial"] && order == 2){ return @"one"; }
@@ -167,7 +167,7 @@
 	if([attribute isEqualToString:@"scientific"] && order == 2){ return @"anis"; }
 	if([attribute isEqualToString:@"scientific"] && order == 3){ return @"grev"; }
 	if([attribute isEqualToString:@"scientific"] && order == 4){ return @"studies"; }
-	if([attribute isEqualToString:@"scientific"] && order == 5){ return @"mandibles"; }
+	if([attribute isEqualToString:@"scientific"] && order == 5){ return @"suprasternal notch"; }
 	if([attribute isEqualToString:@"scientific"] && order == 6){ return @"telescope"; }
 	if([attribute isEqualToString:@"scientific"] && order == 7){ return @"sews"; }
 	if([attribute isEqualToString:@"scientific"] && order == 8){ return @"spores"; }
@@ -179,7 +179,7 @@
 	if([attribute isEqualToString:@"violent"] && order == 3){ return @"det"; }
 	if([attribute isEqualToString:@"violent"] && order == 4){ return @"stabs"; }
 	if([attribute isEqualToString:@"violent"] && order == 5){ return @"back"; }
-	if([attribute isEqualToString:@"violent"] && order == 6){ return @"rusty fork"; }
+	if([attribute isEqualToString:@"violent"] && order == 6){ return @"elbow"; }
 	if([attribute isEqualToString:@"violent"] && order == 7){ return @"installs"; }
 	if([attribute isEqualToString:@"violent"] && order == 8){ return @"bolts"; }
 	if([attribute isEqualToString:@"violent"] && order == 9){ return @"spine"; }
