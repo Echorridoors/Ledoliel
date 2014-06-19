@@ -173,7 +173,6 @@
 		[self.submenuOption2Button setTitle:user[@"spellbook"][@"give"][1][@"name"] forState:UIControlStateDisabled];
 	}
 	
-	
 }
 
 -(void)hintDisplay
@@ -182,7 +181,7 @@
 	NSString *submenuSel = user[@"spellbook"][menuSel][currentSubmenuSelection][@"name"];
 
 	if([menuSel isEqualToString:@"say"]){
-		self.hintLabel.text = [NSString stringWithFormat:@"%@ \"%@\" to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
+		self.hintLabel.text = [NSString stringWithFormat:@"Talk \"%@\" with %@",submenuSel,guest[@"name"]];
 	}
 	if([menuSel isEqualToString:@"give"]){
 		self.hintLabel.text = [NSString stringWithFormat:@"%@ %@ to %@",[menuSel capitalizedString],submenuSel,guest[@"name"]];
@@ -349,7 +348,7 @@
 		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pissed off %@.",guestName];
 	}
 	else{
-		_resultPaneLabel4.text = @"Unchanged";
+		_resultPaneLabel4.text = @"This has accomplished absolutely nothing.";
 	}
 	
 	int roundOutcome = (positiveSum + negativeSum)*multiplyer;
@@ -1044,32 +1043,36 @@
 	
 	NSString* imageName;
 	
-	imageName = [NSString stringWithFormat:@"face.%d.png",1+arc4random_uniform(10)];
+	int attr1Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][0]];
+	int attr2Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][1]];
+	int attr3Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][2]];
+	
+	imageName = [NSString stringWithFormat:@"face.%d.png",(attr1Pos % 10)+1];
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"head.%d.png",1+arc4random_uniform(10)];
+	imageName = [NSString stringWithFormat:@"head.%d.png",(attr2Pos % 10)+1];
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",1+arc4random_uniform(10)];
+	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 10)+1];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"neck.%d.png",1+arc4random_uniform(10)];
+	imageName = [NSString stringWithFormat:@"neck.%d.png",((attr1Pos+attr2Pos) % 10)+1];
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"shoulder.%d.png",1+arc4random_uniform(5)];
+	imageName = [NSString stringWithFormat:@"shoulder.%d.png",((attr2Pos+attr3Pos) % 10)+1];
 	UIImage* shoulderGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"armor.%d.png",1+arc4random_uniform(5)];
+	imageName = [NSString stringWithFormat:@"armor.%d.png",((attr3Pos+attr1Pos) % 10)+1];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
@@ -1247,7 +1250,7 @@
 	[self.submenuOption1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[self.submenuOption2Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 	[self hintDisplay];
-	[self playSoundNamed:@"click.high"];	
+	[self playSoundNamed:@"click.high"];
 }
 
 - (IBAction)confirmButton:(id)sender
