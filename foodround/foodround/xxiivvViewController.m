@@ -1189,14 +1189,16 @@
 
 - (IBAction)menuOption1Button:(id)sender
 {
+	if( currentMenuSelection == 0 ){ return; }
 	[self playSoundNamed:@"click.fast"];
-	[self alignSelection:0];
+	[self alignSelection :0];
 	[self menuSelectionLoad];
 	[self hintHide];
 	[self guestResponseHide];
 }
 - (IBAction)menuOption2Button:(id)sender
 {
+	if( currentMenuSelection == 1 ){ return; }
 	[self playSoundNamed:@"click.fast"];
 	[self alignSelection:1];
 	[self menuSelectionLoad];
@@ -1205,6 +1207,7 @@
 }
 - (IBAction)menuOption3Button:(id)sender
 {
+	if( currentMenuSelection == 2 ){ return; }
 	[self playSoundNamed:@"click.fast"];
 	[self alignSelection:2];
 	[self menuSelectionLoad];
@@ -1213,6 +1216,7 @@
 }
 - (IBAction)menuOption4Button:(id)sender
 {
+	if( currentMenuSelection == 3 ){ return; }
 	[self playSoundNamed:@"click.fast"];
 	//	[self hintHide];
 	[self alignSelection:3];
@@ -1224,27 +1228,26 @@
 
 - (IBAction)submenuOption1Button:(id)sender
 {
-	[self playSoundNamed:@"click.high"];
-	
 	if( currentSubmenuSelection == 0){ return; }
+	
 	currentSubmenuSelection = 0;
 	
 	[self.submenuOption1Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 	[self.submenuOption2Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[self hintDisplay];
+	[self playSoundNamed:@"click.high"];
 }
 
 - (IBAction)submenuOption2Button:(id)sender
 {
-	[self playSoundNamed:@"click.high"];
-	
 	if( currentSubmenuSelection == 1){ return; }
+	
 	currentSubmenuSelection = 1;
 	
 	[self.submenuOption1Button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 	[self.submenuOption2Button setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
 	[self hintDisplay];
-	
+	[self playSoundNamed:@"click.high"];	
 }
 
 - (IBAction)confirmButton:(id)sender
