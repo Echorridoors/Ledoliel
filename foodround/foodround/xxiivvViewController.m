@@ -1447,11 +1447,12 @@
 
 -(void)cinematicToggleEnabled
 {
-	_guestAttrLabel.alpha = 0;
-	_guestNameLabel.alpha = 0;
 	_hintView.alpha = 0;
 	
 	[UIView animateWithDuration:0.5 animations:^(void){ [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		_guestAttrLabel.alpha = 0;
+		_guestNameLabel.alpha = 0;
 		
 		_guestGraphics.frame = CGRectMake(0, screenHeight-screenWidth-templateUnit, screenWidth, screenWidth);
 		_statusView.frame = CGRectMake(0, templateUnit*3.5, screenWidth, templateUnit*3);
@@ -1477,9 +1478,10 @@
 		_cinematicToggleButton.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit*2, templateUnit);
 		_menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
 		
-	} completion:^(BOOL finished){
 		_guestAttrLabel.alpha = 1;
 		_guestNameLabel.alpha = 1;
+		
+	} completion:^(BOOL finished){
 		_menuView.alpha = 1;
 		_hintView.alpha = 1;
 	}];
