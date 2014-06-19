@@ -35,6 +35,9 @@
 		032FE8CD19507EE800022AA2 /* armor.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CA19507EE800022AA2 /* armor.4.png */; };
 		032FE8CE19507EE800022AA2 /* armor.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CB19507EE800022AA2 /* armor.5.png */; };
 		033C8D3E194A44AF00265277 /* dashed.png in Resources */ = {isa = PBXBuildFile; fileRef = 033C8D3D194A44AF00265277 /* dashed.png */; };
+		03AA85561953844800441806 /* splash.xxiivv.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AA85551953844800441806 /* splash.xxiivv.png */; };
+		03AA855C195384B800441806 /* splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AA855B195384B800441806 /* splash.m */; };
+		03AA855F1953859E00441806 /* segueFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AA855E1953859E00441806 /* segueFade.m */; };
 		03AAB934194F620300A3CC69 /* planet.decal.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB933194F620300A3CC69 /* planet.decal.1.png */; };
 		03AAB938194F666700A3CC69 /* planet.surface.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB935194F666700A3CC69 /* planet.surface.0.png */; };
 		03AAB939194F666700A3CC69 /* planet.decal.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB936194F666700A3CC69 /* planet.decal.2.png */; };
@@ -154,6 +157,11 @@
 		032FE8CA19507EE800022AA2 /* armor.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.4.png; path = en.assets/armor.4.png; sourceTree = "<group>"; };
 		032FE8CB19507EE800022AA2 /* armor.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.5.png; path = en.assets/armor.5.png; sourceTree = "<group>"; };
 		033C8D3D194A44AF00265277 /* dashed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashed.png; path = en.assets/dashed.png; sourceTree = "<group>"; };
+		03AA85551953844800441806 /* splash.xxiivv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.xxiivv.png; path = en.assets/splash.xxiivv.png; sourceTree = "<group>"; };
+		03AA855A195384B800441806 /* splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splash.h; sourceTree = "<group>"; };
+		03AA855B195384B800441806 /* splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splash.m; sourceTree = "<group>"; };
+		03AA855D1953859E00441806 /* segueFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segueFade.h; sourceTree = "<group>"; };
+		03AA855E1953859E00441806 /* segueFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = segueFade.m; sourceTree = "<group>"; };
 		03AAB933194F620300A3CC69 /* planet.decal.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.decal.1.png; path = en.assets/planet.decal.1.png; sourceTree = "<group>"; };
 		03AAB935194F666700A3CC69 /* planet.surface.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.0.png; path = en.assets/planet.surface.0.png; sourceTree = "<group>"; };
 		03AAB936194F666700A3CC69 /* planet.decal.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.decal.2.png; path = en.assets/planet.decal.2.png; sourceTree = "<group>"; };
@@ -294,6 +302,11 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				03AA855D1953859E00441806 /* segueFade.h */,
+				03AA855E1953859E00441806 /* segueFade.m */,
+				03AA855A195384B800441806 /* splash.h */,
+				03AA855B195384B800441806 /* splash.m */,
+				03AA85551953844800441806 /* splash.xxiivv.png */,
 				03F73E5019521E3E004246AC /* click.high.wav */,
 				03F73E4E19521DE2004246AC /* click.low.wav */,
 				03F73E4619521944004246AC /* click.fast.wav */,
@@ -637,6 +650,7 @@
 				032FE8CC19507EE800022AA2 /* armor.3.png in Resources */,
 				031DBC16193F89690061F6F8 /* Main.storyboard in Resources */,
 				03AAB950194F6C5400A3CC69 /* planet.surface.2.png in Resources */,
+				03AA85561953844800441806 /* splash.xxiivv.png in Resources */,
 				03AAB93A194F666700A3CC69 /* planet.decal.3.png in Resources */,
 				03B88504194B99210094BFE0 /* eyes.4.png in Resources */,
 				03B884D2194B75170094BFE0 /* mouth.1.png in Resources */,
@@ -681,8 +695,10 @@
 				03F9904F1940AAD5009A1D74 /* template.m in Sources */,
 				03F9904C1940AA54009A1D74 /* user.m in Sources */,
 				03F990521940AC9F009A1D74 /* guest.m in Sources */,
+				03AA855F1953859E00441806 /* segueFade.m in Sources */,
 				03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */,
 				031DBC19193F89690061F6F8 /* xxiivvViewController.m in Sources */,
+				03AA855C195384B800441806 /* splash.m in Sources */,
 				031DBC0F193F89690061F6F8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

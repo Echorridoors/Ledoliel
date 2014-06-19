@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
+        <!--Splash-->
+        <scene sceneID="EyR-Wp-sfn">
+            <objects>
+                <viewController id="Uj2-zs-Kvn" customClass="splash" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7GZ-Ar-nhR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.xxiivv.png" id="YYM-Fh-gMI">
+                                <rect key="frame" x="70" y="44" width="180" height="480"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SNc-EA-bcM" userLabel="splashSkipButton">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="splashSkipButton:" destination="Uj2-zs-Kvn" eventType="touchUpInside" id="s8Q-Yz-bJ6"/>
+                                    <segue destination="vXZ-lx-hvc" kind="custom" identifier="skip" customClass="segueFade" id="yI7-Te-lcF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="bxN-Yr-dy3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gpC-NU-yhL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1526" y="-198"/>
+        </scene>
         <!--Xxiivv View Controller - Session-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -714,6 +746,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="TSl-Pu-STr"/>
                     <connections>
                         <outlet property="cinematicToggleButton" destination="YkJ-J9-kmR" id="XE2-yU-0Pb"/>
                         <outlet property="confirmButton" destination="w67-nw-klD" id="Gtr-0g-1Sf"/>
@@ -821,9 +854,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1500" y="-198"/>
+            <point key="canvasLocation" x="2026" y="-198"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yJg-m0-na3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sFd-YR-lUh" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="5N9-Am-7Pw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Uj2-zs-Kvn" kind="relationship" relationship="rootViewController" id="Xxc-AJ-vba"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Pb-YH-ZBE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="-198"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash.xxiivv.png" width="1024" height="276"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
