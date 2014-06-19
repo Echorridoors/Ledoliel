@@ -466,8 +466,7 @@
 				user[@"alive"] = @"0";
 			}
 			if(to_i(user[@"alive"]) == 1 && ![user[@"lastAction"] isEqualToString:@"leave"] ){
-				user[@"stage"] = to_s((to_i(user[@"stage"])+1));
-				NSLog(@"!! %@",user[@"stage"]);
+				currentGameStage += 1;
 			}
 			
 			[self guestEndDisplay];
@@ -504,7 +503,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.guestStatusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, screenHeight-(6*templateUnit));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	self.guestStatusView.alpha = 1;
 	
@@ -544,7 +543,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.guestStatusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, screenHeight-(2*templateUnit));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(2*templateUnit));
 
 	if(to_i(user[@"alive"]) == 0){
 		self.guestStatusLabel.text = [self failureFromAttributes:guest[@"name"]:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]]];
@@ -661,8 +660,20 @@
 -(void)menuViewTemplate
 {
 	console(@"  TMPL | Menu");
-	self.mainMenuView.hidden = NO;
-	_mainMenuView.backgroundColor = [UIColor blueColor];
+	
+	_mainMenuView.hidden = NO;
+	_mainMenuView.backgroundColor = [UIColor blackColor];
+	
+	[_gameStartButton setTitle:@"DIPLOMACY" forState:UIControlStateNormal];
+	
+	_gameStartButton.frame = CGRectMake(templateUnit, screenHeight-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	_gameStartLabel.frame = CGRectMake(templateUnit, screenHeight-(3*templateUnit), screenWidth-(2*templateUnit), templateUnit*2);
+	_gameScoreLabel.frame = CGRectMake(templateUnit, screenHeight-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	_gameStartLabel.text = @"Talk, touch, trade your way \nacross the universe";
+	
+	_gameScoreLabel.text = to_s([[[NSUserDefaults standardUserDefaults] objectForKey:@"bestStage"] intValue]);
+	_gameScoreLabel.alpha = 0.5;
 }
 
 #pragma mark 2.Map
@@ -675,7 +686,7 @@
 		user = [self userStart];
 	}
 	
-	_destinationLabel.text = [NSString stringWithFormat:@"Destination no.%@",user[@"stage"]];
+	_destinationLabel.text = [NSString stringWithFormat:@"Destination no.%d",currentGameStage];
 	
 	[self mapViewGeneratePlanets];
 	[self mapViewTemplate];
@@ -710,7 +721,7 @@
 	_spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 	_spellbookPreviewToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*6);
 	_spellbookPreviewToggleLabel.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit);
-	_spellbookPreviewToggleLabel.text = @"Choose a diplomat with attributes that is most likely to appreciate your devices.";
+	_spellbookPreviewToggleLabel.text = @"Choose a diplomat with attributes that are most likely to appreciate your devices.";
 	_spellbookPreviewToggleLabel.alpha = 0;
 	
 	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
@@ -836,7 +847,7 @@
 	// Animate
 	[UIView animateWithDuration:0.2 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 		self.planetSelectionView.frame = CGRectMake(0, self.planetChoice1View.frame.origin.y-templateUnit, screenWidth, self.planetChoice1View.frame.size.height + (templateUnit));
-		self.planetSelectionView.alpha = 0.2;
+		self.planetSelectionView.alpha = 0.1;
 	} completion:^(BOOL finished){
 		user[@"selection"] = [NSString stringWithFormat:@"%d",1];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
@@ -1182,11 +1193,14 @@
 			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"mapViewInit"):0.0];
 		}
 		else{
+			if( currentGameStage > [[[NSUserDefaults standardUserDefaults] objectForKey:@"bestStage"] intValue] ){
+				NSLog(@" SAVED | stage %d",currentGameStage);
+				[[NSUserDefaults standardUserDefaults] setInteger:currentGameStage forKey:@"bestStage"];
+				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%d",currentGameStage]:0];
+			}
 			// To Menu
 			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
-			if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) && to_i(user[@"stage"]) > 1 ){
-				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%@",user[@"stage"]]:0];
-			}
+			
 		}
 	}
 	else{

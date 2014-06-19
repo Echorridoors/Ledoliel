@@ -541,6 +541,7 @@
 		if( [spell isEqualToString:@"faith"])		{ value = 1;}
 		if( [spell isEqualToString:@"books"])		{ value = 1;}
 		if( [spell isEqualToString:@"guts"])		{ value = 1;}
+		if( [spell isEqualToString:@"world"])		{ value = 1;}
 		
 		// Negative
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
@@ -549,6 +550,7 @@
 		if( [spell isEqualToString:@"army"])		{ value = -2;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
 		if( [spell isEqualToString:@"weapons"])		{ value = -1;}
+		if( [spell isEqualToString:@"feces"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}

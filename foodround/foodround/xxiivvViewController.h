@@ -129,6 +129,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *planetChoice1Button;
 - (IBAction)planetChoice1Button:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *gameStartLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *planetChoice2View;
 @property (strong, nonatomic) IBOutlet UIView *planetChoice2Graphics;
@@ -149,6 +150,7 @@
 - (IBAction)spellbookPreviewToggleButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *spellbookPreviewToggleLabel;
 
+@property (strong, nonatomic) IBOutlet UILabel *gameScoreLabel;
 
 - (IBAction)planetChoice2Button:(id)sender;
 
@@ -175,6 +177,7 @@
 
 @end
 
+int currentGameStage = 1;
 int currentGameRound = 0;
 int currentMenuSelection = -1;
 int currentSubmenuSelection = -1;
