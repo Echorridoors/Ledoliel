@@ -282,22 +282,22 @@
 	NSString* sentence3 = @"";
 	NSString* sentence4 = @"";
 
-	if([action isEqualToString:@"say"])		{ sentence1 = [NSString stringWithFormat:@"You %@ \"%@\" to %@. ",action,spell,guestName]; }
+	if([action isEqualToString:@"say"])		{ sentence1 = [NSString stringWithFormat:@"You talk about %@ with %@. ",spell,guestName]; }
 	if([action isEqualToString:@"give"])	{ sentence1 = [NSString stringWithFormat:@"You %@ %@ to %@. ",action,spell,guestName]; }
 	if([action isEqualToString:@"touch"])	{ sentence1 = [NSString stringWithFormat:@"You %@ %@'s %@. ",action,guestName,spell]; }
 	if([action isEqualToString:@"leave"])	{ sentence1 = @"You ran away. "; }
 	
-	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"say"] ){ sentence2 = @"Your guest is a communicative one it. "; }
+	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"say"] ){ sentence2 = @"Your guest is a communicative one. "; }
 	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"say"] ){ sentence3 = @"They enjoys conversing. "; }
-	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"say"] ){ sentence4 = @"Your guest likes to hear your voice. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"say"] ){ sentence4 = [NSString stringWithFormat:@"%@ likes to hear your voice.",guest[@"name"]]; }
 	
 	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"touch"] ){ sentence2 = @"Your guest is a physical one. "; }
 	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"touch"] ){ sentence3 = @"They enjoy things touching. "; }
-	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"touch"] ){ sentence4 = @"Your guest likes to be touched. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"touch"] ){ sentence4 = [NSString stringWithFormat:@"%@ likes to be touched.",guest[@"name"]]; }
 	
 	if( [self multiplayerFromAttribute:guestAttr1:action] > 0 && [action isEqualToString:@"give"] ){ sentence2 = @"Your guest wants to have everything. "; }
 	if( [self multiplayerFromAttribute:guestAttr2:action] > 0 && [action isEqualToString:@"give"] ){ sentence3 = @"They enjoy being given things. "; }
-	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"give"] ){ sentence4 = @"Your guest likes stuff. "; }
+	if( [self multiplayerFromAttribute:guestAttr3:action] > 0 && [action isEqualToString:@"give"] ){ sentence4 = [NSString stringWithFormat:@"%@ likes stuff.",guest[@"name"]]; }
 	
 	int multiplyer = 1 + [self multiplayerFromAttribute:guestAttr1:action] + [self multiplayerFromAttribute:guestAttr2:action] + [self multiplayerFromAttribute:guestAttr3:action];
 	
@@ -1067,12 +1067,12 @@
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"shoulder.%d.png",((attr2Pos+attr3Pos) % 10)+1];
+	imageName = [NSString stringWithFormat:@"shoulder.%d.png",((attr2Pos+attr3Pos) % 5)+1];
 	UIImage* shoulderGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"armor.%d.png",((attr3Pos+attr1Pos) % 10)+1];
+	imageName = [NSString stringWithFormat:@"armor.%d.png",((attr3Pos+attr1Pos) % 5)+1];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
