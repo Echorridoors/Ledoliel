@@ -317,7 +317,7 @@
 	sentence1 = @"";	sentence2 = @"";	sentence3 = @"";	sentence4 = @"";
 	
 	if( reaction1 > 0 ){ positiveSum += reaction1; sentence1 = [NSString stringWithFormat:@"%@'s %@ trait appreciates %@. ",guestName,guestAttr1,spell];}
-	if( reaction2 > 0 ){ positiveSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness loves %@ and you. ",guestName,guestAttr2,spell];}
+	if( reaction2 > 0 ){ positiveSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness loves %@. ",guestName,guestAttr2,spell];}
 	if( reaction3 > 0 ){ positiveSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, likes %@. ",guestName,guestAttr3,spell];}
 	
 	_resultLabelPositive.text = [NSString stringWithFormat:@"%d",positiveSum*multiplyer];
@@ -331,21 +331,31 @@
 	if( reaction1 < 0 ){ negativeSum += reaction1; sentence1 = [NSString stringWithFormat:@"%@'s %@ trait hates %@. ",guestName,guestAttr1,spell];}
 	if( reaction2 < 0 ){ negativeSum += reaction2; sentence2 = [NSString stringWithFormat:@"%@'s %@ness despises %@. ",guestName,guestAttr2,spell];}
 	if( reaction3 < 0 ){ negativeSum += reaction3; sentence3 = [NSString stringWithFormat:@"%@, being %@, finds %@ repulsive. ",guestName,guestAttr3,spell];}
-	if( [action isEqualToString:@"leave"] ){ negativeSum += -5; sentence3 = [NSString stringWithFormat:@"%@ think that you are a coward. ",guestName]; }
+	if( [action isEqualToString:@"leave"] ){ negativeSum += -5; sentence3 = [NSString stringWithFormat:@"%@ thinks that you are a coward. ",guestName]; }
 	
 	_resultLabelNegative.text = [NSString stringWithFormat:@"%d",negativeSum*multiplyer];
 	_resultPaneLabel3.text = [NSString stringWithFormat:@"%@%@%@%@",sentence1,sentence2,sentence3,sentence4];
-	if( [_resultPaneLabel3.text isEqualToString: @""] ){ _resultPaneLabel3.text = @"Is unchanged by your actions."; }
+	if( [_resultPaneLabel3.text isEqualToString: @""] ){ _resultPaneLabel3.text = @"Is not displeased by your actions."; }
 
 	// 4. Summary
 	
 	if( positiveSum + negativeSum > 0 ){
 		_resultLabelSummary.textColor = [UIColor whiteColor];
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pleased %@.",guestName];
+		if( (positiveSum + negativeSum) > 10 ){
+			_resultPaneLabel4.text = [NSString stringWithFormat:@"You won %@ over with your %@.",guestName,spell];
+		}
+		else{
+			_resultPaneLabel4.text = [NSString stringWithFormat:@"You pleased %@.",guestName];
+		}
 	}
 	else if( positiveSum + negativeSum < 0 ){
 		_resultLabelSummary.textColor = [UIColor redColor];
-		_resultPaneLabel4.text = [NSString stringWithFormat:@"You pissed off %@.",guestName];
+		if( (positiveSum + negativeSum) < -10 ){
+			_resultPaneLabel4.text = [NSString stringWithFormat:@"You angered %@ with your %@.",guestName,spell];
+		}
+		else{
+			_resultPaneLabel4.text = [NSString stringWithFormat:@"You pissed off %@.",guestName];
+		}
 	}
 	else{
 		_resultPaneLabel4.text = @"This has accomplished absolutely nothing.";
@@ -664,11 +674,6 @@
 	if( to_i(user[@"alive"]) == 0 ){
 		user = [self userStart];
 	}
-	else{
-		if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) && to_i(user[@"stage"]) > 1 ){
-			[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%@",user[@"stage"]]:0];
-		}
-	}
 	
 	_destinationLabel.text = [NSString stringWithFormat:@"Destination no.%@",user[@"stage"]];
 	
@@ -840,16 +845,17 @@
 
 - (IBAction)spellbookPreviewToggleButton:(id)sender {
 	
-	[self playSoundNamed:@"click.low"];
 	// Animate
 	[UIView animateWithDuration:0.4 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 		
 		if( _spellbookPreviewView.frame.origin.y != screenHeight-(3*templateUnit) ){
+			[self playSoundNamed:@"click.high"];
 			// Close
 			_spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(3*templateUnit), screenWidth, templateUnit*4);
 			_spellbookPreviewToggleLabel.alpha = 0;
 		}
 		else{
+			[self playSoundNamed:@"click.low"];
 			// Open
 			_spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit*6);
 			_spellbookPreviewToggleLabel.alpha = 1;
@@ -1178,6 +1184,9 @@
 		else{
 			// To Menu
 			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
+			if( to_i(user[@"stageBest"]) < to_i(user[@"stage"]) && to_i(user[@"stage"]) > 1 ){
+				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%@",user[@"stage"]]:0];
+			}
 		}
 	}
 	else{
@@ -1410,12 +1419,13 @@
 
 - (IBAction)cinematicToggleButton:(id)sender
 {
-	[self playSoundNamed:@"click.low"];
 	
 	if( _guestAttrLabel.alpha == 1 ){
+		[self playSoundNamed:@"click.high"];
 		[self cinematicToggleEnabled];
 	}
 	else{
+		[self playSoundNamed:@"click.low"];
 		[self cinematicToggleDisabled];
 	}
 	
@@ -1433,7 +1443,7 @@
 		_statusView.frame = CGRectMake(0, templateUnit*3.5, screenWidth, templateUnit*3);
 		_relationshipLabel.text = guest[@"name"];
 		_relationshipValueLabel.text = _guestAttrLabel.text;
-		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*4);
 		_menuView.frame = CGRectMake(0, screenHeight-templateUnit+1, screenWidth, templateUnit*5);
 		_roundsLabel.text = @"Leodoliel";
 	} completion:^(BOOL finished){

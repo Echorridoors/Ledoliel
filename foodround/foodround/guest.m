@@ -621,15 +621,15 @@
 
 -(NSString*)actionFromRelationship :(int)relationship
 {
-	if(relationship < -15 ){ return @"punches you with their"; }
-	if(relationship < -10 ){ return @"slaps you with their"; }
-	if(relationship < -5 ){ return @"hits you with their"; }
+	if(relationship < -15 ){ return @"replies with"; }
+	if(relationship < -10 ){ return @"answers with"; }
+	if(relationship < 0 ){ return @"gestures at"; }
 	
 	if(relationship == 0 ){ return @"shows you their"; }
 	
 	if(relationship > 15 ){ return @"offers you their"; }
 	if(relationship > 10 ){ return @"presents you their"; }
-	if(relationship > 5 ){ return @"shows you their"; }
+	if(relationship > 0 ){ return @"shows you their"; }
 	
 	
 	return @"punches";
