@@ -701,7 +701,11 @@
 	self.spellbookGiveSpell1.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1, templateThirdUnit, templateUnit);
 	self.spellbookGiveSpell2.frame = CGRectMake(templateUnit+templateThirdUnit*2, templateUnit*1.5, templateThirdUnit, templateUnit);
 	
-	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	_spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	_spellbookPreviewToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*6);
+	_spellbookPreviewToggleLabel.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit);
+	_spellbookPreviewToggleLabel.text = @"Choose a diplomat with attributes that is most likely to appreciate your devices.";
+	_spellbookPreviewToggleLabel.alpha = 0;
 	
 	self.destinationLabel.frame = CGRectMake(templateUnit, 0, screenWidth-(2*templateUnit), templateUnit);
 	self.quitButton.frame = CGRectMake(screenWidth/2, 0, (screenWidth/2)-templateUnit, templateUnit);
@@ -831,6 +835,29 @@
 		user[@"selection"] = [NSString stringWithFormat:@"%d",1];
 		[self transitionView :@"downward":self.mainMapView:self.mainSessionView:NSSelectorFromString(@"sessionViewInit"):0];
 	}];
+}
+
+- (IBAction)spellbookPreviewToggleButton:(id)sender {
+	
+	[self playSoundNamed:@"click.low"];
+	// Animate
+	[UIView animateWithDuration:0.4 animations:^(void){	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
+		
+		if( _spellbookPreviewView.frame.origin.y != screenHeight-(3*templateUnit) ){
+			// Close
+			_spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(3*templateUnit), screenWidth, templateUnit*4);
+			_spellbookPreviewToggleLabel.alpha = 0;
+		}
+		else{
+			// Open
+			_spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, templateUnit*6);
+			_spellbookPreviewToggleLabel.alpha = 1;
+		}
+		
+	} completion:^(BOOL finished){
+		
+	}];
+	
 }
 
 - (IBAction)planetChoice2Button:(id)sender

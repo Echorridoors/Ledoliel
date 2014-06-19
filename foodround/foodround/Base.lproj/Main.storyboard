@@ -392,6 +392,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diplomatic Devices" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lXa-aa-LEJ" userLabel="spellbookPreviewLabel">
+                                        <rect key="frame" x="27" y="447" width="202" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" id="BeH-c9-HS8" userLabel="spellbookPreviewView">
                                         <rect key="frame" x="0.0" y="476" width="320" height="92"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -459,16 +466,26 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yDw-nc-jhd" userLabel="spellbookPreviewToggleLabel">
+                                                <rect key="frame" x="139" y="36" width="42" height="21"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                                <color key="textColor" red="0.59913105867346939" green="0.59913105867346939" blue="0.59913105867346939" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="WV5-0O-rsJ" userLabel="spellbookPreviewToggleButton">
+                                                <rect key="frame" x="137" y="31" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="spellbookPreviewToggleButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="FN0-sv-nVI"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diplomatic Devices" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lXa-aa-LEJ" userLabel="spellbookPreviewLabel">
-                                        <rect key="frame" x="27" y="447" width="202" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                        <color key="textColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a destination" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XzP-Cb-P8v" userLabel="destinationLabel">
                                         <rect key="frame" x="20" y="11" width="209" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -766,6 +783,8 @@
                         <outlet property="spellbookGiveSpell1" destination="r0f-ln-OOx" id="ywi-OO-8Z1"/>
                         <outlet property="spellbookGiveSpell2" destination="6MD-RC-lH9" id="WSI-na-fJf"/>
                         <outlet property="spellbookPreviewLabel" destination="lXa-aa-LEJ" id="3Gf-73-NXQ"/>
+                        <outlet property="spellbookPreviewToggleButton" destination="WV5-0O-rsJ" id="prz-gg-QRC"/>
+                        <outlet property="spellbookPreviewToggleLabel" destination="yDw-nc-jhd" id="CQ5-qq-gRU"/>
                         <outlet property="spellbookPreviewView" destination="BeH-c9-HS8" id="pax-Mi-3Nb"/>
                         <outlet property="spellbookSayLabel" destination="mS0-S5-pD0" id="qsw-yv-Jvz"/>
                         <outlet property="spellbookSaySpell1" destination="yos-Ry-IeH" id="a1O-9b-fyg"/>

@@ -145,6 +145,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic2;
 @property (strong, nonatomic) IBOutlet UIImageView *planetChoice2Graphic3;
 
+@property (strong, nonatomic) IBOutlet UIButton *spellbookPreviewToggleButton;
+- (IBAction)spellbookPreviewToggleButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *spellbookPreviewToggleLabel;
 
 
 - (IBAction)planetChoice2Button:(id)sender;
