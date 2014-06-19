@@ -89,6 +89,16 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YkJ-J9-kmR" userLabel="cinematicToggleButton">
+                                        <rect key="frame" x="57" y="127" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cinematicToggleButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="1gp-DA-6Hy"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" id="OcF-GL-Hcg" userLabel="resultView">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -207,7 +217,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="re1-4W-BaW" userLabel="menuView">
                                         <rect key="frame" x="-80" y="85" width="320" height="115"/>
@@ -303,7 +312,7 @@
                                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="2WQ-Un-9kw" userLabel="roundsView">
                                         <rect key="frame" x="40" y="71" width="80" height="142"/>
@@ -313,6 +322,7 @@
                                                 <rect key="frame" x="19" y="61" width="42" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="12"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" id="K4K-ig-nxf" userLabel="roundsProgressView">
@@ -697,6 +707,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="cinematicToggleButton" destination="YkJ-J9-kmR" id="XE2-yU-0Pb"/>
                         <outlet property="confirmButton" destination="w67-nw-klD" id="Gtr-0g-1Sf"/>
                         <outlet property="destinationLabel" destination="XzP-Cb-P8v" id="s67-EB-duH"/>
                         <outlet property="gameStartButton" destination="vBW-h8-SxZ" id="S4d-qn-s0Z"/>

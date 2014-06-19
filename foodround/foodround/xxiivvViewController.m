@@ -235,6 +235,8 @@
 
 -(void)sessionRoundsViewUpdate
 {
+	_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
+	
 	float roundsCircleSize = templateUnit*0.35;
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
@@ -256,6 +258,7 @@
 			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
 		}
 	} completion:^(BOOL finished){}];
+
 }
 
 -(void)sessionResultScreenUpdate :(NSString*)action :(NSString*)spell
@@ -446,7 +449,6 @@
 	
 	if(currentSessionResultscreenPosition == 3){
 		currentGameRound += 1;
-		_roundsLabel.text = [NSString stringWithFormat:@"Round %d",currentGameRound+1];
 		
 		if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
 			_roundsLabel.text = @"Round End";
@@ -493,7 +495,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(6*templateUnit));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, screenHeight-(6*templateUnit));
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	self.guestStatusView.alpha = 1;
 	
@@ -533,7 +535,7 @@
 	[UIView setAnimationDuration:0.2];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.guestStatusView.frame = CGRectMake(0, templateUnit, screenWidth, screenHeight-(2*templateUnit));
+	self.guestStatusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, screenHeight-(2*templateUnit));
 
 	if(to_i(user[@"alive"]) == 0){
 		self.guestStatusLabel.text = [self failureFromAttributes:guest[@"name"]:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]]];
@@ -922,6 +924,7 @@
 	
 	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateUnit, templateUnit);
+	_cinematicToggleButton.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit*2, templateUnit);
 	
 	self.resultView.hidden = YES;
 	self.resultView.alpha = 0;
@@ -998,13 +1001,13 @@
 	self.relationshipRatingBar.backgroundColor = [UIColor redColor];
 	self.relationshipRatingBar.frame = CGRectMake(0, 0, self.relationshipRating.frame.size.width, 4);
 
-	_relationshipValueLabel.frame = CGRectMake(screenWidth/2-templateUnit, templateUnit*1.5, templateUnit*2, templateUnit);
+	_relationshipValueLabel.frame = CGRectMake(templateUnit, templateUnit*1.5, screenWidth-(2*templateUnit), templateUnit);
 	
 	// Rounds Interface
 	
 	float roundsCircleSize = templateUnit*0.35;
 	
-	_roundsView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.1];
+	_roundsView.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1];
 	_roundsView.frame = CGRectMake(0, screenHeight-templateUnit, screenWidth, templateUnit);
 	_roundsLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	_roundsLabel.text = @"Round 1";
@@ -1363,7 +1366,7 @@
 	float horMod = ((location.x/screenWidth)-0.5);
 	float verMod = ((location.y/screenWidth)-0.5);
 	
-	[UIView animateWithDuration:0.4 animations:^(void){
+	[UIView animateWithDuration:0.3 animations:^(void){
 		
 		_guestGraphicFaceLeft.frame =CGRectMake( (horMod*15) , (verMod*15), screenWidth/2, screenWidth/2);
 		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2+(horMod*15), (verMod*15), screenWidth/2, screenWidth/2);
@@ -1386,9 +1389,9 @@
 	
 }
 
-- (void)playSoundNamed:(NSString*)name {
-	
-	NSLog(@"  UDIO | Playing sound: %@",name);
+- (void)playSoundNamed:(NSString*)name
+{
+	NSLog(@" AUDIO | Playing sound: %@",name);
 	
 	NSString* audioPath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
 	NSURL* audioUrl = [NSURL fileURLWithPath:audioPath];
@@ -1399,6 +1402,62 @@
 	
 }
 
+- (IBAction)cinematicToggleButton:(id)sender
+{
+	[self playSoundNamed:@"click.low"];
+	
+	if( _guestAttrLabel.alpha == 1 ){
+		[self cinematicToggleEnabled];
+	}
+	else{
+		[self cinematicToggleDisabled];
+	}
+	
+}
+
+-(void)cinematicToggleEnabled
+{
+	_guestAttrLabel.alpha = 0;
+	_guestNameLabel.alpha = 0;
+	_hintView.alpha = 0;
+	
+	[UIView animateWithDuration:0.5 animations:^(void){ [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		_guestGraphics.frame = CGRectMake(0, screenHeight-screenWidth-templateUnit, screenWidth, screenWidth);
+		_statusView.frame = CGRectMake(0, templateUnit*3.5, screenWidth, templateUnit*3);
+		_relationshipLabel.text = guest[@"name"];
+		_relationshipValueLabel.text = _guestAttrLabel.text;
+		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, screenHeight);
+		_menuView.frame = CGRectMake(0, screenHeight-templateUnit+1, screenWidth, templateUnit*5);
+		_roundsLabel.text = @"Leodoliel";
+	} completion:^(BOOL finished){
+		
+	}];
+}
+
+
+-(void)cinematicToggleDisabled
+{
+	
+	[UIView animateWithDuration:0.5 animations:^(void){ [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+		
+		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
+		_statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
+
+		_cinematicToggleButton.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit*2, templateUnit);
+		_menuView.frame = CGRectMake(0, screenHeight-(5*templateUnit), screenWidth, 4*templateUnit);
+		
+	} completion:^(BOOL finished){
+		_guestAttrLabel.alpha = 1;
+		_guestNameLabel.alpha = 1;
+		_menuView.alpha = 1;
+		_hintView.alpha = 1;
+	}];
+	
+	[self sessionRoundsViewUpdate];
+	[self statusBarUpdate];
+	
+}
 
 
 @end

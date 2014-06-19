@@ -156,6 +156,8 @@
 
 - (IBAction)quitButton:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *cinematicToggleButton;
+- (IBAction)cinematicToggleButton:(id)sender;
 // Menu
 
 @property (strong, nonatomic) IBOutlet UIView *mainMenuView;
