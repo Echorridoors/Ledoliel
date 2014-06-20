@@ -507,7 +507,7 @@
 	self.guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	self.guestStatusView.alpha = 1;
 	
-	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2-(templateUnit*1.5), screenWidth-(2*templateUnit), templateUnit*3);
 	self.guestStatusLabel.alpha = 1;
 
 	[UIView commitAnimations];
@@ -517,7 +517,7 @@
 	[UIView setAnimationDuration:0.5];
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2+(templateUnit*1.5), screenWidth-(2*templateUnit), templateUnit);
 	
 	[UIView commitAnimations];
 	
@@ -563,7 +563,7 @@
 	
 	self.guestStatusView.alpha = 1;
 	
-	self.guestStatusLabel.frame = CGRectMake(templateUnit, templateUnit, screenWidth-(2*templateUnit), screenHeight-(6*templateUnit));
+	self.guestStatusLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2-(templateUnit*1.5), screenWidth-(2*templateUnit), templateUnit*3);
 	self.guestStatusLabel.alpha = 1;
 	
 	[UIView commitAnimations];
@@ -573,7 +573,7 @@
 	[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
 	
 	_guestStatusCloseButton.alpha = 1;
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2+(templateUnit*1.5), screenWidth-(2*templateUnit), templateUnit);
 	
 	_menuView.hidden = YES;
 	
@@ -763,8 +763,15 @@
 {
 	self.spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(1*templateUnit), screenWidth, templateUnit*4);
 	self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(3*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	
+	float planetChoiceHeight = screenHeight-(4*templateUnit);
+	
+	
 	self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*5, screenWidth-(2*templateUnit), templateUnit*4);
 	self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*13, screenWidth-(2*templateUnit), templateUnit*4);
+	
+//	self.planetChoice1View.backgroundColor = [UIColor redColor];
+//	self.planetChoice2View.backgroundColor = [UIColor blueColor];
 	
 	[UIView animateWithDuration:0.5 animations:^(void){
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
@@ -772,8 +779,8 @@
 		self.spellbookPreviewView.frame	= CGRectMake(0, screenHeight-(3*templateUnit), screenWidth, templateUnit*4);
 		self.spellbookPreviewLabel.frame = CGRectMake(templateUnit, screenHeight-(4.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
 		
-		self.planetChoice1View.frame = CGRectMake(templateUnit, templateUnit*3, screenWidth-(2*templateUnit), templateUnit*4);
-		self.planetChoice2View.frame = CGRectMake(templateUnit, templateUnit*9, screenWidth-(2*templateUnit), templateUnit*4);
+		self.planetChoice1View.frame = CGRectMake(templateUnit, planetChoiceHeight/5, screenWidth-(2*templateUnit), templateUnit*4);
+		self.planetChoice2View.frame = CGRectMake(templateUnit, planetChoiceHeight/1.65, screenWidth-(2*templateUnit), templateUnit*4);
 		
 	} completion:^(BOOL finished){
 		

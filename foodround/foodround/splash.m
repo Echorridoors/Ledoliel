@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(splashSkip) userInfo:nil repeats:NO];
+	splashTimer = [NSTimer scheduledTimerWithTimeInterval:2 target:self selector:@selector(splashSkip) userInfo:nil repeats:NO];
     // Do any additional setup after loading the view.
 }
 
@@ -49,6 +49,7 @@
 
 -(void)splashSkip
 {
+	[splashTimer invalidate];
 	[self performSegueWithIdentifier: @"skip" sender: self];
 }
 

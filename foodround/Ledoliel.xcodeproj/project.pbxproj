@@ -302,18 +302,12 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
-				03AA855D1953859E00441806 /* segueFade.h */,
-				03AA855E1953859E00441806 /* segueFade.m */,
+				03AA85601953877400441806 /* audio */,
+				03B884E0194B883A0094BFE0 /* sprites */,
 				03AA855A195384B800441806 /* splash.h */,
 				03AA855B195384B800441806 /* splash.m */,
-				03AA85551953844800441806 /* splash.xxiivv.png */,
-				03F73E5019521E3E004246AC /* click.high.wav */,
-				03F73E4E19521DE2004246AC /* click.low.wav */,
-				03F73E4619521944004246AC /* click.fast.wav */,
-				03B884E0194B883A0094BFE0 /* sprites */,
 				031DBC11193F89690061F6F8 /* xxiivvAppDelegate.h */,
 				031DBC12193F89690061F6F8 /* xxiivvAppDelegate.m */,
-				031DBC14193F89690061F6F8 /* Main.storyboard */,
 				031DBC17193F89690061F6F8 /* xxiivvViewController.h */,
 				031DBC18193F89690061F6F8 /* xxiivvViewController.m */,
 				03F9904D1940AAD5009A1D74 /* template.h */,
@@ -324,6 +318,9 @@
 				03F990511940AC9F009A1D74 /* guest.m */,
 				03B5FE2C1940BB6800C8DD20 /* tools.h */,
 				03B5FE2D1940BB6800C8DD20 /* tools.m */,
+				03AA855D1953859E00441806 /* segueFade.h */,
+				03AA855E1953859E00441806 /* segueFade.m */,
+				031DBC14193F89690061F6F8 /* Main.storyboard */,
 				031DBC1A193F89690061F6F8 /* Images.xcassets */,
 				031DBC09193F89690061F6F8 /* Supporting Files */,
 			);
@@ -359,6 +356,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		03AA85601953877400441806 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				03F73E5019521E3E004246AC /* click.high.wav */,
+				03F73E4E19521DE2004246AC /* click.low.wav */,
+				03F73E4619521944004246AC /* click.fast.wav */,
+			);
+			name = audio;
+			sourceTree = "<group>";
+		};
 		03AAB95B194F7FED00A3CC69 /* planets */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,6 +393,7 @@
 		03B884E0194B883A0094BFE0 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				03AA85551953844800441806 /* splash.xxiivv.png */,
 				032FE8C919507EE800022AA2 /* armor.3.png */,
 				032FE8CA19507EE800022AA2 /* armor.4.png */,
 				032FE8CB19507EE800022AA2 /* armor.5.png */,

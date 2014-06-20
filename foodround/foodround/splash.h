@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface splash : UIViewController
-@property (strong, nonatomic) IBOutlet UIButton *splashSkipButton;
 - (IBAction)splashSkipButton:(id)sender;
 
 @end
+
+NSTimer* splashTimer;
