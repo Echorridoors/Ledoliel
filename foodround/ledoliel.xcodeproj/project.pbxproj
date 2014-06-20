@@ -103,6 +103,7 @@
 		03B88512194BA1B80094BFE0 /* neck.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88510194BA1B80094BFE0 /* neck.3.png */; };
 		03B88513194BA1B80094BFE0 /* neck.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88511194BA1B80094BFE0 /* neck.4.png */; };
 		03B88515194BA30E0094BFE0 /* neck.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88514194BA30E0094BFE0 /* neck.5.png */; };
+		03E740CE195469290007C1BF /* icon.120.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E740CD195469290007C1BF /* icon.120.png */; };
 		03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E40195217A7004246AC /* AVFoundation.framework */; };
 		03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E42195217AE004246AC /* AudioToolbox.framework */; };
 		03F73E4919521944004246AC /* click.fast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4619521944004246AC /* click.fast.wav */; };
@@ -124,23 +125,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		031DBBFF193F89690061F6F8 /* Ledoliel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledoliel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledoliel.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031DBC02193F89690061F6F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		031DBC04193F89690061F6F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		031DBC06193F89690061F6F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		031DBC0A193F89690061F6F8 /* Ledoliel-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ledoliel-Info.plist"; sourceTree = "<group>"; };
+		031DBC0A193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ledoliel.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		031DBC0C193F89690061F6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		031DBC0E193F89690061F6F8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		031DBC10193F89690061F6F8 /* Ledoliel-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ledoliel-Prefix.pch"; sourceTree = "<group>"; };
+		031DBC10193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ledoliel.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		031DBC11193F89690061F6F8 /* xxiivvAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xxiivvAppDelegate.h; sourceTree = "<group>"; };
 		031DBC12193F89690061F6F8 /* xxiivvAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xxiivvAppDelegate.m; sourceTree = "<group>"; };
 		031DBC15193F89690061F6F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		031DBC17193F89690061F6F8 /* xxiivvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xxiivvViewController.h; sourceTree = "<group>"; };
 		031DBC18193F89690061F6F8 /* xxiivvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xxiivvViewController.m; sourceTree = "<group>"; };
 		031DBC1A193F89690061F6F8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		031DBC20193F89690061F6F8 /* LedolielTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LedolielTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledoliel.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		031DBC21193F89690061F6F8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		031DBC29193F89690061F6F8 /* LedolielTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LedolielTests-Info.plist"; sourceTree = "<group>"; };
+		031DBC29193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ledoliel.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		031DBC2B193F89690061F6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		031DBC2D193F89690061F6F8 /* foodroundTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = foodroundTests.m; sourceTree = "<group>"; };
 		032FE8B5195076F000022AA2 /* neck.9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.9.png; path = en.assets/neck.9.png; sourceTree = "<group>"; };
@@ -228,6 +229,7 @@
 		03B88510194BA1B80094BFE0 /* neck.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.3.png; path = en.assets/neck.3.png; sourceTree = "<group>"; };
 		03B88511194BA1B80094BFE0 /* neck.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.4.png; path = en.assets/neck.4.png; sourceTree = "<group>"; };
 		03B88514194BA30E0094BFE0 /* neck.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.5.png; path = en.assets/neck.5.png; sourceTree = "<group>"; };
+		03E740CD195469290007C1BF /* icon.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.120.png; sourceTree = "<group>"; };
 		03F73E40195217A7004246AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03F73E42195217AE004246AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03F73E4619521944004246AC /* click.fast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.fast.wav; path = en.assets/click.fast.wav; sourceTree = "<group>"; };
@@ -280,8 +282,8 @@
 		031DBC00193F89690061F6F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				031DBBFF193F89690061F6F8 /* Ledoliel.app */,
-				031DBC20193F89690061F6F8 /* LedolielTests.xctest */,
+				031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */,
+				031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -302,6 +304,7 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				03E740CD195469290007C1BF /* icon.120.png */,
 				03AA85601953877400441806 /* audio */,
 				03B884E0194B883A0094BFE0 /* sprites */,
 				03AA855A195384B800441806 /* splash.h */,
@@ -330,10 +333,10 @@
 		031DBC09193F89690061F6F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				031DBC0A193F89690061F6F8 /* Ledoliel-Info.plist */,
+				031DBC0A193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename-Info.plist */,
 				031DBC0B193F89690061F6F8 /* InfoPlist.strings */,
 				031DBC0E193F89690061F6F8 /* main.m */,
-				031DBC10193F89690061F6F8 /* Ledoliel-Prefix.pch */,
+				031DBC10193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -350,7 +353,7 @@
 		031DBC28193F89690061F6F8 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				031DBC29193F89690061F6F8 /* LedolielTests-Info.plist */,
+				031DBC29193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests-Info.plist */,
 				031DBC2A193F89690061F6F8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -519,9 +522,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		031DBBFE193F89690061F6F8 /* Ledoliel */ = {
+		031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "Ledoliel" */;
+			buildConfigurationList = 031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				031DBBFB193F89690061F6F8 /* Sources */,
 				031DBBFC193F89690061F6F8 /* Frameworks */,
@@ -531,14 +534,14 @@
 			);
 			dependencies = (
 			);
-			name = Ledoliel;
+			name = ledoliel.temp_caseinsensitive_rename;
 			productName = foodround;
-			productReference = 031DBBFF193F89690061F6F8 /* Ledoliel.app */;
+			productReference = 031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
-		031DBC1F193F89690061F6F8 /* LedolielTests */ = {
+		031DBC1F193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "LedolielTests" */;
+			buildConfigurationList = 031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				031DBC1C193F89690061F6F8 /* Sources */,
 				031DBC1D193F89690061F6F8 /* Frameworks */,
@@ -549,9 +552,9 @@
 			dependencies = (
 				031DBC26193F89690061F6F8 /* PBXTargetDependency */,
 			);
-			name = LedolielTests;
+			name = ledoliel.temp_caseinsensitive_renameTests;
 			productName = foodroundTests;
-			productReference = 031DBC20193F89690061F6F8 /* LedolielTests.xctest */;
+			productReference = 031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -572,7 +575,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 031DBBFA193F89690061F6F8 /* Build configuration list for PBXProject "Ledoliel" */;
+			buildConfigurationList = 031DBBFA193F89690061F6F8 /* Build configuration list for PBXProject "ledoliel" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -585,8 +588,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				031DBBFE193F89690061F6F8 /* Ledoliel */,
-				031DBC1F193F89690061F6F8 /* LedolielTests */,
+				031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */,
+				031DBC1F193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -641,6 +644,7 @@
 				03B884E8194B8A080094BFE0 /* mouth.2.png in Resources */,
 				03B88513194BA1B80094BFE0 /* neck.4.png in Resources */,
 				03B884DC194B7D240094BFE0 /* neck.2.png in Resources */,
+				03E740CE195469290007C1BF /* icon.120.png in Resources */,
 				03B884F0194B905C0094BFE0 /* mouth.4.png in Resources */,
 				03AAB944194F68E800A3CC69 /* planet.decal.8.png in Resources */,
 				032FE8C619507D2A00022AA2 /* shoulder.3.png in Resources */,
@@ -724,7 +728,7 @@
 /* Begin PBXTargetDependency section */
 		031DBC26193F89690061F6F8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 031DBBFE193F89690061F6F8 /* Ledoliel */;
+			target = 031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */;
 			targetProxy = 031DBC25193F89690061F6F8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -791,6 +795,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "07128A75-4F6F-4137-AA9D-B6E1FF708798";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -811,7 +816,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -822,6 +828,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PROVISIONING_PROFILE = "07128A75-4F6F-4137-AA9D-B6E1FF708798";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -833,12 +840,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "foodround/Ledoliel-Prefix.pch";
-				INFOPLIST_FILE = "foodround/Ledoliel-Info.plist";
-				PRODUCT_NAME = Ledoliel;
-				PROVISIONING_PROFILE = "";
+				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
+				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -849,12 +856,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "foodround/Ledoliel-Prefix.pch";
-				INFOPLIST_FILE = "foodround/Ledoliel-Info.plist";
-				PRODUCT_NAME = Ledoliel;
-				PROVISIONING_PROFILE = "";
+				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
+				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
+				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -874,8 +881,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "foodroundTests/LedolielTests-Info.plist";
-				PRODUCT_NAME = LedolielTests;
+				INFOPLIST_FILE = "foodroundTests/ledoliel.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = ledoliel.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -892,8 +899,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/foodround-Prefix.pch";
-				INFOPLIST_FILE = "foodroundTests/LedolielTests-Info.plist";
-				PRODUCT_NAME = LedolielTests;
+				INFOPLIST_FILE = "foodroundTests/ledoliel.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = ledoliel.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -902,7 +909,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		031DBBFA193F89690061F6F8 /* Build configuration list for PBXProject "Ledoliel" */ = {
+		031DBBFA193F89690061F6F8 /* Build configuration list for PBXProject "ledoliel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031DBC2F193F89690061F6F8 /* Debug */,
@@ -911,7 +918,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "Ledoliel" */ = {
+		031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031DBC32193F89690061F6F8 /* Debug */,
@@ -920,7 +927,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "LedolielTests" */ = {
+		031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031DBC35193F89690061F6F8 /* Debug */,

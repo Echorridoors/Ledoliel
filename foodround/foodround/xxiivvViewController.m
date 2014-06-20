@@ -917,7 +917,7 @@
 	NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	NSString* guestCustom = [self guestCustomFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	
-	self.guestNameLabel.text = guestName;
+	self.guestNameLabel.text = [guestName capitalizedString];
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
 	
 	// activate all devices
@@ -1143,10 +1143,9 @@
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		[UIView setAnimationDelay:0.2];
 		
-		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
+		_guestGraphics.frame = CGRectMake(0, templateUnit*4, screenWidth, screenWidth);
 		_relationshipRating.frame = CGRectMake(templateUnit, templateUnit*1.3, screenWidth-(2*templateUnit), 1);
 		_guestGraphics.alpha = 1;
-		
 		
 		_guestGraphicFaceLeft.frame =CGRectMake(0, 0, screenWidth/2, screenWidth/2);
 		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2, 0, screenWidth/2, screenWidth/2);
@@ -1462,7 +1461,11 @@
 		_guestNameLabel.alpha = 0;
 		
 		_guestGraphics.frame = CGRectMake(0, screenHeight-screenWidth-templateUnit, screenWidth, screenWidth);
-		_statusView.frame = CGRectMake(0, templateUnit*3.5, screenWidth, templateUnit*3);
+		
+		if(screenHeight>480){
+			_statusView.frame = CGRectMake(0, templateUnit*3.5, screenWidth, templateUnit*3);
+		}		
+		
 		_relationshipLabel.text = guest[@"name"];
 		_relationshipValueLabel.text = _guestAttrLabel.text;
 		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*4);
@@ -1479,7 +1482,7 @@
 	
 	[UIView animateWithDuration:0.5 animations:^(void){ [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
-		_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
+		_guestGraphics.frame = CGRectMake(0, templateUnit*4, screenWidth, screenWidth);
 		_statusView.frame = CGRectMake(0, templateUnit*1.5, screenWidth, templateUnit*3);
 
 		_cinematicToggleButton.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit*2, templateUnit);

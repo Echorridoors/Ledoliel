@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-               BuildableName = "Ledoliel.app"
-               BlueprintName = "Ledoliel"
-               ReferencedContainer = "container:Ledoliel.xcodeproj">
+               BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
+               BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+               ReferencedContainer = "container:ledoliel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "031DBC1F193F89690061F6F8"
-               BuildableName = "LedolielTests.xctest"
-               BlueprintName = "LedolielTests"
-               ReferencedContainer = "container:Ledoliel.xcodeproj">
+               BuildableName = "ledoliel.temp_caseinsensitive_renameTests.xctest"
+               BlueprintName = "ledoliel.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:ledoliel.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "Ledoliel.app"
-            BlueprintName = "Ledoliel"
-            ReferencedContainer = "container:Ledoliel.xcodeproj">
+            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
+            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "Ledoliel.app"
-            BlueprintName = "Ledoliel"
-            ReferencedContainer = "container:Ledoliel.xcodeproj">
+            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
+            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "Ledoliel.app"
-            BlueprintName = "Ledoliel"
-            ReferencedContainer = "container:Ledoliel.xcodeproj">
+            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
+            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
