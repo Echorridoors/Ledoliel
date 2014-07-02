@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>44AB8EFC-6B6E-4844-BAED-1A48FDC24328</string>
+	<string>BDACC8A3-2249-4156-9030-35019203AB41</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Ledoliel</string>
+	<string>ledoliel</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>3CE8240C-5CB6-4515-9370-E303E7BBFE13</key>
-		<string>https://github.com/aliceffekt/dateline.git</string>
+		<key>B52D0672-7443-4070-8163-3EBCDBDBBBCE</key>
+		<string>https://github.com/aliceffekt/ledoliel.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>foodround/Ledoliel.xcodeproj/project.xcworkspace</string>
+	<string>foodround/ledoliel.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>3CE8240C-5CB6-4515-9370-E303E7BBFE13</key>
+		<key>B52D0672-7443-4070-8163-3EBCDBDBBBCE</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/aliceffekt/dateline.git</string>
+	<string>https://github.com/aliceffekt/ledoliel.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>3CE8240C-5CB6-4515-9370-E303E7BBFE13</string>
+	<string>B52D0672-7443-4070-8163-3EBCDBDBBBCE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>3CE8240C-5CB6-4515-9370-E303E7BBFE13</string>
+			<string>B52D0672-7443-4070-8163-3EBCDBDBBBCE</string>
 			<key>IDESourceControlWCCName</key>
-			<string>dateline</string>
+			<string>ledoliel</string>
 		</dict>
 	</array>
 </dict>

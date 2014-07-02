@@ -35,9 +35,13 @@
 		032FE8CD19507EE800022AA2 /* armor.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CA19507EE800022AA2 /* armor.4.png */; };
 		032FE8CE19507EE800022AA2 /* armor.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8CB19507EE800022AA2 /* armor.5.png */; };
 		033C8D3E194A44AF00265277 /* dashed.png in Resources */ = {isa = PBXBuildFile; fileRef = 033C8D3D194A44AF00265277 /* dashed.png */; };
+		03629C861964320F001112B0 /* segueFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 03629C7F1964320F001112B0 /* segueFade.m */; };
+		03629C871964320F001112B0 /* splash.load.png in Resources */ = {isa = PBXBuildFile; fileRef = 03629C801964320F001112B0 /* splash.load.png */; };
+		03629C881964320F001112B0 /* splash.logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 03629C811964320F001112B0 /* splash.logo.png */; };
+		03629C891964320F001112B0 /* splash.support.png in Resources */ = {isa = PBXBuildFile; fileRef = 03629C821964320F001112B0 /* splash.support.png */; };
+		03629C8A1964320F001112B0 /* splash.tune.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03629C831964320F001112B0 /* splash.tune.wav */; };
+		03629C8B1964320F001112B0 /* xxiivvSplash.m in Sources */ = {isa = PBXBuildFile; fileRef = 03629C851964320F001112B0 /* xxiivvSplash.m */; };
 		03AA85561953844800441806 /* splash.xxiivv.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AA85551953844800441806 /* splash.xxiivv.png */; };
-		03AA855C195384B800441806 /* splash.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AA855B195384B800441806 /* splash.m */; };
-		03AA855F1953859E00441806 /* segueFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 03AA855E1953859E00441806 /* segueFade.m */; };
 		03AAB934194F620300A3CC69 /* planet.decal.1.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB933194F620300A3CC69 /* planet.decal.1.png */; };
 		03AAB938194F666700A3CC69 /* planet.surface.0.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB935194F666700A3CC69 /* planet.surface.0.png */; };
 		03AAB939194F666700A3CC69 /* planet.decal.2.png in Resources */ = {isa = PBXBuildFile; fileRef = 03AAB936194F666700A3CC69 /* planet.decal.2.png */; };
@@ -158,11 +162,15 @@
 		032FE8CA19507EE800022AA2 /* armor.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.4.png; path = en.assets/armor.4.png; sourceTree = "<group>"; };
 		032FE8CB19507EE800022AA2 /* armor.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.5.png; path = en.assets/armor.5.png; sourceTree = "<group>"; };
 		033C8D3D194A44AF00265277 /* dashed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dashed.png; path = en.assets/dashed.png; sourceTree = "<group>"; };
+		03629C7E1964320F001112B0 /* segueFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segueFade.h; sourceTree = "<group>"; };
+		03629C7F1964320F001112B0 /* segueFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = segueFade.m; sourceTree = "<group>"; };
+		03629C801964320F001112B0 /* splash.load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.load.png; sourceTree = "<group>"; };
+		03629C811964320F001112B0 /* splash.logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.logo.png; sourceTree = "<group>"; };
+		03629C821964320F001112B0 /* splash.support.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.support.png; sourceTree = "<group>"; };
+		03629C831964320F001112B0 /* splash.tune.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = splash.tune.wav; sourceTree = "<group>"; };
+		03629C841964320F001112B0 /* xxiivvSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xxiivvSplash.h; sourceTree = "<group>"; };
+		03629C851964320F001112B0 /* xxiivvSplash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = xxiivvSplash.m; sourceTree = "<group>"; };
 		03AA85551953844800441806 /* splash.xxiivv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = splash.xxiivv.png; path = en.assets/splash.xxiivv.png; sourceTree = "<group>"; };
-		03AA855A195384B800441806 /* splash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = splash.h; sourceTree = "<group>"; };
-		03AA855B195384B800441806 /* splash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = splash.m; sourceTree = "<group>"; };
-		03AA855D1953859E00441806 /* segueFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = segueFade.h; sourceTree = "<group>"; };
-		03AA855E1953859E00441806 /* segueFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = segueFade.m; sourceTree = "<group>"; };
 		03AAB933194F620300A3CC69 /* planet.decal.1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.decal.1.png; path = en.assets/planet.decal.1.png; sourceTree = "<group>"; };
 		03AAB935194F666700A3CC69 /* planet.surface.0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.0.png; path = en.assets/planet.surface.0.png; sourceTree = "<group>"; };
 		03AAB936194F666700A3CC69 /* planet.decal.2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.decal.2.png; path = en.assets/planet.decal.2.png; sourceTree = "<group>"; };
@@ -304,11 +312,10 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				03629C7D1964320F001112B0 /* splash */,
 				03E740CD195469290007C1BF /* icon.120.png */,
 				03AA85601953877400441806 /* audio */,
 				03B884E0194B883A0094BFE0 /* sprites */,
-				03AA855A195384B800441806 /* splash.h */,
-				03AA855B195384B800441806 /* splash.m */,
 				031DBC11193F89690061F6F8 /* xxiivvAppDelegate.h */,
 				031DBC12193F89690061F6F8 /* xxiivvAppDelegate.m */,
 				031DBC17193F89690061F6F8 /* xxiivvViewController.h */,
@@ -321,8 +328,6 @@
 				03F990511940AC9F009A1D74 /* guest.m */,
 				03B5FE2C1940BB6800C8DD20 /* tools.h */,
 				03B5FE2D1940BB6800C8DD20 /* tools.m */,
-				03AA855D1953859E00441806 /* segueFade.h */,
-				03AA855E1953859E00441806 /* segueFade.m */,
 				031DBC14193F89690061F6F8 /* Main.storyboard */,
 				031DBC1A193F89690061F6F8 /* Images.xcassets */,
 				031DBC09193F89690061F6F8 /* Supporting Files */,
@@ -357,6 +362,21 @@
 				031DBC2A193F89690061F6F8 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		03629C7D1964320F001112B0 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				03629C7E1964320F001112B0 /* segueFade.h */,
+				03629C7F1964320F001112B0 /* segueFade.m */,
+				03629C801964320F001112B0 /* splash.load.png */,
+				03629C811964320F001112B0 /* splash.logo.png */,
+				03629C821964320F001112B0 /* splash.support.png */,
+				03629C831964320F001112B0 /* splash.tune.wav */,
+				03629C841964320F001112B0 /* xxiivvSplash.h */,
+				03629C851964320F001112B0 /* xxiivvSplash.m */,
+			);
+			path = splash;
 			sourceTree = "<group>";
 		};
 		03AA85601953877400441806 /* audio */ = {
@@ -603,6 +623,7 @@
 				03AAB934194F620300A3CC69 /* planet.decal.1.png in Resources */,
 				03AAB942194F679E00A3CC69 /* planet.decal.7.png in Resources */,
 				03B884F3194B905C0094BFE0 /* mouth.7.png in Resources */,
+				03629C881964320F001112B0 /* splash.logo.png in Resources */,
 				03B884DA194B7C0A0094BFE0 /* armor.2.png in Resources */,
 				03B884E7194B8A080094BFE0 /* head.3.png in Resources */,
 				03B88515194BA30E0094BFE0 /* neck.5.png in Resources */,
@@ -628,6 +649,7 @@
 				03B884D4194B79DB0094BFE0 /* face.2.png in Resources */,
 				03AAB958194F701F00A3CC69 /* planet.decal.0.png in Resources */,
 				032FE8BF1950793900022AA2 /* face.10.png in Resources */,
+				03629C871964320F001112B0 /* splash.load.png in Resources */,
 				03AAB938194F666700A3CC69 /* planet.surface.0.png in Resources */,
 				03AAB956194F6D3E00A3CC69 /* planet.surface.5.png in Resources */,
 				03B8850B194B9CBB0094BFE0 /* face.5.png in Resources */,
@@ -639,6 +661,7 @@
 				03B884CD194B73320094BFE0 /* armor.1.png in Resources */,
 				03AAB955194F6D3E00A3CC69 /* planet.surface.4.png in Resources */,
 				03B884CA194B71050094BFE0 /* face.1.png in Resources */,
+				03629C8A1964320F001112B0 /* splash.tune.wav in Resources */,
 				03AAB94A194F69EC00A3CC69 /* planet.decal.10.png in Resources */,
 				03B884C8194B55380094BFE0 /* shoulder.1.png in Resources */,
 				03B884E8194B8A080094BFE0 /* mouth.2.png in Resources */,
@@ -681,6 +704,7 @@
 				03B8850F194B9EC50094BFE0 /* face.7.png in Resources */,
 				032FE8C01950793900022AA2 /* head.10.png in Resources */,
 				03AAB94C194F6BC500A3CC69 /* planet.surface.1.png in Resources */,
+				03629C891964320F001112B0 /* splash.support.png in Resources */,
 				03AAB941194F679E00A3CC69 /* planet.decal.6.png in Resources */,
 				032FE8BE1950793900022AA2 /* eyes.10.png in Resources */,
 				03B884F2194B905C0094BFE0 /* mouth.6.png in Resources */,
@@ -706,12 +730,12 @@
 				031DBC13193F89690061F6F8 /* xxiivvAppDelegate.m in Sources */,
 				03F9904F1940AAD5009A1D74 /* template.m in Sources */,
 				03F9904C1940AA54009A1D74 /* user.m in Sources */,
+				03629C8B1964320F001112B0 /* xxiivvSplash.m in Sources */,
 				03F990521940AC9F009A1D74 /* guest.m in Sources */,
-				03AA855F1953859E00441806 /* segueFade.m in Sources */,
 				03B5FE2E1940BB6800C8DD20 /* tools.m in Sources */,
 				031DBC19193F89690061F6F8 /* xxiivvViewController.m in Sources */,
-				03AA855C195384B800441806 /* splash.m in Sources */,
 				031DBC0F193F89690061F6F8 /* main.m in Sources */,
+				03629C861964320F001112B0 /* segueFade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
