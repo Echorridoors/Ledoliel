@@ -1079,12 +1079,12 @@
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"head.%d.png",(attr2Pos % 10)+1];
+	imageName = [NSString stringWithFormat:@"head.%d.png",(attr2Pos % 14)+1];
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 10)+1];
+	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 14)+1];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
