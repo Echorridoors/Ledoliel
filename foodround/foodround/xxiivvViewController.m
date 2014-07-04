@@ -1451,6 +1451,7 @@
 		[self playSoundNamed:@"click.low"];
 		[self cinematicToggleDisabled];
 	}
+	[self guestResponseHide];
 	
 }
 
