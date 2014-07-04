@@ -133,7 +133,7 @@
 	if([attribute isEqualToString:@"pestilent"] && order == 2){ return @"ash"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 3){ return @"mol"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 4){ return @"rubs"; }
-	if([attribute isEqualToString:@"pestilent"] && order == 5){ return @"troath"; }
+	if([attribute isEqualToString:@"pestilent"] && order == 5){ return @"throat"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 6){ return @"fat"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 7){ return @"vomits"; }
 	if([attribute isEqualToString:@"pestilent"] && order == 8){ return @"flies"; }
