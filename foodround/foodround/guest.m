@@ -21,7 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	return @[@"deviant",@"lustful",@"childish",@"greedy",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient"];
+	return @[@"deviant",@"lustful",@"childish",@"greedy",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient",@"noble",@"nudist",@"unpredictable"];
 }
 
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
@@ -217,6 +217,39 @@
 	if([attribute isEqualToString:@"ancient"] && order == 9){ return @"throat"; }
 	if([attribute isEqualToString:@"ancient"] && order == 10){ return @"rough"; }
 	
+	if([attribute isEqualToString:@"noble"] && order == 1){ return @"flun"; }
+	if([attribute isEqualToString:@"noble"] && order == 2){ return @"avel"; }
+	if([attribute isEqualToString:@"noble"] && order == 3){ return @"bit"; }
+	if([attribute isEqualToString:@"noble"] && order == 4){ return @"dusts"; }
+	if([attribute isEqualToString:@"noble"] && order == 5){ return @"shoulder"; }
+	if([attribute isEqualToString:@"noble"] && order == 6){ return @"crown"; }
+	if([attribute isEqualToString:@"noble"] && order == 7){ return @"draws"; }
+	if([attribute isEqualToString:@"noble"] && order == 8){ return @"gold"; }
+	if([attribute isEqualToString:@"noble"] && order == 9){ return @"brain"; }
+	if([attribute isEqualToString:@"noble"] && order == 10){ return @"velvet-like"; }
+	
+	if([attribute isEqualToString:@"nudist"] && order == 1){ return @"weeh"; }
+	if([attribute isEqualToString:@"nudist"] && order == 2){ return @"yaah"; }
+	if([attribute isEqualToString:@"nudist"] && order == 3){ return @"haha"; }
+	if([attribute isEqualToString:@"nudist"] && order == 4){ return @"rubs on"; }
+	if([attribute isEqualToString:@"nudist"] && order == 5){ return @"groin"; }
+	if([attribute isEqualToString:@"nudist"] && order == 6){ return @"tentacles"; }
+	if([attribute isEqualToString:@"nudist"] && order == 7){ return @"pours"; }
+	if([attribute isEqualToString:@"nudist"] && order == 8){ return @"lube"; }
+	if([attribute isEqualToString:@"nudist"] && order == 9){ return @"ass"; }
+	if([attribute isEqualToString:@"nudist"] && order == 10){ return @"rubbery"; }
+	
+	if([attribute isEqualToString:@"unpredictable"] && order == 1){ return @"what"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 2){ return @"the"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 3){ return @"fuck"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 4){ return @"touches"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 5){ return @"friends"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 6){ return @"pineapple"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 7){ return @"invokes"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 8){ return @"mushrooms"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 9){ return @"eyes"; }
+	if([attribute isEqualToString:@"unpredictable"] && order == 10){ return @"absurd"; }
+	
 	return @"";
 }
 
@@ -243,6 +276,9 @@
 	if( [attribute isEqualToString:@"gentle"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"wise"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"ancient"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"noble"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"nudist"] && [action isEqualToString:@"touch"])		{ multiplyer = 1;}
+	if( [attribute isEqualToString:@"unpredictable"] && [action isEqualToString:@"leave"])	{ multiplyer = 1;}
 	
 	return multiplyer;
 }
@@ -259,8 +295,6 @@
 		
 		// Positive
 		if( [spell isEqualToString:@"toys"])		{ value = 1;}
-		if( [spell isEqualToString:@"ink"])			{ value = 1;}
-		if( [spell isEqualToString:@"acid"])		{ value = 1;}
 		if( [spell isEqualToString:@"guts"])		{ value = 1;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
 		if( [spell isEqualToString:@"feces"])		{ value = 1;}
@@ -472,17 +506,18 @@
 	if( [attribute isEqualToString:@"industrial"] ){
 		
 		// Positive
-		if( [spell isEqualToString:@"money"])		{ value = 2;}
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
 		if( [spell isEqualToString:@"gold"])		{ value = 1;}
 		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
 		if( [spell isEqualToString:@"army"])		{ value = 1;}
 		if( [spell isEqualToString:@"garbage"])		{ value = 1;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
 		if( [spell isEqualToString:@"drugs"])		{ value = 1;}
+		if( [spell isEqualToString:@"technology"])	{ value = 1;}
+		if( [spell isEqualToString:@"education"])	{ value = 1;}
 		
 		// Negative
-		if( [spell isEqualToString:@"education"])	{ value = -2;}
-		if( [spell isEqualToString:@"love"])		{ value = -2;}
+		if( [spell isEqualToString:@"love"])		{ value = -5;}
 		if( [spell isEqualToString:@"toys"])		{ value = -2;}
 		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
 		
@@ -588,6 +623,60 @@
 		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
 		if( [spell isEqualToString:@"mansion"])		{ value = -1;}
 		if( [spell isEqualToString:@"technology"])	{ value = -1;}
+		
+		return value*orderMultiplyer;
+	}
+	if( [attribute isEqualToString:@"noble"] ){
+		
+		// Positive
+		if( [spell isEqualToString:@"money"])		{ value = 1;}
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"weapons"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 1;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = 1;}
+		if( [spell isEqualToString:@"mansion"])		{ value = 1;}
+		if( [spell isEqualToString:@"ego"])			{ value = 1;}
+		if( [spell isEqualToString:@"gold"])		{ value = 1;}
+		if( [spell isEqualToString:@"education"])	{ value = 1;}
+		if( [spell isEqualToString:@"faith"])		{ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"blood"])		{ value = -3;}
+		if( [spell isEqualToString:@"toys"])		{ value = -3;}
+		if( [spell isEqualToString:@"garbage"])		{ value = -2;}
+		if( [spell isEqualToString:@"pain"])		{ value = -2;}
+		if( [spell isEqualToString:@"guts"])		{ value = -1;}
+		
+		return value*orderMultiplyer;
+	}
+	if( [attribute isEqualToString:@"nudist"] ){
+		
+		// Positive
+		if( [spell isEqualToString:@"food"])		{ value = 1;}
+		if( [spell isEqualToString:@"children"])	{ value = 1;}
+		if( [spell isEqualToString:@"genitals"])	{ value = 1;}
+		if( [spell isEqualToString:@"love"])		{ value = 1;}
+		if( [spell isEqualToString:@"alcohol"])		{ value = 1;}
+		if( [spell isEqualToString:@"toys"])		{ value = 1;}
+		if( [spell isEqualToString:@"drugs"])		{ value = 1;}
+		if( [spell isEqualToString:@"garbage"])		{ value = 1;}
+		if( [spell isEqualToString:@"faith"])		{ value = 1;}
+		if( [spell isEqualToString:@"world"])		{ value = 1;}
+		
+		// Negative
+		if( [spell isEqualToString:@"garbage"])		{ value = -2;}
+		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
+		if( [spell isEqualToString:@"education"])	{ value = -2;}
+		if( [spell isEqualToString:@"technology"])	{ value = -2;}
+		if( [spell isEqualToString:@"weapons"])		{ value = -2;}
+		
+		return value*orderMultiplyer;
+	}
+	
+	if( [attribute isEqualToString:@"unpredictable"] ){
+		
+		value = 1+arc4random_uniform(4)-2;
 		
 		return value*orderMultiplyer;
 	}
