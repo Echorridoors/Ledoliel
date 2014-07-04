@@ -424,7 +424,6 @@
 				032FE8C419507D2A00022AA2 /* shoulder.4.png */,
 				032FE8C519507D2A00022AA2 /* shoulder.5.png */,
 				032FE8B91950793900022AA2 /* eyes.10.png */,
-				032FE8BA1950793900022AA2 /* face.10.png */,
 				032FE8BB1950793900022AA2 /* head.10.png */,
 				032FE8B5195076F000022AA2 /* neck.9.png */,
 				032FE8B6195076F000022AA2 /* neck.10.png */,
@@ -433,7 +432,6 @@
 				03AAB96B194F976A00A3CC69 /* eyes.9.png */,
 				03AAB966194F93DC00A3CC69 /* eyes.6.png */,
 				03AAB967194F93DC00A3CC69 /* eyes.7.png */,
-				03AAB964194F902B00A3CC69 /* face.8.png */,
 				03AAB95C194F87D300A3CC69 /* head.8.png */,
 				03AAB95D194F87D300A3CC69 /* head.9.png */,
 				03AAB95E194F87D300A3CC69 /* neck.7.png */,
@@ -482,6 +480,8 @@
 		03B884F7194B90E80094BFE0 /* face */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8BA1950793900022AA2 /* face.10.png */,
+				03AAB964194F902B00A3CC69 /* face.8.png */,
 				03B8850E194B9EC50094BFE0 /* face.7.png */,
 				03B884C9194B71050094BFE0 /* face.1.png */,
 				03B884D3194B79DB0094BFE0 /* face.2.png */,

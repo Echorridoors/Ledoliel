@@ -494,7 +494,7 @@
 	self.guestStatusLabel.text = [NSString stringWithFormat:@"%@ %@ %@.",[guest[@"name"] capitalizedString], [self actionFromRelationship:to_i(user[@"relationship"])],newSpell ];
 	self.guestStatusNoteLabel.text = [NSString stringWithFormat:@"Added \"%@\" to your devices",newSpell];
 	
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2+(templateUnit*1), screenWidth-(2*templateUnit), templateUnit);
 	
 	self.guestStatusView.hidden = NO;
 	
@@ -529,7 +529,7 @@
 }
 -(void)guestEndDisplay
 {
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(3.5*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2+(templateUnit*1), screenWidth-(2*templateUnit), templateUnit);
 	
 	_guestStatusCloseButton.backgroundColor = [UIColor colorWithWhite:0.1 alpha:1];
 	_guestStatusCloseButton.frame = CGRectMake(0, screenHeight-(templateUnit*6), screenWidth, templateUnit*4);
@@ -919,6 +919,10 @@
 	self.guestNameLabel.text = [guestName capitalizedString];
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
 	
+	currentGameStage = 0;
+	user[@"relationship"] = @"";
+	user[@"lastAction"] = @"";
+	
 	// activate all devices
 	user[@"spellbook"][@"say"][0][@"status"] = @"normal";
 	user[@"spellbook"][@"say"][1][@"status"] = @"normal";
@@ -926,7 +930,6 @@
 	user[@"spellbook"][@"touch"][1][@"status"] = @"normal";
 	user[@"spellbook"][@"give"][0][@"status"] = @"normal";
 	user[@"spellbook"][@"give"][1][@"status"] = @"normal";
-	
 	
 	[self modalViewDisplay:guestCustom:0.75];
 	
@@ -998,7 +1001,8 @@
 	self.guestStatusLabel.font = [UIFont boldSystemFontOfSize:36];
 	self.guestStatusLabel.textColor = [UIColor blackColor];
 	
-	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, self.guestStatusLabel.frame.size.height-(4*templateUnit), screenWidth-(2*templateUnit), templateUnit);
+	self.guestStatusNoteLabel.frame = CGRectMake(templateUnit, (screenHeight-(6*templateUnit))/2+(templateUnit*1), screenWidth-(2*templateUnit), templateUnit);
+	
 	self.guestStatusNoteLabel.font = [UIFont boldSystemFontOfSize:12];
 
 	_guestStatusCloseButton.frame = CGRectMake(0, 0, _guestStatusView.frame.size.width, _guestStatusView.frame.size.height);
@@ -1202,10 +1206,6 @@
 				NSLog(@" SAVED | stage %d",currentGameStage);
 				[[NSUserDefaults standardUserDefaults] setInteger:currentGameStage forKey:@"bestStage"];
 				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%d",currentGameStage]:0];
-			}
-			else{
-				currentGameStage = 0;
-				user[@"relationship"] = @"";
 			}
 			// To Menu
 			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
