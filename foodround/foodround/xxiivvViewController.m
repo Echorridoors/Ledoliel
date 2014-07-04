@@ -19,7 +19,6 @@
 #import "guest.h"
 #import "tools.h"
 
-
 @interface xxiivvViewController ()
 
 @end
@@ -1203,6 +1202,10 @@
 				NSLog(@" SAVED | stage %d",currentGameStage);
 				[[NSUserDefaults standardUserDefaults] setInteger:currentGameStage forKey:@"bestStage"];
 				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%d",currentGameStage]:0];
+			}
+			else{
+				currentGameStage = 0;
+				user[@"relationship"] = @"";
 			}
 			// To Menu
 			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
