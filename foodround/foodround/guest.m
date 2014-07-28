@@ -311,6 +311,11 @@
 		if( [spell isEqualToString:@"weapons"])		{ value = -1;}
 		if( [spell isEqualToString:@"gold"])		{ value = -1;}
 		if( [spell isEqualToString:@"army"])		{ value = -2;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 1;}
 
 		return value*orderMultiplyer;
 	}
@@ -334,6 +339,11 @@
 		if( [spell isEqualToString:@"faith"])		{ value = -3;}
 		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"childish"] ){
@@ -351,6 +361,11 @@
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
 		if( [spell isEqualToString:@"education"])	{ value = -1;}
 		if( [spell isEqualToString:@"books"])		{ value = -1;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
 		
 		return value*orderMultiplyer;
 	}
@@ -374,6 +389,11 @@
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
 		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -2;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 1;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"greedy"] ){
@@ -396,6 +416,11 @@
 		if( [spell isEqualToString:@"feces"])		{ value = -1;}
 		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = 1;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"tribal"] ){
@@ -416,6 +441,11 @@
 		if( [spell isEqualToString:@"education"])	{ value = -1;}
 		if( [spell isEqualToString:@"technology"])	{ value = -1;}
 		if( [spell isEqualToString:@"books"])		{ value = -1;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = -3;}
+		if( [spell isEqualToString:@"violin"])		{ value = -1;}
 		
 		return value*orderMultiplyer;
 	}
@@ -440,6 +470,11 @@
 		if( [spell isEqualToString:@"food"])		{ value = -2;}
 		if( [spell isEqualToString:@"love"])		{ value = -2;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 2;}
+		if( [spell isEqualToString:@"violin"])		{ value = 1;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"sadist"] ){
@@ -457,6 +492,11 @@
 		if( [spell isEqualToString:@"children"])	{ value = -2;}
 		if( [spell isEqualToString:@"money"])		{ value = -2;}
 		if( [spell isEqualToString:@"education"])	{ value = -2;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 2;}
 		
 		return value*orderMultiplyer;
 	}
@@ -479,6 +519,11 @@
 		if( [spell isEqualToString:@"paperwork"])	{ value = -1;}
 		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 2;}
+		if( [spell isEqualToString:@"robot"])		{ value = -1;}
+		if( [spell isEqualToString:@"violin"])		{ value = -1;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"religious"] ){
@@ -500,6 +545,11 @@
 		if( [spell isEqualToString:@"ego"])			{ value = -1;}
 		if( [spell isEqualToString:@"technology"])	{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = -2;}
+		if( [spell isEqualToString:@"violin"])		{ value = 2;}
+		
 		return value*orderMultiplyer;
 	}
 	
@@ -520,6 +570,11 @@
 		if( [spell isEqualToString:@"love"])		{ value = -5;}
 		if( [spell isEqualToString:@"toys"])		{ value = -2;}
 		if( [spell isEqualToString:@"paperwork"])	{ value = -2;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = 1;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
 		
 		return value*orderMultiplyer;
 	}
@@ -543,6 +598,11 @@
 		if( [spell isEqualToString:@"faith"])		{ value = -1;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = -2;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 1;}
+		if( [spell isEqualToString:@"violin"])		{ value = 1;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"violent"] ){
@@ -560,6 +620,11 @@
 		if( [spell isEqualToString:@"toys"])		{ value = -2;}
 		if( [spell isEqualToString:@"education"])	{ value = -2;}
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -2;}
+		if( [spell isEqualToString:@"robot"])		{ value = 2;}
+		if( [spell isEqualToString:@"violin"])		{ value = 2;}
 		
 		return value*orderMultiplyer;
 	}
@@ -586,6 +651,11 @@
 		if( [spell isEqualToString:@"weapons"])		{ value = -1;}
 		if( [spell isEqualToString:@"feces"])		{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -2;}
+		if( [spell isEqualToString:@"robot"])		{ value = -1;}
+		if( [spell isEqualToString:@"violin"])		{ value = -1;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"wise"] ){
@@ -603,6 +673,11 @@
 		if( [spell isEqualToString:@"genitals"])	{ value = -2;}
 		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
 		if( [spell isEqualToString:@"faith"])		{ value = -1;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 1;}
+		if( [spell isEqualToString:@"violin"])		{ value = 1;}
 		
 		return value*orderMultiplyer;
 	}
@@ -623,6 +698,11 @@
 		if( [spell isEqualToString:@"alcohol"])		{ value = -1;}
 		if( [spell isEqualToString:@"mansion"])		{ value = -1;}
 		if( [spell isEqualToString:@"technology"])	{ value = -1;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = 0;}
+		if( [spell isEqualToString:@"robot"])		{ value = -2;}
+		if( [spell isEqualToString:@"violin"])		{ value = 2;}
 		
 		return value*orderMultiplyer;
 	}
@@ -648,6 +728,11 @@
 		if( [spell isEqualToString:@"pain"])		{ value = -2;}
 		if( [spell isEqualToString:@"guts"])		{ value = -1;}
 		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
+		
 		return value*orderMultiplyer;
 	}
 	if( [attribute isEqualToString:@"nudist"] ){
@@ -670,6 +755,11 @@
 		if( [spell isEqualToString:@"education"])	{ value = -2;}
 		if( [spell isEqualToString:@"technology"])	{ value = -2;}
 		if( [spell isEqualToString:@"weapons"])		{ value = -2;}
+		
+		// Expension
+		if( [spell isEqualToString:@"tumor"])		{ value = -1;}
+		if( [spell isEqualToString:@"robot"])		{ value = 0;}
+		if( [spell isEqualToString:@"violin"])		{ value = 0;}
 		
 		return value*orderMultiplyer;
 	}
