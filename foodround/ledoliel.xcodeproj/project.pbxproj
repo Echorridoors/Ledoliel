@@ -116,6 +116,7 @@
 		03B88513194BA1B80094BFE0 /* neck.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88511194BA1B80094BFE0 /* neck.4.png */; };
 		03B88515194BA30E0094BFE0 /* neck.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88514194BA30E0094BFE0 /* neck.5.png */; };
 		03E740CE195469290007C1BF /* icon.120.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E740CD195469290007C1BF /* icon.120.png */; };
+		03F38BBE1986B0110029EB0A /* armor.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBD1986B0110029EB0A /* armor.6.png */; };
 		03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E40195217A7004246AC /* AVFoundation.framework */; };
 		03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E42195217AE004246AC /* AudioToolbox.framework */; };
 		03F73E4919521944004246AC /* click.fast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4619521944004246AC /* click.fast.wav */; };
@@ -254,6 +255,7 @@
 		03B88511194BA1B80094BFE0 /* neck.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.4.png; path = en.assets/neck.4.png; sourceTree = "<group>"; };
 		03B88514194BA30E0094BFE0 /* neck.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.5.png; path = en.assets/neck.5.png; sourceTree = "<group>"; };
 		03E740CD195469290007C1BF /* icon.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.120.png; sourceTree = "<group>"; };
+		03F38BBD1986B0110029EB0A /* armor.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.6.png; path = en.assets/armor.6.png; sourceTree = "<group>"; };
 		03F73E40195217A7004246AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03F73E42195217AE004246AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03F73E4619521944004246AC /* click.fast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.fast.wav; path = en.assets/click.fast.wav; sourceTree = "<group>"; };
@@ -432,6 +434,7 @@
 		03B884E0194B883A0094BFE0 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				03F38BBD1986B0110029EB0A /* armor.6.png */,
 				03AA85551953844800441806 /* splash.xxiivv.png */,
 				032FE8C919507EE800022AA2 /* armor.3.png */,
 				032FE8CA19507EE800022AA2 /* armor.4.png */,
@@ -713,6 +716,7 @@
 				03AAB960194F87D300A3CC69 /* head.9.png in Resources */,
 				03B1E11A1966ECA7002DF2E7 /* eyes.13.png in Resources */,
 				032FE8CC19507EE800022AA2 /* armor.3.png in Resources */,
+				03F38BBE1986B0110029EB0A /* armor.6.png in Resources */,
 				031DBC16193F89690061F6F8 /* Main.storyboard in Resources */,
 				03AAB950194F6C5400A3CC69 /* planet.surface.2.png in Resources */,
 				03AA85561953844800441806 /* splash.xxiivv.png in Resources */,

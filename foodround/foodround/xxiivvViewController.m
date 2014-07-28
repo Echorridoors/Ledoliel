@@ -464,9 +464,6 @@
 			if(to_i(user[@"relationship"]) < 0){
 				user[@"alive"] = @"0";
 			}
-			if(to_i(user[@"alive"]) == 1 && ![user[@"lastAction"] isEqualToString:@"leave"] ){
-				currentGameStage += 1;
-			}
 			
 			[self guestEndDisplay];
 		}
@@ -546,17 +543,20 @@
 
 	if(to_i(user[@"alive"]) == 0){
 		self.guestStatusLabel.text = [self failureFromAttributes:guest[@"name"]:@[guest[@"attributes"][0],guest[@"attributes"][1],guest[@"attributes"][2]]];
-		self.guestStatusNoteLabel.text = @"Tap to try again.";
+		self.guestStatusNoteLabel.text = @"Game over";
+		[_guestStatusCloseButton setTitle:@"Return to menu" forState:UIControlStateNormal];
 		_guestStatusView.backgroundColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:0.95];
 	}
 	else if( [user[@"lastAction"] isEqualToString:@"leave"] ){
 		self.guestStatusLabel.text = @"You left the diplomatic session. Live to fight another day.";
-		self.guestStatusNoteLabel.text = @"Tap to continue.";
+		self.guestStatusNoteLabel.text = @"Tap to continue";
+		[_guestStatusCloseButton setTitle:@"Next Destination" forState:UIControlStateNormal];
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
 	else{
 		self.guestStatusLabel.text = @"You have survived the diplomatic exchange.";
 		self.guestStatusNoteLabel.text = @"Tap to choose your next destination";
+		[_guestStatusCloseButton setTitle:@"Next Destination" forState:UIControlStateNormal];
 		_guestStatusView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.95];
 	}
 	
@@ -918,8 +918,7 @@
 	
 	self.guestNameLabel.text = [guestName capitalizedString];
 	self.guestAttrLabel.text = [NSString stringWithFormat:@"%@ %@ %@", guest[@"attributes"][0], guest[@"attributes"][1], guest[@"attributes"][2]];
-	
-	currentGameStage = 0;
+
 	user[@"relationship"] = @"";
 	user[@"lastAction"] = @"";
 	
@@ -1199,17 +1198,18 @@
 	if(currentGameRound == 4 || [user[@"lastAction"] isEqualToString:@"leave"] ){
 		if( to_i(user[@"alive"]) == 1 ){
 			// To Map
+			currentGameStage += 1;
 			[self transitionView :@"upward":self.mainSessionView:self.mainMapView:NSSelectorFromString(@"mapViewInit"):0.0];
 		}
 		else{
-			if( currentGameStage > [[[NSUserDefaults standardUserDefaults] objectForKey:@"bestStage"] intValue] ){
-				NSLog(@" SAVED | stage %d",currentGameStage);
-				[[NSUserDefaults standardUserDefaults] setInteger:currentGameStage forKey:@"bestStage"];
-				[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%d",currentGameStage]:0];
-			}
 			// To Menu
 			[self transitionView :@"upward":self.mainSessionView:self.mainMenuView:NSSelectorFromString(@"menuViewInit"):0.0];
-			
+			currentGameStage = 0;
+		}
+		if( currentGameStage > [[[NSUserDefaults standardUserDefaults] objectForKey:@"bestStage"] intValue] ){
+			NSLog(@" SAVED | stage %d",currentGameStage);
+			[[NSUserDefaults standardUserDefaults] setInteger:currentGameStage forKey:@"bestStage"];
+			[self modalViewDisplay:[NSString stringWithFormat:@"You have beaten your best score by reaching the destination no.%d",currentGameStage]:0];
 		}
 	}
 	else{
