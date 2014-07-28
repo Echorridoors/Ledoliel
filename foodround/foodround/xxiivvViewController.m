@@ -38,6 +38,11 @@
 	guest = [self guestStart];
 	[self menuViewInit];
 	[self modalViewInit];
+	
+	ambient1Player.volume = 0;
+	ambient2Player.volume = 0;
+	ambient3Player.volume = 0;
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -654,6 +659,7 @@
 	user = NULL;
 	
 	[self menuViewTemplate];
+	[self ambientFadeOut];
 }
 
 -(void)menuViewTemplate
@@ -684,6 +690,7 @@
 	if( to_i(user[@"alive"]) == 0 ){
 		user = [self userStart];
 	}
+	[self ambientFadeOut];
 	
 	_destinationLabel.text = [NSString stringWithFormat:@"Destination no.%d",currentGameStage];
 	
@@ -913,6 +920,9 @@
 	[self sessionViewTemplate];
 	[self sessionViewTemplateAnimate];
 	
+	[self sessionViewAudio];
+	
+	
 	NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	NSString* guestCustom = [self guestCustomFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	
@@ -937,6 +947,31 @@
 	[self statusBarUpdate];
 	[self sessionRoundsViewUpdate];
 	
+}
+
+-(void)sessionViewAudio
+{
+
+	int attr1Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][0]];
+	int attr2Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][1]];
+	int attr3Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][2]];
+	
+	NSLog(@"%d %d %d",attr1Pos,attr2Pos,attr3Pos);
+	
+	NSString * track1Name = [NSString stringWithFormat:@"audio.1.%d",(attr1Pos % 7)+1];
+	NSString * track2Name = [NSString stringWithFormat:@"audio.2.%d",(attr2Pos % 7)+1];
+	NSString * track3Name = [NSString stringWithFormat:@"audio.3.%d",(attr3Pos % 7)+1];
+	
+	[self ambient1Named:track1Name];
+	[self ambient2Named:track2Name];
+	[self ambient3Named:track3Name];
+	
+	ambient1Player.volume = 0;
+	ambient2Player.volume = 0;
+	ambient3Player.volume = 0;
+	
+	[self ambientFadeIn];
+
 }
 
 -(void)sessionViewTemplate
@@ -1098,7 +1133,7 @@
 	_guestGraphicShoulderLeft.image = shoulderGraphic;
 	_guestGraphicShoulderRight.image = [UIImage imageWithCGImage:shoulderGraphic.CGImage scale:shoulderGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"armor.%d.png",((attr3Pos+attr1Pos) % 5)+1];
+	imageName = [NSString stringWithFormat:@"armor.%d.png",((attr3Pos+attr1Pos) % 6)+1];
 	UIImage* armorGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicArmorLeft.image = armorGraphic;
 	_guestGraphicArmorRight.image = [UIImage imageWithCGImage:armorGraphic.CGImage scale:armorGraphic.scale orientation:UIImageOrientationUpMirrored];
@@ -1437,7 +1472,87 @@
 	audioPlayer.volume = 1;
 	[audioPlayer prepareToPlay];
 	[audioPlayer play];
+}
+
+
+-(void)ambientFadeIn
+{
+	NSLog(@"fading out: %f %f %f", ambient1Player.volume, ambient1Player.volume, ambient1Player.volume);
 	
+	ambient1Player.volume += 0.15;
+	ambient2Player.volume += 0.10;
+	ambient3Player.volume += 0.05;
+	
+	if( ambient1Player.volume > 1 ){ ambient1Player.volume = 1; }
+	if( ambient2Player.volume > 1 ){ ambient2Player.volume = 1; }
+	if( ambient3Player.volume > 1 ){ ambient3Player.volume = 1; }
+	
+	if(ambient3Player.volume < 1){
+		[NSTimer scheduledTimerWithTimeInterval: 0.2 target: self selector:@selector(ambientFadeIn) userInfo: nil repeats:NO];
+	}
+}
+
+-(void)ambientFadeOut
+{
+	NSLog(@"fading out: %f %f %f", ambient1Player.volume, ambient1Player.volume, ambient1Player.volume);
+	
+	ambient1Player.volume -= 0.1;
+	ambient2Player.volume -= 0.07;
+	ambient3Player.volume -= 0.06;
+	
+	if( ambient1Player.volume < 0 ){ ambient1Player.volume = 0; }
+	if( ambient2Player.volume < 0 ){ ambient2Player.volume = 0; }
+	if( ambient3Player.volume < 0 ){ ambient3Player.volume = 0; }
+	
+	if(ambient1Player.volume > 0 || ambient2Player.volume > 0 || ambient3Player.volume > 0){
+		[NSTimer scheduledTimerWithTimeInterval: 0.1 target: self selector:@selector(ambientFadeOut) userInfo: nil repeats:NO];
+	}
+}
+
+
+- (void)ambient1Named:(NSString*)name
+{
+	NSLog(@" AUDIO | Playing ambient1: %@",name);
+	
+	NSString* audioPath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+	NSURL* audioUrl = [NSURL fileURLWithPath:audioPath];
+	ambient1Player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:nil];
+	ambient1Player.numberOfLoops = -1;
+	[ambient1Player prepareToPlay];
+	[ambient1Player play];
+	
+	ambient1TrackName = name;
+	
+}
+
+- (void)ambient2Named:(NSString*)name
+{
+	NSLog(@" AUDIO | Playing ambient2: %@",name);
+	
+	NSString* audioPath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+	NSURL* audioUrl = [NSURL fileURLWithPath:audioPath];
+	ambient2Player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:nil];
+	ambient2Player.volume = 1;
+	ambient2Player.numberOfLoops = -1;
+	[ambient2Player prepareToPlay];
+	[ambient2Player play];
+	
+	ambient2TrackName = name;
+	
+}
+
+- (void)ambient3Named:(NSString*)name
+{
+	NSLog(@" AUDIO | Playing ambient3: %@",name);
+	
+	NSString* audioPath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+	NSURL* audioUrl = [NSURL fileURLWithPath:audioPath];
+	ambient3Player = [[AVAudioPlayer alloc] initWithContentsOfURL:audioUrl error:nil];
+	ambient3Player.numberOfLoops = -1;
+	[ambient3Player prepareToPlay];
+	[ambient3Player play];
+	
+	ambient3TrackName = name;
 }
 
 - (IBAction)cinematicToggleButton:(id)sender

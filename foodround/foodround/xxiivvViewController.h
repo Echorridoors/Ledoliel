@@ -192,3 +192,12 @@ NSMutableDictionary *spellbook;
 NSTimer* flickrTimer;
 
 AVAudioPlayer *audioPlayer;
+
+AVAudioPlayer *ambient1Player;
+AVAudioPlayer *ambient2Player;
+AVAudioPlayer *ambient3Player;
+
+NSString * ambient1TrackName;
+NSString * ambient2TrackName;
+NSString * ambient3TrackName;
+

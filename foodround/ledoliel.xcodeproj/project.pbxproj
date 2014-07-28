@@ -117,6 +117,27 @@
 		03B88515194BA30E0094BFE0 /* neck.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88514194BA30E0094BFE0 /* neck.5.png */; };
 		03E740CE195469290007C1BF /* icon.120.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E740CD195469290007C1BF /* icon.120.png */; };
 		03F38BBE1986B0110029EB0A /* armor.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBD1986B0110029EB0A /* armor.6.png */; };
+		03F38BC31986E60D0029EB0A /* audio.1.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBF1986E60D0029EB0A /* audio.1.1.wav */; };
+		03F38BC41986E60D0029EB0A /* audio.2.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC01986E60D0029EB0A /* audio.2.1.wav */; };
+		03F38BC51986E60D0029EB0A /* audio.3.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC11986E60D0029EB0A /* audio.3.1.wav */; };
+		03F38BD31986EDB30029EB0A /* audio.1.2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC71986EDB30029EB0A /* audio.1.2.wav */; };
+		03F38BD41986EDB30029EB0A /* audio.1.3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC81986EDB30029EB0A /* audio.1.3.wav */; };
+		03F38BD51986EDB30029EB0A /* audio.1.4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC91986EDB30029EB0A /* audio.1.4.wav */; };
+		03F38BD61986EDB30029EB0A /* audio.1.5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCA1986EDB30029EB0A /* audio.1.5.wav */; };
+		03F38BD71986EDB30029EB0A /* audio.2.2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCB1986EDB30029EB0A /* audio.2.2.wav */; };
+		03F38BD81986EDB30029EB0A /* audio.2.3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCC1986EDB30029EB0A /* audio.2.3.wav */; };
+		03F38BD91986EDB30029EB0A /* audio.2.4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCD1986EDB30029EB0A /* audio.2.4.wav */; };
+		03F38BDA1986EDB30029EB0A /* audio.2.5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCE1986EDB30029EB0A /* audio.2.5.wav */; };
+		03F38BDB1986EDB30029EB0A /* audio.3.2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BCF1986EDB30029EB0A /* audio.3.2.wav */; };
+		03F38BDC1986EDB30029EB0A /* audio.3.3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BD01986EDB30029EB0A /* audio.3.3.wav */; };
+		03F38BDD1986EDB30029EB0A /* audio.3.4.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BD11986EDB30029EB0A /* audio.3.4.wav */; };
+		03F38BDE1986EDB30029EB0A /* audio.3.5.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BD21986EDB30029EB0A /* audio.3.5.wav */; };
+		03F38BE519870B540029EB0A /* audio.1.6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BDF19870B540029EB0A /* audio.1.6.wav */; };
+		03F38BE619870B540029EB0A /* audio.1.7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BE019870B540029EB0A /* audio.1.7.wav */; };
+		03F38BE719870B540029EB0A /* audio.2.6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BE119870B540029EB0A /* audio.2.6.wav */; };
+		03F38BE819870B540029EB0A /* audio.2.7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BE219870B540029EB0A /* audio.2.7.wav */; };
+		03F38BE919870B540029EB0A /* audio.3.6.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BE319870B540029EB0A /* audio.3.6.wav */; };
+		03F38BEA19870B540029EB0A /* audio.3.7.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BE419870B540029EB0A /* audio.3.7.wav */; };
 		03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E40195217A7004246AC /* AVFoundation.framework */; };
 		03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F73E42195217AE004246AC /* AudioToolbox.framework */; };
 		03F73E4919521944004246AC /* click.fast.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4619521944004246AC /* click.fast.wav */; };
@@ -256,6 +277,27 @@
 		03B88514194BA30E0094BFE0 /* neck.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.5.png; path = en.assets/neck.5.png; sourceTree = "<group>"; };
 		03E740CD195469290007C1BF /* icon.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.120.png; sourceTree = "<group>"; };
 		03F38BBD1986B0110029EB0A /* armor.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.6.png; path = en.assets/armor.6.png; sourceTree = "<group>"; };
+		03F38BBF1986E60D0029EB0A /* audio.1.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.1.wav; path = en.assets/audio.1.1.wav; sourceTree = "<group>"; };
+		03F38BC01986E60D0029EB0A /* audio.2.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.1.wav; path = en.assets/audio.2.1.wav; sourceTree = "<group>"; };
+		03F38BC11986E60D0029EB0A /* audio.3.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.1.wav; path = en.assets/audio.3.1.wav; sourceTree = "<group>"; };
+		03F38BC71986EDB30029EB0A /* audio.1.2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.2.wav; path = en.assets/audio.1.2.wav; sourceTree = "<group>"; };
+		03F38BC81986EDB30029EB0A /* audio.1.3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.3.wav; path = en.assets/audio.1.3.wav; sourceTree = "<group>"; };
+		03F38BC91986EDB30029EB0A /* audio.1.4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.4.wav; path = en.assets/audio.1.4.wav; sourceTree = "<group>"; };
+		03F38BCA1986EDB30029EB0A /* audio.1.5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.5.wav; path = en.assets/audio.1.5.wav; sourceTree = "<group>"; };
+		03F38BCB1986EDB30029EB0A /* audio.2.2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.2.wav; path = en.assets/audio.2.2.wav; sourceTree = "<group>"; };
+		03F38BCC1986EDB30029EB0A /* audio.2.3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.3.wav; path = en.assets/audio.2.3.wav; sourceTree = "<group>"; };
+		03F38BCD1986EDB30029EB0A /* audio.2.4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.4.wav; path = en.assets/audio.2.4.wav; sourceTree = "<group>"; };
+		03F38BCE1986EDB30029EB0A /* audio.2.5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.5.wav; path = en.assets/audio.2.5.wav; sourceTree = "<group>"; };
+		03F38BCF1986EDB30029EB0A /* audio.3.2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.2.wav; path = en.assets/audio.3.2.wav; sourceTree = "<group>"; };
+		03F38BD01986EDB30029EB0A /* audio.3.3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.3.wav; path = en.assets/audio.3.3.wav; sourceTree = "<group>"; };
+		03F38BD11986EDB30029EB0A /* audio.3.4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.4.wav; path = en.assets/audio.3.4.wav; sourceTree = "<group>"; };
+		03F38BD21986EDB30029EB0A /* audio.3.5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.5.wav; path = en.assets/audio.3.5.wav; sourceTree = "<group>"; };
+		03F38BDF19870B540029EB0A /* audio.1.6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.6.wav; path = en.assets/audio.1.6.wav; sourceTree = "<group>"; };
+		03F38BE019870B540029EB0A /* audio.1.7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.7.wav; path = en.assets/audio.1.7.wav; sourceTree = "<group>"; };
+		03F38BE119870B540029EB0A /* audio.2.6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.6.wav; path = en.assets/audio.2.6.wav; sourceTree = "<group>"; };
+		03F38BE219870B540029EB0A /* audio.2.7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.7.wav; path = en.assets/audio.2.7.wav; sourceTree = "<group>"; };
+		03F38BE319870B540029EB0A /* audio.3.6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.6.wav; path = en.assets/audio.3.6.wav; sourceTree = "<group>"; };
+		03F38BE419870B540029EB0A /* audio.3.7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.7.wav; path = en.assets/audio.3.7.wav; sourceTree = "<group>"; };
 		03F73E40195217A7004246AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		03F73E42195217AE004246AC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		03F73E4619521944004246AC /* click.fast.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.fast.wav; path = en.assets/click.fast.wav; sourceTree = "<group>"; };
@@ -400,6 +442,27 @@
 		03AA85601953877400441806 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				03F38BDF19870B540029EB0A /* audio.1.6.wav */,
+				03F38BE019870B540029EB0A /* audio.1.7.wav */,
+				03F38BE119870B540029EB0A /* audio.2.6.wav */,
+				03F38BE219870B540029EB0A /* audio.2.7.wav */,
+				03F38BE319870B540029EB0A /* audio.3.6.wav */,
+				03F38BE419870B540029EB0A /* audio.3.7.wav */,
+				03F38BC71986EDB30029EB0A /* audio.1.2.wav */,
+				03F38BC81986EDB30029EB0A /* audio.1.3.wav */,
+				03F38BC91986EDB30029EB0A /* audio.1.4.wav */,
+				03F38BCA1986EDB30029EB0A /* audio.1.5.wav */,
+				03F38BCB1986EDB30029EB0A /* audio.2.2.wav */,
+				03F38BCC1986EDB30029EB0A /* audio.2.3.wav */,
+				03F38BCD1986EDB30029EB0A /* audio.2.4.wav */,
+				03F38BCE1986EDB30029EB0A /* audio.2.5.wav */,
+				03F38BCF1986EDB30029EB0A /* audio.3.2.wav */,
+				03F38BD01986EDB30029EB0A /* audio.3.3.wav */,
+				03F38BD11986EDB30029EB0A /* audio.3.4.wav */,
+				03F38BD21986EDB30029EB0A /* audio.3.5.wav */,
+				03F38BBF1986E60D0029EB0A /* audio.1.1.wav */,
+				03F38BC01986E60D0029EB0A /* audio.2.1.wav */,
+				03F38BC11986E60D0029EB0A /* audio.3.1.wav */,
 				03F73E5019521E3E004246AC /* click.high.wav */,
 				03F73E4E19521DE2004246AC /* click.low.wav */,
 				03F73E4619521944004246AC /* click.fast.wav */,
@@ -656,11 +719,14 @@
 				03629C881964320F001112B0 /* splash.logo.png in Resources */,
 				03B884DA194B7C0A0094BFE0 /* armor.2.png in Resources */,
 				03B884E7194B8A080094BFE0 /* head.3.png in Resources */,
+				03F38BDB1986EDB30029EB0A /* audio.3.2.wav in Resources */,
 				03B88515194BA30E0094BFE0 /* neck.5.png in Resources */,
 				03AAB95F194F87D300A3CC69 /* head.8.png in Resources */,
+				03F38BD71986EDB30029EB0A /* audio.2.2.wav in Resources */,
 				032FE8C819507D2A00022AA2 /* shoulder.5.png in Resources */,
 				03B88501194B971E0094BFE0 /* head.6.png in Resources */,
 				03F73E5119521E3E004246AC /* click.high.wav in Resources */,
+				03F38BE519870B540029EB0A /* audio.1.6.wav in Resources */,
 				03AAB96F194FA07300A3CC69 /* neck.8.png in Resources */,
 				033C8D3E194A44AF00265277 /* dashed.png in Resources */,
 				03F73E4919521944004246AC /* click.fast.wav in Resources */,
@@ -668,15 +734,19 @@
 				03B884EF194B905C0094BFE0 /* mouth.3.png in Resources */,
 				03B8850D194B9CBB0094BFE0 /* head.7.png in Resources */,
 				03AAB940194F679E00A3CC69 /* planet.decal.5.png in Resources */,
+				03F38BEA19870B540029EB0A /* audio.3.7.wav in Resources */,
 				03F73E4F19521DE2004246AC /* click.low.wav in Resources */,
+				03F38BDA1986EDB30029EB0A /* audio.2.5.wav in Resources */,
 				03AAB965194F902B00A3CC69 /* face.8.png in Resources */,
 				032FE8CD19507EE800022AA2 /* armor.4.png in Resources */,
 				032FE8B7195076F000022AA2 /* neck.9.png in Resources */,
+				03F38BDC1986EDB30029EB0A /* audio.3.3.wav in Resources */,
 				032FE8CE19507EE800022AA2 /* armor.5.png in Resources */,
 				03AAB939194F666700A3CC69 /* planet.decal.2.png in Resources */,
 				031DBC1B193F89690061F6F8 /* Images.xcassets in Resources */,
 				032FE8C21950793900022AA2 /* mouth.10.png in Resources */,
 				03B884D4194B79DB0094BFE0 /* face.2.png in Resources */,
+				03F38BC41986E60D0029EB0A /* audio.2.1.wav in Resources */,
 				03B1E1101966E69F002DF2E7 /* head.13.png in Resources */,
 				03AAB958194F701F00A3CC69 /* planet.decal.0.png in Resources */,
 				032FE8BF1950793900022AA2 /* face.10.png in Resources */,
@@ -684,10 +754,13 @@
 				03AAB938194F666700A3CC69 /* planet.surface.0.png in Resources */,
 				03AAB956194F6D3E00A3CC69 /* planet.surface.5.png in Resources */,
 				03B8850B194B9CBB0094BFE0 /* face.5.png in Resources */,
+				03F38BD81986EDB30029EB0A /* audio.2.3.wav in Resources */,
 				03AAB963194F8FB700A3CC69 /* face.9.png in Resources */,
 				03AAB949194F69EC00A3CC69 /* planet.decal.9.png in Resources */,
+				03F38BD31986EDB30029EB0A /* audio.1.2.wav in Resources */,
 				03AAB96D194F976A00A3CC69 /* eyes.9.png in Resources */,
 				03B884D8194B7B7A0094BFE0 /* eyes.2.png in Resources */,
+				03F38BE819870B540029EB0A /* audio.2.7.wav in Resources */,
 				03AAB968194F93DC00A3CC69 /* eyes.6.png in Resources */,
 				03B884CD194B73320094BFE0 /* armor.1.png in Resources */,
 				03AAB955194F6D3E00A3CC69 /* planet.surface.4.png in Resources */,
@@ -703,6 +776,11 @@
 				03AAB944194F68E800A3CC69 /* planet.decal.8.png in Resources */,
 				032FE8C619507D2A00022AA2 /* shoulder.3.png in Resources */,
 				032FE8B8195076F000022AA2 /* neck.10.png in Resources */,
+				03F38BD91986EDB30029EB0A /* audio.2.4.wav in Resources */,
+				03F38BD41986EDB30029EB0A /* audio.1.3.wav in Resources */,
+				03F38BE919870B540029EB0A /* audio.3.6.wav in Resources */,
+				03F38BE719870B540029EB0A /* audio.2.6.wav in Resources */,
+				03F38BE619870B540029EB0A /* audio.1.7.wav in Resources */,
 				03B88512194BA1B80094BFE0 /* neck.3.png in Resources */,
 				03B884D0194B741B0094BFE0 /* eyes.1.png in Resources */,
 				03AAB969194F93DC00A3CC69 /* eyes.7.png in Resources */,
@@ -719,10 +797,13 @@
 				03F38BBE1986B0110029EB0A /* armor.6.png in Resources */,
 				031DBC16193F89690061F6F8 /* Main.storyboard in Resources */,
 				03AAB950194F6C5400A3CC69 /* planet.surface.2.png in Resources */,
+				03F38BD51986EDB30029EB0A /* audio.1.4.wav in Resources */,
 				03AA85561953844800441806 /* splash.xxiivv.png in Resources */,
 				03AAB93A194F666700A3CC69 /* planet.decal.3.png in Resources */,
+				03F38BDE1986EDB30029EB0A /* audio.3.5.wav in Resources */,
 				03B88504194B99210094BFE0 /* eyes.4.png in Resources */,
 				03B884D2194B75170094BFE0 /* mouth.1.png in Resources */,
+				03F38BC31986E60D0029EB0A /* audio.1.1.wav in Resources */,
 				03B884C6194B54A00094BFE0 /* neck.1.png in Resources */,
 				03AAB95A194F753100A3CC69 /* neck.6.png in Resources */,
 				03B88505194B99210094BFE0 /* eyes.5.png in Resources */,
@@ -734,6 +815,7 @@
 				03B884D6194B7A380094BFE0 /* head.2.png in Resources */,
 				03B884F1194B905C0094BFE0 /* mouth.5.png in Resources */,
 				03B8850A194B9CBB0094BFE0 /* face.4.png in Resources */,
+				03F38BDD1986EDB30029EB0A /* audio.3.4.wav in Resources */,
 				03B1E1161966E991002DF2E7 /* eyes.11.png in Resources */,
 				03B884FE194B95A00094BFE0 /* head.4.png in Resources */,
 				03B8850F194B9EC50094BFE0 /* face.7.png in Resources */,
@@ -741,6 +823,8 @@
 				03AAB94C194F6BC500A3CC69 /* planet.surface.1.png in Resources */,
 				03629C891964320F001112B0 /* splash.support.png in Resources */,
 				03AAB941194F679E00A3CC69 /* planet.decal.6.png in Resources */,
+				03F38BC51986E60D0029EB0A /* audio.3.1.wav in Resources */,
+				03F38BD61986EDB30029EB0A /* audio.1.5.wav in Resources */,
 				032FE8BE1950793900022AA2 /* eyes.10.png in Resources */,
 				03B884F2194B905C0094BFE0 /* mouth.6.png in Resources */,
 				03B884DE194B87700094BFE0 /* shoulder.2.png in Resources */,
