@@ -988,6 +988,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
 				WRAPPER_EXTENSION = app;
@@ -1004,6 +1005,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
 				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
 				WRAPPER_EXTENSION = app;
