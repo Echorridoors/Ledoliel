@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A299l" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -558,19 +559,19 @@
                                         <rect key="frame" x="80" y="142" width="160" height="284"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" id="ejj-7V-UlY" userLabel="planetChoice1Graphics">
+                                            <view contentMode="scaleAspectFill" id="ejj-7V-UlY" userLabel="planetChoice1Graphics">
                                                 <rect key="frame" x="40" y="71" width="80" height="142"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iOd-xs-HhK" userLabel="planetChoice1Graphic1">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="iOd-xs-HhK" userLabel="planetChoice1Graphic1">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qe1-SV-1Cc" userLabel="planetChoice1Graphic2">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="Qe1-SV-1Cc" userLabel="planetChoice1Graphic2">
                                                         <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rZg-Xl-PfU" userLabel="planetChoice1Graphic3">
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="rZg-Xl-PfU" userLabel="planetChoice1Graphic3">
                                                         <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
@@ -624,15 +625,15 @@
                                                 <rect key="frame" x="40" y="71" width="80" height="142"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Pe-KH-CBI" userLabel="planetChoice2Graphic1">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="8Pe-KH-CBI" userLabel="planetChoice2Graphic1">
                                                         <rect key="frame" x="0.0" y="0.0" width="80" height="142"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jkW-ed-6ho" userLabel="planetChoice2Graphic2">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="jkW-ed-6ho" userLabel="planetChoice2Graphic2">
                                                         <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AIz-vD-YTM" userLabel="planetChoice2Graphic3">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="AIz-vD-YTM" userLabel="planetChoice2Graphic3">
                                                         <rect key="frame" x="20" y="36" width="40" height="71"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>

@@ -668,6 +668,7 @@
 	
 	_mainMenuView.hidden = NO;
 	_mainMenuView.backgroundColor = [UIColor blackColor];
+	_mainMenuView.frame = self.view.frame;
 	
 	[_gameStartButton setTitle:@"DIPLOMACY" forState:UIControlStateNormal];
 	
@@ -738,7 +739,7 @@
 	self.planetChoice1GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice1GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice1Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
+	self.planetChoice1Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.height);
 	self.planetChoice1Graphic1.frame = self.planetChoice1Graphics.frame;
 	self.planetChoice1Graphic2.frame = self.planetChoice1Graphics.frame;
 	self.planetChoice1Graphic3.frame = self.planetChoice1Graphics.frame;
@@ -751,7 +752,7 @@
 	self.planetChoice2GuestAttr1Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2GuestAttr2Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*1.5, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
 	self.planetChoice2GuestAttr3Label.frame = CGRectMake(self.planetChoice1View.frame.size.width/2, templateUnit*2, self.planetChoice1View.frame.size.width/2+templateUnit, templateUnit);
-	self.planetChoice2Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.width/2-templateUnit/2);
+	self.planetChoice2Graphics.frame = CGRectMake(0, templateUnit*-0.25, self.planetChoice1View.frame.size.width/2-templateUnit/2, self.planetChoice1View.frame.size.height);
 	self.planetChoice2Graphic1.frame = self.planetChoice2Graphics.frame;
 	self.planetChoice2Graphic2.frame = self.planetChoice1Graphics.frame;
 	self.planetChoice2Graphic3.frame = self.planetChoice1Graphics.frame;
