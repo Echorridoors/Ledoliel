@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-               BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
-               BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+               BuildableName = "Ledoliel.app"
+               BlueprintName = "ledoliel"
                ReferencedContainer = "container:ledoliel.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
-            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            BuildableName = "Ledoliel.app"
+            BlueprintName = "ledoliel"
             ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
-            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            BuildableName = "Ledoliel.app"
+            BlueprintName = "ledoliel"
             ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "031DBBFE193F89690061F6F8"
-            BuildableName = "ledoliel.temp_caseinsensitive_rename.app"
-            BlueprintName = "ledoliel.temp_caseinsensitive_rename"
+            BuildableName = "Ledoliel.app"
+            BlueprintName = "ledoliel"
             ReferencedContainer = "container:ledoliel.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -644,9 +644,6 @@
 	NSLog(@"  GEST | Relationship: %d",to_i(user[@"relationship"]));
 }
 
-
-
-
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }
@@ -959,9 +956,9 @@
 	
 	NSLog(@"%d %d %d",attr1Pos,attr2Pos,attr3Pos);
 	
-	NSString * track1Name = [NSString stringWithFormat:@"audio.1.%d",(attr1Pos % 7)+1];
-	NSString * track2Name = [NSString stringWithFormat:@"audio.2.%d",(attr2Pos % 7)+1];
-	NSString * track3Name = [NSString stringWithFormat:@"audio.3.%d",(attr3Pos % 7)+1];
+	NSString * track1Name = [NSString stringWithFormat:@"audio.1.%d",(attr1Pos % 9)+1];
+	NSString * track2Name = [NSString stringWithFormat:@"audio.2.%d",(attr2Pos % 9)+1];
+	NSString * track3Name = [NSString stringWithFormat:@"audio.3.%d",(attr3Pos % 9)+1];
 	
 	[self ambient1Named:track1Name];
 	[self ambient2Named:track2Name];
@@ -1119,7 +1116,7 @@
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 14)+1];
+	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 15)+1];
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];

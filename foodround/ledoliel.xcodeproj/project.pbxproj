@@ -16,11 +16,6 @@
 		031DBC16193F89690061F6F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 031DBC14193F89690061F6F8 /* Main.storyboard */; };
 		031DBC19193F89690061F6F8 /* xxiivvViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 031DBC18193F89690061F6F8 /* xxiivvViewController.m */; };
 		031DBC1B193F89690061F6F8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031DBC1A193F89690061F6F8 /* Images.xcassets */; };
-		031DBC22193F89690061F6F8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031DBC21193F89690061F6F8 /* XCTest.framework */; };
-		031DBC23193F89690061F6F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031DBC02193F89690061F6F8 /* Foundation.framework */; };
-		031DBC24193F89690061F6F8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 031DBC06193F89690061F6F8 /* UIKit.framework */; };
-		031DBC2C193F89690061F6F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 031DBC2A193F89690061F6F8 /* InfoPlist.strings */; };
-		031DBC2E193F89690061F6F8 /* foodroundTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 031DBC2D193F89690061F6F8 /* foodroundTests.m */; };
 		032FE8B7195076F000022AA2 /* neck.9.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8B5195076F000022AA2 /* neck.9.png */; };
 		032FE8B8195076F000022AA2 /* neck.10.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8B6195076F000022AA2 /* neck.10.png */; };
 		032FE8BE1950793900022AA2 /* eyes.10.png in Resources */ = {isa = PBXBuildFile; fileRef = 032FE8B91950793900022AA2 /* eyes.10.png */; };
@@ -115,6 +110,16 @@
 		03B88512194BA1B80094BFE0 /* neck.3.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88510194BA1B80094BFE0 /* neck.3.png */; };
 		03B88513194BA1B80094BFE0 /* neck.4.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88511194BA1B80094BFE0 /* neck.4.png */; };
 		03B88515194BA30E0094BFE0 /* neck.5.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B88514194BA30E0094BFE0 /* neck.5.png */; };
+		03C4B1F119A62AEB00EB93C7 /* audio.1.8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1EB19A62AEB00EB93C7 /* audio.1.8.wav */; };
+		03C4B1F219A62AEB00EB93C7 /* audio.1.9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1EC19A62AEB00EB93C7 /* audio.1.9.wav */; };
+		03C4B1F319A62AEB00EB93C7 /* audio.2.8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1ED19A62AEB00EB93C7 /* audio.2.8.wav */; };
+		03C4B1F419A62AEB00EB93C7 /* audio.2.9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1EE19A62AEB00EB93C7 /* audio.2.9.wav */; };
+		03C4B1F519A62AEB00EB93C7 /* audio.3.8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1EF19A62AEB00EB93C7 /* audio.3.8.wav */; };
+		03C4B1F619A62AEB00EB93C7 /* audio.3.9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1F019A62AEB00EB93C7 /* audio.3.9.wav */; };
+		03C4B1F819A62EA300EB93C7 /* eyes.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1F719A62EA300EB93C7 /* eyes.15.png */; };
+		03C4B1FE19A63CC200EB93C7 /* icon.60.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FB19A63CC200EB93C7 /* icon.60.png */; };
+		03C4B1FF19A63CC200EB93C7 /* icon.76.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FC19A63CC200EB93C7 /* icon.76.png */; };
+		03C4B20019A63CC200EB93C7 /* icon.152.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FD19A63CC200EB93C7 /* icon.152.png */; };
 		03E740CE195469290007C1BF /* icon.120.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E740CD195469290007C1BF /* icon.120.png */; };
 		03F38BBE1986B0110029EB0A /* armor.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBD1986B0110029EB0A /* armor.6.png */; };
 		03F38BC31986E60D0029EB0A /* audio.1.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBF1986E60D0029EB0A /* audio.1.1.wav */; };
@@ -148,18 +153,8 @@
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		031DBC25193F89690061F6F8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 031DBBF7193F89690061F6F8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 031DBBFE193F89690061F6F8;
-			remoteInfo = foodround;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ledoliel.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		031DBBFF193F89690061F6F8 /* Ledoliel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ledoliel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		031DBC02193F89690061F6F8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		031DBC04193F89690061F6F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		031DBC06193F89690061F6F8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -173,7 +168,6 @@
 		031DBC17193F89690061F6F8 /* xxiivvViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xxiivvViewController.h; sourceTree = "<group>"; };
 		031DBC18193F89690061F6F8 /* xxiivvViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = xxiivvViewController.m; sourceTree = "<group>"; };
 		031DBC1A193F89690061F6F8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ledoliel.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		031DBC21193F89690061F6F8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		031DBC29193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ledoliel.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		031DBC2B193F89690061F6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -275,6 +269,16 @@
 		03B88510194BA1B80094BFE0 /* neck.3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.3.png; path = en.assets/neck.3.png; sourceTree = "<group>"; };
 		03B88511194BA1B80094BFE0 /* neck.4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.4.png; path = en.assets/neck.4.png; sourceTree = "<group>"; };
 		03B88514194BA30E0094BFE0 /* neck.5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.5.png; path = en.assets/neck.5.png; sourceTree = "<group>"; };
+		03C4B1EB19A62AEB00EB93C7 /* audio.1.8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.8.wav; path = en.assets/audio.1.8.wav; sourceTree = "<group>"; };
+		03C4B1EC19A62AEB00EB93C7 /* audio.1.9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.9.wav; path = en.assets/audio.1.9.wav; sourceTree = "<group>"; };
+		03C4B1ED19A62AEB00EB93C7 /* audio.2.8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.8.wav; path = en.assets/audio.2.8.wav; sourceTree = "<group>"; };
+		03C4B1EE19A62AEB00EB93C7 /* audio.2.9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.9.wav; path = en.assets/audio.2.9.wav; sourceTree = "<group>"; };
+		03C4B1EF19A62AEB00EB93C7 /* audio.3.8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.8.wav; path = en.assets/audio.3.8.wav; sourceTree = "<group>"; };
+		03C4B1F019A62AEB00EB93C7 /* audio.3.9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.9.wav; path = en.assets/audio.3.9.wav; sourceTree = "<group>"; };
+		03C4B1F719A62EA300EB93C7 /* eyes.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eyes.15.png; path = en.assets/eyes.15.png; sourceTree = "<group>"; };
+		03C4B1FB19A63CC200EB93C7 /* icon.60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.60.png; sourceTree = "<group>"; };
+		03C4B1FC19A63CC200EB93C7 /* icon.76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.76.png; sourceTree = "<group>"; };
+		03C4B1FD19A63CC200EB93C7 /* icon.152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.152.png; sourceTree = "<group>"; };
 		03E740CD195469290007C1BF /* icon.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.120.png; sourceTree = "<group>"; };
 		03F38BBD1986B0110029EB0A /* armor.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.6.png; path = en.assets/armor.6.png; sourceTree = "<group>"; };
 		03F38BBF1986E60D0029EB0A /* audio.1.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.1.wav; path = en.assets/audio.1.1.wav; sourceTree = "<group>"; };
@@ -324,16 +328,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		031DBC1D193F89690061F6F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				031DBC22193F89690061F6F8 /* XCTest.framework in Frameworks */,
-				031DBC24193F89690061F6F8 /* UIKit.framework in Frameworks */,
-				031DBC23193F89690061F6F8 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -350,8 +344,7 @@
 		031DBC00193F89690061F6F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */,
-				031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */,
+				031DBBFF193F89690061F6F8 /* Ledoliel.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -372,6 +365,9 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
+				03C4B1FB19A63CC200EB93C7 /* icon.60.png */,
+				03C4B1FC19A63CC200EB93C7 /* icon.76.png */,
+				03C4B1FD19A63CC200EB93C7 /* icon.152.png */,
 				03629C7D1964320F001112B0 /* splash */,
 				03E740CD195469290007C1BF /* icon.120.png */,
 				03AA85601953877400441806 /* audio */,
@@ -442,6 +438,12 @@
 		03AA85601953877400441806 /* audio */ = {
 			isa = PBXGroup;
 			children = (
+				03C4B1EB19A62AEB00EB93C7 /* audio.1.8.wav */,
+				03C4B1EC19A62AEB00EB93C7 /* audio.1.9.wav */,
+				03C4B1ED19A62AEB00EB93C7 /* audio.2.8.wav */,
+				03C4B1EE19A62AEB00EB93C7 /* audio.2.9.wav */,
+				03C4B1EF19A62AEB00EB93C7 /* audio.3.8.wav */,
+				03C4B1F019A62AEB00EB93C7 /* audio.3.9.wav */,
 				03F38BDF19870B540029EB0A /* audio.1.6.wav */,
 				03F38BE019870B540029EB0A /* audio.1.7.wav */,
 				03F38BE119870B540029EB0A /* audio.2.6.wav */,
@@ -497,6 +499,7 @@
 		03B884E0194B883A0094BFE0 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
+				03C4B1F719A62EA300EB93C7 /* eyes.15.png */,
 				03F38BBD1986B0110029EB0A /* armor.6.png */,
 				03AA85551953844800441806 /* splash.xxiivv.png */,
 				032FE8C919507EE800022AA2 /* armor.3.png */,
@@ -632,9 +635,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */ = {
+		031DBBFE193F89690061F6F8 /* ledoliel */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_rename" */;
+			buildConfigurationList = 031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel" */;
 			buildPhases = (
 				031DBBFB193F89690061F6F8 /* Sources */,
 				031DBBFC193F89690061F6F8 /* Frameworks */,
@@ -644,28 +647,10 @@
 			);
 			dependencies = (
 			);
-			name = ledoliel.temp_caseinsensitive_rename;
+			name = ledoliel;
 			productName = foodround;
-			productReference = 031DBBFF193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename.app */;
+			productReference = 031DBBFF193F89690061F6F8 /* Ledoliel.app */;
 			productType = "com.apple.product-type.application";
-		};
-		031DBC1F193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_renameTests" */;
-			buildPhases = (
-				031DBC1C193F89690061F6F8 /* Sources */,
-				031DBC1D193F89690061F6F8 /* Frameworks */,
-				031DBC1E193F89690061F6F8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				031DBC26193F89690061F6F8 /* PBXTargetDependency */,
-			);
-			name = ledoliel.temp_caseinsensitive_renameTests;
-			productName = foodroundTests;
-			productReference = 031DBC20193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -679,9 +664,6 @@
 				TargetAttributes = {
 					031DBBFE193F89690061F6F8 = {
 						DevelopmentTeam = B948MFAE5C;
-					};
-					031DBC1F193F89690061F6F8 = {
-						TestTargetID = 031DBBFE193F89690061F6F8;
 					};
 				};
 			};
@@ -698,8 +680,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */,
-				031DBC1F193F89690061F6F8 /* ledoliel.temp_caseinsensitive_renameTests */,
+				031DBBFE193F89690061F6F8 /* ledoliel */,
 			);
 		};
 /* End PBXProject section */
@@ -727,9 +708,11 @@
 				03B88501194B971E0094BFE0 /* head.6.png in Resources */,
 				03F73E5119521E3E004246AC /* click.high.wav in Resources */,
 				03F38BE519870B540029EB0A /* audio.1.6.wav in Resources */,
+				03C4B1F119A62AEB00EB93C7 /* audio.1.8.wav in Resources */,
 				03AAB96F194FA07300A3CC69 /* neck.8.png in Resources */,
 				033C8D3E194A44AF00265277 /* dashed.png in Resources */,
 				03F73E4919521944004246AC /* click.fast.wav in Resources */,
+				03C4B1F319A62AEB00EB93C7 /* audio.2.8.wav in Resources */,
 				03AAB96C194F976A00A3CC69 /* eyes.8.png in Resources */,
 				03B884EF194B905C0094BFE0 /* mouth.3.png in Resources */,
 				03B8850D194B9CBB0094BFE0 /* head.7.png in Resources */,
@@ -766,8 +749,10 @@
 				03AAB955194F6D3E00A3CC69 /* planet.surface.4.png in Resources */,
 				03B884CA194B71050094BFE0 /* face.1.png in Resources */,
 				03629C8A1964320F001112B0 /* splash.tune.wav in Resources */,
+				03C4B1FE19A63CC200EB93C7 /* icon.60.png in Resources */,
 				03AAB94A194F69EC00A3CC69 /* planet.decal.10.png in Resources */,
 				03B884C8194B55380094BFE0 /* shoulder.1.png in Resources */,
+				03C4B1FF19A63CC200EB93C7 /* icon.76.png in Resources */,
 				03B884E8194B8A080094BFE0 /* mouth.2.png in Resources */,
 				03B88513194BA1B80094BFE0 /* neck.4.png in Resources */,
 				03B884DC194B7D240094BFE0 /* neck.2.png in Resources */,
@@ -785,8 +770,10 @@
 				03B884D0194B741B0094BFE0 /* eyes.1.png in Resources */,
 				03AAB969194F93DC00A3CC69 /* eyes.7.png in Resources */,
 				031DBC0D193F89690061F6F8 /* InfoPlist.strings in Resources */,
+				03C4B1F419A62AEB00EB93C7 /* audio.2.9.wav in Resources */,
 				03B884F4194B905C0094BFE0 /* mouth.8.png in Resources */,
 				03AAB93F194F679E00A3CC69 /* planet.decal.4.png in Resources */,
+				03C4B1F219A62AEB00EB93C7 /* audio.1.9.wav in Resources */,
 				03B8850C194B9CBB0094BFE0 /* face.6.png in Resources */,
 				03B884FF194B95A00094BFE0 /* head.5.png in Resources */,
 				03B1E10E1966E512002DF2E7 /* head.12.png in Resources */,
@@ -807,6 +794,7 @@
 				03B884C6194B54A00094BFE0 /* neck.1.png in Resources */,
 				03AAB95A194F753100A3CC69 /* neck.6.png in Resources */,
 				03B88505194B99210094BFE0 /* eyes.5.png in Resources */,
+				03C4B20019A63CC200EB93C7 /* icon.152.png in Resources */,
 				03AAB961194F87D300A3CC69 /* neck.7.png in Resources */,
 				03B884E5194B8A080094BFE0 /* eyes.3.png in Resources */,
 				03B884E6194B8A080094BFE0 /* face.3.png in Resources */,
@@ -821,22 +809,17 @@
 				03B8850F194B9EC50094BFE0 /* face.7.png in Resources */,
 				032FE8C01950793900022AA2 /* head.10.png in Resources */,
 				03AAB94C194F6BC500A3CC69 /* planet.surface.1.png in Resources */,
+				03C4B1F819A62EA300EB93C7 /* eyes.15.png in Resources */,
 				03629C891964320F001112B0 /* splash.support.png in Resources */,
 				03AAB941194F679E00A3CC69 /* planet.decal.6.png in Resources */,
 				03F38BC51986E60D0029EB0A /* audio.3.1.wav in Resources */,
 				03F38BD61986EDB30029EB0A /* audio.1.5.wav in Resources */,
 				032FE8BE1950793900022AA2 /* eyes.10.png in Resources */,
+				03C4B1F619A62AEB00EB93C7 /* audio.3.9.wav in Resources */,
 				03B884F2194B905C0094BFE0 /* mouth.6.png in Resources */,
 				03B884DE194B87700094BFE0 /* shoulder.2.png in Resources */,
+				03C4B1F519A62AEB00EB93C7 /* audio.3.8.wav in Resources */,
 				03B1E10D1966E512002DF2E7 /* head.11.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		031DBC1E193F89690061F6F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				031DBC2C193F89690061F6F8 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,23 +842,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		031DBC1C193F89690061F6F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				031DBC2E193F89690061F6F8 /* foodroundTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		031DBC26193F89690061F6F8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 031DBBFE193F89690061F6F8 /* ledoliel.temp_caseinsensitive_rename */;
-			targetProxy = 031DBC25193F89690061F6F8 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		031DBC0B193F89690061F6F8 /* InfoPlist.strings */ = {
@@ -921,6 +888,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -937,7 +905,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "07128A75-4F6F-4137-AA9D-B6E1FF708798";
 				SDKROOT = iphoneos;
@@ -971,7 +939,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PROVISIONING_PROFILE = "07128A75-4F6F-4137-AA9D-B6E1FF708798";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -983,14 +951,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer: David Mondou-Labbe (V9PZ3GV9WH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Mondou-Labbe (V9PZ3GV9WH)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Ledoliel;
+				PROVISIONING_PROFILE = "8fd9bfce-c6cc-440a-9df1-d0233fddac8f";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1001,56 +969,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: David Mondou-Labbe (B948MFAE5C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: David Mondou-Labbe (B948MFAE5C)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = ledoliel.temp_caseinsensitive_rename;
-				PROVISIONING_PROFILE = "5565A15B-8E88-48C4-A8BF-DB813779D65B";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Ledoliel;
+				PROVISIONING_PROFILE = "8fd9bfce-c6cc-440a-9df1-d0233fddac8f";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		031DBC35193F89690061F6F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/foodround.app/foodround";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "foodround/foodround-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "foodroundTests/ledoliel.temp_caseinsensitive_renameTests-Info.plist";
-				PRODUCT_NAME = ledoliel.temp_caseinsensitive_renameTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		031DBC36193F89690061F6F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/foodround.app/foodround";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "foodround/foodround-Prefix.pch";
-				INFOPLIST_FILE = "foodroundTests/ledoliel.temp_caseinsensitive_renameTests-Info.plist";
-				PRODUCT_NAME = ledoliel.temp_caseinsensitive_renameTests;
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -1066,20 +994,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_rename" */ = {
+		031DBC31193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				031DBC32193F89690061F6F8 /* Debug */,
 				031DBC33193F89690061F6F8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		031DBC34193F89690061F6F8 /* Build configuration list for PBXNativeTarget "ledoliel.temp_caseinsensitive_renameTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				031DBC35193F89690061F6F8 /* Debug */,
-				031DBC36193F89690061F6F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
