@@ -18,8 +18,7 @@ AVAudioPlayer *audioPlayerSplash;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//	[self start];
-    [self splashClose];
+	[self start];
 }
 
 -(void)start
