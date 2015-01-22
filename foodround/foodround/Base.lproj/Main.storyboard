@@ -734,6 +734,18 @@
                                             <action selector="gameStartButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kHN-UI-jr9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9c7-RN-SDa" userLabel="gameAudioButton">
+                                        <rect key="frame" x="93" y="269" width="133" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="New Game">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="gameAudioButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6Zf-eb-SzO"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0dZ-qt-OZS" userLabel="gameStartLabel">
                                         <rect key="frame" x="20" y="350" width="273" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -783,6 +795,7 @@
                         <outlet property="cinematicToggleButton" destination="YkJ-J9-kmR" id="XE2-yU-0Pb"/>
                         <outlet property="confirmButton" destination="w67-nw-klD" id="Gtr-0g-1Sf"/>
                         <outlet property="destinationLabel" destination="XzP-Cb-P8v" id="s67-EB-duH"/>
+                        <outlet property="gameAudioButton" destination="9c7-RN-SDa" id="yKL-Uf-ICN"/>
                         <outlet property="gameScoreLabel" destination="xYt-J9-IQv" id="eef-XB-h8B"/>
                         <outlet property="gameStartButton" destination="vBW-h8-SxZ" id="S4d-qn-s0Z"/>
                         <outlet property="gameStartLabel" destination="0dZ-qt-OZS" id="2Sx-4A-b7a"/>

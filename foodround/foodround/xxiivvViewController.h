@@ -162,12 +162,15 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *cinematicToggleButton;
 - (IBAction)cinematicToggleButton:(id)sender;
+
 // Menu
 
 @property (strong, nonatomic) IBOutlet UIView *mainMenuView;
 @property (strong, nonatomic) IBOutlet UIButton *gameStartButton;
+@property (weak, nonatomic) IBOutlet UIButton *gameAudioButton;
 
 - (IBAction)gameStartButton:(id)sender;
+- (IBAction)gameAudioButton:(id)sender;
 
 // Modal
 
@@ -185,6 +188,7 @@ int currentMenuSelection = -1;
 int currentSubmenuSelection = -1;
 int currentSessionResultscreenPosition = 0;
 int touchActive = 1;
+int audioActive = 1;
 float templateUnit = 30;
 
 NSMutableDictionary *user;

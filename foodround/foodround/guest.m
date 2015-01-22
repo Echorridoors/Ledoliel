@@ -228,27 +228,49 @@
 	if([attribute isEqualToString:@"noble"] && order == 9){ return @"brain"; }
 	if([attribute isEqualToString:@"noble"] && order == 10){ return @"velvet-like"; }
 	
-	if([attribute isEqualToString:@"nudist"] && order == 1){ return @"weeh"; }
-	if([attribute isEqualToString:@"nudist"] && order == 2){ return @"yaah"; }
-	if([attribute isEqualToString:@"nudist"] && order == 3){ return @"haha"; }
+	if([attribute isEqualToString:@"nudist"] && order == 1){ return @"weh"; }
+	if([attribute isEqualToString:@"nudist"] && order == 2){ return @"yah"; }
+	if([attribute isEqualToString:@"nudist"] && order == 3){ return @"ha"; }
 	if([attribute isEqualToString:@"nudist"] && order == 4){ return @"rubs on"; }
 	if([attribute isEqualToString:@"nudist"] && order == 5){ return @"groin"; }
 	if([attribute isEqualToString:@"nudist"] && order == 6){ return @"tentacles"; }
 	if([attribute isEqualToString:@"nudist"] && order == 7){ return @"pours"; }
 	if([attribute isEqualToString:@"nudist"] && order == 8){ return @"lube"; }
 	if([attribute isEqualToString:@"nudist"] && order == 9){ return @"ass"; }
-	if([attribute isEqualToString:@"nudist"] && order == 10){ return @"rubbery"; }
-	
-	if([attribute isEqualToString:@"unpredictable"] && order == 1){ return @"what"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 2){ return @"the"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 3){ return @"fuck"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 4){ return @"touches"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 5){ return @"friends"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 6){ return @"pineapple"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 7){ return @"invokes"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 8){ return @"mushrooms"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 9){ return @"eyes"; }
-	if([attribute isEqualToString:@"unpredictable"] && order == 10){ return @"absurd"; }
+    if([attribute isEqualToString:@"nudist"] && order == 10){ return @"rubbery"; }
+    
+    if([attribute isEqualToString:@"unpredictable"] && order == 1){ return @"what"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 2){ return @"the"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 3){ return @"fuck"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 4){ return @"touches"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 5){ return @"friends"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 6){ return @"pineapple"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 7){ return @"invokes"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 8){ return @"mushrooms"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 9){ return @"eyes"; }
+    if([attribute isEqualToString:@"unpredictable"] && order == 10){ return @"absurd"; }
+    
+    if([attribute isEqualToString:@"ghostly"] && order == 1){ return @"cas"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 2){ return @"egal"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 3){ return @"ne"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 4){ return @"blows on"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 5){ return @"psyche"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 6){ return @"shadow"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 7){ return @"summons"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 8){ return @"fireflies"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 9){ return @"mind"; }
+    if([attribute isEqualToString:@"ghostly"] && order == 10){ return @"intangible"; }
+    
+    if([attribute isEqualToString:@"deaf"] && order == 1){ return @"lat"; }
+    if([attribute isEqualToString:@"deaf"] && order == 2){ return @"omel"; }
+    if([attribute isEqualToString:@"deaf"] && order == 3){ return @"tre"; }
+    if([attribute isEqualToString:@"deaf"] && order == 4){ return @"pats"; }
+    if([attribute isEqualToString:@"deaf"] && order == 5){ return @"face"; }
+    if([attribute isEqualToString:@"deaf"] && order == 6){ return @"cane"; }
+    if([attribute isEqualToString:@"deaf"] && order == 7){ return @"kicks"; }
+    if([attribute isEqualToString:@"deaf"] && order == 8){ return @"paint"; }
+    if([attribute isEqualToString:@"deaf"] && order == 9){ return @"face"; }
+    if([attribute isEqualToString:@"deaf"] && order == 10){ return @"uneasy"; }
 	
 	return @"";
 }
