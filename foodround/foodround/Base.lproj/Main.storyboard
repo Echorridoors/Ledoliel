@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="14A299l" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Splash-->
@@ -56,7 +56,7 @@
             </objects>
             <point key="canvasLocation" x="1526" y="-198"/>
         </scene>
-        <!--Xxiivv View Controller - Session-->
+        <!--Session-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController title="Session" id="vXZ-lx-hvc" customClass="xxiivvViewController" sceneMemberID="viewController">
@@ -402,6 +402,18 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KSN-Bt-aIv" userLabel="twitterShareButton">
+                                                <rect key="frame" x="17" y="56" width="46" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="12"/>
+                                                <state key="normal" title="Share">
+                                                    <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="twitterShareButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="tAe-Uq-kzV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </view>
                                     <view contentMode="scaleToFill" id="2xV-qw-Wmg" userLabel="statusView">
@@ -870,6 +882,7 @@
                         <outlet property="submenuOption1Button" destination="Yug-zc-J24" id="nLM-80-hrA"/>
                         <outlet property="submenuOption2Button" destination="ZbS-dD-Ewo" id="4Db-GL-JXH"/>
                         <outlet property="submenuView" destination="hGH-xF-FVR" id="WNX-tp-Orj"/>
+                        <outlet property="twitterShareButton" destination="KSN-Bt-aIv" id="8Jt-H7-v6P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

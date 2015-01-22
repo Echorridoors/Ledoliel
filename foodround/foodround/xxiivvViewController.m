@@ -18,6 +18,7 @@
 #import "user.h"
 #import "guest.h"
 #import "tools.h"
+#import <Social/Social.h>
 
 @interface xxiivvViewController ()
 
@@ -918,8 +919,8 @@
 	[self sessionViewTemplate];
 	[self sessionViewTemplateAnimate];
 	
-	[self sessionViewAudio];
-	
+//  Debug
+//	[self sessionViewAudio];
 	
 	NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
 	NSString* guestCustom = [self guestCustomFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
@@ -1071,18 +1072,30 @@
 	_roundsLabel.text = @"Round 1";
 	_roundsCount1View.frame = CGRectMake(screenWidth/2, templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
 	_roundsCount1View.layer.cornerRadius = roundsCircleSize/2;
-	_roundsCount2View.frame = CGRectMake(screenWidth/2 + (templateUnit), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount2View.frame = CGRectMake(screenWidth/2 + (templateUnit*0.5), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
 	_roundsCount2View.layer.cornerRadius = roundsCircleSize/2;
-	_roundsCount3View.frame = CGRectMake(screenWidth/2 + (templateUnit*2), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount3View.frame = CGRectMake(screenWidth/2 + (templateUnit), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
 	_roundsCount3View.layer.cornerRadius = roundsCircleSize/2;
-	_roundsCount4View.frame = CGRectMake(screenWidth/2 + (templateUnit*3), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
+	_roundsCount4View.frame = CGRectMake(screenWidth/2 + (templateUnit*1.5), templateUnit/2-(roundsCircleSize/2), roundsCircleSize, roundsCircleSize);
 	_roundsCount4View.layer.cornerRadius = roundsCircleSize/2;
-	_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
+	_roundsProgressView.frame = CGRectMake(screenWidth/2 + (templateUnit*2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
 	
 	_roundsCount1View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount2View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount3View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
 	_roundsCount4View.backgroundColor = [UIColor colorWithWhite:0.7 alpha:1];
+    
+    _twitterShareButton.frame = CGRectMake(_roundsView.frame.size.width-(2*templateUnit),0, templateUnit * 2, templateUnit);
+    
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
+    {
+        console(@"! SHAR | Twitter Service is available.");
+        _twitterShareButton.hidden = NO;
+    }
+    else{
+        console(@"! SHAR | Twitter Service is missing.");
+        _twitterShareButton.hidden = YES;
+    }
 	
 	// Guest Graphics
 	_guestGraphics.frame = CGRectMake(0, screenHeight-(4.5*templateUnit)-screenWidth, screenWidth, screenWidth);
@@ -1201,7 +1214,6 @@
 
 -(void)sessionViewGuestSpritesUpdate
 {
-	
 	if( to_i(user[@"relationship"]) < -20 ){
 		_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.3.png"];
 	}
@@ -1211,7 +1223,6 @@
 	else if( to_i(user[@"relationship"]) < 0 ){
 		_guestGraphicMouth.image =  [UIImage imageNamed:@"mouth.6.png"];
 	}
-
 }
 
 - (IBAction)gameStartButton:(id)sender {
@@ -1324,6 +1335,32 @@
 	[self playTurn];
 	[self hintHide];
 	[self alignDeselection];
+}
+
+- (IBAction)twitterShareButton:(id)sender
+{
+    console(@"! SHAR | Twitter Share Pressed!");
+    
+    _twitterShareButton.hidden = YES;
+    
+    // Take Screenshot
+    CGRect rect = [self.mainSessionView bounds];
+    UIGraphicsBeginImageContextWithOptions(rect.size,YES,0.0f);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [self.mainSessionView.layer renderInContext:context];
+    UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    _twitterShareButton.hidden = NO;
+    
+    // Get name
+    NSString* guestName = [self guestNameFromAttributes:guest[@"attributes"][0]:guest[@"attributes"][1]:guest[@"attributes"][2]];
+    
+    if (![SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]){ return; }
+    SLComposeViewController *tweetSheet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"Meeting with %@.\n%@ %@ %@ \n#ledoliel",[guestName capitalizedString],[guest[@"attributes"][0] capitalizedString], [guest[@"attributes"][1] capitalizedString], [guest[@"attributes"][2] capitalizedString] ]];
+    [tweetSheet addImage:capturedImage];
+    [self presentViewController:tweetSheet animated:YES completion:nil];
 }
 
 #pragma mark Modal

@@ -151,6 +151,7 @@
 		03F9904C1940AA54009A1D74 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904B1940AA54009A1D74 /* user.m */; };
 		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
+		576015221A71445100F7EDAC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576015211A71445100F7EDAC /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,6 +314,7 @@
 		03F9904E1940AAD5009A1D74 /* template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = template.m; sourceTree = "<group>"; };
 		03F990501940AC9F009A1D74 /* guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guest.h; sourceTree = "<group>"; };
 		03F990511940AC9F009A1D74 /* guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guest.m; sourceTree = "<group>"; };
+		576015211A71445100F7EDAC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576015221A71445100F7EDAC /* Social.framework in Frameworks */,
 				03F73E43195217AE004246AC /* AudioToolbox.framework in Frameworks */,
 				03F73E41195217A7004246AC /* AVFoundation.framework in Frameworks */,
 				031DBC05193F89690061F6F8 /* CoreGraphics.framework in Frameworks */,
@@ -352,6 +355,7 @@
 		031DBC01193F89690061F6F8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				576015211A71445100F7EDAC /* Social.framework */,
 				03F73E42195217AE004246AC /* AudioToolbox.framework */,
 				03F73E40195217A7004246AC /* AVFoundation.framework */,
 				031DBC02193F89690061F6F8 /* Foundation.framework */,
@@ -951,14 +955,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: David Mondou-Labbe (V9PZ3GV9WH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: David Mondou-Labbe (V9PZ3GV9WH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Ledoliel;
-				PROVISIONING_PROFILE = "8fd9bfce-c6cc-440a-9df1-d0233fddac8f";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -969,14 +973,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: David Mondou-Labbe (B948MFAE5C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: David Mondou-Labbe (B948MFAE5C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = Ledoliel;
-				PROVISIONING_PROFILE = "8fd9bfce-c6cc-440a-9df1-d0233fddac8f";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -67,6 +67,7 @@
 @property (strong, nonatomic) IBOutlet UIView *roundsCount2View;
 @property (strong, nonatomic) IBOutlet UIView *roundsCount3View;
 @property (strong, nonatomic) IBOutlet UIView *roundsCount4View;
+@property (weak, nonatomic) IBOutlet UIButton *twitterShareButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *guestStatusCloseButton;
 
@@ -97,6 +98,7 @@
 - (IBAction)submenuOption1Button:(id)sender;
 - (IBAction)submenuOption2Button:(id)sender;
 - (IBAction)confirmButton:(id)sender;
+- (IBAction)twitterShareButton:(id)sender;
 
 // World Map
 

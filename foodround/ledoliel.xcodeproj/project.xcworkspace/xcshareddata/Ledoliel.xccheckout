@@ -10,29 +10,29 @@
 	<string>ledoliel</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>B52D0672-7443-4070-8163-3EBCDBDBBBCE</key>
+		<key>15DD1D8ABBC0813BE8205A90B58F904EC7CDEF4F</key>
 		<string>https://github.com/aliceffekt/ledoliel.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>foodround/ledoliel.xcodeproj/project.xcworkspace</string>
+	<string>foodround/ledoliel.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>B52D0672-7443-4070-8163-3EBCDBDBBBCE</key>
+		<key>15DD1D8ABBC0813BE8205A90B58F904EC7CDEF4F</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/aliceffekt/ledoliel.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>B52D0672-7443-4070-8163-3EBCDBDBBBCE</string>
+	<string>15DD1D8ABBC0813BE8205A90B58F904EC7CDEF4F</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>B52D0672-7443-4070-8163-3EBCDBDBBBCE</string>
+			<string>15DD1D8ABBC0813BE8205A90B58F904EC7CDEF4F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ledoliel</string>
 		</dict>
