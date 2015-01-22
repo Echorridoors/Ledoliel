@@ -697,8 +697,6 @@
 	[self mapViewTemplate];
 	[self mapViewTemplateAnimate];
 	[self mapViewSpellUpdate];
-	
-	
 }
 
 -(void)mapViewTemplate
@@ -808,13 +806,14 @@
 	
 	NSArray* attributeShuffle1 = [self shuffleArray:[self guestAttributes]];
 	NSArray* attributeShuffle2 = [self shuffleArray:[self guestAttributes]];
-	
+    
 	guest[@"attributes_potential"][0] = @[attributeShuffle1[0],attributeShuffle1[1],attributeShuffle1[2]];
+    
 	self.planetChoice1GuestAttr1Label.text = attributeShuffle1[0];
 	self.planetChoice1GuestAttr2Label.text = attributeShuffle1[1];
 	self.planetChoice1GuestAttr3Label.text = attributeShuffle1[2];
 	
-	int spriteSurfaceCount = 5;
+	int spriteSurfaceCount = 9;
 	int spriteDecalCount = 10;
 	
 	int attr1Pos = (int)[[self guestAttributes] indexOfObject: attributeShuffle1[0]];
@@ -941,11 +940,17 @@
 	
 	[self modalViewDisplay:guestCustom:0.75];
 	
-	[self alignSelection:0];
+    // If deaf, autoselect the second one
+    if( [guest[@"attributes"][0] isEqualToString:@"deaf"] || [guest[@"attributes"][1] isEqualToString:@"deaf"] || [guest[@"attributes"][2] isEqualToString:@"deaf"] ){
+        [self alignSelection:1];
+    }
+    else{
+        [self alignSelection:0];
+    }
+	
 	[self menuSelectionLoad];
 	[self statusBarUpdate];
 	[self sessionRoundsViewUpdate];
-	
 }
 
 -(void)sessionViewAudio
@@ -1153,7 +1158,18 @@
 	
 	_guestGraphicMouth.frame =CGRectMake(screenWidth/4, 0, screenWidth/2, screenWidth/2);
 	_guestGraphicMouth.image =  [UIImage imageNamed:imageName];
-	
+    
+    // Modifiers
+    // Ghostly does not let you touch it.
+    if( [guest[@"attributes"][0] isEqualToString:@"ghostly"] || [guest[@"attributes"][1] isEqualToString:@"ghostly"] || [guest[@"attributes"][2] isEqualToString:@"ghostly"]){
+        [_menuOption2Button setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateNormal];
+        _menuOption2Button.alpha = 0.35;
+    }
+    // Deaf does not let you talk to it.
+    if( [guest[@"attributes"][0] isEqualToString:@"deaf"] || [guest[@"attributes"][1] isEqualToString:@"deaf"] || [guest[@"attributes"][2] isEqualToString:@"deaf"]){
+        [_menuOption1Button setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateNormal];
+        _menuOption1Button.alpha = 0.35;
+    }
 }
 -(void)sessionViewTemplateAnimate
 {
@@ -1268,6 +1284,12 @@
 
 - (IBAction)menuOption1Button:(id)sender
 {
+    // Deaf
+    if( [guest[@"attributes"][0] isEqualToString:@"deaf"] || [guest[@"attributes"][1] isEqualToString:@"deaf"] || [guest[@"attributes"][2] isEqualToString:@"deaf"]){
+        [self modalViewDisplay:@"Your deaf guest cannot hear you." :0];
+        return;
+    }
+    
 	if( currentMenuSelection == 0 ){ return; }
 	[self playSoundNamed:@"click.fast"];
 	[self alignSelection :0];
@@ -1277,6 +1299,12 @@
 }
 - (IBAction)menuOption2Button:(id)sender
 {
+    // Ghostly
+    if( [guest[@"attributes"][0] isEqualToString:@"ghostly"] || [guest[@"attributes"][1] isEqualToString:@"ghostly"] || [guest[@"attributes"][2] isEqualToString:@"ghostly"]){
+        [self modalViewDisplay:@"Your ghostly guest cannot be touched." :0];
+        return;
+    }
+    
 	if( currentMenuSelection == 1 ){ return; }
 	[self playSoundNamed:@"click.fast"];
 	[self alignSelection:1];
@@ -1350,6 +1378,9 @@
     [self.mainSessionView.layer renderInContext:context];
     UIImage *capturedImage = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
+    
+    NSString  *imagePath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/capturedImage.jpg"]];
+    [UIImageJPEGRepresentation(capturedImage, 0.95) writeToFile:imagePath atomically:YES];
     
     _twitterShareButton.hidden = NO;
     

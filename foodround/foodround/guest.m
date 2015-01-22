@@ -21,7 +21,7 @@
 
 -(NSArray*)guestAttributes
 {
-	return @[@"deviant",@"lustful",@"childish",@"greedy",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient",@"noble",@"nudist",@"unpredictable"];
+	return @[@"deviant",@"lustful",@"childish",@"greedy",@"tribal",@"rich",@"evil",@"sadist",@"pestilent",@"religious",@"industrial",@"scientific",@"violent",@"gentle",@"wise",@"ancient",@"noble",@"nudist",@"unpredictable",@"ghostly",@"deaf"];
 }
 
 -(NSString*)guestNameFromAttributes :(NSString*)attr1 :(NSString*)attr2 :(NSString*)attr3
@@ -276,8 +276,9 @@
 	if( [attribute isEqualToString:@"gentle"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"wise"] && [action isEqualToString:@"give"])		{ multiplyer = 1;}
 	if( [attribute isEqualToString:@"ancient"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
-	if( [attribute isEqualToString:@"noble"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
-	if( [attribute isEqualToString:@"nudist"] && [action isEqualToString:@"touch"])		{ multiplyer = 1;}
+    if( [attribute isEqualToString:@"noble"] && [action isEqualToString:@"say"])		{ multiplyer = 1;}
+    if( [attribute isEqualToString:@"nudist"] && [action isEqualToString:@"touch"])		{ multiplyer = 1;}
+    if( [attribute isEqualToString:@"ghostly"] && [action isEqualToString:@"touch"])		{ multiplyer = -1;}
 	if( [attribute isEqualToString:@"unpredictable"] && [action isEqualToString:@"leave"])	{ multiplyer = 1;}
 	
 	return multiplyer;

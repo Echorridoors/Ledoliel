@@ -117,10 +117,6 @@
 		03C4B1F519A62AEB00EB93C7 /* audio.3.8.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1EF19A62AEB00EB93C7 /* audio.3.8.wav */; };
 		03C4B1F619A62AEB00EB93C7 /* audio.3.9.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1F019A62AEB00EB93C7 /* audio.3.9.wav */; };
 		03C4B1F819A62EA300EB93C7 /* eyes.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1F719A62EA300EB93C7 /* eyes.15.png */; };
-		03C4B1FE19A63CC200EB93C7 /* icon.60.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FB19A63CC200EB93C7 /* icon.60.png */; };
-		03C4B1FF19A63CC200EB93C7 /* icon.76.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FC19A63CC200EB93C7 /* icon.76.png */; };
-		03C4B20019A63CC200EB93C7 /* icon.152.png in Resources */ = {isa = PBXBuildFile; fileRef = 03C4B1FD19A63CC200EB93C7 /* icon.152.png */; };
-		03E740CE195469290007C1BF /* icon.120.png in Resources */ = {isa = PBXBuildFile; fileRef = 03E740CD195469290007C1BF /* icon.120.png */; };
 		03F38BBE1986B0110029EB0A /* armor.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBD1986B0110029EB0A /* armor.6.png */; };
 		03F38BC31986E60D0029EB0A /* audio.1.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BBF1986E60D0029EB0A /* audio.1.1.wav */; };
 		03F38BC41986E60D0029EB0A /* audio.2.1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F38BC01986E60D0029EB0A /* audio.2.1.wav */; };
@@ -152,6 +148,9 @@
 		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
 		576015221A71445100F7EDAC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576015211A71445100F7EDAC /* Social.framework */; };
+		577A97B91A715A0E00BB14B4 /* planet.surface.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B61A715A0E00BB14B4 /* planet.surface.6.png */; };
+		577A97BA1A715A0E00BB14B4 /* planet.surface.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B71A715A0E00BB14B4 /* planet.surface.7.png */; };
+		577A97BB1A715A0E00BB14B4 /* planet.surface.8.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B81A715A0E00BB14B4 /* planet.surface.8.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -277,10 +276,6 @@
 		03C4B1EF19A62AEB00EB93C7 /* audio.3.8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.8.wav; path = en.assets/audio.3.8.wav; sourceTree = "<group>"; };
 		03C4B1F019A62AEB00EB93C7 /* audio.3.9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.3.9.wav; path = en.assets/audio.3.9.wav; sourceTree = "<group>"; };
 		03C4B1F719A62EA300EB93C7 /* eyes.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eyes.15.png; path = en.assets/eyes.15.png; sourceTree = "<group>"; };
-		03C4B1FB19A63CC200EB93C7 /* icon.60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.60.png; sourceTree = "<group>"; };
-		03C4B1FC19A63CC200EB93C7 /* icon.76.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.76.png; sourceTree = "<group>"; };
-		03C4B1FD19A63CC200EB93C7 /* icon.152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.152.png; sourceTree = "<group>"; };
-		03E740CD195469290007C1BF /* icon.120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.120.png; sourceTree = "<group>"; };
 		03F38BBD1986B0110029EB0A /* armor.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = armor.6.png; path = en.assets/armor.6.png; sourceTree = "<group>"; };
 		03F38BBF1986E60D0029EB0A /* audio.1.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.1.1.wav; path = en.assets/audio.1.1.wav; sourceTree = "<group>"; };
 		03F38BC01986E60D0029EB0A /* audio.2.1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = audio.2.1.wav; path = en.assets/audio.2.1.wav; sourceTree = "<group>"; };
@@ -315,6 +310,9 @@
 		03F990501940AC9F009A1D74 /* guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guest.h; sourceTree = "<group>"; };
 		03F990511940AC9F009A1D74 /* guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guest.m; sourceTree = "<group>"; };
 		576015211A71445100F7EDAC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		577A97B61A715A0E00BB14B4 /* planet.surface.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.6.png; path = en.assets/planet.surface.6.png; sourceTree = "<group>"; };
+		577A97B71A715A0E00BB14B4 /* planet.surface.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.7.png; path = en.assets/planet.surface.7.png; sourceTree = "<group>"; };
+		577A97B81A715A0E00BB14B4 /* planet.surface.8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.8.png; path = en.assets/planet.surface.8.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -369,10 +367,6 @@
 		031DBC08193F89690061F6F8 /* foodround */ = {
 			isa = PBXGroup;
 			children = (
-				03C4B1FB19A63CC200EB93C7 /* icon.60.png */,
-				03C4B1FC19A63CC200EB93C7 /* icon.76.png */,
-				03C4B1FD19A63CC200EB93C7 /* icon.152.png */,
-				03E740CD195469290007C1BF /* icon.120.png */,
 				03629C7D1964320F001112B0 /* splash */,
 				03AA85601953877400441806 /* audio */,
 				03B884E0194B883A0094BFE0 /* sprites */,
@@ -479,6 +473,9 @@
 		03AAB95B194F7FED00A3CC69 /* planets */ = {
 			isa = PBXGroup;
 			children = (
+				577A97B61A715A0E00BB14B4 /* planet.surface.6.png */,
+				577A97B71A715A0E00BB14B4 /* planet.surface.7.png */,
+				577A97B81A715A0E00BB14B4 /* planet.surface.8.png */,
 				03AAB957194F701F00A3CC69 /* planet.decal.0.png */,
 				03AAB935194F666700A3CC69 /* planet.surface.0.png */,
 				03AAB94B194F6BC500A3CC69 /* planet.surface.1.png */,
@@ -700,7 +697,9 @@
 				03B1E11C1966EE6C002DF2E7 /* eyes.14.png in Resources */,
 				03AAB942194F679E00A3CC69 /* planet.decal.7.png in Resources */,
 				03B884F3194B905C0094BFE0 /* mouth.7.png in Resources */,
+				577A97BB1A715A0E00BB14B4 /* planet.surface.8.png in Resources */,
 				03B1E1181966EA8D002DF2E7 /* eyes.12.png in Resources */,
+				577A97BA1A715A0E00BB14B4 /* planet.surface.7.png in Resources */,
 				03629C881964320F001112B0 /* splash.logo.png in Resources */,
 				03B884DA194B7C0A0094BFE0 /* armor.2.png in Resources */,
 				03B884E7194B8A080094BFE0 /* head.3.png in Resources */,
@@ -753,14 +752,11 @@
 				03AAB955194F6D3E00A3CC69 /* planet.surface.4.png in Resources */,
 				03B884CA194B71050094BFE0 /* face.1.png in Resources */,
 				03629C8A1964320F001112B0 /* splash.tune.wav in Resources */,
-				03C4B1FE19A63CC200EB93C7 /* icon.60.png in Resources */,
 				03AAB94A194F69EC00A3CC69 /* planet.decal.10.png in Resources */,
 				03B884C8194B55380094BFE0 /* shoulder.1.png in Resources */,
-				03C4B1FF19A63CC200EB93C7 /* icon.76.png in Resources */,
 				03B884E8194B8A080094BFE0 /* mouth.2.png in Resources */,
 				03B88513194BA1B80094BFE0 /* neck.4.png in Resources */,
 				03B884DC194B7D240094BFE0 /* neck.2.png in Resources */,
-				03E740CE195469290007C1BF /* icon.120.png in Resources */,
 				03B884F0194B905C0094BFE0 /* mouth.4.png in Resources */,
 				03AAB944194F68E800A3CC69 /* planet.decal.8.png in Resources */,
 				032FE8C619507D2A00022AA2 /* shoulder.3.png in Resources */,
@@ -798,8 +794,8 @@
 				03B884C6194B54A00094BFE0 /* neck.1.png in Resources */,
 				03AAB95A194F753100A3CC69 /* neck.6.png in Resources */,
 				03B88505194B99210094BFE0 /* eyes.5.png in Resources */,
-				03C4B20019A63CC200EB93C7 /* icon.152.png in Resources */,
 				03AAB961194F87D300A3CC69 /* neck.7.png in Resources */,
+				577A97B91A715A0E00BB14B4 /* planet.surface.6.png in Resources */,
 				03B884E5194B8A080094BFE0 /* eyes.3.png in Resources */,
 				03B884E6194B8A080094BFE0 /* face.3.png in Resources */,
 				03B884C4194B52F20094BFE0 /* head.1.png in Resources */,
