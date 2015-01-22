@@ -151,6 +151,9 @@
 		577A97B91A715A0E00BB14B4 /* planet.surface.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B61A715A0E00BB14B4 /* planet.surface.6.png */; };
 		577A97BA1A715A0E00BB14B4 /* planet.surface.7.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B71A715A0E00BB14B4 /* planet.surface.7.png */; };
 		577A97BB1A715A0E00BB14B4 /* planet.surface.8.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B81A715A0E00BB14B4 /* planet.surface.8.png */; };
+		577A97BE1A71600300BB14B4 /* face.11.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97BD1A71600300BB14B4 /* face.11.png */; };
+		577A97C01A7161D400BB14B4 /* head.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97BF1A7161D400BB14B4 /* head.15.png */; };
+		577A97C21A71711500BB14B4 /* neck.11.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97C11A71711500BB14B4 /* neck.11.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -313,6 +316,9 @@
 		577A97B61A715A0E00BB14B4 /* planet.surface.6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.6.png; path = en.assets/planet.surface.6.png; sourceTree = "<group>"; };
 		577A97B71A715A0E00BB14B4 /* planet.surface.7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.7.png; path = en.assets/planet.surface.7.png; sourceTree = "<group>"; };
 		577A97B81A715A0E00BB14B4 /* planet.surface.8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = planet.surface.8.png; path = en.assets/planet.surface.8.png; sourceTree = "<group>"; };
+		577A97BD1A71600300BB14B4 /* face.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.11.png; path = en.assets/face.11.png; sourceTree = "<group>"; };
+		577A97BF1A7161D400BB14B4 /* head.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = head.15.png; path = en.assets/head.15.png; sourceTree = "<group>"; };
+		577A97C11A71711500BB14B4 /* neck.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.11.png; path = en.assets/neck.11.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -500,27 +506,11 @@
 		03B884E0194B883A0094BFE0 /* sprites */ = {
 			isa = PBXGroup;
 			children = (
-				03C4B1F719A62EA300EB93C7 /* eyes.15.png */,
-				03F38BBD1986B0110029EB0A /* armor.6.png */,
+				577A97C11A71711500BB14B4 /* neck.11.png */,
+				577A97BF1A7161D400BB14B4 /* head.15.png */,
+				577A97BD1A71600300BB14B4 /* face.11.png */,
+				577A97BC1A715FE100BB14B4 /* eyes */,
 				03AA85551953844800441806 /* splash.xxiivv.png */,
-				032FE8C919507EE800022AA2 /* armor.3.png */,
-				032FE8CA19507EE800022AA2 /* armor.4.png */,
-				032FE8CB19507EE800022AA2 /* armor.5.png */,
-				032FE8C319507D2A00022AA2 /* shoulder.3.png */,
-				032FE8C419507D2A00022AA2 /* shoulder.4.png */,
-				032FE8C519507D2A00022AA2 /* shoulder.5.png */,
-				032FE8B91950793900022AA2 /* eyes.10.png */,
-				032FE8BB1950793900022AA2 /* head.10.png */,
-				032FE8B5195076F000022AA2 /* neck.9.png */,
-				032FE8B6195076F000022AA2 /* neck.10.png */,
-				03AAB96E194FA07300A3CC69 /* neck.8.png */,
-				03AAB96A194F976A00A3CC69 /* eyes.8.png */,
-				03AAB96B194F976A00A3CC69 /* eyes.9.png */,
-				03AAB966194F93DC00A3CC69 /* eyes.6.png */,
-				03AAB967194F93DC00A3CC69 /* eyes.7.png */,
-				03AAB95C194F87D300A3CC69 /* head.8.png */,
-				03AAB95D194F87D300A3CC69 /* head.9.png */,
-				03AAB95E194F87D300A3CC69 /* neck.7.png */,
 				03AAB95B194F7FED00A3CC69 /* planets */,
 				03B884F7194B90E80094BFE0 /* face */,
 				03B884F8194B90F00094BFE0 /* head */,
@@ -587,6 +577,9 @@
 		03B884F8194B90F00094BFE0 /* head */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8BB1950793900022AA2 /* head.10.png */,
+				03AAB95C194F87D300A3CC69 /* head.8.png */,
+				03AAB95D194F87D300A3CC69 /* head.9.png */,
 				03B1E1121966E8B0002DF2E7 /* head.14.png */,
 				03B1E10F1966E69F002DF2E7 /* head.13.png */,
 				03B1E10B1966E512002DF2E7 /* head.11.png */,
@@ -605,6 +598,9 @@
 		03B884F9194B90F60094BFE0 /* shoulder */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8C319507D2A00022AA2 /* shoulder.3.png */,
+				032FE8C419507D2A00022AA2 /* shoulder.4.png */,
+				032FE8C519507D2A00022AA2 /* shoulder.5.png */,
 				03B884DD194B87700094BFE0 /* shoulder.2.png */,
 				03B884C7194B55380094BFE0 /* shoulder.1.png */,
 			);
@@ -614,6 +610,10 @@
 		03B884FA194B90FD0094BFE0 /* neck */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8B5195076F000022AA2 /* neck.9.png */,
+				032FE8B6195076F000022AA2 /* neck.10.png */,
+				03AAB96E194FA07300A3CC69 /* neck.8.png */,
+				03AAB95E194F87D300A3CC69 /* neck.7.png */,
 				03AAB959194F753100A3CC69 /* neck.6.png */,
 				03B884DB194B7D240094BFE0 /* neck.2.png */,
 				03B884C5194B54A00094BFE0 /* neck.1.png */,
@@ -627,10 +627,27 @@
 		03B884FB194B91020094BFE0 /* armor */ = {
 			isa = PBXGroup;
 			children = (
+				032FE8C919507EE800022AA2 /* armor.3.png */,
+				032FE8CA19507EE800022AA2 /* armor.4.png */,
+				032FE8CB19507EE800022AA2 /* armor.5.png */,
+				03F38BBD1986B0110029EB0A /* armor.6.png */,
 				03B884D9194B7C0A0094BFE0 /* armor.2.png */,
 				03B884CB194B73320094BFE0 /* armor.1.png */,
 			);
 			name = armor;
+			sourceTree = "<group>";
+		};
+		577A97BC1A715FE100BB14B4 /* eyes */ = {
+			isa = PBXGroup;
+			children = (
+				03C4B1F719A62EA300EB93C7 /* eyes.15.png */,
+				032FE8B91950793900022AA2 /* eyes.10.png */,
+				03AAB96A194F976A00A3CC69 /* eyes.8.png */,
+				03AAB96B194F976A00A3CC69 /* eyes.9.png */,
+				03AAB966194F93DC00A3CC69 /* eyes.6.png */,
+				03AAB967194F93DC00A3CC69 /* eyes.7.png */,
+			);
+			name = eyes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -794,6 +811,7 @@
 				03B884C6194B54A00094BFE0 /* neck.1.png in Resources */,
 				03AAB95A194F753100A3CC69 /* neck.6.png in Resources */,
 				03B88505194B99210094BFE0 /* eyes.5.png in Resources */,
+				577A97C21A71711500BB14B4 /* neck.11.png in Resources */,
 				03AAB961194F87D300A3CC69 /* neck.7.png in Resources */,
 				577A97B91A715A0E00BB14B4 /* planet.surface.6.png in Resources */,
 				03B884E5194B8A080094BFE0 /* eyes.3.png in Resources */,
@@ -801,6 +819,7 @@
 				03B884C4194B52F20094BFE0 /* head.1.png in Resources */,
 				03AAB951194F6C5400A3CC69 /* planet.surface.3.png in Resources */,
 				03B884D6194B7A380094BFE0 /* head.2.png in Resources */,
+				577A97C01A7161D400BB14B4 /* head.15.png in Resources */,
 				03B884F1194B905C0094BFE0 /* mouth.5.png in Resources */,
 				03B8850A194B9CBB0094BFE0 /* face.4.png in Resources */,
 				03F38BDD1986EDB30029EB0A /* audio.3.4.wav in Resources */,
@@ -814,6 +833,7 @@
 				03AAB941194F679E00A3CC69 /* planet.decal.6.png in Resources */,
 				03F38BC51986E60D0029EB0A /* audio.3.1.wav in Resources */,
 				03F38BD61986EDB30029EB0A /* audio.1.5.wav in Resources */,
+				577A97BE1A71600300BB14B4 /* face.11.png in Resources */,
 				032FE8BE1950793900022AA2 /* eyes.10.png in Resources */,
 				03C4B1F619A62AEB00EB93C7 /* audio.3.9.wav in Resources */,
 				03B884F2194B905C0094BFE0 /* mouth.6.png in Resources */,

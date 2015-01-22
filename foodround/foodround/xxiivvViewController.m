@@ -1124,22 +1124,26 @@
 	int attr2Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][1]];
 	int attr3Pos = (int)[[self guestAttributes] indexOfObject: guest[@"attributes"][2]];
 	
-	imageName = [NSString stringWithFormat:@"face.%d.png",(attr1Pos % 10)+1];
+	imageName = [NSString stringWithFormat:@"face.%d.png",(attr1Pos % 11)+1];
+//    imageName = @"face.11.png"; // DEBUG
 	UIImage* faceGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicFaceLeft.image = faceGraphic;
 	_guestGraphicFaceRight.image = [UIImage imageWithCGImage:faceGraphic.CGImage scale:faceGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"head.%d.png",(attr2Pos % 14)+1];
+    imageName = [NSString stringWithFormat:@"head.%d.png",(attr2Pos % 15)+1];
+//    imageName = @"head.15.png"; // DEBUG
 	UIImage* headGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicHeadLeft.image = headGraphic;
 	_guestGraphicHeadRight.image = [UIImage imageWithCGImage:headGraphic.CGImage scale:headGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 15)+1];
+    imageName = [NSString stringWithFormat:@"eyes.%d.png",(attr3Pos % 15)+1];
+//        imageName = @"eyes.15.png"; // DEBUG
 	UIImage* eyesGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicEyesLeft.image = eyesGraphic;
 	_guestGraphicEyesRight.image = [UIImage imageWithCGImage:eyesGraphic.CGImage scale:eyesGraphic.scale orientation:UIImageOrientationUpMirrored];
 	
-	imageName = [NSString stringWithFormat:@"neck.%d.png",((attr1Pos+attr2Pos) % 10)+1];
+    imageName = [NSString stringWithFormat:@"neck.%d.png",((attr1Pos+attr2Pos) % 11)+1];
+//    imageName = @"neck.11.png"; // DEBUG
 	UIImage* neckGraphic = [UIImage imageNamed:imageName];
 	_guestGraphicNeckLeft.image = neckGraphic;
 	_guestGraphicNeckRight.image = [UIImage imageWithCGImage:neckGraphic.CGImage scale:neckGraphic.scale orientation:UIImageOrientationUpMirrored];
