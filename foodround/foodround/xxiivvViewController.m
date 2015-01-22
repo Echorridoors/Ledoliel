@@ -251,15 +251,15 @@
 		}
 		if( currentGameRound > 0 ){
 			_roundsCount2View.backgroundColor = [UIColor blackColor];
-			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 1*templateUnit-(roundsCircleSize/2), 3);
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 0.5*templateUnit-(roundsCircleSize/2), 3);
 		}
 		if( currentGameRound > 1 ){
 			_roundsCount3View.backgroundColor = [UIColor blackColor];
-			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 2*templateUnit-(roundsCircleSize/2), 3);
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 1*templateUnit-(roundsCircleSize/2), 3);
 		}
 		if( currentGameRound > 2 ){
 			_roundsCount4View.backgroundColor = [UIColor blackColor];
-			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 3*templateUnit-(roundsCircleSize/2), 3);
+			_roundsProgressView.frame = CGRectMake(screenWidth/2+(roundsCircleSize/2), templateUnit/2-(roundsCircleSize/2)/2+1, 1.5*templateUnit-(roundsCircleSize/2), 3);
 		}
 	} completion:^(BOOL finished){}];
 
