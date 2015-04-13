@@ -43,7 +43,6 @@
 	ambient1Player.volume = 0;
 	ambient2Player.volume = 0;
 	ambient3Player.volume = 0;
-	
 }
 
 - (void)didReceiveMemoryWarning
@@ -993,6 +992,7 @@
 	
 	self.guestNameLabel.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit, templateUnit);
 	self.guestAttrLabel.frame = CGRectMake(0, 0, screenWidth-templateUnit, templateUnit);
+	
 	_cinematicToggleButton.frame = CGRectMake(templateUnit, 0, screenWidth-templateUnit*2, templateUnit);
 	
 	self.resultView.hidden = YES;
@@ -1171,11 +1171,19 @@
         [_menuOption2Button setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateNormal];
         _menuOption2Button.alpha = 0.35;
     }
+	else{
+		[_menuOption2Button setTitleColor:[UIColor colorWithWhite:0.0 alpha:1] forState:UIControlStateNormal];
+		_menuOption2Button.alpha = 1.0;
+	}
     // Deaf does not let you talk to it.
     if( [guest[@"attributes"][0] isEqualToString:@"deaf"] || [guest[@"attributes"][1] isEqualToString:@"deaf"] || [guest[@"attributes"][2] isEqualToString:@"deaf"]){
         [_menuOption1Button setTitleColor:[UIColor colorWithWhite:0.7 alpha:1] forState:UIControlStateNormal];
         _menuOption1Button.alpha = 0.35;
-    }
+	}
+	else{
+		[_menuOption1Button setTitleColor:[UIColor colorWithWhite:0.0 alpha:1] forState:UIControlStateNormal];
+		_menuOption1Button.alpha = 1.0;
+	}
 }
 -(void)sessionViewTemplateAnimate
 {
@@ -1518,32 +1526,37 @@
 	UITouch *touch = [[event allTouches] anyObject];
 	CGPoint location = [touch locationInView:touch.view];
 	
-	touchActive = 0;
-	
 	float horMod = ((location.x/screenWidth)-0.5);
 	float verMod = ((location.y/screenWidth)-0.5);
+	
+	[self guestLookAt:horMod :verMod];
+}
+
+-(void)guestLookAt :(CGFloat)horMod :(CGFloat)verMod
+{
+	touchActive = 0;
 	
 	[UIView animateWithDuration:0.3 animations:^(void){
 		
 		_guestGraphicFaceLeft.frame =CGRectMake( (horMod*15) , (verMod*15), screenWidth/2, screenWidth/2);
-		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2+(horMod*15), (verMod*15), screenWidth/2, screenWidth/2);
+		_guestGraphicFaceRight.frame =CGRectMake(screenWidth/2+(horMod*15)-1, (verMod*15), screenWidth/2, screenWidth/2);
 		_guestGraphicHeadLeft.frame =CGRectMake((horMod*10), (verMod*10), screenWidth/2, screenWidth/2);
-		_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2+(horMod*10), (verMod*10), screenWidth/2, screenWidth/2);
+		_guestGraphicHeadRight.frame =CGRectMake(screenWidth/2+(horMod*10)-1, (verMod*10), screenWidth/2, screenWidth/2);
 		_guestGraphicEyesLeft.frame =CGRectMake((horMod*20), (verMod*20), screenWidth/2, screenWidth/2);
-		_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2+(horMod*20), (verMod*20), screenWidth/2, screenWidth/2);
+		_guestGraphicEyesRight.frame =CGRectMake(screenWidth/2+(horMod*20)-1, (verMod*20), screenWidth/2, screenWidth/2);
 		_guestGraphicNeckLeft.frame = CGRectMake((horMod*5), screenWidth/4, screenWidth/2, screenWidth/2);
-		_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2+(horMod*5), screenWidth/4, screenWidth/2, screenWidth/2);
+		_guestGraphicNeckRight.frame = CGRectMake(screenWidth/2+(horMod*5)-1, screenWidth/4, screenWidth/2, screenWidth/2);
 		_guestGraphicShoulderLeft.frame = CGRectMake((horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
-		_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2+(horMod*2), screenWidth/2, screenWidth/2, screenWidth/2);
+		_guestGraphicShoulderRight.frame = CGRectMake(screenWidth/2+(horMod*2)-1, screenWidth/2, screenWidth/2, screenWidth/2);
 		_guestGraphicArmorLeft.frame = CGRectMake((horMod*7), screenWidth/2+(verMod*5), screenWidth/2, screenWidth/2);
-		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2+(horMod*7), screenWidth/2+(verMod*5), screenWidth/2, screenWidth/2);
+		_guestGraphicArmorRight.frame = CGRectMake(screenWidth/2+(horMod*7)-1, screenWidth/2+(verMod*5), screenWidth/2, screenWidth/2);
 		_guestGraphicMouth.frame =CGRectMake(screenWidth/4+(horMod*17), (verMod*20), screenWidth/2, screenWidth/2);
 		
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 	} completion:^(BOOL finished){
 		touchActive = 1;
 	}];
-	
+
 }
 
 - (void)playSoundNamed:(NSString*)name
@@ -1671,7 +1684,7 @@
 		
 		_relationshipLabel.text = guest[@"name"];
 		_relationshipValueLabel.text = _guestAttrLabel.text;
-		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*4);
+		_cinematicToggleButton.frame = CGRectMake(0, 0, screenWidth, templateUnit*6);
 		_menuView.frame = CGRectMake(0, screenHeight-templateUnit+1, screenWidth, templateUnit*5);
 		_roundsLabel.text = @"Leodoliel";
 	} completion:^(BOOL finished){
@@ -1682,7 +1695,6 @@
 
 -(void)cinematicToggleDisabled
 {
-	
 	[UIView animateWithDuration:0.5 animations:^(void){ [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
 		_guestGraphics.frame = CGRectMake(0, templateUnit*4, screenWidth, screenWidth);
