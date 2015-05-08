@@ -26,61 +26,47 @@ AVAudioPlayer *audioPlayerSplash;
 	supportUrl = @"http://wiki.xxiivv.com/Ledoliel";
 	
 	[self splashTemplate];
-	[self splashAnimate];
-	[self audioPlayerSplash:@"splash.tune.wav"];
+//	[self audioPlayerSplash:@"splash.tune.wav"];
 	[self apiContact:@"ledoliel":@"analytics":@"launch":@"1"];
-	[NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(splashClose) userInfo:nil repeats:NO];
+//	[NSTimer scheduledTimerWithTimeInterval:3.5 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
+	
+	NSArray *schemesList = @[@"between",@"test",@"ledoliel",@"sdgsdfgsf"];
+	
+	for (NSString* scheme in schemesList) {
+		
+		NSString * schemeString = [NSString stringWithFormat:@"%@://",scheme];
+		
+		BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:schemeString]];
+		
+		if( installed ) {
+			NSLog(@"%@ -> working!",scheme);
+		}else {
+			NSLog(@"%@ -> failed!",scheme);
+		}
+	}
+	
 }
 
 - (void) splashTemplate
 {
 	CGRect screen = [[UIScreen mainScreen] bounds];
 	float screenMargin = screen.size.width/4;
-
-	[self setImage:self.splashLogo :@"splash.logo.png"];
-	self.splashLogo.frame = CGRectMake(screenMargin, (screen.size.height/2)-(screenMargin/2)-10, screen.size.width-(2*screenMargin), screenMargin/2);
-	self.splashLogo.alpha = 0;
 	
-	[self setImage:self.splashLoader :@"splash.load.png"];
-	self.splashLoader.frame = CGRectMake( (screen.size.width/2)-5, screen.size.height-(screenMargin/2), 10, 10);
+	UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+	logoView.backgroundColor = [UIColor redColor];
+	[logoView setImage:[UIImage imageNamed:@"splash.logo.png"]];
+	logoView.contentMode = UIViewContentModeCenter;
+	logoView.contentMode = UIViewContentModeScaleAspectFit;
+	[self.view addSubview:logoView];
 	
-	[self setImage:self.splashSupport :@"splash.support.png"];
-	self.splashSupport.frame = CGRectMake(screenMargin, screen.size.height-( screen.size.width-(2*screenMargin) ) , screen.size.width-(2*screenMargin), screen.size.width-(2*screenMargin));
-	self.splashSupport.alpha = 0;
-	
-	self.btnSplashSupport.frame = CGRectMake(screenMargin, screen.size.height-( screen.size.width-(2*screenMargin) ) , screen.size.width-(2*screenMargin), screen.size.width-(2*screenMargin));
-	
-}
-
-- (void) splashAnimate
-{
-	CGRect screen = [[UIScreen mainScreen] bounds];
-	float screenMargin = screen.size.width/4;
-	
-	[UIView beginAnimations: @"Splash Intro" context:nil];
-	[UIView setAnimationDuration:2.5];
-	[UIView setAnimationDelay:0];
-	self.splashLogo.frame = CGRectMake(screenMargin, (screen.size.height/2)-(screenMargin/2), screen.size.width-(2*screenMargin), screenMargin/2);
-	self.splashLogo.alpha = 1;
-	self.splashSupport.alpha = 1;
-	[UIView commitAnimations];
-	
-	blinker = [NSTimer scheduledTimerWithTimeInterval:0.04 target:self selector:@selector(blink) userInfo:nil repeats:YES];
-}
-
-- (void) blink
-{
-	if( self.splashLoader.alpha == 0 ){
-		self.splashLoader.alpha = 1;
-	}
-	else{
-		self.splashLoader.alpha = 0;
-	}
+	UIButton * testButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
+	testButton.backgroundColor = [UIColor blueColor];
+	[testButton setTitle:@"test time" forState:UIControlStateNormal];
+	[self.view addSubview:testButton];
 }
 
 - (void) splashClose
 {
-	[blinker invalidate];
 	[self performSegueWithIdentifier: @"skip" sender: self];
 }
 
@@ -130,7 +116,7 @@ AVAudioPlayer *audioPlayerSplash;
 	NSURLResponse *response;
 	NSData *POSTReply = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:nil];
 	NSString *theReply = [[NSString alloc] initWithBytes:[POSTReply bytes] length:[POSTReply length] encoding: NSASCIIStringEncoding];
-	NSLog(@"& API  | %@: %@",method, theReply);
+	NSLog(@"&  API | %@: %@",method, theReply);
 	
 	return;
 }

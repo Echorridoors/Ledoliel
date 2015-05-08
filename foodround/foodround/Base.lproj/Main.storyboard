@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="sFd-YR-lUh">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
     </dependencies>
     <scenes>
         <!--Splash-->
@@ -12,43 +12,10 @@
                     <view key="view" contentMode="scaleToFill" id="1ps-Tz-LEn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="AUN-hD-yA3" userLabel="splashLogo">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="232"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" id="c8R-Dr-ML0" userLabel="splashLoader">
-                                <rect key="frame" x="0.0" y="188" width="320" height="148"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="p69-jl-3Ou" userLabel="splashSupport">
-                                <rect key="frame" x="40" y="188" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="QQV-69-9Qc" userLabel="btnSplashSupport">
-                                <rect key="frame" x="120" y="416" width="82" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="btnSplashSupport:" destination="Uj2-zs-Kvn" eventType="touchUpInside" id="KYm-qR-5Vc"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="bxN-Yr-dy3"/>
                     <connections>
-                        <outlet property="btnSplashSupport" destination="QQV-69-9Qc" id="5cv-hr-zf0"/>
-                        <outlet property="splashLoader" destination="c8R-Dr-ML0" id="1SA-la-oW8"/>
-                        <outlet property="splashLogo" destination="AUN-hD-yA3" id="MF5-Be-YjH"/>
-                        <outlet property="splashSupport" destination="p69-jl-3Ou" id="eRW-Cy-kGg"/>
                         <segue destination="vXZ-lx-hvc" kind="custom" identifier="skip" customClass="segueFade" id="gRc-eV-AtD"/>
                     </connections>
                 </viewController>
