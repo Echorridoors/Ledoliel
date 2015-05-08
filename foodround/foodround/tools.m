@@ -21,15 +21,20 @@
 	return [arrayInput objectAtIndex: arc4random() % [arrayInput count]];
 }
 
--(NSArray*)shuffleArray :(NSArray*)array
+- (NSMutableArray*)shuffleArray :(NSArray*)targetArray
 {
-	NSMutableArray *shuffledArray = [[NSMutableArray alloc] initWithArray:array];
-	for (uint i = shuffledArray.count - 1; i >= 0; --i) {
-		int r = arc4random_uniform(shuffledArray.count);
-		[shuffledArray exchangeObjectAtIndex:i withObjectAtIndex:r];
+	NSMutableArray * newArray = [[NSMutableArray alloc] initWithArray:targetArray];
+	
+	NSUInteger count = [targetArray count];
+	for (uint i = 0; i < count; ++i)
+	{
+		// Select a random element between i and end of array to swap with.
+		int nElements = (int)count - i;
+		int n = arc4random_uniform(nElements) + i;
+		[newArray exchangeObjectAtIndex:i withObjectAtIndex:n];
 	}
 	
-	return shuffledArray;
+	return newArray;
 }
 
 

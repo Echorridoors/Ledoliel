@@ -33,10 +33,10 @@ NSString *supportUrl;
 	
 	[self splashTemplate];
 	[self audioPlayerSplash:@"splash.tune.wav"];
-	[self apiContact:@"ledoliel":@"analytics":@"launch":@"1"];
+	[self apiContact:applicationName:@"analytics":@"launch":@"1"];
 	[NSTimer scheduledTimerWithTimeInterval:4.25 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
 	
-	[self ecosystemCheck:[[self apiContact:@"ledoliel":@"ecosystem":@"":@""] componentsSeparatedByString:@"|"]];
+	[self ecosystemCheck:[[self apiContact:applicationName:@"ecosystem":@"":@""] componentsSeparatedByString:@"|"]];
 }
 
 - (void) splashTemplate
