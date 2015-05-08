@@ -17,7 +17,6 @@ UIImageView * logoView;
 UIView * ecosystemContainer;
 NSString* applicationName;
 
-
 @implementation splash
 
 - (void)viewDidLoad
@@ -34,7 +33,7 @@ NSString* applicationName;
 	[self splashTemplate];
 	[self audioPlayerSplash:@"splash.tune.wav"];
 	[self apiContact:@"ledoliel":@"analytics":@"launch":@"1"];
-	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
+	[NSTimer scheduledTimerWithTimeInterval:4.25 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
 	
 	[self ecosystemCheck:[[self apiContact:@"ledoliel":@"ecosystem":@"":@""] componentsSeparatedByString:@"|"]];
 }
@@ -46,7 +45,7 @@ NSString* applicationName;
 	
 	// Create logo
 	logoView = [[UIImageView alloc] initWithFrame:CGRectMake((screen.size.width/2)-60, (screen.size.height/2)-60, 120, 120)];
-	[logoView setImage:[UIImage imageNamed:@"splash.logo.png"]];
+	logoView.image = [UIImage imageNamed:@"splash.logo.png"];
 	logoView.contentMode = UIViewContentModeCenter;
 	logoView.contentMode = UIViewContentModeScaleAspectFit;
 	[self.view addSubview:logoView];
@@ -59,15 +58,12 @@ NSString* applicationName;
 	[supportButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.5] forState:UIControlStateNormal];
 	[self.view addSubview:supportButton];
 	
-	
 	// Set default
-	
 	logoView.frame = CGRectMake((screen.size.width/2)-60, (screen.size.height/2)-62.5, 120, 120);
 	logoView.alpha = 0;
 	supportButton.alpha = 0;
 	
 	// Animate
-	
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:1];
 	[UIView setAnimationDelay:0];
@@ -90,7 +86,6 @@ NSString* applicationName;
 	CGFloat schemeIconSize = (ecosystemContainer.frame.size.width/4)-5;
 	
 	// Create dots
-	
 	int count = 0;
 	for (NSString* schemeName in schemesList) {
 		
@@ -102,15 +97,9 @@ NSString* applicationName;
 		schemeView.alpha = 0;
 		
 		if( installed ) {
-			if( [schemeName isEqualToString:applicationName] ){
-				schemeView.backgroundColor = [UIColor whiteColor];
-			}
-			else{
-				schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
-			}
-			
+			if( [schemeName isEqualToString:applicationName] ){ schemeView.backgroundColor = [UIColor whiteColor]; }
+			else{ schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5]; }
 		}else {
-			NSLog(@"%@ -> failed!",schemeName);
 			schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.15];
 		}
 		
@@ -119,19 +108,15 @@ NSString* applicationName;
 	}
 	
 	// Animate dots
-	
 	count = 0;
 	for (UIView* targetView in [ecosystemContainer subviews] ) {
 		[UIView beginAnimations:nil context:NULL];
 		[UIView setAnimationDuration:0.2];
 		[UIView setAnimationDelay:(0.08 * count)];
-		
 		targetView.alpha = 1;
-		
 		[UIView commitAnimations];
 		count += 1;
 	}
-	
 }
 
 - (void) splashClose
@@ -142,13 +127,6 @@ NSString* applicationName;
 -(void)launchSupport
 {
 	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:supportUrl]];
-}
-
--(void)setImage :(UIImageView*)viewName :(NSString*)imageName
-{
-    NSString *imgFile = [[NSBundle mainBundle] pathForResource:imageName ofType:nil];
-    viewName.image = nil;
-	viewName.image = [UIImage imageWithContentsOfFile:imgFile];
 }
 
 -(void)audioPlayerSplash: (NSString *)filename;
