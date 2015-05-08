@@ -15,6 +15,7 @@ AVAudioPlayer *audioPlayerSplash;
 
 UIImageView * logoView;
 UIView * ecosystemContainer;
+NSString* applicationName;
 
 
 @implementation splash
@@ -27,12 +28,13 @@ UIView * ecosystemContainer;
 
 -(void)start
 {
-	supportUrl = @"http://wiki.xxiivv.com/Ledoliel";
+	applicationName = @"ledoliel";
+	supportUrl = [NSString stringWithFormat:@"http://wiki.xxiivv.com/%@",applicationName];
 	
 	[self splashTemplate];
-//	[self audioPlayerSplash:@"splash.tune.wav"];
+	[self audioPlayerSplash:@"splash.tune.wav"];
 	[self apiContact:@"ledoliel":@"analytics":@"launch":@"1"];
-//	[NSTimer scheduledTimerWithTimeInterval:3.5 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
+	[NSTimer scheduledTimerWithTimeInterval:4 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
 	
 	[self ecosystemCheck:[[self apiContact:@"ledoliel":@"ecosystem":@"":@""] componentsSeparatedByString:@"|"]];
 }
@@ -56,6 +58,23 @@ UIView * ecosystemContainer;
 	[supportButton addTarget:self action:@selector(launchSupport) forControlEvents:UIControlEventTouchUpInside];
 	[supportButton setTitleColor:[UIColor colorWithWhite:1 alpha:0.5] forState:UIControlStateNormal];
 	[self.view addSubview:supportButton];
+	
+	
+	// Set default
+	
+	logoView.frame = CGRectMake((screen.size.width/2)-60, (screen.size.height/2)-62.5, 120, 120);
+	logoView.alpha = 0;
+	supportButton.alpha = 0;
+	
+	// Animate
+	
+	[UIView beginAnimations:nil context:NULL];
+	[UIView setAnimationDuration:1];
+	[UIView setAnimationDelay:0];
+	logoView.frame = CGRectMake((screen.size.width/2)-60, (screen.size.height/2)-60, 120, 120);
+	logoView.alpha = 1;
+	supportButton.alpha = 1;
+	[UIView commitAnimations];
 	
 	ecosystemContainer = [[UIView alloc] initWithFrame:CGRectMake( (screen.size.width/2)-(screenMargin/2), -1*(screenMargin/2), screenMargin, screen.size.height)];
 	[self.view addSubview:ecosystemContainer];
@@ -83,7 +102,13 @@ UIView * ecosystemContainer;
 		schemeView.alpha = 0;
 		
 		if( installed ) {
-			schemeView.backgroundColor = [UIColor whiteColor];
+			if( [schemeName isEqualToString:applicationName] ){
+				schemeView.backgroundColor = [UIColor whiteColor];
+			}
+			else{
+				schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.5];
+			}
+			
 		}else {
 			NSLog(@"%@ -> failed!",schemeName);
 			schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.15];
