@@ -13,6 +13,10 @@
 
 AVAudioPlayer *audioPlayerSplash;
 
+UIImageView * logoView;
+UIView * ecosystemContainer;
+
+
 @implementation splash
 
 - (void)viewDidLoad
@@ -30,39 +34,57 @@ AVAudioPlayer *audioPlayerSplash;
 	[self apiContact:@"ledoliel":@"analytics":@"launch":@"1"];
 //	[NSTimer scheduledTimerWithTimeInterval:3.5 target:self selector:@selector(splashClose) userInfo:nil repeats:NO]; // Uncomment
 	
-	NSArray *schemesList = @[@"between",@"test",@"ledoliel",@"sdgsdfgsf"];
-	
-	for (NSString* scheme in schemesList) {
-		
-		NSString * schemeString = [NSString stringWithFormat:@"%@://",scheme];
-		
-		BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:schemeString]];
-		
-		if( installed ) {
-			NSLog(@"%@ -> working!",scheme);
-		}else {
-			NSLog(@"%@ -> failed!",scheme);
-		}
-	}
-	
+	[self ecosystemCheck];
 }
 
 - (void) splashTemplate
 {
 	CGRect screen = [[UIScreen mainScreen] bounds];
-	float screenMargin = screen.size.width/4;
+	float screenMargin = screen.size.width/8;
 	
-	UIImageView * logoView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-	logoView.backgroundColor = [UIColor redColor];
+	logoView = [[UIImageView alloc] initWithFrame:CGRectMake((screen.size.width/2)-60, (screen.size.height/2)-60, 120, 120)];
 	[logoView setImage:[UIImage imageNamed:@"splash.logo.png"]];
 	logoView.contentMode = UIViewContentModeCenter;
 	logoView.contentMode = UIViewContentModeScaleAspectFit;
 	[self.view addSubview:logoView];
 	
-	UIButton * testButton = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 100)];
-	testButton.backgroundColor = [UIColor blueColor];
-	[testButton setTitle:@"test time" forState:UIControlStateNormal];
+	UIButton * testButton = [[UIButton alloc] initWithFrame:CGRectMake(0, screen.size.height*0.75, screen.size.width, screenMargin)];
+	[testButton setTitle:@"APPLICATION SUPPORT" forState:UIControlStateNormal];
+	testButton.titleLabel.font = [UIFont fontWithName:@"DINAlternate-Bold" size:11];
 	[self.view addSubview:testButton];
+		
+	ecosystemContainer = [[UIView alloc] initWithFrame:CGRectMake( (screen.size.width/2)-(screenMargin/2), screen.size.height-(screen.size.height/2)-screenMargin, screenMargin, screen.size.height/2)];
+	[self.view addSubview:ecosystemContainer];
+}
+
+-(void)ecosystemCheck
+{
+	NSArray *schemesList = @[@"between",@"test",@"ledoliel",@"sdgsdfgsf",@"something",@"what",@"sdgsdfgsf",@"ledoliel",@"what",@"ledoliel"];
+	CGFloat schemeIconTile = (ecosystemContainer.frame.size.width/4);
+	CGFloat schemeIconSize = (ecosystemContainer.frame.size.width/4)-5;
+	
+	int count = 0;
+	for (NSString* schemeName in schemesList) {
+		
+		NSString * schemeString = [NSString stringWithFormat:@"%@://",schemeName];
+		BOOL installed = [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:schemeString]];
+		
+		UIView * schemeView = [[UIView alloc] initWithFrame:CGRectMake( (schemeIconTile * (count % 4)), ecosystemContainer.frame.size.height - ((count/4)+1) * schemeIconTile, schemeIconSize, schemeIconSize)];
+		schemeView.layer.cornerRadius = schemeIconSize/2;
+		
+		if( installed ) {
+			NSLog(@"%@ -> working!",schemeName);
+			schemeView.backgroundColor = [UIColor whiteColor];
+		}else {
+			NSLog(@"%@ -> failed!",schemeName);
+		schemeView.backgroundColor = [UIColor colorWithWhite:1 alpha:0.15];
+		}
+		
+		[ecosystemContainer addSubview:schemeView];
+		
+		count += 1;
+		
+	}
 }
 
 - (void) splashClose
