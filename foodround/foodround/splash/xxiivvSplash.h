@@ -9,7 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface splash : UIViewController
-
 @end
-
-NSString *supportUrl;

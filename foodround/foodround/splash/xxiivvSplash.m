@@ -16,6 +16,7 @@ AVAudioPlayer *audioPlayerSplash;
 UIImageView * logoView;
 UIView * ecosystemContainer;
 NSString* applicationName;
+NSString *supportUrl;
 
 @implementation splash
 
