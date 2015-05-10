@@ -145,7 +145,6 @@
 		03F73E4F19521DE2004246AC /* click.low.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E4E19521DE2004246AC /* click.low.wav */; };
 		03F73E5119521E3E004246AC /* click.high.wav in Resources */ = {isa = PBXBuildFile; fileRef = 03F73E5019521E3E004246AC /* click.high.wav */; };
 		03F9904C1940AA54009A1D74 /* user.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904B1940AA54009A1D74 /* user.m */; };
-		03F9904F1940AAD5009A1D74 /* template.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F9904E1940AAD5009A1D74 /* template.m */; };
 		03F990521940AC9F009A1D74 /* guest.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F990511940AC9F009A1D74 /* guest.m */; };
 		576015221A71445100F7EDAC /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 576015211A71445100F7EDAC /* Social.framework */; };
 		577A97B91A715A0E00BB14B4 /* planet.surface.6.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97B61A715A0E00BB14B4 /* planet.surface.6.png */; };
@@ -308,8 +307,6 @@
 		03F73E5019521E3E004246AC /* click.high.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = click.high.wav; path = en.assets/click.high.wav; sourceTree = "<group>"; };
 		03F9904A1940AA54009A1D74 /* user.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = user.h; sourceTree = "<group>"; };
 		03F9904B1940AA54009A1D74 /* user.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = user.m; sourceTree = "<group>"; };
-		03F9904D1940AAD5009A1D74 /* template.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = template.h; sourceTree = "<group>"; };
-		03F9904E1940AAD5009A1D74 /* template.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = template.m; sourceTree = "<group>"; };
 		03F990501940AC9F009A1D74 /* guest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = guest.h; sourceTree = "<group>"; };
 		03F990511940AC9F009A1D74 /* guest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = guest.m; sourceTree = "<group>"; };
 		576015211A71445100F7EDAC /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
@@ -380,8 +377,6 @@
 				031DBC12193F89690061F6F8 /* xxiivvAppDelegate.m */,
 				031DBC17193F89690061F6F8 /* xxiivvViewController.h */,
 				031DBC18193F89690061F6F8 /* xxiivvViewController.m */,
-				03F9904D1940AAD5009A1D74 /* template.h */,
-				03F9904E1940AAD5009A1D74 /* template.m */,
 				03F9904A1940AA54009A1D74 /* user.h */,
 				03F9904B1940AA54009A1D74 /* user.m */,
 				03F990501940AC9F009A1D74 /* guest.h */,
@@ -851,7 +846,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				031DBC13193F89690061F6F8 /* xxiivvAppDelegate.m in Sources */,
-				03F9904F1940AAD5009A1D74 /* template.m in Sources */,
 				03F9904C1940AA54009A1D74 /* user.m in Sources */,
 				03629C8B1964320F001112B0 /* xxiivvSplash.m in Sources */,
 				03F990521940AC9F009A1D74 /* guest.m in Sources */,

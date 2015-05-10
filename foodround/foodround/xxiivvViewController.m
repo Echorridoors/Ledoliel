@@ -14,7 +14,6 @@
 #define screenHeight self.view.frame.size.height
 
 #import "xxiivvViewController.h"
-#import "template.h"
 #import "user.h"
 #import "guest.h"
 #import "tools.h"
