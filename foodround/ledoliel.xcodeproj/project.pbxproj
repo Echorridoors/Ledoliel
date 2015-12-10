@@ -153,6 +153,7 @@
 		577A97BE1A71600300BB14B4 /* face.11.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97BD1A71600300BB14B4 /* face.11.png */; };
 		577A97C01A7161D400BB14B4 /* head.15.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97BF1A7161D400BB14B4 /* head.15.png */; };
 		577A97C21A71711500BB14B4 /* neck.11.png in Resources */ = {isa = PBXBuildFile; fileRef = 577A97C11A71711500BB14B4 /* neck.11.png */; };
+		57A2B9FD1C19DD480014098E /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57A2B9FC1C19DD480014098E /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -316,6 +317,7 @@
 		577A97BD1A71600300BB14B4 /* face.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = face.11.png; path = en.assets/face.11.png; sourceTree = "<group>"; };
 		577A97BF1A7161D400BB14B4 /* head.15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = head.15.png; path = en.assets/head.15.png; sourceTree = "<group>"; };
 		577A97C11A71711500BB14B4 /* neck.11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = neck.11.png; path = en.assets/neck.11.png; sourceTree = "<group>"; };
+		57A2B9FC1C19DD480014098E /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +386,7 @@
 				03B5FE2C1940BB6800C8DD20 /* tools.h */,
 				03B5FE2D1940BB6800C8DD20 /* tools.m */,
 				031DBC14193F89690061F6F8 /* Main.storyboard */,
+				57A2B9FC1C19DD480014098E /* Launch Screen.storyboard */,
 				031DBC1A193F89690061F6F8 /* Images.xcassets */,
 				031DBC09193F89690061F6F8 /* Supporting Files */,
 			);
@@ -730,6 +733,7 @@
 				03C4B1F319A62AEB00EB93C7 /* audio.2.8.wav in Resources */,
 				03AAB96C194F976A00A3CC69 /* eyes.8.png in Resources */,
 				03B884EF194B905C0094BFE0 /* mouth.3.png in Resources */,
+				57A2B9FD1C19DD480014098E /* Launch Screen.storyboard in Resources */,
 				03B8850D194B9CBB0094BFE0 /* head.7.png in Resources */,
 				03AAB940194F679E00A3CC69 /* planet.decal.5.png in Resources */,
 				03F38BEA19870B540029EB0A /* audio.3.7.wav in Resources */,
@@ -965,13 +969,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxiivv.ledoliel;
 				PRODUCT_NAME = Ledoliel;
 				PROVISIONING_PROFILE = "";
@@ -984,13 +988,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "foodround/ledoliel.temp_caseinsensitive_rename-Prefix.pch";
 				INFOPLIST_FILE = "foodround/ledoliel.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.xxiivv.ledoliel;
 				PRODUCT_NAME = Ledoliel;
 				PROVISIONING_PROFILE = "";
